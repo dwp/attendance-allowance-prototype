@@ -1,0 +1,39 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block backLink %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "illness"
+  }) }}
+{% endblock %}
+
+{% block form %}
+  {{ govukRadios({
+    classes: "govuk-radios--inline",
+    idPrefix: "treatment",
+    name: "treatment",
+    fieldset: {
+      legend: {
+        text: "Are you waiting for surgery or treatment?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    errorMessage: data.validation['treatment'].error,
+    items: [
+      {
+        value: "yes",
+        text: "Yes",
+        checked: true if data["treatment"] === "yes"
+      },
+      {
+        value: "no",
+        text: "No",
+        checked: true if data["treatment"] === "no"
+      }
+    ]
+  }) }}
+{% endblock %}

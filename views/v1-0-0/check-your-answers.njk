@@ -1,0 +1,560 @@
+{% extends "layouts/layout.njk" %}
+
+{% from "../macros/care-needs-answers.njk" import careNeedsAnswers %}
+
+{% block pageTitle %}
+	Apply for Attendance Allowance
+{% endblock %}
+
+{% block content %}
+	<div class="govuk-width-container">	
+		<a href="#" class="govuk-back-link">Back</a>
+		<main class="govuk-main-wrapper " id="main-content" role="main">
+			<div class="govuk-grid-row">
+				<div class="govuk-grid-column-two-thirds-from-desktop">
+					<h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
+					<section class="Your details">
+						<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+							<div class="govuk-summary-list__row date-of-birth">
+								<dt class="govuk-summary-list__key">
+									Date of birth
+								</dt>
+								<dd class="govuk-summary-list__value">
+									{{ 
+										data['date-of-birth-day']
+										+' '+
+										(data['date-of-birth-month'] 
+											| replace("11", "November") 
+											| replace("12", "December") 
+											| replace("01", "January") 
+											| replace("02", "February") 
+											| replace("03", "March") 
+											| replace("04", "April") 
+											| replace("05", "May") 
+											| replace("06", "June") 
+											| replace("07", "July") 
+											| replace("08", "August") 
+											| replace("09", "September") 
+											| replace("10", "October") 
+											| replace("1", "January") 
+											| replace("2", "February") 
+											| replace("3", "March") 
+											| replace("4", "April") 
+											| replace("5", "May") 
+											| replace("6", "June") 
+											| replace("7", "July") 
+											| replace("8", "August") 
+											| replace("9", "September") 
+										)
+										+' '+
+										data['date-of-birth-year'] 
+									}}
+								</dd>
+								<dd class="govuk-summary-list__actions">
+									<a class="govuk-link" href="date-of-birth?referrer=check-your-answers">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+								</dd>
+							</div>
+							<div class="govuk-summary-list__row benefits">
+								<dt class="govuk-summary-list__key">
+									Other benefits
+								</dt>
+								<dd class="govuk-summary-list__value">
+										{% if data['benefits'].length === 1 %}
+											{% for benefits in data['benefits'] %}
+												<p>
+													{{ benefits 
+														| replace("disability-living-allowance", "Disability Living Allowance (DLA)" ) 
+														| replace("personal-independence-payment", "Personal Independence Payment (PIP)" ) 
+														| replace("constant-attendance-allowance", "Constant Attendance Allowance (CAA)" ) 
+													}}
+												</p>
+											{% endfor %}
+										{% else %}
+											<ul class="govuk-list govuk-list--bullet">
+												{% for benefits in data['benefits'] %}
+												<li>
+													{{ benefits 
+														| replace("disability-living-allowance", "Disability Living Allowance" ) 
+														| replace("personal-independence-payment", "Personal Independence Payment" ) 
+														| replace("constant-attendance-allowance", "Constant Attendance Allowance" ) 
+													}}
+												</li>
+												{% endfor %}
+											</ul>
+										{% endif %}
+								</dd>
+								<dd class="govuk-summary-list__actions">
+								<a class="govuk-link" href="benefits?referrer=check-your-answers">
+									Change<span class="govuk-visually-hidden"> other benefits</span>
+								</a>
+								</dd>
+							</div>
+							<div class="govuk-summary-list__row country">
+								<dt class="govuk-summary-list__key">
+									Where you live
+								</dt>
+								<dd class="govuk-summary-list__value">
+									{{ data['country'] 
+									| replace("england", "England")
+									| replace("scotland", "Scotland")
+									| replace("wales", "Wales")
+									| replace("northern-ireland", "Northern Ireland")
+									| replace("abroad", "Outside the UK")
+									}}
+								</dd>
+								<dd class="govuk-summary-list__actions">
+								<a class="govuk-link" href="country?referrer=check-your-answers">
+									Change<span class="govuk-visually-hidden"> where you live</span>
+								</a>
+								</dd>
+							</div>
+							<div class="govuk-summary-list__row lived-outside-uk-in-last-3-years">
+								<dt class="govuk-summary-list__key">
+									Lived outside of the UK in the last 3 years
+								</dt>
+								<dd class="govuk-summary-list__value">
+									{{ data['lived-outside-uk-in-last-3-years'] | capitalize }}
+								</dd>
+								<dd class="govuk-summary-list__actions">
+								<a class="govuk-link" href="country-outside-uk?referrer=check-your-answers">
+									Change<span class="govuk-visually-hidden"> whether you’ve lived outside the UK in the last 3 years</span>
+								</a>
+								</dd>
+							</div>
+							<div class="govuk-summary-list__row lived-outside-uk-more-than-12m-in-last-3-years">
+								<dt class="govuk-summary-list__key">
+									Lived outside of the UK more than 12m in the last 3 years
+								</dt>
+								<dd class="govuk-summary-list__value">
+									{{ data['lived-outside-uk-more-than-12m-in-last-3-years'] | capitalize }}
+								</dd>
+								<dd class="govuk-summary-list__actions">
+								<a class="govuk-link" href="country-outside-uk-duration?referrer=check-your-answers">
+									Change<span class="govuk-visually-hidden"> whether you’ve lived outside the UK more than 12m in the last 3 years</span>
+								</a>
+								</dd>
+							</div>
+							<div class="govuk-summary-list__row national-insurance-number">
+								<dt class="govuk-summary-list__key">
+									National Insurance number
+								</dt>
+								<dd class="govuk-summary-list__value">
+									{{ data['national-insurance-number'] }}
+								</dd>
+								<dd class="govuk-summary-list__actions">
+									<a class="govuk-link" href="national-insurance?referrer=check-your-answers">
+										Change<span class="govuk-visually-hidden"> National Insurance number</span>
+									</a>
+								</dd>
+							</div>
+							<div class="govuk-summary-list__row full-name">
+								<dt class="govuk-summary-list__key">
+									Full name
+								</dt>
+								<dd class="govuk-summary-list__value">
+									{{ data['event-name'] }}
+								</dd>
+								<dd class="govuk-summary-list__actions">
+									<a class="govuk-link" href="full-name?referrer=check-your-answers">
+										Change<span class="govuk-visually-hidden"> full name</span>
+									</a>
+								</dd>
+							</div>
+							<div class="govuk-summary-list__row address">
+								<dt class="govuk-summary-list__key">
+									Address
+								</dt>
+								<dd class="govuk-summary-list__value">
+									{{ data['address'] | replace(",", "<br>") | safe }}
+								</dd>
+								<dd class="govuk-summary-list__actions">
+									<a class="govuk-link" href="home-address-postcode?referrer=check-your-answers">
+										Change<span class="govuk-visually-hidden"> address</span>
+									</a>
+								</dd>
+							</div>
+							<div class="govuk-summary-list__row care-home">
+								<dt class="govuk-summary-list__key">
+								Currently in a care home or hospital
+								</dt>
+								<dd class="govuk-summary-list__value">
+								{{ data['currently-in-a-care-home-or-hospital'] | capitalize }}
+								</dd>
+								<dd class="govuk-summary-list__actions">
+									<a class="govuk-link" href="care?referrer=check-your-answers">
+										Change<span class="govuk-visually-hidden"> whether you’re in a care home or hospital</span>
+									</a>
+								</dd>
+							</div>
+							<div class="govuk-summary-list__row been-in-a-care-home-or-hospital-in-the-last-6-months">
+								<dt class="govuk-summary-list__key">
+								Stayed in a care home or hospital in the last 6 months
+								</dt>
+								<dd class="govuk-summary-list__value">
+									{{ data['been-in-a-care-home-or-hospital-in-the-last-6-months'] | capitalize }}
+								</dd>
+								<dd class="govuk-summary-list__actions">
+								<a class="govuk-link" href="care-history?referrer=check-your-answers">
+									Change<span class="govuk-visually-hidden"> whether you’ve stayed in a care home or hospital in the last 6 months</span>
+								</a>
+								</dd>
+							</div>
+						</dl>
+					</section>
+					<section class="Difficulties you experience">
+						<h2 class="govuk-heading-l">Difficulties you experience</h2>
+						<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+								<div class="govuk-summary-list__row difficulties washing ">
+									<dt class="govuk-summary-list__key">
+										Supervision
+									</dt>
+									<dd class="govuk-summary-list__value">
+										{% if data['supervision-phase'] and data['supervision-phase'].includes('day') %}
+                    <h3 class="govuk-body-s govuk-!-font-weight-bold">During the day</h3>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>
+                        {{ data['supervision-day-frequency'] 
+													| replace("1", "I typically have this difficulty once a day") 
+													| replace("2", "I typically have this difficulty twice a day") 
+													| replace("3+", "I typically have this difficulty 3 or more times a day") }}
+                      </li>
+                      <li>
+                        {{ data['supervision-day-history'] 
+														| replace("sixMonthsOrMore", "This started more than 6 months ago")
+														| replace("lessThanSixMonths", "This started less than 6 months ago") }}
+                      </li>
+                    </ul>
+                  {% endif %}
+                  {% if data['supervision-phase'] and data['supervision-phase'].includes('night') %}
+                    <h3 class="govuk-body-s govuk-!-font-weight-bold">During the night</h3>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>
+                        {{ data['supervision-night-frequency'] 
+														| replace("1", "I typically have this difficulty once a night") 
+														| replace("2", "I typically have this difficulty twice a night") 
+														| replace("3+", "I typically have this difficulty 3 or more times a night") }}
+                      </li>
+                      <li>
+                        {{ data['supervision-night-minutes'] 
+														| replace("yes", "The occasions when I need supervision, last for more than 20 minutes")
+														| replace("no", "The occasions when I need supervision, last for less than 20 minutes") }}
+                      </li>
+                      <li>
+                        {{ data['supervision-night-history'] 
+														| replace("sixMonthsOrMore", "This started more than 6 months ago")
+														| replace("lessThanSixMonths", "This started less than 6 months ago") }}
+                      </li>
+                    </ul>
+                  {% endif %}
+                  {% if data["supervision-phase"] and data["supervision-phase"].includes("none") %}
+                    None
+                  {% endif %}
+									</dd>
+									<dd class="govuk-summary-list__actions">
+										<a class="govuk-link" href="supervision?referrer=check-your-answers">
+											Change<span class="govuk-visually-hidden"> your answer about supervision</span>
+										</a>
+									</dd>
+								</div>
+
+							<div class="govuk-summary-list__row difficulty list">
+								<dt class="govuk-summary-list__key">
+									Difficulty doing any of these activities
+								</dt>
+								<dd class="govuk-summary-list__value">
+									<ul class="govuk-list govuk-list--bullet">
+										{# {% if not data['activity'].includes('none-of-these') %} #}
+										{% if data['activity'] | length > 1 %}
+											{% for activity in data['activity'] %}
+												<li>
+													{{activity
+														| replace("washing-yourself","washing and cleaning yourself") 
+														| replace("dressing-yourself","dressing yourself") 
+														| replace("getting-in-or-out-of-bed","getting in or out of bed") 
+														| replace("taking-medication","taking medication or receiving treatment") 
+														| replace("moving-around-indoors","moving around indoors") 
+														| replace("eating-and-drinking","eating and drinking") 
+														| replace("using-or-getting-to-the-toilet","using or getting to the toilet") 
+													}}
+												</li>
+											{% endfor %}
+										{% else %}
+											None
+										{% endif %}
+									</ul>
+								</dd>
+								<dd class="govuk-summary-list__actions">
+									<a class="govuk-link" href="activities?referrer=check-your-answers">
+										Change<span class="govuk-visually-hidden"> the activities you find difficult</span>
+									</a>
+								</dd>
+							</div>
+							{{ careNeedsAnswers(
+								activityShortName="washing",
+								activityMediumName="washing-yourself",
+								activityShortTitle="Washing and cleaning yourself",
+								physical="I have physical difficulty washing and cleaning myself",
+								memory="I have difficulty remembering to wash or clean myself",
+								concentration="I have difficulty concentrating when washing or cleaning myself",
+								motivation="I don't feel up to washing or cleaning myself",
+								questionPage="activity-1-washing",
+								data
+							) }}
+							{{ careNeedsAnswers(
+								activityShortName="dressing",
+								activityMediumName="dressing-yourself",
+								activityShortTitle="Dressing yourself",
+								physical="I have physical difficulty getting dressed",
+								memory="I have difficulty remembering to dress myself",
+								concentration="I have difficulty concentrating when dressing myself",
+								motivation="I don't feel up to dressing myself",
+								questionPage="activity-2-dressing",
+								data
+							) }}
+							{{ careNeedsAnswers(
+								activityShortName="bed",
+								activityMediumName="getting-in-or-out-of-bed",
+								activityShortTitle="Getting in or out of bed",
+								physical="I have physical difficulty getting in or out of bed",
+								memory="I have difficulty remembering to get in or out of bed",
+								concentration="I have difficulty concentrating when getting in or out of bed",
+								motivation="I don't feel up to getting in or out of bed",
+								questionPage="activity-3-bed",
+								data
+							) }}
+							{{ careNeedsAnswers(
+								activityShortName="medicine",
+								activityMediumName="taking-medication",
+								activityShortTitle="Taking medication or receiving treatment",
+								physical="I have physical difficulty taking medication or receiving treatment",
+								memory="I have difficulty remembering to take medication or receive treatment",
+								concentration="I have difficulty concentrating when taking medication or receiving treatment",
+								motivation="I don't feel up to taking medication or receiving treatment",
+								questionPage="activity-4-medicine",
+								data
+							) }}
+							{{ careNeedsAnswers(
+								activityShortName="indoors",
+								activityMediumName="moving-around-indoors",
+								activityShortTitle="Moving around indoors",
+								physical="I have physical difficulty moving around indoors",
+								memory="I have difficulty remembering to moving around indoors",
+								concentration="I have difficulty concentrating when moving around indoors",
+								motivation="I don't feel up to moving around indoors",
+								questionPage="activity-5-indoors",
+								data
+							) }}
+							{{ careNeedsAnswers(
+								activityShortName="eating",
+								activityMediumName="eating-and-drinking",
+								activityShortTitle="Eating and drinking",
+								physical="I have physical difficulty eating or drinking",
+								memory="I have difficulty remembering to eat or drink",
+								concentration="I have difficulty concentrating when eating or drinking",
+								motivation="I don't feel up to eating or drinking",
+								questionPage="activity-6-eating",
+								data
+							) }}
+							{{ careNeedsAnswers(
+								activityShortName="toilet",
+								activityMediumName="using-or-getting-to-the-toilet",
+								activityShortTitle="Using or getting to the toilet",
+								physical="I have physical difficulty using or getting to the toilet",
+								memory="I have difficulty remembering to use or get to the toilet",
+								concentration="I have difficulty concentrating when using or getting to the toilet",
+								motivation="I don't feel up to using or getting to the toilet",
+								questionPage="activity-7-toilet",
+								data
+							) }}
+							<div class="govuk-summary-list__row communication">
+								<dt class="govuk-summary-list__key">
+									Communication
+								</dt>
+								<dd class="govuk-summary-list__value">
+									{% if data['communication-needs'].length === 1 %}
+										{% for communicationNeed in data['communication-needs'] %}
+											<p>
+												{{communicationNeed 
+													| replace("understanding-people", "Understanding people") 
+													| replace("making-yourself-understood", "Making myself understood") 
+													| replace("answering-the-phone", "Answering or using the phone") 
+													| replace("reading", "Reading letters") 
+													| replace("filling-in-forms", "Filling in forms") 
+													| replace("replying-to-letters", "Replying to letters")
+													| replace("replying-to-email", "Replying to emails")  
+													| replace("none", "I have no communication problems") 
+												}}
+											</p>
+										{% endfor %}
+									{% else %}
+										<ul class="govuk-list govuk-list--bullet">
+											{% for communicationNeed in data['communication-needs'] %}
+												<li>
+												{{communicationNeed 
+													| replace("understanding-people", "Understanding people") 
+													| replace("making-yourself-understood", "Making myself understood") 
+													| replace("answering-the-phone", "Answering or using the phone") 
+													| replace("reading", "Reading letters") 
+													| replace("filling-in-forms", "Filling in forms") 
+													| replace("replying-to-letters", "Replying to letters")
+													| replace("replying-to-email", "Replying to emails") 
+													| replace("none", "I have no communication problems") 
+												}}
+											</li>
+											{% endfor %}
+										</ul>
+									{% endif %}
+
+
+
+
+								</dd>
+								<dd class="govuk-summary-list__actions">
+									<a class="govuk-link" href="communication?referrer=check-your-answers">
+										Change<span class="govuk-visually-hidden"> illness or disabilities</span>
+									</a>
+								</dd>
+							</div>
+						</dl>
+					</section>
+					<section class="Illness and disabilities">
+						<h2 class="govuk-heading-l">Illness and disabilities</h2>
+						<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+							<div class="govuk-summary-list__row illness">
+								<dt class="govuk-summary-list__key">
+									Your illness or disability
+								</dt>
+								<dd class="govuk-summary-list__value">
+									<ul class="govuk-list">
+										{% for illness in data['illness'] %}
+											<li>
+												{{ illness 
+													| replace("Chest disease (COPD, emphysema)", "Chest disease") 
+													| replace("Other", ""+data['health-detail'] ) 
+													}}
+											</li>
+										{% endfor %}
+									</ul>
+								</dd>
+								<dd class="govuk-summary-list__actions">
+									<a class="govuk-link" href="health?referrer=check-your-answers">
+										Change<span class="govuk-visually-hidden"> illness or disabilities</span>
+									</a>
+								</dd>
+							</div>
+							<div class="govuk-summary-list__row awaiting-treatment">
+								<dt class="govuk-summary-list__key">
+									Awaiting treatment
+								</dt>
+								<dd class="govuk-summary-list__value">
+									{{ data['changed-name'] | replace("yes", "Yes") | capitalize }}
+								</dd>
+								<dd class="govuk-summary-list__actions">
+									<a class="govuk-link" href="treatment?referrer=check-your-answers">
+										Change<span class="govuk-visually-hidden"> whether you’re awaiting treatment</span>
+									</a>
+								</dd>
+							</div>
+						</dl>
+					</section>
+					<section class="Contact details">
+						<h2 class="govuk-heading-l">Contact details</h2>
+						<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+							<div class="govuk-summary-list__row contact-preferences">
+								<dt class="govuk-summary-list__key">
+									Your landline number
+								</dt>
+								<dd class="govuk-summary-list__value">
+									{{ data['landline-number'] }}
+								</dd>
+								<dd class="govuk-summary-list__actions">
+									<a class="govuk-link" href="telephone-number?referrer=check-your-answers">
+										Change<span class="govuk-visually-hidden"> your landline number</span>
+									</a>
+								</dd>
+							</div>
+							<div class="govuk-summary-list__row contact-preferences">
+								<dt class="govuk-summary-list__key">
+									Your mobile number
+								</dt>
+								<dd class="govuk-summary-list__value">
+									{{ data['mobile-number'] }}
+								</dd>
+								<dd class="govuk-summary-list__actions">
+									<a class="govuk-link" href="telephone-number?referrer=check-your-answers">
+										Change<span class="govuk-visually-hidden"> your mobile number</span>
+									</a>
+								</dd>
+							</div>
+							<div class="govuk-summary-list__row contact-preferences">
+								<dt class="govuk-summary-list__key">
+									This is a textphone
+								</dt>
+								<dd class="govuk-summary-list__value">
+									{{ data['textphone'] }}
+								</dd>
+								<dd class="govuk-summary-list__actions">
+									<a class="govuk-link" href="telephone-number?referrer=check-your-answers">
+										Change<span class="govuk-visually-hidden"> if this is a text phone</span>
+									</a>
+								</dd>
+							</div>
+							<div class="govuk-summary-list__row contact-preferences">
+								<dt class="govuk-summary-list__key">
+									Would like email confirmation
+								</dt>
+								<dd class="govuk-summary-list__value">
+									{{ data['email-confirmation'] | capitalize }}
+								</dd>
+								<dd class="govuk-summary-list__actions">
+									<a class="govuk-link" href="email-confirm?referrer=check-your-answers">
+										Change<span class="govuk-visually-hidden"> whether you would like email confirmation</span>
+									</a>
+								</dd>
+							</div>
+							<div class="govuk-summary-list__row contact-preferences">
+								<dt class="govuk-summary-list__key">
+									Email address
+								</dt>
+								<dd class="govuk-summary-list__value">
+									{{ data['contact-by-email']}}
+								</dd>
+								<dd class="govuk-summary-list__actions">
+									<a class="govuk-link" href="email-confirm?referrer=check-your-answers">
+										Change<span class="govuk-visually-hidden"> your email address</span>
+									</a>
+								</dd>
+							</div>
+						</dl>
+					</section>
+					<section class="Submit">
+						<h2 class="govuk-heading-l">Now send your application</h2>
+						<p class="govuk-body">By submitting this claim, you agree that:</p>
+						<ul class="govuk-list govuk-list--bullet">
+							<li>the information you have given is complete and correct as far as you know</li>
+							<li>you will tell the Department for Work and Pensions (DWP) as soon as possible if your circumstances change</li>
+							<li>you will pay back any money you are overpaid if asked</li>
+						</ul>
+						<div class="govuk-warning-text">
+							<span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+							<strong class="govuk-warning-text__text">
+								<span class="govuk-warning-text__assistive">Warning</span>
+									You can be prosecuted or made to pay a financial penalty if you:
+								<ul class="govuk-list govuk-list--bullet">
+									<li>give wrong or incomplete information</li>
+									<li>do not report changes as soon as possible</li>
+								</ul>
+							</strong>
+						</div>
+						<form action="done" method="post" novalidate>
+							<input type="hidden" name="answers-checked" value="true">
+							<button class="govuk-button" data-module="govuk-button">
+								Agree and send
+							</button>
+						</form></section>
+				</div>
+			</div>
+
+		</main>
+	</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Application complete
+          </h1>
+          <div class="govuk-panel__body">
+            Your reference number<br>
+              <strong>AB123CD</strong>
+          </div>
+        </div>
+          <h2 class="govuk-heading-m">What happens next</h2>
+          <p class="govuk-body">We will contact you by:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>email to confirm we've received your application</li>
+            <li>phone or letter if we need more information</li>
+            <li>letter to let you know our decision</li>
+          </ul>
+          <p class="govuk-body">
+            <strong>If your application is successful we will pay your Attendance Allowance into the same account as your State Pension.</strong>
+          </p>
+          <p class="govuk-body">You will be able to change this to a different account once your Attendance Allowance is in payment.</p>
+          <h2 class="govuk-heading-m">Other benefits</h2>
+          <p class="govuk-body">You may be eligible for other benefits such as
+            <a href="https://www.gov.uk/pension-credit">Pension Credit</a>,
+            <a href="https://www.gov.uk/housing-benefit">Housing Benefit</a>
+            or
+            <a href="https://www.gov.uk/apply-council-tax-reduction">Council Tax Reduction</a>.
+          </p>
+          <h3 class="govuk-heading-s">Carer's Allowance</h3>
+          <p class="govuk-body">If someone cares for you for 35 hours per week or more, they may be eligible to claim
+            <a href="#">Carer's Allowance</a>.
+          </p>
+          <p class="govuk-body">They can only apply for it after you start to receive Attendance Allowance.</p>
+          <h2 class="govuk-heading-m">Help us improve Attendance Allowance
+          </h2>
+          <p class="govuk-body">
+            <a href="/survey">Take a short survey</a>.
+          </p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

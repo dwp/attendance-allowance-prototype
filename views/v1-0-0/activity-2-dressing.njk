@@ -1,0 +1,29 @@
+{% extends "layouts/layout.njk" %}
+
+{% from "../macros/phase-severity-questions.njk" import phaseSeverityQuestions %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			
+		
+			{{ phaseSeverityQuestions (
+				nextPageFileName="activity-3-bed",
+				title="You told us you have difficulties dressing yourself",
+				question="Do any of the following apply when you dress yourself?",
+				activityShortName="dressing",
+				physical="I have physical difficulty dressing myself",
+				memory="I have difficulty remembering to dress myself",
+				concentration="I have difficulty concentrating when dressing myself",
+				motivation="I don't feel up to dressing myself",
+				when="When do you have difficulties dressing yourself?",
+				day="I have difficulty dressing myself during the day",
+				dayFrequency="Typically, how many times during the day do you need to dress yourself?",
+				night="I have difficulty dressing myself during the night",
+				nightFrequency="Typically, how many times a night do you need to dress yourself?",
+				nightMinutes="Do any of the occasions when you need to dress yourself take longer than 20 minutes?",
+				data
+			) }}
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,145 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+
+			<form action="activity-1-washing" method="post" class="form">
+        <div class="govuk-form-group"> 
+          <fieldset class="govuk-fieldset" aria-describedby="needs-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Do you have difficulty doing any of these activities?
+              </h1>
+            </legend>
+            <div id="contact-hint" class="govuk-hint">
+              <p class="govuk-hint">Include activities you find painful, difficult or where you need help from someone else.</p>
+            </div>
+
+            <div class="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input 
+                  class="govuk-checkboxes__input" 
+                  id="washing-yourself" 
+                  name="activity" 
+                  type="checkbox" 
+                  value="washing-yourself"
+                  {{ 'checked' if data['activity'] and 'washing-yourself' in data['activity'] }}
+                >
+                <label class="govuk-label govuk-checkboxes__label" for="washing-yourself">
+                  Washing or cleaning yourself
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input 
+                  class="govuk-checkboxes__input" 
+                  id="dressing-yourself" 
+                  name="activity" 
+                  type="checkbox" 
+                  value="dressing-yourself"
+                  {{ 'checked' if data['activity'] and 'dressing-yourself' in data['activity'] }}
+                >
+                <label class="govuk-label govuk-checkboxes__label" for="dressing-yourself">
+                  Dressing or undressing
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input 
+                  class="govuk-checkboxes__input" 
+                  id="getting-in-or-out-of-bed" 
+                  name="activity" 
+                  type="checkbox" 
+                  value="getting-in-or-out-of-bed"
+                  {{ 'checked' if data['activity'] and 'getting-in-or-out-of-bed' in data['activity'] }}
+                >
+                <label class="govuk-label govuk-checkboxes__label" for="getting-in-or-out-of-bed">
+                  Getting in or out of bed
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input 
+                  class="govuk-checkboxes__input" 
+                  id="taking-medication" 
+                  name="activity" 
+                  type="checkbox" 
+                  value="taking-medication"
+                  {{ 'checked' if data['activity'] and 'taking-medication' in data['activity'] }}
+                >
+                <label class="govuk-label govuk-checkboxes__label" for="taking-medication">
+                  Taking medication or receiving treatment
+                </label>
+                 <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
+         	       <!-- This includes help with injections, different therapies, monitoring treatment, coping with side effects, understanding and handling medicines. -->
+                </div>
+               </div>
+              <div class="govuk-checkboxes__item">
+                <input 
+                  class="govuk-checkboxes__input" 
+                  id="moving-around-indoors" 
+                  name="activity" 
+                  type="checkbox" 
+                  value="moving-around-indoors"
+                  {{ 'checked' if data['activity'] and 'moving-around-indoors' in data['activity'] }}
+                >
+                <label class="govuk-label govuk-checkboxes__label" for="moving-around-indoors">
+                  Moving around indoors
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input 
+                  class="govuk-checkboxes__input" 
+                  id="eating-and-drinking" 
+                  name="activity" 
+                  type="checkbox" 
+                  value="eating-and-drinking"
+                  {{ 'checked' if data['activity'] and 'eating-and-drinking' in data['activity'] }}
+                >
+                <label class="govuk-label govuk-checkboxes__label" for="eating-and-drinking">
+                  Eating and drinking
+                </label>
+
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input 
+                  class="govuk-checkboxes__input" 
+                  id="using-or-getting-to-the-toilet" 
+                  name="activity" 
+                  type="checkbox" 
+                  value="using-or-getting-to-the-toilet"
+                  {{ 'checked' if data['activity'] and 'using-or-getting-to-the-toilet' in data['activity'] }}
+                >
+                <label class="govuk-label govuk-checkboxes__label" for="using-or-getting-to-the-toilet">
+                  Using or getting to the toilet
+                </label>
+               <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
+                </div>
+              </div>
+              <p>or</p>
+              <div class="govuk-checkboxes__item">
+                <input 
+                  class="govuk-checkboxes__input" 
+                  id="none-of-these" 
+                  name="activity" 
+                  type="checkbox" 
+                  value="none-of-these" 
+                  data-behaviour="exclusive"
+                  {{ 'checked' if data['activity'] and 'none-of-these' in data['activity'] }}
+                >
+                <label class="govuk-label govuk-checkboxes__label" for="none-of-these">
+                  None of these
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

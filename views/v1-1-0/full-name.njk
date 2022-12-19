@@ -1,0 +1,28 @@
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block backLink %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "national-insurance"
+  }) }}
+{% endblock %}
+
+{% block form %}
+  {{ govukInput({
+    label: {
+      text: "What is your full name?",
+      classes: "govuk-label--l",
+      isPageHeading: true
+    },
+    errorMessage: data.validation['full-name'].error,
+    hint: {
+      text: "Include any middle names."
+    },
+    id: "full-name",
+    name: "full-name",
+    value: data["full-name"]
+  }) }}
+{% endblock %}

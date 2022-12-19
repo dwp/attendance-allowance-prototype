@@ -1,0 +1,50 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  <span class="govuk-caption-l">Communication</span>
+     <h1 class="govuk-heading-l">
+       You told us you have difficulty when you communicate with other people
+     </h1>
+  <p class="govuk-body">
+    For example, you may have a mental health problem, learning disability; sight, hearing or speech difficulty and need help to communicate.
+  </p>
+  <p class="govuk-body govuk-!-margin-bottom-8">
+    It may also mean you find it hard to read, write or understand letters, forms, emails or that you can't concentrate or remember things.
+  </p>
+
+  {{ govukCheckboxes
+    ({
+      idPrefix: "communication-day",
+      name: "communication-day",
+      fieldset: {
+        legend: {
+          text: "Which difficulties do you have when you communicate with other people?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      errorMessage: data.validation['communication-day'].error,
+      items: [{
+        value: "communication-day-physical",
+        text: "I have physical difficulty when I communicate with other people",
+        checked: true if data["communication-day"] and data["communication-day"].includes("communication-day-physical")
+      },
+      {
+        value: "communication-day-motivation",
+        text: "I need encouragement or prompting to communicate with other people",
+        checked: true if data["communication-day"] and data["communication-day"].includes("communication-day-motivation")
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "no-other-apply",
+        text: "None of these apply to me",
+        behaviour: "exclusive",
+        checked: true if data["communication-day"] and data["communication-day"].includes("no-other-apply")
+      }]
+    })
+  }}
+{% endblock %}

@@ -1,0 +1,74 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block backLink %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "activities"
+  }) }}
+{% endblock %}
+
+{% block form %}
+  {{ govukCheckboxes ({
+      idPrefix: "communication-needs",
+      name: "communication-needs",
+      fieldset: {
+        legend: {
+          text: "Do you have difficulty communicating in any of the following ways?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      hint: {
+        text: "Select all that apply."
+      },
+      errorMessage: data.validation['communication-needs'].error,
+      items: [{
+        value: "understanding-people",
+        text: "Understanding people you don't know well",
+        checked: true if data["communication-needs"] and data["communication-needs"].includes("understanding-people")
+      },
+      {
+        value: "making-yourself-understood",
+        text: "Making yourself understood to people you don't know well",
+        checked: true if data["communication-needs"] and data["communication-needs"].includes("making-yourself-understood")
+      },
+      {
+        value: "answering-the-phone",
+        text: "Answering or using the phone",
+        checked: true if data["communication-needs"] and data["communication-needs"].includes("answering-the-phone")
+      },
+      {
+        value: "reading",
+        text: "Reading letters",
+        checked: true if data["communication-needs"] and data["communication-needs"].includes("reading")
+      },
+      {
+        value: "filling-in-forms",
+        text: "Filling in forms",
+        checked: true if data["communication-needs"] and data["communication-needs"].includes("filling-in-forms")
+      },
+      {
+        value: "replying-to-letters",
+        text: "Replying to letters",
+        checked: true if data["communication-needs"] and data["communication-needs"].includes("replying-to-letters")
+      },
+      {
+        value: "replying-to-email",
+        text: "Replying to emails",
+        checked: true if data["communication-needs"] and data["communication-needs"].includes("replying-to-email")
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "none-of-these",
+        text: "None of these",
+        behaviour: "exclusive",
+        checked: true if data["communication-needs"] and data["communication-needs"].includes("none-of-these")
+      }]
+    })
+  }}
+{% endblock %}

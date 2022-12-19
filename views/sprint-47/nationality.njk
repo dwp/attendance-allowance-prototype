@@ -1,0 +1,45 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  {{ govukRadios({
+    idPrefix: "nationality",
+    name: "nationality",
+    fieldset: {
+      legend: {
+        text: "What is your nationality?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    errorMessage: data.validation['nationality'].error,
+    items: [
+      {
+        value: "british or irish",
+        text: "British or Irish",
+        hint: {
+          text: "Select if you're from England, Scotland, Wales, Northern Ireland or the Republic of Ireland."
+        },
+        checked: true if data["nationality"] === "british or irish"
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "other",
+        text: "Citizen of another country",
+        checked: true if data["nationality"] === "other"
+      }
+    ]
+  }) }}
+
+  <div class="govuk-form-group">
+    {{ govukDetails({
+      summaryText: "I have dual nationality / citizenship",
+      text: "Enter the nationality on the identity documents you are using to apply for a National Insurance number. If you have British nationality, you should use this to apply."
+    }) }}
+  </div>
+
+{% endblock %}

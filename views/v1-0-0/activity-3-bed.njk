@@ -1,0 +1,29 @@
+{% extends "layouts/layout.njk" %}
+
+{% from "../macros/phase-severity-questions.njk" import phaseSeverityQuestions %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			
+		
+			{{ phaseSeverityQuestions (
+				nextPageFileName="activity-4-medicine",
+				title="You told us you have difficulties getting in or out of bed",
+				question="Do any of the following apply when you get in or out of bed?",
+				activityShortName="bed",
+				physical="I have physical difficulty getting in or out of bed",
+				memory="I have difficulty remembering to get in or out of bed",
+				concentration="I have difficulty concentrating when getting in or out of bed",
+				motivation="I don't feel up to getting in or out of bed",
+				when="When do you have difficulties getting in or out of bed?",
+				day="I have difficulty getting in or out of bed during the day",
+				dayFrequency="Typically, how many times during the day do you need to get in or out of bed?",
+				night="I have difficulty getting in or out of bed during the night",
+				nightFrequency="Typically, how many times a night do you need to get in or out of bed?",
+				nightMinutes="Do any of the occasions when you need to get in or out of bed take longer than 20 minutes?",
+				data
+			) }}
+		</div>
+	</div>
+{% endblock %}

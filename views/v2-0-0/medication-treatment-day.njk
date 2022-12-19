@@ -1,0 +1,50 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  <span class="govuk-caption-l">Taking medication or receiving treatment during the day</span>
+     <h1 class="govuk-heading-l">
+       You told us you have difficulty when you take medication or receive treatment
+     </h1>
+  <p class="govuk-body">
+    This means struggling to handle your medicines and understanding how much to take and when to take them during the day.
+  </p>
+  <p class="govuk-body govuk-!-margin-bottom-8">
+    It could also mean you need help with injections, using an inhaler, eye drops or you need help with physiotherapy, oxygen therapy, speech therapy, monitoring treatment and coping with side effects of your medication.
+  </p>
+
+  {{ govukCheckboxes
+    ({
+      idPrefix: "medication-treatment-day",
+      name: "medication-treatment-day",
+      fieldset: {
+        legend: {
+          text: "Which difficulties do you have when you take medication or receive treatment?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      errorMessage: data.validation['medication-treatment-day'].error,
+      items: [{
+        value: "medication-physical",
+        text: "I have physical difficulty when taking medication or receiving treatment",
+        checked: true if data["medication-treatment-day"] and data["medication-treatment-day"].includes("medication-physical")
+      },
+      {
+        value: "medication-motivation",
+        text: "I need encouragement or prompting to take medication or receive treatment",
+        checked: true if data["medication-treatment-day"] and data["medication-treatment-day"].includes("medication-motivation")
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "no-other-apply",
+        text: "None of these apply to me",
+        behaviour: "exclusive",
+        checked: true if data["medication-treatment-day"] and data["medication-treatment-day"].includes("no-other-apply")
+      }]
+    })
+  }}
+{% endblock %}

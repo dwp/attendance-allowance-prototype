@@ -1,0 +1,75 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block backLink %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "supervision"
+  }) }}
+{% endblock %}
+
+{% block form %}
+  {{ govukCheckboxes
+    ({
+      idPrefix: "activities",
+      name: "activities",
+      fieldset: {
+        legend: {
+          text: "Do you have difficulty doing any of these activities?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      hint: {
+        text: "Include activities you find painful, difficult or where you need help from someone else."
+      },
+      errorMessage: data.validation['activities'].error,
+      items: [{
+        value: "washing-yourself",
+        text: "Washing or cleaning yourself",
+        checked: true if data["activities"] and data["activities"].includes("washing-yourself")
+      },
+      {
+        value: "dressing-yourself",
+        text: "Dressing or undressing",
+        checked: true if data["activities"] and data["activities"].includes("dressing-yourself")
+      },
+      {
+        value: "getting-in-or-out-of-bed",
+        text: "Getting in or out of bed",
+        checked: true if data["activities"] and data["activities"].includes("getting-in-or-out-of-bed")
+      },
+      {
+        value: "taking-medication",
+        text: "Taking medication or receiving treatment",
+        checked: true if data["activities"] and data["activities"].includes("taking-medication")
+      },                  
+      {
+        value: "moving-around-indoors",
+        text: "Moving around indoors",
+        checked: true if data["activities"] and data["activities"].includes("moving-around-indoors")
+      },                  
+      {
+        value: "eating-and-drinking",
+        text: "Eating and drinking",
+        checked: true if data["activities"] and data["activities"].includes("eating-and-drinking")
+      },
+      {
+        value: "using-or-getting-to-the-toilet",
+        text: "Using or getting to the toilet",
+        checked: true if data["activities"] and data["activities"].includes("using-or-getting-to-the-toilet")
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "none-of-these",
+        text: "None of these",
+        behaviour: "exclusive",
+        checked: true if data["activities"] and data["activities"].includes("none-of-these")
+      }]
+    })
+  }}
+{% endblock %}

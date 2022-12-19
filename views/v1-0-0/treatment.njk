@@ -1,0 +1,72 @@
+orthwick
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Apply for Attendance Allowance
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+
+    {% if data['referrer'] === 'check-your-answers'  %}
+	  <form action="check-your-answers" method="post" class="form">
+	  {% else %}
+	  <form action="telephone-number" method="post" class="form">
+	  {% endif %}
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Are you waiting for surgery or treatment?
+            </h1>
+          </legend>
+
+          <div class="govuk-radios govuk-radios--inline">
+            <div class="govuk-radios__item">
+              <input 
+                class="govuk-radios__input" 
+                id="changed-name" 
+                name="changed-name" 
+                type="radio" 
+                value="yes"
+                {{ 'checked' if data['changed-name'] === 'yes' }}
+              >
+              <label class="govuk-label govuk-radios__label" for="changed-name">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input 
+                class="govuk-radios__input" 
+                id="changed-name-2" 
+                name="changed-name" 
+                type="radio" 
+                value="no"
+                {{ 'checked' if data['changed-name'] === 'no' }}
+              >
+              <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                No
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+      <div class="govuk-button-group">
+
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block backLink %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "country"
+  }) }}
+{% endblock %}
+
+{% block form %}
+  {{ govukRadios({
+    classes: "govuk-radios--inline",
+    idPrefix: "country-outside-uk",
+    name: "country-outside-uk",
+    fieldset: {
+      legend: {
+        text: "Have you lived outside of the UK in the last 3 years?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    errorMessage: data.validation['country-outside-uk'].error,
+    items: [
+      {
+        value: "yes",
+        text: "Yes",
+        checked: true if data["country-outside-uk"] === "yes"
+      },
+      {
+        value: "no",
+        text: "No",
+        checked: true if data["country-outside-uk"] === "no"
+      }
+    ]
+  }) }}
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <a href="date-of-birth" class="govuk-back-link">Back</a>
+      <div class="govuk-form-group">
+        <h1 class="govuk-heading-l">Based on your answer, you may not be eligible to apply</h1>
+        <p class="govuk-body">You must be over State Pension age to claim Attendance Allowance.</p>
+        <h2 class="govuk-heading-m">If you think you are over State Pension age</h2>
+        <p class="govuk-body">You may have entered your date of birth incorrectly. <br>
+        You can <a href="date-of-birth">enter your date of birth</a> again.
+        </p>
+        <h2 class="govuk-heading-m">If you are under State Pension age </h2>
+        <p class="govuk-body">You may be eligible for Personal Independence Payment (PIP). This is for people under State
+          Pension age who have a long-term physical or mental health condition or disability.</p>
+        <a
+          href="https://www.gov.uk/pip"
+          role="button"
+          draggable="false"
+          class="govuk-button"
+          data-module="govuk-button">
+          Apply for Personal Independence Payment (PIP)
+        </a>
+        <h2 class="govuk-heading-m">If you still want to apply
+        </h2>
+        <p class="govuk-body">You can still
+          <a href="benefits">apply for Attendance Allowance</a>
+          but you may not be entitled to it.
+        </p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

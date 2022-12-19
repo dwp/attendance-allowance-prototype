@@ -1,0 +1,56 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block backLink %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "nationality"
+  }) }}
+{% endblock %}
+
+{% block form %}
+  {{ govukRadios({
+    idPrefix: "country",
+    name: "country",
+    fieldset: {
+      legend: {
+        text: "Where do you live?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    errorMessage: data.validation['country'].error,
+    items: [
+      {
+        value: "england",
+        text: "England",
+        checked: true if data["country"] === "england"
+      },
+      {
+        value: "scotland",
+        text: "Scotland",
+        checked: true if data["country"] === "scotland"
+      },
+      {
+        value: "wales",
+        text: "Wales",
+        checked: true if data["country"] === "wales"
+      },
+      {
+        value: "northern-ireland",
+        text: "Northern Ireland",
+        checked: true if data["country"] === "northern-ireland"
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "abroad",
+        text: "Somewhere else",
+        checked: true if data["country"] === "abroad"
+      }
+    ]
+  }) }}
+{% endblock %}

@@ -1,0 +1,60 @@
+{% from "govuk/components/checkboxes/macro.njk"    import govukCheckboxes %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block backLink %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "date-of-birth"
+  }) }}
+{% endblock %}
+
+{% block form %}
+  {{ govukCheckboxes
+    ({
+      idPrefix: "benefits",
+      name: "benefits",
+      fieldset: {
+        legend: {
+          text: "Are you receiving any of these benefits?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      hint: {
+        text: "Select all that apply."
+      },
+      errorMessage: data.validation['benefits'].error,
+      items: [{
+        value: "disability-living-allowance",
+        text: "Disability Living Allowance (DLA)",
+        checked: true if data["benefits"] and data["benefits"].includes("disability-living-allowance")
+      },
+      {
+        value: "personal-independence-payment",
+        text: "Personal Independence Payment (PIP)",
+        checked: true if data["benefits"] and data["benefits"].includes("personal-independence-payment")
+      },
+      {
+        value: "adult-disability-payment",
+        text: "Adult Disability Payment (ADP)",
+        checked: true if data["benefits"] and data["benefits"].includes("adult-disability-payment")
+      },
+      {
+        value: "constant-attendance-allowance",
+        text: "Constant Attendance Allowance (CAA)",
+        checked: true if data["benefits"] and data["benefits"].includes("constant-attendance-allowance")
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "no-other-benefit",
+        text: "None of these benefits",
+        behaviour: "exclusive",
+        checked: true if data["benefits"] and data["benefits"].includes("no-other-benefit")
+      }]
+    })
+  }}
+{% endblock %}

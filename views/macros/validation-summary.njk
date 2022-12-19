@@ -1,0 +1,10 @@
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% macro validationSummary(data) %}
+  {% if data.validation | length %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: data.validation.errors
+    }) }}
+  {% endif %}
+{% endmacro %}

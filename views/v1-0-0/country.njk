@@ -1,0 +1,66 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% extends "layouts/layout.njk" %}
+{% block content %}
+<div class="govuk-width-container">
+	<a href="#" class="govuk-back-link">Back</a>
+	<main class="govuk-main-wrapper " id="main-content" role="main">
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-two-thirds">
+				{% if data['referrer'] === 'check-your-answers'  %}
+					<form action="check-your-answers" method="post" class="form">
+				{% else %}
+					<form action="country-outside-uk" method="post" novalidate>
+				{% endif %}
+          {{ govukRadios({
+            idPrefix: "country",
+            name: "country",
+            fieldset: {
+              legend: {
+                text: "Where do you live?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "england",
+                text: "England",
+                checked: true if data["country"] === "england"
+              },
+              {
+                value: "scotland",
+                text: "Scotland",
+                checked: true if data["country"] === "scotland"
+              },
+              {
+                value: "wales",
+                text: "Wales",
+                checked: true if data["country"] === "wales"
+              },
+              {
+                value: "northern-ireland",
+                text: "Northern Ireland",
+                checked: true if data["country"] === "northern-ireland"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "abroad",
+                text: "Somewhere else",
+                checked: true if data["country"] === "abroad"
+              }
+            ]
+          }) }}
+
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}

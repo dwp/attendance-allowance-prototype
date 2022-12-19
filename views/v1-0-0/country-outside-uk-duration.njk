@@ -1,0 +1,42 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% extends "layouts/layout.njk" %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    {% if data['referrer'] === 'check-your-answers'  %}
+		  <form action="check-your-answers" method="post" class="form">
+	  {% else %}
+      <form action="national-insurance-indirect" method="post" class="form">
+		<!-- <form action="country-outside-uk-duration" method="post" class="form"> -->
+	  {% endif %}
+    {{ govukRadios({
+      classes: "govuk-radios--inline",
+      idPrefix: "lived-outside-uk-more-than-12m-in-last-3-years",
+      name: "lived-outside-uk-more-than-12m-in-last-3-years",
+      fieldset: {
+        legend: {
+          text: "Have you lived outside the UK for more than 12 months in the last 3 years?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes",
+          checked: true if data["lived-outside-uk-more-than-12m-in-last-3-years"] === "yes"
+        },
+        {
+          value: "no",
+          text: "No",
+          checked: true if data["lived-outside-uk-more-than-12m-in-last-3-years"] === "no"
+        }
+      ]
+    }) }}
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

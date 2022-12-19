@@ -1,0 +1,238 @@
+{% extends "layouts/layout.njk" %}
+
+{% block pageTitle %}
+  Apply for Attendance Allowance
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+	{% if data['referrer'] === 'check-your-answers'  %}
+		<form action="check-your-answers" method="post" class="form">
+	{% else %}
+		<form action="treatment" method="post" class="form">
+	{% endif %}
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Your illness or disability
+      </h1>
+    </legend>
+    <div id="waste-hint" class="govuk-hint">
+      Select from the following list, all that you think are contributing to the difficulties you've told us about.
+    </div>
+    <div class="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input 
+          class="govuk-checkboxes__input" 
+          id="anxiety" 
+          name="illness" 
+          type="checkbox" 
+          value="Anxiety"
+          {{ 'checked' if data['illness'] and 'Anxiety' in data['illness'] }}
+        >
+        <label class="govuk-label govuk-checkboxes__label" for="anxiety">
+          Anxiety
+        </label>
+      </div>
+    <div class="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input 
+          class="govuk-checkboxes__input" 
+          id="illness1" 
+          name="illness" 
+          type="checkbox" 
+          value="Arthritis"
+          {{ 'checked' if data['illness'] and 'Arthritis' in data['illness'] }}
+        >
+        <label class="govuk-label govuk-checkboxes__label" for="illness1">
+          Arthritis
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input 
+          class="govuk-checkboxes__input" 
+          id="illness2" 
+          name="illness" 
+          type="checkbox" 
+          value="Back pain"
+          {{ 'checked' if data['illness'] and 'Back pain' in data['illness'] }}
+        >
+        <label class="govuk-label govuk-checkboxes__label" for="illness2">
+          Back pain
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input 
+          class="govuk-checkboxes__input" 
+          id="illness3" 
+          name="illness" 
+          type="checkbox" 
+          value="Cancer"
+          {{ 'checked' if data['illness'] and 'Cancer' in data['illness'] }}
+        >
+        <label class="govuk-label govuk-checkboxes__label" for="illness3">
+          Cancer
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input 
+          class="govuk-checkboxes__input" 
+          id="illness4" 
+          name="illness" 
+          type="checkbox" 
+          value="Chest disease (COPD, emphysema)"
+          {{ 'checked' if data['illness'] and 'Chest disease (COPD, emphysema)' in data['illness'] }}
+        >
+        <label class="govuk-label govuk-checkboxes__label" for="illness4">
+          Chest disease (COPD, emphysema)
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input 
+          class="govuk-checkboxes__input" 
+          id="illness5" 
+          name="illness" 
+          type="checkbox" 
+          value="Dementia Alzheimers Disease"
+          {{ 'checked' if data['illness'] and 'Dementia Alzheimers Disease' in data['illness'] }}
+        >
+        <label class="govuk-label govuk-checkboxes__label" for="illness5">
+          Dementia/Alzheimer's Disease
+        </label>
+      </div>
+      <div class="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input 
+            class="govuk-checkboxes__input" 
+            id="illness1" 
+            name="illness" 
+            type="checkbox" 
+            value="Depression"
+            {{ 'checked' if data['illness'] and 'Depression' in data['illness'] }}
+          >
+          <label class="govuk-label govuk-checkboxes__label" for="illness1">
+            Depression
+          </label>
+        </div>
+      <div class="govuk-checkboxes__item">
+        <input 
+          class="govuk-checkboxes__input" 
+          id="illness6" 
+          name="illness" 
+          type="checkbox" 
+          value="Disease of muscles, bones or joints"
+          {{ 'checked' if data['illness'] and 'Disease of muscles, bones or joints' in data['illness'] }}
+        >
+        <label class="govuk-label govuk-checkboxes__label" for="illness6">
+          Disease of muscles, bones or joints
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input 
+          class="govuk-checkboxes__input" 
+          id="illness7" 
+          name="illness" 
+          type="checkbox" 
+          value="Frailty"
+          {{ 'checked' if data['illness'] and 'Frailty' in data['illness'] }}
+        >
+        <label class="govuk-label govuk-checkboxes__label" for="illness7">
+          Frailty
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input 
+          class="govuk-checkboxes__input" 
+          id="illness8" 
+          name="illness" 
+          type="checkbox" 
+          value="Heart disease"
+          {{ 'checked' if data['illness'] and 'Heart disease' in data['illness'] }}
+        >
+        <label class="govuk-label govuk-checkboxes__label" for="illness8">
+          Heart disease
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input 
+          class="govuk-checkboxes__input" 
+          id="illness9" 
+          name="illness" 
+          type="checkbox" 
+          value="Parkinsons disease"
+          {{ 'checked' if data['illness'] and 'Parkinsons disease' in data['illness'] }}
+        >
+        <label class="govuk-label govuk-checkboxes__label" for="illness9">
+          Parkinson's disease
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input 
+          class="govuk-checkboxes__input" 
+          id="illness10" 
+          name="illness" 
+          type="checkbox" 
+          value="Stroke"
+          {{ 'checked' if data['illness'] and 'Stroke' in data['illness'] }}
+        >
+        <label class="govuk-label govuk-checkboxes__label" for="illness10">
+          Stroke
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input 
+          class="govuk-checkboxes__input" 
+          id="illness11" 
+          name="illness" 
+          type="checkbox" 
+          value="Visual impairment"
+          {{ 'checked' if data['illness'] and 'Visual impairment' in data['illness'] }}
+        >
+        <label class="govuk-label govuk-checkboxes__label" for="illness11">
+          Visual impairment
+        </label>
+      </div>
+
+        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input 
+              class="govuk-checkboxes__input" 
+              id="illness12" 
+              name="illness" 
+              type="checkbox" 
+              value="Other"  
+              data-aria-controls="conditional-other"
+              {{ 'checked' if data['illness'] and 'Other' in data['illness'] }}
+            >
+            <label class="govuk-label govuk-checkboxes__label" for="illness12">
+            Other
+            </label>
+          </div>
+          <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-other">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="health-detail">
+                Tell us about any other illness or disabilities you have
+              </label>
+              <textarea class="govuk-textarea" id="health-detail" name="health-detail" rows="5" aria-describedby="health-detail-hint"></textarea>
+            </div></div>
+
+          </div>
+
+  </fieldset>
+</div>
+
+<button class="govuk-button" data-module="govuk-button">Continue</button>
+
+</form>
+
+
+</div>
+</div>
+</div>
+
+
+{% endblock %}

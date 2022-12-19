@@ -1,0 +1,105 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+  <h1 class="govuk-heading-l">
+    Do you have difficulty with any of these activities during the day?
+  </h1>
+  
+  <p class="govuk-body">
+    You need to tell us about the difficulties you have during your daily routine. 
+    Include activities that you have help with or that you need help with, 
+    or if you need encouragement or prompting to carry out any of these activities.
+  </p>
+
+  <div class="govuk-inset-text">
+    You will be able to tell us about your difficulties during the night later on.
+  </div>
+
+  <p class="govuk-body">
+    Please select from the following:
+  </p>
+
+  {{ govukCheckboxes
+    ({
+      name: "day-difficulties",
+      errorMessage: data.validation['day-difficulties'].error,
+      items: [{
+        value: "daytime-bed",
+        text: "Getting in and out of bed",
+        hint: {
+          text: "This means you have difficulty getting in and out of bed as part of your daily routine."
+        },
+        checked: true if data["day-difficulties"] and data["day-difficulties"].includes("daytime-bed")
+      },{
+        value: "daytime-washing",
+        text: "Washing yourself",
+        hint: {
+          text: "This means getting into or out of the bath or shower, checking your appearance, looking after your personal hygiene, or washing after you’ve soiled yourself."
+        },
+        checked: true if data["day-difficulties"] and data["day-difficulties"].includes("daytime-washing")
+      },{
+        value: "daytime-dressing",
+        text: "Dressing and undressing yourself",
+        hint: {
+          text: "This includes putting on or fastening clothes or footwear and taking them off. Choosing appropriate clothes to wear each day."
+        },
+        checked: true if data["day-difficulties"] and data["day-difficulties"].includes("daytime-dressing")
+      },{
+        value: "daytime-moving",
+        text: "Moving around indoors during the daytime",
+        hint: {
+          text: "This means getting in and out of a chair, using the stairs, transferring to a wheelchair or walking around indoors. It could also mean if you are at risk of stumbling or falling."
+        },
+        checked: true if data["day-difficulties"] and data["day-difficulties"].includes("daytime-moving")
+      },{
+        value: "daytime-toilet",
+        text: "Getting to and using the toilet",
+        hint: {
+          text: "This also means using a commode or bedpan. It includes using or changing incontinence aids or a catheter."
+        },
+        checked: true if data["day-difficulties"] and data["day-difficulties"].includes("daytime-toilet")
+      },{
+        value: "daytime-eating",
+        text: "Eating and drinking",
+        hint: {
+          text: "This means cutting up your food or getting food or drink to your mouth, using a cup and swallowing."
+        },
+        checked: true if data["day-difficulties"] and data["day-difficulties"].includes("daytime-eating")
+      },{
+        value: "daytime-medication",
+        text: "Taking medication or receiving treatment",
+        hint: {
+          text: "This could mean handling your medicines and understanding when and how to take them. Coping with any side effects and help from mental health services."
+        },
+        checked: true if data["day-difficulties"] and data["day-difficulties"].includes("daytime-medication")
+      },{
+        value: "daytime-hobbies",
+        text: "Social hobbies and interests",
+        hint: {
+          text: "This could include social engagements or religious activities, both inside and outside the home."
+        },
+        checked: true if data["day-difficulties"] and data["day-difficulties"].includes("daytime-hobbies")
+      },{
+        value: "daytime-communication",
+        text: "Communication",
+        hint: {
+          text: "You need help to communicate. It may also mean you find it hard to read, write or understand things or that you have difficulty concentrating or remembering."
+        },
+        checked: true if data["day-difficulties"] and data["day-difficulties"].includes("daytime-communication")
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "daytime-none",
+        text: "None of these apply to me",
+        behaviour: "exclusive",
+        checked: true if data["day-difficulties"] and data["day-difficulties"].includes("daytime-none")
+      }]
+    })
+  }}
+{% endblock %}

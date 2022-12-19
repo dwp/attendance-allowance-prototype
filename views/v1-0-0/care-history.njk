@@ -1,0 +1,49 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% extends "layouts/layout.njk" %}
+{% block content %}
+<div class="govuk-width-container">
+  <a href="#" class="govuk-back-link">Back</a>
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        {% if data['referrer'] === 'check-your-answers'  %}
+			    <form action="check-your-answers" method="post" class="form">
+		    {% else %}
+			    <form action="supervision" method="post" novalidate>
+		    {% endif %}
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "been-in-a-care-home-or-hospital-in-the-last-6-months",
+          name: "been-in-a-care-home-or-hospital-in-the-last-6-months",
+          fieldset: {
+            legend: {
+              text: "Have you been in a care home or hospital in the last 6 months?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: true if data["been-in-a-care-home-or-hospital-in-the-last-6-months"] === "yes"
+            },
+            {
+              value: "no",
+              text: "No",
+              checked: true if data["been-in-a-care-home-or-hospital-in-the-last-6-months"] === "no"
+            }
+          ]
+        }) }}
+
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}
