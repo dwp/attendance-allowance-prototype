@@ -26,3 +26,4 @@ Where -t is the target version to remove
 you may need to add 
 `export NODE_EXTRA_CA_CERTS="/etc/ssl/certs/zscaler.pem `
 to your `.zshrc` or bash equivalent in case of cert issues
+TEST
