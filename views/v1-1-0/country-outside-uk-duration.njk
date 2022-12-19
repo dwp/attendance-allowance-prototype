@@ -1,0 +1,39 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block backLink %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "country-outside-uk"
+  }) }}
+{% endblock %}
+
+{% block form %}
+  {{ govukRadios({
+    classes: "govuk-radios--inline",
+    idPrefix: "country-outside-uk-duration",
+    name: "country-outside-uk-duration",
+    fieldset: {
+      legend: {
+        text: "Have you lived outside the UK for more than 12 months in the last 3 years?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    errorMessage: data.validation['country-outside-uk-duration'].error,
+    items: [
+      {
+        value: "yes",
+        text: "Yes",
+        checked: true if data["country-outside-uk-duration"] === "yes"
+      },
+      {
+        value: "no",
+        text: "No",
+        checked: true if data["country-outside-uk-duration"] === "no"
+      }
+    ]
+  }) }}
+{% endblock %}

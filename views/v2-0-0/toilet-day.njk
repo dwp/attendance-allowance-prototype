@@ -1,0 +1,47 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  <span class="govuk-caption-l">Getting to and using the toilet during the day</span>
+   <h1 class="govuk-heading-l">
+     You told us you have difficulty when getting to or using the toilet, changing your incontinence aids or catheter
+   </h1>
+  <p class="govuk-body govuk-!-margin-bottom-8">
+    This includes using a commode or bedpan.
+  </p>
+
+  {{ govukCheckboxes
+    ({
+      idPrefix: "toilet-day",
+      name: "toilet-day",
+      fieldset: {
+        legend: {
+          text: "Which difficulties do you have getting to or using the toilet, changing your incontinence aids or catheter?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      errorMessage: data.validation['toilet-day'].error,
+      items: [{
+        value: "toilet-physical",
+        text: "I have physical difficulty getting to or using the toilet, changing my incontinence aids or catheter",
+        checked: true if data["toilet-day"] and data["toilet-day"].includes("toilet-physical")
+      },
+      {
+        value: "toilet-motivation",
+        text: "I need encouragement or prompting to get to or to use the toilet, change my incontinence aids or catheter",
+        checked: true if data["toilet-day"] and data["toilet-day"].includes("toilet-motivation")
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "no-other-apply",
+        text: "None of these apply to me",
+        behaviour: "exclusive",
+        checked: true if data["toilet-day"] and data["toilet-day"].includes("no-other-apply")
+      }]
+    })
+  }}
+{% endblock %}

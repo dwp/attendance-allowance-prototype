@@ -1,0 +1,302 @@
+{% extends "layouts/layout.njk" %}
+{% block pageTitle %}
+{% endblock %}
+
+{% block content %}
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			
+			<form action="activities" method="post" class="form">
+
+				<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+					<h1 class="govuk-fieldset__heading">
+						Do you need supervision at any time?
+					</h1>
+				</legend>
+
+				<div class="govuk-form-group supervision-examples">
+					<div id="day-difficulty-kind-hint" class="govuk-body">
+						<p>
+							By supervision, we mean any of the following that could apply to you:
+						</p>
+						<ul>
+							<li>to prevent danger to myself or others</li>
+							<li>I am not aware of common dangers</li>
+							<li>I am at risk of neglecting myself</li>
+							<li>I am at risk of harming myself</li>
+							<li>I may wander</li>
+							<li>to discourage antisocial or aggressive behaviour</li>
+							<li>I may have fits, dizzy spells or blackouts</li>
+							<li>I may get confused</li>
+							<li>I may hear voices or experience thoughts that disrupt my thinking</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="govuk-form-group">
+					<div class="govuk-checkboxes" data-module="govuk-checkboxes">
+						<div class="govuk-checkboxes__item">
+							<input 
+								class="govuk-checkboxes__input" 
+								id="supervision-phase-day" 
+								name="supervision-phase" 
+								type="checkbox" 
+								value="day" 
+								{{ 'checked' if data['supervision-phase'] and 'day' in data['supervision-phase'] }}
+								data-aria-controls="conditional-day"
+							>
+							<label class="govuk-label govuk-checkboxes__label" for="supervision-phase-day">
+								I need <span class="activity">supervision</span> during the day
+							</label>
+						</div>
+						<div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-day">
+							<div class="govuk-form-group">
+								<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+									<h1 class="govuk-label">
+										Typically, how many times a day do you need supervision?
+									</h1>
+								</legend>
+								<div class="govuk-radios">
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="supervision-day-frequency-1" 
+											name="supervision-day-frequency" 
+											type="radio" 
+											value="1"
+											{{ 'checked' if data['supervision-day-frequency'] === '1' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="supervision-day-frequency-1">
+											1
+										</label>
+									</div>
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="supervision-day-frequency-2" 
+											name="supervision-day-frequency" 
+											type="radio" 
+											value="2"
+											{{ 'checked' if data['supervision-day-frequency'] === '2' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="supervision-day-frequency-2">
+											2
+										</label>
+									</div>
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="supervision-day-frequency-3" 
+											name="supervision-day-frequency" 
+											type="radio" 
+											value="3"
+											{{ 'checked' if data['supervision-day-frequency'] === '3' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="supervision-day-frequency-3">
+											3<abbr title=" or more" style="text-decoration: none;">+</abbr>
+										</label>
+									</div> 
+								</div>
+							</div>
+							<div class="govuk-form-group">
+								<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+									<h1 class="govuk-label">
+										When did this start?
+									</h1>
+								</legend>
+								<div class="govuk-radios">
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="supervision-day-history-more-than-6-months" 
+											name="supervision-day-history" 
+											type="radio" 
+											value="more-than-6-months"
+											{{ 'checked' if data['supervision-day-history'] === 'more-than-6-months' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="supervision-day-history-more-than-6-months">
+											6 months ago, or more
+										</label>
+									</div>
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="supervision-day-history-less-than-6-months" 
+											name="supervision-day-history" 
+											type="radio" 
+											value="less-than-6-months"
+											{{ 'checked' if data['supervision-day-history'] === 'less-than-6-months' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="supervision-day-history-less-than-6-months">
+											Less than 6 months ago
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="govuk-checkboxes__item">
+							<input 
+								class="govuk-checkboxes__input" 
+								id="supervision-phase-night" 
+								name="supervision-phase" 
+								type="checkbox" 
+								value="night" 
+								{{ 'checked' if data['supervision-phase'] and 'night' in data['supervision-phase'] }}
+								data-aria-controls="conditional-night"
+							>
+							<label class="govuk-label govuk-checkboxes__label" for="supervision-phase-night">
+								I need <span class="activity">supervision</span> during the night
+							</label>
+						</div>
+						<div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-night">
+							<div class="govuk-form-group">
+								<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+									<h1 class="govuk-label">
+										Typically, how many times a night do you need supervision?
+									</h1>
+								</legend>
+								<div class="govuk-radios">
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="supervision-night-frequency-1" 
+											name="supervision-night-frequency" 
+											type="radio" 
+											value="1"
+											{{ 'checked' if data['supervision-night-frequency'] === '1' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="supervision-night-frequency-1">
+											1
+										</label>
+									</div>
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="supervision-night-frequency-2" 
+											name="supervision-night-frequency" 
+											type="radio" 
+											value="2"
+											{{ 'checked' if data['supervision-night-frequency'] === '2' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="supervision-night-frequency-2">
+											2
+										</label>
+									</div>
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="supervision-night-frequency-3" 
+											name="supervision-night-frequency" 
+											type="radio" 
+											value="3"
+											{{ 'checked' if data['supervision-night-frequency'] === '3' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="supervision-night-frequency-3">
+											3<abbr title=" or more" style="text-decoration: none;">+</abbr>
+										</label>
+									</div> 
+								</div>
+							</div>
+							<div class="govuk-form-group">
+								<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+									<h1 class="govuk-label">
+										Do any of the occasions when you need supervision, last for more than 20 minutes?
+									</h1>
+								</legend>
+								<div class="govuk-radios">
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="supervision-night-minutes-yes" 
+											name="supervision-night-minutes" 
+											type="radio" 
+											value="yes"
+											{{ 'checked' if data['supervision-night-minutes'] === 'yes' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="supervision-night-minutes-yes">
+											Yes
+										</label>
+									</div>
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="ssupervision-night-minutes-no" 
+											name="supervision-night-minutes" 
+											type="radio" 
+											value="no"
+											{{ 'checked' if data['supervision-night-minutes'] === 'no' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="supervision-night-minutes-no">
+											No
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="govuk-form-group">
+								<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+									<h1 class="govuk-label">
+										When did this start?
+									</h1>
+								</legend>
+								<div class="govuk-radios">
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="supervision-night-history-more-than-6-months" 
+											name="supervision-night-history" 
+											type="radio" 
+											value="more-than-6-months"
+											{{ 'checked' if data['supervision-night-history'] === 'more-than-6-months' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="supervision-night-history-more-than-6-months">
+											6 months ago, or more
+										</label>
+									</div>
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="supervision-night-history-less-than-6-months" 
+											name="supervision-night-history" 
+											type="radio" 
+											value="less-than-6-months"
+											{{ 'checked' if data['supervision-night-history'] === 'less-than-6-months' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="supervision-night-history-less-than-6-months">
+											Less than 6 months ago
+										</label>
+									</div> 
+								</div>
+							</div>
+						</div>
+						<div class="govuk-checkboxes__divider">or</div>
+						<div class="govuk-checkboxes__item">
+							<input 
+								class="govuk-checkboxes__input" 
+								id="supervision-phase-none" 
+								name="supervision-phase" 
+								type="checkbox" 
+								value="none" 
+								data-behaviour="exclusive"
+								{{ 'checked' if data['supervision-phase'] and 'none' in data['supervision-phase'] }}
+							>
+							<label class="govuk-label govuk-checkboxes__label" for="supervision-phase-none">
+								No, I don't require supervision
+							</label>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="govuk-form-group">
+					{% from "govuk/components/details/macro.njk" import govukDetails %}
+					{{ govukDetails({
+					summaryText: "What do we mean by day and night?",
+					text: "The day is from when you get up in the morning and includes the evening. Night is when the household has closed down at the end of the day."
+					}) }}
+				</div>
+
+				<button class="govuk-button" data-module="govuk-button">Continue</button>
+			</form>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% macro rewordCommNeed(communicationNeed) %}
+  {{ communicationNeed 
+  | replace("understanding-people", "Understanding people") 
+  | replace("making-yourself-understood", "Making myself understood") 
+  | replace("answering-the-phone", "Answering or using the phone") 
+  | replace("reading", "Reading letters") 
+  | replace("filling-in-forms", "Filling in forms") 
+  | replace("replying-to-letters", "Replying to letters")
+  | replace("replying-to-email", "Replying to emails") 
+  | replace("none-of-these", "I have no communication problems") 
+  }}
+{% endmacro %}

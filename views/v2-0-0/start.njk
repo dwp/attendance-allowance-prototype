@@ -1,0 +1,77 @@
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-breadcrumbs">
+          <ol class="govuk-breadcrumbs__list">
+            <li class="govuk-breadcrumbs__list-item">
+              <a class="govuk-breadcrumbs__link" href="/">Home</a>
+            </li>
+            <li class="govuk-breadcrumbs__list-item">
+              <a class="govuk-breadcrumbs__link" href="#">Attendance Allowance</a>
+            </li>
+            <li aria-current="page" class="govuk-breadcrumbs__list-item">Start</li>
+          </ol>
+        </div>
+
+        <div>
+          <h1 class="govuk-heading-l">Make a claim</h1>
+          <p class="govuk-body">To make an application you’ll need your National Insurance number. You will find this on your pension statement, benefit letter, payslip or P60. This is an example NI number, ‘QQ 12 34 56 C’.</p>
+          <div class="govuk-inset-text">
+            If you are claiming Attendance Allowance for someone else, make sure the details you provide are about the person you’re applying on behalf of.
+            <br/><br/>
+            The contact details can be yours, if this is appropriate.
+          </div>
+          <h2 class="govuk-heading-m">Other ways to apply</h2>
+          <p class="govuk-body">If you cannot apply online,
+            <a href="https://www.gov.uk/government/publications/attendance-allowance-claim-form" class="govuk-link">you can apply by
+              post</a>. The
+            address to send your application is at the end of the form. Your claim will be considered from the date
+            we receive it.</p>
+          <h2 class="govuk-heading-m">If you have 6 months or less to live (‘special rules’)</h2>
+          <p class="govuk-body">
+            There are ‘special rules’ so that you can get Attendance Allowance quicker if you are not expected to live for more than 6 months. 
+          </p>
+          <p class="govuk-body">
+            You can complete this form and follow the steps for 'special rules' or you can apply <a href="https://www.gov.uk/government/publications/attendance-allowance-claim-form" class="govuk-link">using the paper form</a>.
+          </p>
+          <p class="govuk-body">
+            If you're not the person applying for Attendance Allowance, you can complete the form on behalf of someone else without their permission.
+            The letter about the money awarded will not mention 'special rules'.
+          </p>
+
+          <p class="govuk-body">
+            <form class="form" method="post">
+              <button
+                class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-8 govuk-button--start"
+                data-module="govuk-button"
+                draggable="false"
+                role="button">Apply now
+                <svg
+                  aria-hidden="true"
+                  class="govuk-button__start-icon"
+                  focusable="false"
+                  height="19"
+                  viewBox="0 0 33 40"
+                  width="17.5"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 0h13l20 20-20 20H0l20-20z" fill="currentColor"/>
+                </svg>
+              </button>
+            </form>
+          </p>
+          <h2 class="govuk-heading-m">If you disagree with a decision</h2>
+          <p class="govuk-body">You can
+            <a href="https://www.gov.uk/mandatory-reconsideration" class="govuk-link">challenge a decision</a>
+            about your claim. This is called asking for mandatory reconsideration.</p>
+          <h2 class="govuk-heading-m">Complaints</h2>
+          <p class="govuk-body">You can
+            <a href="https://www.gov.uk/government/organisations/department-for-work-pensions/about/complaints-procedure#who-to-contact-1" class="govuk-link">
+              complain to the Department for Work and Pensions (DWP)</a>
+            if you’re unhappy with the service you’ve received.</p>
+        </div>
+      </div>
+    </div>
+{% endblock %}

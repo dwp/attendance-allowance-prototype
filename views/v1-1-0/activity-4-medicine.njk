@@ -1,0 +1,202 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block backLink %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "activities"
+  }) }}
+{% endblock %}
+
+{% block form %}
+  <h1 class="govuk-heading-l">
+    You told us you have difficulties taking medicine or receiving treatment
+  </h1>
+  <input type="hidden" name="activity-4-medicine-submitted" value="1" />
+
+  {{ govukCheckboxes({
+    name: "medicine-mental",
+    hint: {
+      text: "Do any of the following apply when you take medicine or receive treatment?"
+    },
+    errorMessage: data.validation['medicine-mental'].error,
+    items: [{
+      value: "physical",
+      text: "I have physical difficulty taking medicine or receiving treatment",
+      checked: true if data["medicine-mental"] and data["medicine-mental"].includes("physical")
+    }, {
+      value: "memory",
+      text: "I have difficulty remembering to take medicine or receive treatment",
+      checked: true if data["medicine-mental"] and data["medicine-mental"].includes("memory")
+    }, {
+      value: "concentration",
+      text: "I have difficulty concentrating when taking medicine or receiving treatment",
+      checked: true if data["medicine-mental"] and data["medicine-mental"].includes("concentration")
+    }, {
+      value: "motivation",
+      text: "I don't feel up to taking medicine or receiving treatment",
+      checked: true if data["medicine-mental"] and data["medicine-mental"].includes("motivation")
+    }]
+  }) }}
+
+  {% set dayHtml %}
+    {{ govukRadios({
+      id: "activity-4-medicine-day-frequency",
+      name: "activity-4-medicine-day-frequency",
+      errorMessage: data.validation['activity-4-medicine-day-frequency'].error,
+      fieldset: {
+        legend: {
+          text: "Typically, how many times during the day do you need to take medicine or receive treatment?"
+        }
+      },
+      items: [
+        {
+          value: "1",
+          text: "1",
+          checked: true if data["activity-4-medicine-day-frequency"] === "1"
+        },
+        {
+          value: "2",
+          text: "2",
+          checked: true if data["activity-4-medicine-day-frequency"] === "2"
+        },
+        {
+          value: "3+",
+          text: "3+",
+          checked: true if data["activity-4-medicine-day-frequency"] === "3+"
+        }
+      ]
+    }) }}
+    {{ govukRadios({
+      id: "activity-4-medicine-day-history",
+      name: "activity-4-medicine-day-history",
+      errorMessage: data.validation['activity-4-medicine-day-history'].error,
+      value: formData.dayStart,
+      fieldset: {
+        legend: {
+          text: "When did this start?"
+        }
+      },
+      items: [
+        {
+          value: "sixMonthsOrMore",
+          text: "6 months ago, or more",
+          checked: true if data["activity-4-medicine-day-history"] === "sixMonthsOrMore"
+        },
+        {
+          value: "lessThanSixMonths",
+          text: "Less than 6 months ago",
+          checked: true if data["activity-4-medicine-day-history"] === "lessThanSixMonths"
+        }
+      ]
+    }) }}
+  {% endset %}
+
+  {% set nightHtml %}
+    {{ govukRadios({
+      id: "activity-4-medicine-night-frequency",
+      name: "activity-4-medicine-night-frequency",
+      errorMessage: data.validation['activity-4-medicine-night-frequency'].error,
+      fieldset: {
+        legend: {
+          text: "Typically, how many times a night do you need to take medicine or receive treatment?"
+        }
+      },
+      items: [
+        {
+          value: "1",
+          text: "1",
+          checked: true if data["activity-4-medicine-night-frequency"] === "1"
+        },
+        {
+          value: "2",
+          text: "2",
+          checked: true if data["activity-4-medicine-night-frequency"] === "2"
+        },
+        {
+          value: "3+",
+          text: "3+",
+          checked: true if data["activity-4-medicine-night-frequency"] === "3+"
+        }
+      ]
+    }) }}
+    {{ govukRadios({
+      id: "activity-4-medicine-night-minutes",
+      name: "activity-4-medicine-night-minutes",
+      errorMessage: data.validation['activity-4-medicine-night-minutes'].error,
+      fieldset: {
+        legend: {
+          text: "Do any of the occasions when you need to take medicine or receive treatment take longer than 20 minutes?"
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes",
+          checked: true if data["activity-4-medicine-night-minutes"] === "yes"
+        },
+        {
+          value: "no",
+          text: "No",
+          checked: true if data["activity-4-medicine-night-minutes"] === "no"
+        }
+      ]
+    }) }}
+    {{ govukRadios({
+      id: "activity-4-medicine-night-history",
+      name: "activity-4-medicine-night-history",
+      errorMessage: data.validation['activity-4-medicine-night-history'].error,
+      fieldset: {
+        legend: {
+          text: "When did this start?"
+        }
+      },
+      items: [
+        {
+          value: "sixMonthsOrMore",
+          text: "6 months ago, or more",
+          checked: true if data["activity-4-medicine-night-history"] === "sixMonthsOrMore"
+        },
+        {
+          value: "lessThanSixMonths",
+          text: "Less than 6 months ago",
+          checked: true if data["activity-4-medicine-night-history"] === "lessThanSixMonths"
+        }
+      ]
+    }) }}
+  {% endset %}
+
+  {{ govukCheckboxes({
+    name: "activity-4-medicine-phase",
+    hint: {
+      text: "When do you have difficulties taking medicine or receiving treatment?"
+    },
+    errorMessage: data.validation['activity-4-medicine-phase'].error,
+    value: formData.dayandnight,
+    items: [{
+      value: "day",
+      checked: true if data["activity-4-medicine-phase"] and data["activity-4-medicine-phase"].includes("day"),
+      text: "I have difficulty taking medicine or receiving treatment during the day",
+      conditional: {
+        html: dayHtml
+      }
+    }, {
+      value: "night",
+      checked: true if data["activity-4-medicine-phase"] and data["activity-4-medicine-phase"].includes("night"),
+      text: "I have difficulty taking medicine or receiving treatment during the night",
+      conditional: {
+        html: nightHtml
+      }
+    }, {
+      divider: "or"
+    }, {
+      value: "none",
+      checked: true if data["activity-4-medicine-phase"] and data["activity-4-medicine-phase"].includes("none"),
+      text: "Neither of these",
+      behaviour: "exclusive"
+    }]
+  }) }}
+{% endblock %}

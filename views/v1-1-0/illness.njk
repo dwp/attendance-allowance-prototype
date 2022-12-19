@@ -1,0 +1,109 @@
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block backLink %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "communication-needs"
+  }) }}
+{% endblock %}
+
+{% block form %}
+  {% set otherHtml %}
+    {{ govukTextarea({
+      label: {
+        text: "Tell us about any other illness or disabilities you have"
+      },
+      errorMessage: data.validation['illness-detail'].error,
+      id: "illness-detail",
+      name: "illness-detail",
+      value: data['illness-detail']
+    }) }}
+  {% endset %}
+
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <h1 class="govuk-fieldset__heading">
+      Your illnesses, physical and mental disabilities
+    </h1>
+  </legend>
+  <div id="waste-hint" class="govuk-hint">
+    Select from the following list, all that you think contribute to the difficulties you have during your typical day and night routine.
+  </div>
+  {{ govukCheckboxes({
+    name: "illness",
+    errorMessage: data.validation['illness'].error,
+    value: formData.dayandnight,
+    items: [{
+      value: "Anxiety",
+      checked: true if data["illness"] and data["illness"].includes("Anxiety"),
+      text: "Anxiety"
+    }, {
+      value: "Arthritis",
+      checked: true if data["illness"] and data["illness"].includes("Arthritis"),
+      text: "Arthritis"
+    }, {
+      value: "Back pain",
+      checked: true if data["illness"] and data["illness"].includes("Back pain"),
+      text: "Back pain"
+    }, {
+      value: "Cancer",
+      checked: true if data["illness"] and data["illness"].includes("Cancer"),
+      text: "Cancer"
+    }, {
+      value: "Chest disease (COPD, emphysema, Asthma)",
+      checked: true if data["illness"] and data["illness"].includes("Chest disease (COPD, emphysema, Asthma)"),
+      text: "Chest disease (COPD, emphysema, Asthma)"
+    }, {
+      value: "Dementia / Alzheimer's disease",
+      checked: true if data["illness"] and data["illness"].includes("Dementia / Alzheimer's disease"),
+      text: "Dementia / Alzheimer's disease"
+    }, {
+      value: "Depression",
+      checked: true if data["illness"] and data["illness"].includes("Depression"),
+      text: "Depression"
+    }, {
+      value: "Disease of muscles, bones or joints",
+      checked: true if data["illness"] and data["illness"].includes("Disease of muscles, bones or joints"),
+      text: "Disease of muscles, bones or joints"
+    }, {
+      value: "Frailty",
+      checked: true if data["illness"] and data["illness"].includes("Frailty"),
+      text: "Frailty"
+    }, {
+      value: "Heart disease",
+      checked: true if data["illness"] and data["illness"].includes("Heart disease"),
+      text: "Heart disease"
+    }, {
+      value: "Kidney disease",
+      checked: true if data["illness"] and data["illness"].includes("Kidney disease"),
+      text: "Kidney disease"
+    }, {
+      value: "Parkinson's disease",
+      checked: true if data["illness"] and data["illness"].includes("Parkinson's disease"),
+      text: "Parkinson's disease"
+    }, {
+      value: "Stroke or heart attack",
+      checked: true if data["illness"] and data["illness"].includes("Stroke or heart attack"),
+      text: "Stroke or heart attack"
+    }, {
+      value: "Visual impairment",
+      checked: true if data["illness"] and data["illness"].includes("Visual impairment"),
+      text: "Visual impairment"
+    }]
+  }) }}
+  {{ govukTextarea({
+    name: "other-illness",
+    id: "other-illness",
+    label: {
+      text: "Do you have any other illnesses, physical or mental disabilities that are not listed?",
+      classes: "govuk-label--m",
+      isPageHeading: true
+    },
+    value: data['other-illness']
+  }) }}
+{% endblock %}
+

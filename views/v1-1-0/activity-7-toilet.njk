@@ -1,0 +1,202 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block backLink %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "activities"
+  }) }}
+{% endblock %}
+
+{% block form %}
+  <h1 class="govuk-heading-l">
+    You told us you have difficulties using or getting to the toilet
+  </h1>
+  <input type="hidden" name="activity-7-toilet-submitted" value="1" />
+
+  {{ govukCheckboxes({
+    name: "toilet-mental",
+    hint: {
+      text: "Do any of the following apply when using or getting to the toilet?"
+    },
+    errorMessage: data.validation['toilet-mental'].error,
+    items: [{
+      value: "physical",
+      text: "I have physical difficulty using or getting to the toilet",
+      checked: true if data["toilet-mental"] and data["toilet-mental"].includes("physical")
+    }, {
+      value: "memory",
+      text: "I have difficulty remembering to use or get to the toilet",
+      checked: true if data["toilet-mental"] and data["toilet-mental"].includes("memory")
+    }, {
+      value: "concentration",
+      text: "I have difficulty concentrating when using or getting to the toilet",
+      checked: true if data["toilet-mental"] and data["toilet-mental"].includes("concentration")
+    }, {
+      value: "motivation",
+      text: "I don't feel up to using or getting to the toilet",
+      checked: true if data["toilet-mental"] and data["toilet-mental"].includes("motivation")
+    }]
+  }) }}
+
+  {% set dayHtml %}
+    {{ govukRadios({
+      id: "activity-7-toilet-day-frequency",
+      name: "activity-7-toilet-day-frequency",
+      errorMessage: data.validation['activity-7-toilet-day-frequency'].error,
+      fieldset: {
+        legend: {
+          text: "Typically, how many times during the day do you need to use or get to the toilet?"
+        }
+      },
+      items: [
+        {
+          value: "1",
+          text: "1",
+          checked: true if data["activity-7-toilet-day-frequency"] === "1"
+        },
+        {
+          value: "2",
+          text: "2",
+          checked: true if data["activity-7-toilet-day-frequency"] === "2"
+        },
+        {
+          value: "3+",
+          text: "3+",
+          checked: true if data["activity-7-toilet-day-frequency"] === "3+"
+        }
+      ]
+    }) }}
+    {{ govukRadios({
+      id: "activity-7-toilet-day-history",
+      name: "activity-7-toilet-day-history",
+      errorMessage: data.validation['activity-7-toilet-day-history'].error,
+      value: formData.dayStart,
+      fieldset: {
+        legend: {
+          text: "When did this start?"
+        }
+      },
+      items: [
+        {
+          value: "sixMonthsOrMore",
+          text: "6 months ago, or more",
+          checked: true if data["activity-7-toilet-day-history"] === "sixMonthsOrMore"
+        },
+        {
+          value: "lessThanSixMonths",
+          text: "Less than 6 months ago",
+          checked: true if data["activity-7-toilet-day-history"] === "lessThanSixMonths"
+        }
+      ]
+    }) }}
+  {% endset %}
+
+  {% set nightHtml %}
+    {{ govukRadios({
+      id: "activity-7-toilet-night-frequency",
+      name: "activity-7-toilet-night-frequency",
+      errorMessage: data.validation['activity-7-toilet-night-frequency'].error,
+      fieldset: {
+        legend: {
+          text: "Typically, how many times a night do you need to use or get to the toilet?"
+        }
+      },
+      items: [
+        {
+          value: "1",
+          text: "1",
+          checked: true if data["activity-7-toilet-night-frequency"] === "1"
+        },
+        {
+          value: "2",
+          text: "2",
+          checked: true if data["activity-7-toilet-night-frequency"] === "2"
+        },
+        {
+          value: "3+",
+          text: "3+",
+          checked: true if data["activity-7-toilet-night-frequency"] === "3+"
+        }
+      ]
+    }) }}
+    {{ govukRadios({
+      id: "activity-7-toilet-night-minutes",
+      name: "activity-7-toilet-night-minutes",
+      errorMessage: data.validation['activity-7-toilet-night-minutes'].error,
+      fieldset: {
+        legend: {
+          text: "Do any of the occasions when you need to use or get to the toilet take longer than 20 minutes?"
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes",
+          checked: true if data["activity-7-toilet-night-minutes"] === "yes"
+        },
+        {
+          value: "no",
+          text: "No",
+          checked: true if data["activity-7-toilet-night-minutes"] === "no"
+        }
+      ]
+    }) }}
+    {{ govukRadios({
+      id: "activity-7-toilet-night-history",
+      name: "activity-7-toilet-night-history",
+      errorMessage: data.validation['activity-7-toilet-night-history'].error,
+      fieldset: {
+        legend: {
+          text: "When did this start?"
+        }
+      },
+      items: [
+        {
+          value: "sixMonthsOrMore",
+          text: "6 months ago, or more",
+          checked: true if data["activity-7-toilet-night-history"] === "sixMonthsOrMore"
+        },
+        {
+          value: "lessThanSixMonths",
+          text: "Less than 6 months ago",
+          checked: true if data["activity-7-toilet-night-history"] === "lessThanSixMonths"
+        }
+      ]
+    }) }}
+  {% endset %}
+
+  {{ govukCheckboxes({
+    name: "activity-7-toilet-phase",
+    hint: {
+      text: "When do you have difficulties using or getting to the toilet?"
+    },
+    errorMessage: data.validation['activity-7-toilet-phase'].error,
+    value: formData.dayandnight,
+    items: [{
+      value: "day",
+      checked: true if data["activity-7-toilet-phase"] and data["activity-7-toilet-phase"].includes("day"),
+      text: "I have difficulty using or getting to the toilet during the day",
+      conditional: {
+        html: dayHtml
+      }
+    }, {
+      value: "night",
+      checked: true if data["activity-7-toilet-phase"] and data["activity-7-toilet-phase"].includes("night"),
+      text: "I have difficulty using or getting to the toilet during the night",
+      conditional: {
+        html: nightHtml
+      }
+    }, {
+      divider: "or"
+    }, {
+      value: "none",
+      checked: true if data["activity-7-toilet-phase"] and data["activity-7-toilet-phase"].includes("none"),
+      text: "Neither of these",
+      behaviour: "exclusive"
+    }]
+  }) }}
+{% endblock %}

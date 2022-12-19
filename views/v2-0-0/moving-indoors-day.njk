@@ -1,0 +1,47 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  <span class="govuk-caption-l">Moving around indoors during the day</span>
+    <h1 class="govuk-heading-l">
+       You told us you have difficulty when you move around indoors
+    </h1>
+  <p class="govuk-body govuk-!-margin-bottom-8">
+    This could mean getting into and out of a chair, using the stairs, transferring to a wheelchair, walking around indoors or that you are at risk of stumbling or falling.
+  </p>
+  
+  {{ govukCheckboxes
+    ({
+      idPrefix: "moving-indoors-day",
+      name: "moving-indoors-day",
+      fieldset: {
+        legend: {
+          text: "Which difficulties do you have when you move around indoors?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      errorMessage: data.validation['moving-indoors-day'].error,
+      items: [{
+        value: "moving-physical",
+        text: "I have physical difficulty when moving around indoors",
+        checked: true if data["moving-indoors-day"] and data["moving-indoors-day"].includes("moving-physical")
+      },
+      {
+        value: "moving-motivation",
+        text: "I need encouragement or prompting to move around indoors",
+        checked: true if data["moving-indoors-day"] and data["moving-indoors-day"].includes("moving-motivation")
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "no-other-apply",
+        text: "None of these apply to me",
+        behaviour: "exclusive",
+        checked: true if data["moving-indoors-day"] and data["moving-indoors-day"].includes("no-other-apply")
+      }]
+    })
+  }}
+{% endblock %}

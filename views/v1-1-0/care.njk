@@ -1,0 +1,39 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block backLink %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "home-address-pick"
+  }) }}
+{% endblock %}
+
+{% block form %}
+  {{ govukRadios({
+    classes: "govuk-radios--inline",
+    idPrefix: "care",
+    name: "care",
+    fieldset: {
+      legend: {
+        text: "Are you currently in a care home or hospital?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    errorMessage: data.validation['care'].error,
+    items: [
+      {
+        value: "yes",
+        text: "Yes",
+        checked: true if data["care"] === "yes"
+      },
+      {
+        value: "no",
+        text: "No",
+        checked: true if data["care"] === "no"
+      }
+    ]
+  }) }}
+{% endblock %}

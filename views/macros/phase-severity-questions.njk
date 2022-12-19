@@ -1,0 +1,356 @@
+{% macro phaseSeverityQuestions(
+		nextPageFileName="",
+		title="",
+		question="",
+		activityShortName="",
+		physical="",
+		memory="",
+		concentration="",
+		motivation="",
+		when="",
+		day="",
+		dayFrequency="",
+		night="",
+		nightFrequency="",
+		nightMinutes="",
+		data
+	) %}
+	<form action="{{ nextPageFileName }}" method="post" class="form">
+		<input type="hidden" name="checkAnswersFullList" value={{ data.referrer }}>
+		<div class="FORM govuk-form-group">
+		<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+			<h1 class="govuk-fieldset__heading">
+				{{ title }}
+			</h1>
+		</legend>
+		<div class="Q-difficulty-kind govuk-form-group difficulty-kind">
+			<fieldset class="govuk-fieldset" aria-describedby="{{ activityShortName }}-difficulty-kind-hint">
+				<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+					<h1 class="govuk-label govuk-!-font-weight-bold">
+					{{ question }}
+					</h1>
+				</legend>
+				<div id="{{ activityShortName }}-difficulty-kind-hint" class="govuk-hint">
+					Select all that apply.
+				</div>
+				<div class="govuk-checkboxes" data-module="govuk-checkboxes">
+					<div class="govuk-checkboxes__item">
+						<input 
+							class="govuk-checkboxes__input" 
+							id="{{ activityShortName }}-difficulty-kind-1" %} 
+							name="{{ activityShortName }}-difficulty-kind" 
+							type="checkbox" 
+							value="physical"
+							{{ 'checked' if data[activityShortName+'-difficulty-kind'] and 'physical' in data[activityShortName+'-difficulty-kind'] }}
+						>
+						<label class="govuk-label govuk-checkboxes__label" for="{{ activityShortName }}-difficulty-kind">
+							{{ physical }}
+						</label>
+					</div>
+					<div class="govuk-checkboxes__item">
+						<input 
+							class="govuk-checkboxes__input" 
+							id="{{ activityShortName }}-difficulty-kind-2" 
+							name="{{ activityShortName }}-difficulty-kind" 
+							type="checkbox" 
+							value="remembering"
+							{{ 'checked' if data[activityShortName+'-difficulty-kind'] and 'remembering' in data[activityShortName+'-difficulty-kind'] }}
+						>
+						<label class="govuk-label govuk-checkboxes__label" for="{{ activityShortName }}-difficulty-kind-2">
+							{{ memory }}
+						</label>
+					</div>
+					<div class="govuk-checkboxes__item">
+						<input 
+							class="govuk-checkboxes__input" 
+							id="{{ activityShortName }}-difficulty-kind-3" 
+							name="{{ activityShortName }}-difficulty-kind" 
+							type="checkbox" 
+							value="concentrating"
+							{{ 'checked' if data[activityShortName+'-difficulty-kind'] and 'concentrating' in data[activityShortName+'-difficulty-kind'] }}
+						>
+						<label class="govuk-label govuk-checkboxes__label" for="{{ activityShortName }}-difficulty-kind-3">
+							{{ concentration }}
+						</label>
+					</div>
+					<div class="govuk-checkboxes__item">
+						<input 
+							class="govuk-checkboxes__input" 
+							id="{{ activityShortName }}-difficulty-kind-4" 
+							name="{{ activityShortName }}-difficulty-kind" 
+							type="checkbox" 
+							value="feeling"
+							{{ 'checked' if data[activityShortName+'-difficulty-kind'] and 'feeling' in data[activityShortName+'-difficulty-kind'] }}
+						>
+						<label class="govuk-label govuk-checkboxes__label" for="{{ activityShortName }}-difficulty-kind-4">
+							{{ motivation }}
+						</label>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<div class="Q-phase-and-severity govuk-checkboxes" data-module="govuk-checkboxes">
+			<fieldset class="DAY🌞 Q-Trigger govuk-fieldset" aria-describedby="contact-hint">
+				<div id="contact-hint" class="govuk-hint">
+					<p class="govuk-body-body govuk-!-font-weight-bold">{{ when }}</p>
+					<p class="govuk-hint">Is it during the day or night? If it’s both, select both boxes.</p>
+				</div>
+				<div class="govuk-checkboxes__item">
+					<input 
+						class="govuk-checkboxes__input" 
+						id="{{ activityShortName }}-phase-day" 
+						name="{{ activityShortName }}-phase" 
+						type="checkbox" 
+						value="day" 
+						data-aria-controls="conditional-contact"
+						{{ 'checked' if data[activityShortName+'-phase'] and 'day' in data[activityShortName+'-phase'] }}
+					>
+					<label class="govuk-label govuk-checkboxes__label" for="{{ activityShortName }}-phase-day">
+						{{ day }}
+					</label>
+				</div>
+				<div class="Q-Severity govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact">
+					<div class="Q-Frequency govuk-form-group">
+						<fieldset class="govuk-fieldset">
+							<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+								<h1 class="govuk-label">
+									{{ dayFrequency }}
+								</h1>
+							</legend>
+							<div class="govuk-radios">
+								<div class="govuk-radios__item">
+									<input 
+										class="govuk-radios__input" 
+										id="{{ activityShortName }}-day-frequency-1" 
+										name="{{ activityShortName }}-day-frequency" 
+										type="radio" 
+										value="1"
+										{{ 'checked' if data[activityShortName+'-day-frequency'] === '1' }}
+									>
+									<label class="govuk-label govuk-radios__label" for="{{ activityShortName }}-day-frequency-1">
+										1
+									</label>
+								</div>
+								<div class="govuk-radios__item">
+									<input 
+										class="govuk-radios__input" 
+										id="{{ activityShortName }}-day-frequency-2" 
+										name="{{ activityShortName }}-day-frequency" 
+										type="radio" 
+										value="2"
+										{{ 'checked' if data[activityShortName+'-day-frequency'] === '2' }}
+									>
+									<label class="govuk-label govuk-radios__label" for="{{ activityShortName }}-day-frequency-2">
+										2
+									</label>
+								</div>
+								<div class="govuk-radios__item">
+									<input 
+										class="govuk-radios__input" 
+										id="{{ activityShortName }}-day-frequency-3" 
+										name="{{ activityShortName }}-day-frequency" 
+										type="radio" 
+										value="3"
+										{{ 'checked' if data[activityShortName+'-day-frequency'] === '3' }}
+									>
+									<label class="govuk-label govuk-radios__label" for="{{ activityShortName }}-day-frequency-3">
+										3<abbr title=" or more" style="text-decoration: none;">+</abbr>
+									</label>
+							</div> 
+						</fieldset>
+					</div>
+					<div class="Q-History govuk-form-group">
+						<fieldset class="govuk-fieldset">
+							<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+								<h1 class="govuk-label">
+									When did this start?
+								</h1>
+							</legend>
+							<div class="govuk-radios">
+								<div class="govuk-radios__item">
+									<input 
+										class="govuk-radios__input" 
+										id="{{ activityShortName }}-day-history-1" 
+										name="{{ activityShortName }}-day-history" 
+										type="radio" 
+										value="more-than-6-months"
+										{{ 'checked' if data[activityShortName+'-day-history'] === 'more-than-6-months' }}
+									>
+									<label class="govuk-label govuk-radios__label" for="{{ activityShortName }}-day-history">
+										6 months ago, or more
+									</label>
+								</div>
+								<div class="govuk-radios__item govuk-!-margin-bottom-6">
+									<input 
+										class="govuk-radios__input" 
+										id="{{ activityShortName }}-day-history-2" 
+										name="{{ activityShortName }}-day-history" 
+										type="radio" 
+										value="less-than-6-months"
+										{{ 'checked' if data[activityShortName+'-day-history'] === 'less-than-6-months' }}
+									>
+									<label class="govuk-label govuk-radios__label" for="{{ activityShortName }}-day-history-2">
+										Less than 6 months ago
+									</label>
+								</div>
+							</div>
+						</fieldset>
+					</div>
+				</div>
+				<div class="Night🌘">
+					<div class="Q-Trigger govuk-checkboxes__item">
+						<input 
+							class="govuk-checkboxes__input" 
+							id="{{ activityShortName }}-phase-night" 
+							name="{{ activityShortName }}-phase" 
+							type="checkbox" value="night" 
+							data-aria-controls="conditional-contact-2"
+							{{ 'checked' if data[activityShortName+'-phase'] and 'night' in data[activityShortName+'-phase'] }}
+						>
+						<label class="govuk-label govuk-checkboxes__label" for="contact-2">
+							{{ night }}
+						</label>
+					</div>
+					<div class="Q-Severity govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact-2">
+						<div class="Q-Frequency govuk-form-group">
+							<fieldset class="govuk-fieldset">
+								<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+									<h1 class="govuk-label">
+										{{ nightFrequency }}
+									</h1>
+								</legend>
+								<div class="govuk-radios">
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="{{ activityShortName }}-night-frequency" 
+											name="{{ activityShortName }}-night-frequency" 
+											type="radio" 
+											value="1"
+											{{ 'checked' if data[activityShortName+'-night-frequency'] === '1' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="{{ activityShortName }}-night-frequency">
+											1
+										</label>
+									</div>
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="{{ activityShortName }}-night-frequency-2" 
+											name="{{ activityShortName }}-night-frequency" 
+											type="radio" 
+											value="2"
+											{{ 'checked' if data[activityShortName+'-night-frequency'] === '2' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="{{ activityShortName }}-night-frequency-2">
+											2
+										</label>
+									</div>
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="{{ activityShortName }}-night-frequency-3" 
+											name="{{ activityShortName }}-night-frequency" 
+											type="radio" 
+											value="3"
+											{{ 'checked' if data[activityShortName+'-night-frequency'] === '3' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="{{ activityShortName }}-night-frequency-3">
+											3<abbr title=" or more" style="text-decoration: none;">+</abbr>
+										</label>
+									</div> 
+								</div>
+							</fieldset>
+						</div>
+						<div class="Q-Minutes govuk-form-group">
+							<fieldset class="govuk-fieldset">
+								<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+									<h1 class="govuk-label">
+										{{ nightMinutes }}
+									</h1>
+								</legend>
+								<div class="govuk-radios">
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="{{ activityShortName }}-night-minutes-yes" 
+											name="{{ activityShortName }}-night-minutes" 
+											type="radio" 
+											value="yes"
+											{{ 'checked' if data[activityShortName+'-night-minutes'] === 'yes' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="{{ activityShortName }}-night-minutes-yes">
+											Yes
+										</label>
+									</div>
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="{{ activityShortName }}-night-minutes-2" 
+											name="{{ activityShortName }}-night-minutes" 
+											type="radio" 
+											value="no"
+											{{ 'checked' if data[activityShortName+'-night-minutes'] === 'no' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="{{ activityShortName }}-night-minutes-2">
+											No
+										</label>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+						<div class="Q-History govuk-form-group">
+							<fieldset class="govuk-fieldset">
+								<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+									<h1 class="govuk-label">
+										When did this start?
+									</h1>
+								</legend>
+								<div class="govuk-radios">
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="{{ activityShortName }}-night-history" 
+											name="{{ activityShortName }}-night-history" 
+											type="radio" 
+											value="more-than-6-months"
+											{{ 'checked' if data[activityShortName+'-night-history'] === 'more-than-6-months' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="{{ activityShortName }}-night-history">
+											6 months ago, or more
+										</label>
+									</div>
+									<div class="govuk-radios__item">
+										<input 
+											class="govuk-radios__input" 
+											id="{{ activityShortName }}-night-history-2" 
+											name="{{ activityShortName }}-night-history" 
+											type="radio" 
+											value="less-than-6-months"
+											{{ 'checked' if data[activityShortName+'-night-history'] === 'less-than-6-months' }}
+										>
+										<label class="govuk-label govuk-radios__label" for="{{ activityShortName }}-night-history-2">
+											Less than 6 months ago
+										</label>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+				</div>
+				</div>
+      </fieldset>
+		</div>
+		</div>
+		</fieldset>
+		</div>
+
+		{% from "govuk/components/details/macro.njk" import govukDetails %}
+		{{ govukDetails({
+		summaryText: "What do we mean by day and night?",
+		text: "The day is from when you get up in the morning and includes the evening. Night is when the household has closed down at the end of the day."
+		}) }}
+
+		<button class="govuk-button" data-module="govuk-button">Continue</button>
+	</form>
+{% endmacro %}

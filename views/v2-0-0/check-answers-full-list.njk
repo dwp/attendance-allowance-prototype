@@ -1,0 +1,29 @@
+{% from "./macros/check-answers-details-section.njk" import checkAnswersDetailsSection %}
+{% from "./macros/check-answers-day-section.njk" import checkAnswersDaySection %}
+{% from "./macros/check-answers-night-section.njk" import checkAnswersNightSection %}
+{% from "./macros/check-answers-contact-details-section.njk" import checkAnswersContactDetailsSection %}
+
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
+
+        {{ checkAnswersDetailsSection(data) }}
+        {% if data['special-rules-declaration'] != 'yes' %}
+          {{ checkAnswersDaySection(data) }}
+          {{ checkAnswersNightSection(data) }}
+        {% endif %}
+        {{ checkAnswersContactDetailsSection(data) }}
+          
+        <a href="claim-submission">
+          <button class="govuk-button" data-module="govuk-button">
+            Accept and continue
+          </button>
+        </a>
+	  </div>
+	</div>
+  </div>
+{% endblock %}

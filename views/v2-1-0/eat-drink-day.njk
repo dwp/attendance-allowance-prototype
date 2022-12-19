@@ -1,0 +1,53 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  <span class="govuk-caption-l">Eating or drinking during the day</span>
+     <h1 class="govuk-heading-l">
+       You told us you have difficulty eating or drinking
+     </h1>
+  <p class="govuk-body govuk-!-margin-bottom-2">This means:
+  </p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>cutting food into pieces</li>
+    <li>putting food or drink in your mouth</li>
+    <li>chewing or swallowing food or drink</li>
+    <li>identifying food on your  plate</li>
+  </ul>
+  
+  
+  {{ govukCheckboxes
+    ({
+      idPrefix: "eat-drink-day",
+      name: "eat-drink-day",
+      fieldset: {
+        legend: {
+          text: "Does your condition affect your eating or drinking?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      errorMessage: data.validation['eat-drink-day'].error,
+      items: [{
+        value: "eating-physical",
+        text: "Yes, I have physical difficulty when I eat or drink",
+        checked: true if data["eat-drink-day"] and data["eat-drink-day"].includes("eating-physical")
+      },
+      {
+        value: "eating-motivation",
+        text: "Yes, I need encouragement or prompting to eat or drink",
+        checked: true if data["eat-drink-day"] and data["eat-drink-day"].includes("eating-motivation")
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "no-other-apply",
+        text: "None of these apply to me",
+        behaviour: "exclusive",
+        checked: true if data["eat-drink-day"] and data["eat-drink-day"].includes("no-other-apply")
+      }]
+    })
+  }}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% macro phaseButton(value, customText) %}
+  <button class="govuk-button" data-module="govuk-button">
+    {% if customText %}
+      {{ customText }}
+    {% else %}
+      {% if value['cya-destination'] %}
+        Save Changes
+      {% else %}
+        Continue
+      {% endif %}
+    {% endif %}
+  </button>   
+{% endmacro %}

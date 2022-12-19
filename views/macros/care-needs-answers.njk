@@ -1,0 +1,83 @@
+{% from './change-link.njk' import changeLink %}
+{% macro careNeedsAnswers(
+	activityShortName="washing",
+	activityMediumName="washing-yourself",
+	activityShortTitle="Washing yourself",
+	physical="I have physical difficulty washing",
+	memory="I have difficulty remembering to wash myself",
+	concentration="I have difficulty concentrating when washing myself",
+	motivation="I don't feel up to washing myself",
+	nightMinutesOver20="It can take over 20 minutes to clean myself",
+	nightMinutesUnder20="It never takes more than 20 minutes to clean myself",
+	questionPage="activity-1-washing",
+	data
+) %}
+	{% if data['activities'] and data['activities'].includes(activityMediumName) %}
+		<div class="govuk-summary-list__row difficulties washing ">
+			<dt class="govuk-summary-list__key">
+				{{activityShortTitle}}
+			</dt>
+			<dd class="govuk-summary-list__value">
+				<ul class="govuk-list govuk-list--bullet">
+					
+				{% for difficultyKind in data[activityShortName+'-mental'] | makeArray %}
+					<li>
+						{{difficultyKind 
+							| replace("physical",physical) 
+							| replace("memory",memory) 
+							| replace("concentration",concentration) 
+							| replace("motivation",motivation) 
+						}}
+					</li>
+				{% endfor %}
+				</ul>
+
+				{% if data[questionPage+'-phase'] and data[questionPage+'-phase'].includes('day') %}
+					<h3  class="govuk-body-s govuk-!-font-weight-bold">During the day</h3>
+					<ul class="govuk-list govuk-list--bullet">
+						<li>
+							{{ data[questionPage+'-day-frequency'] 
+								| replace("1","I typically have this difficulty 1 time per day") 
+								| replace("2","I typically have this difficulty 2 times per day") 
+								| replace("3+","I typically have this difficulty 3 or more times per day")
+							}}
+						</li>
+						<li>
+							{{ data[questionPage+'-day-history'] 
+								| replace("sixMonthsOrMore","This started more than 6 months ago") 
+								| replace("lessThanSixMonths", "This started less than 6 months ago") 
+							}}
+						</li>
+					</ul>
+				{% endif %}
+				{% if data[questionPage+'-phase'] and data[questionPage+'-phase'].includes('night') %}
+					<h3  class="govuk-body-s govuk-!-font-weight-bold">During the night</h3>
+					<ul class="govuk-list govuk-list--bullet">
+						<li>
+							{{ data[questionPage+'-night-frequency'] 
+								| replace("1","I typically have this difficulty 1 time per night") 
+								| replace("2","I typically have this difficulty 2 times per night") 
+								| replace("3+","I typically have this difficulty 3 or more times per night")
+							}}
+						</li>
+						<li>
+							{{ data[questionPage+'-night-minutes'] 
+								| replace("yes","It can take over 20 minutes to clean myself") 
+								| replace("no", "It never takes more than 20 minutes to clean myself") 
+							}}
+						</li>
+						<li>
+							{{ data[questionPage+'-night-history'] 
+								| replace("sixMonthsOrMore","This started more than 6 months ago") 
+								| replace("lessThanSixMonths", "This started less than 6 months ago") 
+							}}
+						</li>
+					</ul>
+				{% endif %}
+			</dd>
+			<dd class="govuk-summary-list__actions">
+				{{changeLink(questionPage)}}
+			</dd>
+		</div>
+	{% endif %}
+{% endmacro %}

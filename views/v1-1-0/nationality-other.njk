@@ -1,0 +1,34 @@
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block backLink %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "nationality"
+  }) }}
+{% endblock %}
+
+{% block form %}
+  <h1 class="govuk-heading-l">Enter your nationality</h1>
+
+  {{ govukInput({
+    label: {
+      text: "Enter your nationality in English"
+    },
+    errorMessage: data.validation['nationality-other'].error,
+    id: "nationality-other",
+    name: "nationality-other",
+    value: data["nationality-other"]
+  }) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukDetails({
+        summaryText: "I have dual nationality / citizenship",
+        text: "Enter the nationality on the identity documents you are using to apply for a National Insurance number. If you have British nationality, you should use this to apply."
+      }) }}
+    </div>
+  </div>
+{% endblock %}

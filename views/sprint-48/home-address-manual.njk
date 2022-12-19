@@ -1,0 +1,90 @@
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+  {% call govukFieldset({
+    legend: {
+      text: "What is your home address?",
+      classes: "govuk-fieldset__legend--l",
+      isPageHeading: true
+    }
+  }) %}
+
+  <p class="govuk-hint">Make sure you enter the address of the person who is claiming Attendance Allowance.</p>
+
+  <div class="govuk-!-padding-bottom-3"></div>
+
+  {{ govukInput({
+    label: {
+      text: "Address line 1",
+      classes: "govuk-body",
+      isPageHeading: true
+    },
+    errorMessage: data.validation['home-address-manual-line-one'].error,
+    id: "home-address-manual-line-one",
+    name: "home-address-manual-line-one",
+    value: data["home-address-manual-line-one"], 
+    autocomplete: "home-address-manual-line-one"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Address line 2 (optional)",
+      classes: "govuk-body",
+      isPageHeading: true
+    },
+    id: "home-address-manual-line-two",
+    name: "home-address-manual-line-two",
+    value: data["home-address-manual-line-two"], 
+    autocomplete: "home-address-manual-line-two"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Town or city", 
+      isPageHeading: true
+    },
+    classes: "govuk-!-width-two-thirds",
+    errorMessage: data.validation['home-address-manual-town'].error,
+    id: "home-address-manual-town",
+    name: "home-address-manual-town",
+    value: data["home-address-manual-town"], 
+    autocomplete: "home-address-manual-town"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Postcode", 
+      isPageHeading: true
+    },
+    classes: "govuk-input--width-10",
+    id: "home-address-manual-postcode",
+    name: "home-address-manual-postcode",
+    value: data["home-address-manual-postcode"],
+    autocomplete: "home-address-manual-postcode",
+    hint: {
+      text: "Enter your postal code or appropriate area number"
+    } 
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Country", 
+      isPageHeading: true
+    },
+    classes: "govuk-!-width-two-thirds",
+    errorMessage: data.validation['home-address-manual-country'].error,
+    id: "home-address-manual-country",
+    name: "home-address-manual-country",
+    value: data["home-address-manual-country"], 
+    autocomplete: "home-address-manual-country"
+  }) }}
+
+  <div class="govuk-!-padding-bottom-2"></div>
+
+{% endcall %}
+  
+{% endblock %}
