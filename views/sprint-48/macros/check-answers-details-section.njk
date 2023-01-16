@@ -118,7 +118,8 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['nationality'] 
-          | replace("british or irish", "British or Irish")
+          | replace("british", "British")
+          | replace("irish", "Irish")
           | replace("other", "Citizen of another country") }}
         </dd>
         <dd class="govuk-summary-list__actions">
