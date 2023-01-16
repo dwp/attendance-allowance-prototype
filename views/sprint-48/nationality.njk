@@ -17,19 +17,21 @@
     errorMessage: data.validation['nationality'].error,
     items: [
       {
-        value: "british or irish",
-        text: "British or Irish",
-        hint: {
-          text: "Select if you're from England, Scotland, Wales, Northern Ireland or the Republic of Ireland."
-        },
-        checked: true if data["nationality"] === "british or irish"
+        value: "british",
+        text: "British",
+        checked: true if data["nationality"] === "british"
+      },
+      {
+        value: "irish",
+        text: "Irish",
+        checked: true if data["nationality"] === "irish"
       },
       {
         divider: "or"
       },
       {
         value: "other",
-        text: "Citizen of another country",
+        text: "citizen of another country",
         checked: true if data["nationality"] === "other"
       }
     ]
