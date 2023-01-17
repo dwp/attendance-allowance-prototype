@@ -26,6 +26,9 @@
     }) }}
   </div>
 
+  <label for="my-autocomplete">Select your country</label>
+  <div id="my-autocomplete-container"></div>
+
   {% block formButton %} 
   {% endblock %}
   {{ phaseButton(data, "Add condition") }}
@@ -35,6 +38,20 @@
       I can't find my illness or disability
     </a>
   </div>
+
+  <script>
+    const countries = [
+      'France',
+      'Germany',
+      'United Kingdom'
+    ];
+
+    accessibleAutocomplete({
+      element: document.querySelector('#my-autocomplete-container'),
+      id: 'my-autocomplete', // To match it to the existing <label>.
+      source: countries
+    })
+  </script>
 
 {% endblock %}
 
