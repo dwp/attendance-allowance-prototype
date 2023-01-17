@@ -17,7 +17,7 @@ const config = {
         maxLength: 500,
       },
       errors: {
-        required: 'You must complete this section.',
+        required: 'Enter the first line of your address where you currently live.',
         maxLength: 'Address must be 500 characters or fewer.',
       },
     },
@@ -29,20 +29,20 @@ const config = {
         maxLength: 200,
       },
       errors: {
-        required: 'You must complete this section.',
-        maxLength: 'Town must be 200 characters or fewer.',
+        required: 'You must enter a town or city where you currently live.',
+        maxLength: 'Town or city must be 200 characters or fewer.',
       },
     },
     {
-      name: 'home-address-manual-country',
+      name: 'home-address-manual-postcode',
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 200,
       },
       errors: {
-        required: 'You must complete this section.',
-        maxLength: 'Country must be 200 characters or fewer.',
+        required: 'Enter a postcode where you currently live. ',
+        maxLength: 'Postcode must be 6 characters or fewer.',
       },
     },
     

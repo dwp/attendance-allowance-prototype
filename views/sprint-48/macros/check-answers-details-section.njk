@@ -43,7 +43,7 @@
             {{ changeLink('home-address-select') }}
           </dd>
         </div>
-      {% elseif data['home-address-manual-country'] %}
+      {% elseif data['home-address-manual-county'] %}
         <div class="govuk-summary-list__row address">
           <dt class="govuk-summary-list__key">
             Home address
@@ -54,8 +54,8 @@
               {{ data['home-address-manual-line-two'] }} <br/>
             {% endif %}
             {{ data['home-address-manual-town'] }} <br/>
+            {{ data['home-address-manual-county'] }}
             {{ data['home-address-manual-postcode'] }} <br/>
-            {{ data['home-address-manual-country'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             {{ changeLink('home-address-manual') }}
