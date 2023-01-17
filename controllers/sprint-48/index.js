@@ -17,6 +17,7 @@ const fullName = require('./identity/full-name');
 const homeAddressPostCode = require('./identity/home-address-postcode');
 const homeAddressSelect = require('./identity/home-address-select');
 const homeAddressManual = require('./identity/home-address-manual');
+const homeAddressInternational = require('./identity/home-address-international');
 
 // payability
 const careHomeHospital = require('./payability/care-home-hospital');
@@ -113,6 +114,7 @@ module.exports = {
   fullName,
   homeAddressPostCode,
   homeAddressManual,
+  homeAddressInternational,
   treatmentSurgery,
   careHomeHospital,
   illnessDisability,
