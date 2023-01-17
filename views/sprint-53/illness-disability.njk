@@ -1,0 +1,40 @@
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "../macros/phase-button.njk" import phaseButton %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <h1 class="govuk-fieldset__heading govuk-body govuk-!-margin-bottom-4">
+      Your illnesses, physical and mental disabilities
+    </h1>
+  </legend>
+  <h2 class="govuk-heading-m">
+    Search for illness, physical and mental disabilities
+  </h2>
+  <div class="govuk-hint">
+    Add an illness or condition that contributes to the difficulties you have during your typical day and night routine.
+  </div>
+  <div class="govuk-hint">
+    You will be able to add more later.
+  </div>
+  <div class="govuk-!-margin-bottom-6">
+    {{ govukInput({
+      id: "illness-and-disability",
+      name: "illness-and-disability"
+    }) }}
+  </div>
+
+  {% block formButton %} 
+  {% endblock %}
+  {{ phaseButton(data, "Add condition") }}
+
+  <div>
+    <a href="/" class="govuk-link">
+      I can't find my illness or disability
+    </a>
+  </div>
+
+{% endblock %}
+

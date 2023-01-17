@@ -1,0 +1,88 @@
+{% from "./change-link.njk" import changeLink %}
+{% from "./reword-date.njk" import rewordDate %}
+{% from "./reword-format.njk" import rewordFormat %}
+
+{% macro checkAnswersContactDetailsSection(data) %}
+
+	<section class="Your contact details">
+		<h2 class="govuk-heading-l">
+			Contact details
+		</h2>
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+			<div class="govuk-summary-list__row telephone-number">
+				<dt class="govuk-summary-list__key">
+					Main contact number
+				</dt>
+				{% if data['main-contact-number'] %}
+					<dd class="govuk-summary-list__value">
+						{{ data['main-contact-number'] }}
+					</dd>
+				{% endif %}
+				{% if not data['main-contact-number'] %}
+					<dd class="govuk-summary-list__value">
+					</dd>
+				{% endif %}
+				<dd class="govuk-summary-list__actions">
+					{{ changeLink('telephone-number') }}
+				</dd>
+			</div>
+			{% if data['mobile-number-other'] %}
+			<div class="govuk-summary-list__row mobile-number-other">
+				<dt class="govuk-summary-list__key">
+					Alternative phone number
+				</dt>
+					<dd class="govuk-summary-list__value">
+						{{ data['mobile-number-other'] }}
+					</dd>
+				<dd class="govuk-summary-list__actions">
+					{{ changeLink('telephone-number') }}
+				</dd>
+			</div>
+			{% endif %}
+
+      <div class="govuk-summary-list__row formats">
+        <dt class="govuk-summary-list__key">
+          Alternative Formats
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <ul class="govuk-list">
+            {% for format in data['alternative-formats'] %}
+              <li>
+                {{ rewordFormat(format) }}
+              </li>
+            {% endfor %}
+          </ul>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {{ changeLink('alternative-formats') }}
+        </dd>
+      </div>
+
+			<div class="govuk-summary-list__row email-confirm">
+				<dt class="govuk-summary-list__key">
+					Would you like an email confirmation
+				</dt>
+				<dd class="govuk-summary-list__value">
+					{{ data['email-confirm'] | capitalize }}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+					{{ changeLink('email-confirm') }}
+				</dd>
+			</div>
+ 			{% if data['email-confirm']== "yes" %}
+				<div class="govuk-summary-list__row email-confirm">
+					<dt class="govuk-summary-list__key">
+						Email address
+					</dt>
+					<dd class="govuk-summary-list__value">
+						{{ data['contact-by-email'] }}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						{{ changeLink('email-confirm') }}
+					</dd>
+				</div>
+        	{% endif %}
+		</dl>
+	</section>
+
+{% endmacro %}
