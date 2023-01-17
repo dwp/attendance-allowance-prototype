@@ -57,30 +57,28 @@
 
   {{ govukInput({
     label: {
-      text: "Postcode", 
+      text: "County (optional)", 
       isPageHeading: true
     },
-    classes: "govuk-input--width-10",
-    id: "home-address-manual-postcode",
-    name: "home-address-manual-postcode",
-    value: data["home-address-manual-postcode"],
-    autocomplete: "home-address-manual-postcode",
-    hint: {
-      text: "Enter your postal code or appropriate area number"
-    } 
+    classes: "govuk-!-width-two-thirds",
+    errorMessage: data.validation['home-address-manual-county'].error,
+    id: "home-address-manual-county",
+    name: "home-address-manual-county",
+    value: data["home-address-manual-county"], 
+    autocomplete: "home-address-manual-county"
   }) }}
 
   {{ govukInput({
     label: {
-      text: "Country", 
+      text: "Postcode", 
       isPageHeading: true
     },
-    classes: "govuk-!-width-two-thirds",
-    errorMessage: data.validation['home-address-manual-country'].error,
-    id: "home-address-manual-country",
-    name: "home-address-manual-country",
-    value: data["home-address-manual-country"], 
-    autocomplete: "home-address-manual-country"
+    classes: "govuk-input--width-10",
+    errorMessage: data.validation['home-address-manual-postcode'].error,
+    id: "home-address-manual-postcode",
+    name: "home-address-manual-postcode",
+    value: data["home-address-manual-postcode"],
+    autocomplete: "home-address-manual-postcode"
   }) }}
 
   <div class="govuk-!-padding-bottom-2"></div>

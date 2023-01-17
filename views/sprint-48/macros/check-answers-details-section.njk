@@ -43,7 +43,7 @@
             {{ changeLink('home-address-select') }}
           </dd>
         </div>
-      {% elseif data['home-address-manual-country'] %}
+      {% elseif data['home-address-manual-line-one'] %}
         <div class="govuk-summary-list__row address">
           <dt class="govuk-summary-list__key">
             Home address
@@ -54,11 +54,33 @@
               {{ data['home-address-manual-line-two'] }} <br/>
             {% endif %}
             {{ data['home-address-manual-town'] }} <br/>
+            {% if data['home-address-manual-county'] %}
+              {{ data['home-address-manual-county'] }}<br/>
+            {% endif %}
             {{ data['home-address-manual-postcode'] }} <br/>
-            {{ data['home-address-manual-country'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             {{ changeLink('home-address-manual') }}
+          </dd>
+        </div>
+      {% elseif data['home-address-international-line-one'] %}
+        <div class="govuk-summary-list__row international-address">
+          <dt class="govuk-summary-list__key">
+            Home address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['home-address-international-line-one'] }} <br/>
+            {% if data['home-address-international-line-two'] %}
+              {{ data['home-address-international-line-two'] }} <br/>
+            {% endif %}
+            {{ data['home-address-international-town'] }} <br/>
+            {% if data['home-address-international-postcode'] %}
+              {{ data['home-address-international-postcode'] }} <br/>
+            {% endif %}
+            {{ data['home-address-international-country'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('home-address-international') }}
           </dd>
         </div>
       {% endif %}

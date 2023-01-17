@@ -5,12 +5,12 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.homeAddressManual,
+  name: urls.homeAddressInternational,
   next: urls.careHomeHospital,
-  previous: urls.homeAddressPostcode,
+  previous: urls.homeAddressSelect,
   validation: [
     {
-      name: 'home-address-manual-line-one',
+      name: 'home-address-international-line-one',
       type: validation.textInput,
       options: {
         minLength: 1,
@@ -22,7 +22,7 @@ const config = {
       },
     },
     {
-      name: 'home-address-manual-town',
+      name: 'home-address-international-town',
       type: validation.textInput,
       options: {
         minLength: 1,
@@ -34,15 +34,15 @@ const config = {
       },
     },
     {
-      name: 'home-address-manual-postcode',
+      name: 'home-address-international-country',
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 200,
       },
       errors: {
-        required: 'Enter a postcode where you currently live. ',
-        maxLength: 'Postcode must be 6 characters or fewer.',
+        required: 'Enter the country where you currently live.',
+        maxLength: 'Country must be 200 characters or fewer.',
       },
     },
     
