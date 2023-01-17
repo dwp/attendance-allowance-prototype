@@ -15,11 +15,11 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 75,
+        maxLength: 50,
       },
       errors: {
         required: 'Enter your first name.',
-        maxLength: 'First name must be 75 characters or fewer.',
+        maxLength: 'First name must be 50 characters or fewer.',
       },
     },
     {
