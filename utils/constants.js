@@ -24,6 +24,7 @@ module.exports = {
     homeAddressPostcode: 'home-address-postcode',
     homeAddressSelect: 'home-address-select',
     homeAddressManual: 'home-address-manual',
+    homeAddressInternational: 'home-address-international',
 
     // payability
     careHomeHospital: 'care-home-hospital',
