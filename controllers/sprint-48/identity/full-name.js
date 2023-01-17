@@ -27,11 +27,11 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 100,
+        maxLength: 50,
       },
       errors: {
         required: 'Enter your last name.',
-        maxLength: 'Last name must be 100 characters or fewer.',
+        maxLength: 'Last name must be 50 characters or fewer.',
       },
     },
   ],
