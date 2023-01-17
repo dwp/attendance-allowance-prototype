@@ -38,11 +38,11 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 200,
+        maxLength: 8,
       },
       errors: {
-        required: 'Enter a postcode where you currently live. ',
-        maxLength: 'Postcode must be 6 characters or fewer.',
+        required: 'Enter a postcode where you currently live.',
+        maxLength: 'Postcode must be 8 characters or fewer.',
       },
     },
     

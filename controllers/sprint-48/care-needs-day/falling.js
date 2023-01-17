@@ -85,10 +85,16 @@ const config = {
     {
       name: 'help-falling',
       type: validation.radios,
+      errors: {
+        required: 'You must select an option. We need to know whether you need help after you fall.',
+      },
     },
     {
       name: 'falls-clinic',
       type: validation.radios,
+      errors: {
+        required: 'You must select an option. We need to know whether you have been referred to a Falls Clinic.',
+      },
     },
   ],
 };
