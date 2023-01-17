@@ -8,12 +8,36 @@
       Your details
     </h2>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-      <div class="govuk-summary-list__row full-name">
+      <div class="govuk-summary-list__row first-name">
         <dt class="govuk-summary-list__key">
-          Name
+          First name
         </dt>
         <dd class="govuk-summary-list__value">
-        {{ data['full-name'] }}
+        {{ data['first-name'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {{ changeLink('full-name') }}
+        </dd>
+      </div>
+      {% if data['middle-name'] %}
+        <div class="govuk-summary-list__row middle-name">
+          <dt class="govuk-summary-list__key">
+            Middle name
+          </dt>
+          <dd class="govuk-summary-list__value">
+          {{ data['middle-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('full-name') }}
+          </dd>
+        </div>
+      {% endif %}  
+      <div class="govuk-summary-list__row last-name">
+        <dt class="govuk-summary-list__key">
+          Last name
+        </dt>
+        <dd class="govuk-summary-list__value">
+        {{ data['last-name'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
           {{ changeLink('full-name') }}
