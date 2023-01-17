@@ -23,6 +23,7 @@ router.use(`/${urls.fullName}`, controllers.fullName);
 router.use(`/${urls.homeAddressPostcode}`, controllers.homeAddressPostCode);
 router.use(`/${urls.homeAddressSelect}`, controllers.homeAddressSelect);
 router.use(`/${urls.homeAddressManual}`, controllers.homeAddressManual);
+router.use(`/${urls.homeAddressInternational}`, controllers.homeAddressInternational);
 
 // payability
 router.use(`/${urls.careHomeHospital}`, controllers.careHomeHospital);

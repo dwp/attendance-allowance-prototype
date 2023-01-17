@@ -57,17 +57,14 @@
 
   {{ govukInput({
     label: {
-      text: "Postcode", 
+      text: "Postcode (optional)", 
       isPageHeading: true
     },
     classes: "govuk-input--width-10",
     id: "home-address-international-postcode",
     name: "home-address-international-postcode",
     value: data["home-address-international-postcode"],
-    autocomplete: "home-address-international-postcode",
-    hint: {
-      text: "Enter your postal code or appropriate area number"
-    } 
+    autocomplete: "home-address-international-postcode"
   }) }}
 
   {{ govukInput({
