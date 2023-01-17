@@ -19,15 +19,8 @@
   <div class="govuk-hint">
     You will be able to add more later.
   </div>
-  <div class="govuk-!-margin-bottom-6">
-    {{ govukInput({
-      id: "illness-and-disability",
-      name: "illness-and-disability"
-    }) }}
+  <div id="illness-disability-container" class="govuk-!-margin-bottom-6">
   </div>
-
-  <label for="my-autocomplete">Select your country</label>
-  <div id="my-autocomplete-container"></div>
 
   {% block formButton %} 
   {% endblock %}
@@ -41,14 +34,76 @@
 
   <script>
     const countries = [
-      'France',
-      'Germany',
-      'United Kingdom'
+      'Arthritis',
+      'Dementia',
+      'Heart Disease',
+      'Chest Disease',
+      'Disease Of The Muscles, Bones or Joints',
+      'Cerebrovascular Disease',
+      'Back Pain - Other / Precise Diagnosis not Specified',
+      'Blindness',
+      'Malignant Disease',
+      'Terminally Ill',
+      'Parkinson\'s Disease',
+      'Neurological Diseases',
+      'Diabetes Mellitus',
+      'Cognitive disorder - other / precise diagnosis not specified',
+      'Trauma to Limbs',
+      'Spondylosis',
+      'Renal Disorders',
+      'Psychosis',
+      'Psychoneurosis',
+      'Frailty',
+      'Deafness',
+      'Multi System Disorders',
+      'Peripheral vascular Disease',
+      'Asthma',
+      'Bowel and Stomach Disease',
+      'Chronic Pain Syndromes',
+      'Skin Disease',
+      'Epilepsy',
+      'Multiple Sclerosis',
+      'Alcohol and Drug Abuse',
+      'Inflammatory Bowel Disease',
+      'Major Trauma Other than Traumatic Paraplegia/Tetraplegia',
+      'Metabolic Disease',
+      'Blood Disorders',
+      'Learning Difficulties',
+      'Motor Neurone Disease',
+      'Traumatic Paraplegia/Tetraplegia',
+      'Behavioural Disorder',
+      'Infectious diseases: Viral disease - Coronavirus covid-19',
+      'Haemodialysis',
+      'Personality Disorder',
+      'Infectious diseases: Bacterial disease - Tuberculosis',
+      'Infectious diseases - other / precise diagnosis not specified',
+      'Haemophilia',
+      'AIDS',
+      'Cystic Fibrosis',
+      'Multiple Allergy Syndrome',
+      'Infectious diseases: Bacterial disease / precise diagnosis not specified',
+      'Infectious diseases: Viral disease /precise diagnosis not specified',
+      'Hyperkinetic Syndrome',
+      'Deaf/Blind',
+      'Severely Mentally impaired',
+      'Double Amputee',
+      'Total Parenteral Nutrition',
+      'Infectious diseases: Protozoal disease - Malaria',
+      'Infectious diseases: Protozoal disease - other / precise diagnosis not specified',
+      'Generalised Anxiety',
+      'Mixed Anxiety & Depression',
+      'Depressive Disorder',
+      'Bipolar Disorder',
+      'Psychotic Disorder',
+      'Schizophrenia',
+      'Alcohol Misuse',
+      'Generalised Learning Disability',
+      'Bowel Incontinence' 
     ];
 
     accessibleAutocomplete({
-      element: document.querySelector('#my-autocomplete-container'),
-      id: 'my-autocomplete', // To match it to the existing <label>.
+      element: document.querySelector('#illness-disability-container'),
+      id: 'illness-disability',
       source: countries
     })
   </script>
