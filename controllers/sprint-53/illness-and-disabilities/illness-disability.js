@@ -6,7 +6,7 @@ const {
 
 const config = {
   name: urls.illnessDisability,
-  next: urls.specialRulesDeclaration,
+  next: urls.illnessDisabilityAdded,
   previous: urls.careHomeHospital,
   validation: {
     type: validation.textInput,

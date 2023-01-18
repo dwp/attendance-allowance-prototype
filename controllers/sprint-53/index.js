@@ -24,6 +24,7 @@ const careHomeHospital = require('./payability/care-home-hospital');
 
 // illness and disabilities
 const illnessDisability = require('./illness-and-disabilities/illness-disability');
+const illnessDisabilityAdded = require('./illness-and-disabilities/illness-disability-added');
 
 // special rules
 const specialRulesDeclaration = require('./special-rules/special-rules-declaration');
@@ -101,11 +102,10 @@ const checkAnswersContactDetails = require('./check-your-answers/check-answers-c
 const checkAnswersFullList = require('./check-your-answers/check-answers-full-list');
 const checkAnswersSpecialRules = require('./check-your-answers/check-answers-special-rules');
 
-
 module.exports = {
   verificationCode,
   start,
-  personClaiming, 
+  personClaiming,
   birthDate,
   otherBenefits,
   residenceCountry,
@@ -118,6 +118,7 @@ module.exports = {
   treatmentSurgery,
   careHomeHospital,
   illnessDisability,
+  illnessDisabilityAdded,
   telephoneNumber,
   dayDifficulties,
   nightDifficulties,

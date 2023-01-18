@@ -29,6 +29,23 @@ const storeData = (input, data) => {
   }
 };
 
+const buildSummaryRow = (value) => ({
+  key: {
+    text: value,
+    classes: 'govuk-summary-list__value',
+  },
+  value: {
+    text: '',
+  },
+  actions: {
+    items: [{
+      href: '#',
+      text: 'Remove',
+      visuallyHiddenText: value,
+    }],
+  },
+});
+
 const handleIllnessDisability = (input, data) => {
   if (!input || !data) {
     return;
@@ -36,8 +53,10 @@ const handleIllnessDisability = (input, data) => {
   if (input['illness-disability']?.length > 0) {
     if (!data['illness-disability']) {
       data['illness-disability'] = [input['illness-disability']];
+      data['illness-disability-rows'] = [buildSummaryRow(input['illness-disability'])];
     } else {
       data['illness-disability'].push(input['illness-disability']);
+      data['illness-disability-rows'].push(buildSummaryRow(input['illness-disability']));
     }
   }
 };

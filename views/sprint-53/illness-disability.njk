@@ -1,7 +1,14 @@
 {% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 {% from "../macros/phase-button.njk" import phaseButton %}
 
 {% extends "layouts/prototypeLayout.njk" %}
+
+{% block head %}
+  {{super()}}
+  <link rel="stylesheet" type="text/css" href="/accessible-autocomplete.min.css" />
+  <script src="/accessible-autocomplete.min.js"></script>
+{% endblock %}
 
 {% block form %}
 
@@ -10,6 +17,16 @@
       Your illnesses, physical and mental disabilities
     </h1>
   </legend>
+
+  {% if data['illness-disability-rows'] %}
+    {{ govukSummaryList({
+      classes: "govuk-!-margin-bottom-9",
+      rows: data["illness-disability-rows"]
+    }) }}
+  {% endif %}
+
+  
+
   <h2 class="govuk-heading-m">
     Search for illness, physical and mental disabilities
   </h2>

@@ -1,5 +1,5 @@
-{% from "../macros/validation-summary.njk" import validationSummary %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "../macros/validation-summary.njk" import validationSummary %}
 {% from "../macros/phase-button.njk" import phaseButton %}
 
 {%- set assetPath = '/govuk/assets' -%}
@@ -8,9 +8,7 @@
 
 {% block head %}
   <link rel="stylesheet" type="text/css" href="/govuk-frontend-4.0.1.min.css" />
-  <link rel="stylesheet" type="text/css" href="/accessible-autocomplete.min.css" />
   <script src="/govuk-frontend-4.0.1.min.js"></script>
-  <script src="/accessible-autocomplete.min.js"></script>
 {% endblock %}
 
 {% block pageTitle %}
