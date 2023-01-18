@@ -31,7 +31,11 @@ router.use(`/${urls.careHomeHospital}`, controllers.careHomeHospital);
 // illness and disabilities
 router.use(`/${urls.illnessDisability}`, controllers.illnessDisability);
 router.use(`/${urls.illnessDisabilityAdded}`, controllers.illnessDisabilityAdded);
-router.use(`/${urls.illnessDisabilityRemove}`, controllers.illnessDisabilityRemove);
+router.use(`/${urls.illnessDisabilityRemove}`, (req, res) => {
+  req.session.data['illness-disability'] = req.session.data['illness-disability'].filter((e) => e.toLowerCase().replace(/[^a-z0-9]/gi, '') !== req?.query?.remove);
+  req.session.data['illness-disability-rows'] = req.session.data['illness-disability-rows'].filter((e) => e?.key?.text.toLowerCase().replace(/[^a-z0-9]/gi, '') !== req?.query?.remove);
+  return res.redirect(`${urls.illnessDisability}`);
+});
 
 // special rules
 router.use(`/${urls.specialRulesDeclaration}`, controllers.specialRulesDeclaration);
