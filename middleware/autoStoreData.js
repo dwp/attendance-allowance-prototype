@@ -39,7 +39,7 @@ const buildSummaryRow = (value) => ({
   },
   actions: {
     items: [{
-      href: '#',
+      href: `illness-disability-remove?remove=${value.toLowerCase().replace(/[^a-z0-9]/gi, '')}`,
       text: 'Remove',
       visuallyHiddenText: value,
     }],

@@ -31,6 +31,7 @@ router.use(`/${urls.careHomeHospital}`, controllers.careHomeHospital);
 // illness and disabilities
 router.use(`/${urls.illnessDisability}`, controllers.illnessDisability);
 router.use(`/${urls.illnessDisabilityAdded}`, controllers.illnessDisabilityAdded);
+router.use(`/${urls.illnessDisabilityRemove}`, controllers.illnessDisabilityRemove);
 
 // special rules
 router.use(`/${urls.specialRulesDeclaration}`, controllers.specialRulesDeclaration);
