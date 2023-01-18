@@ -29,14 +29,30 @@ const storeData = (input, data) => {
   }
 };
 
+const handleIllnessDisability = (input, data) => {
+  if (!input || !data) {
+    return;
+  }
+  if (input['illness-disability']?.length > 0) {
+    if (!data['illness-disability']) {
+      data['illness-disability'] = [input['illness-disability']];
+    } else {
+      data['illness-disability'].push(input['illness-disability']);
+    }
+  }
+};
+
 module.exports = (req, res, next) => {
   if (!req.session.data) {
     req.session.data = {};
   }
   req.session.data = { ...req.session.data };
-  storeData(req.body, req.session.data);
-  storeData(req.query, req.session.data);
-
+  if (req.body?.['illness-disability']) {
+    handleIllnessDisability(req.body, req.session.data);
+  } else {
+    storeData(req.body, req.session.data);
+    storeData(req.query, req.session.data);
+  }
   res.locals.data = {};
 
   for (const j in req.session.data) {

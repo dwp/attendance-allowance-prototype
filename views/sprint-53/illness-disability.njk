@@ -33,7 +33,7 @@
   </div>
 
   <script>
-    const countries = [
+    const illnesses = [
       'Arthritis',
       'Dementia',
       'Heart Disease',
@@ -104,7 +104,8 @@
     accessibleAutocomplete({
       element: document.querySelector('#illness-disability-container'),
       id: 'illness-disability',
-      source: countries
+      name: 'illness-disability',
+      source: illnesses
     })
   </script>
 
