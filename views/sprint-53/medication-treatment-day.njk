@@ -1,0 +1,65 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  <span class="govuk-caption-l">Taking medication or receiving treatment during the day</span>
+     <h1 class="govuk-heading-l">
+       You told us you have difficulty when you take medication or receive treatment
+     </h1>
+  <p class="govuk-body">
+    This means:
+  </p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>struggling to handle your medicines</li>
+    <li>understanding how much to take and when to take them</li>
+  </ul>
+   <p class="govuk-body">
+    It could also mean you need help with:
+  </p>
+  <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+    <li>injections</li>
+    <li>using an inhaler</li>
+    <li>putting in eye drops</li>
+    <li>physiotherapy</li>
+    <li>oxygen therapy</li>
+    <li>speech therapy</li>
+    <li>monitoring treatment</li>
+    <li>coping with side effects of your medication</li>
+  </ul>
+  
+
+  {{ govukCheckboxes
+    ({
+      idPrefix: "medication-treatment-day",
+      name: "medication-treatment-day",
+      fieldset: {
+        legend: {
+          text: "Which difficulties do you have when you take medication or receive treatment?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      errorMessage: data.validation['medication-treatment-day'].error,
+      items: [{
+        value: "medication-physical",
+        text: "I have physical difficulty when taking medication or receiving treatment",
+        checked: true if data["medication-treatment-day"] and data["medication-treatment-day"].includes("medication-physical")
+      },
+      {
+        value: "medication-motivation",
+        text: "I need encouragement or prompting to take medication or receive treatment",
+        checked: true if data["medication-treatment-day"] and data["medication-treatment-day"].includes("medication-motivation")
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "no-other-apply",
+        text: "None of these apply to me",
+        behaviour: "exclusive",
+        checked: true if data["medication-treatment-day"] and data["medication-treatment-day"].includes("no-other-apply")
+      }]
+    })
+  }}
+{% endblock %}

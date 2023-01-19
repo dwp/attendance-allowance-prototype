@@ -12,6 +12,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "accessible-autocomplete": "^2.0.4",
     "basic-auth": "^2.0.1",
     "body-parser": "1.19.2",
     "commander": "^9.4.1",

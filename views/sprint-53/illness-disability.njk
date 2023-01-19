@@ -1,0 +1,128 @@
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "../macros/phase-button.njk" import phaseButton %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block head %}
+  {{super()}}
+  <link rel="stylesheet" type="text/css" href="/accessible-autocomplete.min.css" />
+  <script src="/accessible-autocomplete.min.js"></script>
+{% endblock %}
+
+{% block form %}
+
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <h1 class="govuk-fieldset__heading govuk-body govuk-!-margin-bottom-4">
+      Your illnesses, physical and mental disabilities
+    </h1>
+  </legend>
+
+  {% if data['illness-disability-rows'] %}
+    {{ govukSummaryList({
+      classes: "govuk-!-margin-bottom-9",
+      rows: data["illness-disability-rows"]
+    }) }}
+  {% endif %}
+
+  <h2 class="govuk-heading-m">
+    Search for illness, physical and mental disabilities
+  </h2>
+  <div class="govuk-hint">
+    Add an illness or condition that contributes to the difficulties you have during your typical day and night routine.
+  </div>
+  <div class="govuk-hint">
+    You will be able to add more later.
+  </div>
+  <div id="illness-disability-container" class="govuk-!-margin-bottom-6">
+  </div>
+
+  {% block formButton %} 
+  {% endblock %}
+  {{ phaseButton(data, "Add condition") }}
+
+  <div>
+    <a href="illness-disability-manual" class="govuk-link">
+      I can't find my illness or disability
+    </a>
+  </div>
+
+  <script>
+    const illnesses = [
+      'Arthritis',
+      'Dementia',
+      'Heart Disease',
+      'Chest Disease',
+      'Disease Of The Muscles, Bones or Joints',
+      'Cerebrovascular Disease',
+      'Back Pain - Other / Precise Diagnosis not Specified',
+      'Blindness',
+      'Malignant Disease',
+      'Terminally Ill',
+      'Parkinson\'s Disease',
+      'Neurological Diseases',
+      'Diabetes Mellitus',
+      'Cognitive disorder - other / precise diagnosis not specified',
+      'Trauma to Limbs',
+      'Spondylosis',
+      'Renal Disorders',
+      'Psychosis',
+      'Psychoneurosis',
+      'Frailty',
+      'Deafness',
+      'Multi System Disorders',
+      'Peripheral vascular Disease',
+      'Asthma',
+      'Bowel and Stomach Disease',
+      'Chronic Pain Syndromes',
+      'Skin Disease',
+      'Epilepsy',
+      'Multiple Sclerosis',
+      'Alcohol and Drug Abuse',
+      'Inflammatory Bowel Disease',
+      'Major Trauma Other than Traumatic Paraplegia/Tetraplegia',
+      'Metabolic Disease',
+      'Blood Disorders',
+      'Learning Difficulties',
+      'Motor Neurone Disease',
+      'Traumatic Paraplegia/Tetraplegia',
+      'Behavioural Disorder',
+      'Infectious diseases: Viral disease - Coronavirus covid-19',
+      'Haemodialysis',
+      'Personality Disorder',
+      'Infectious diseases: Bacterial disease - Tuberculosis',
+      'Infectious diseases - other / precise diagnosis not specified',
+      'Haemophilia',
+      'AIDS',
+      'Cystic Fibrosis',
+      'Multiple Allergy Syndrome',
+      'Infectious diseases: Bacterial disease / precise diagnosis not specified',
+      'Infectious diseases: Viral disease /precise diagnosis not specified',
+      'Hyperkinetic Syndrome',
+      'Deaf/Blind',
+      'Severely Mentally impaired',
+      'Double Amputee',
+      'Total Parenteral Nutrition',
+      'Infectious diseases: Protozoal disease - Malaria',
+      'Infectious diseases: Protozoal disease - other / precise diagnosis not specified',
+      'Generalised Anxiety',
+      'Mixed Anxiety & Depression',
+      'Depressive Disorder',
+      'Bipolar Disorder',
+      'Psychotic Disorder',
+      'Schizophrenia',
+      'Alcohol Misuse',
+      'Generalised Learning Disability',
+      'Bowel Incontinence' 
+    ];
+
+    accessibleAutocomplete({
+      element: document.querySelector('#illness-disability-container'),
+      id: 'illness-disability',
+      name: 'illness-disability',
+      source: illnesses
+    })
+  </script>
+
+{% endblock %}
+
