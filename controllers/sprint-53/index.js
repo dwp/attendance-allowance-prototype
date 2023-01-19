@@ -25,6 +25,7 @@ const careHomeHospital = require('./payability/care-home-hospital');
 // illness and disabilities
 const illnessDisability = require('./illness-and-disabilities/illness-disability');
 const illnessDisabilityAdded = require('./illness-and-disabilities/illness-disability-added');
+const illnessDisabilityManual = require('./illness-and-disabilities/illness-disability-manual');
 
 // special rules
 const specialRulesDeclaration = require('./special-rules/special-rules-declaration');
@@ -119,6 +120,7 @@ module.exports = {
   careHomeHospital,
   illnessDisability,
   illnessDisabilityAdded,
+  illnessDisabilityManual,
   telephoneNumber,
   dayDifficulties,
   nightDifficulties,

@@ -50,6 +50,15 @@ const handleIllnessDisability = (input, data) => {
   if (!input || !data) {
     return;
   }
+  if (input['illness-disability-manual']?.length > 0) {
+    if (!data['illness-disability']) {
+      data['illness-disability'] = [input['illness-disability-manual']];
+      data['illness-disability-rows'] = [buildSummaryRow(input['illness-disability-manual'])];
+    } else {
+      data['illness-disability'].push(input['illness-disability-manual']);
+      data['illness-disability-rows'].push(buildSummaryRow(input['illness-disability-manual']));
+    }
+  }
   if (input['illness-disability']?.length > 0) {
     if (!data['illness-disability']) {
       data['illness-disability'] = [input['illness-disability']];
@@ -66,7 +75,7 @@ module.exports = (req, res, next) => {
     req.session.data = {};
   }
   req.session.data = { ...req.session.data };
-  if (req.body?.['illness-disability']) {
+  if (req.body?.['illness-disability'] || req.body?.['illness-disability-manual']) {
     handleIllnessDisability(req.body, req.session.data);
   } else {
     storeData(req.body, req.session.data);
