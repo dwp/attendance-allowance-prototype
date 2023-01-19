@@ -1,0 +1,31 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  {{ govukRadios({
+    classes: "govuk-radios",
+    idPrefix: "renal-dialysis-help",
+    name: "renal-dialysis-help",
+    fieldset: {
+      legend: {
+        text: "Do you require help from another person during renal dialysis?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    errorMessage: data.validation['renal-dialysis-help'].error,
+    items: [
+      {
+        value: "yes",
+        text: "Yes",
+        checked: true if data["renal-dialysis-help"] === "yes"
+      },
+      {
+        value: "no",
+        text: "No",
+        checked: true if data["renal-dialysis-help"] === "no"
+      }
+    ]
+  }) }}
+{% endblock %}
