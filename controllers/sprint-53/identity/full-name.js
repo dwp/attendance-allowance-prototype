@@ -19,7 +19,7 @@ const config = {
       },
       errors: {
         required: 'Enter your first name.',
-        maxLength: 'First name must be 50 characters or fewer.',
+        maxLength: 'First name must be 50 characters or less',
       },
     },
     {
@@ -31,7 +31,7 @@ const config = {
       },
       errors: {
         required: 'Enter your last name.',
-        maxLength: 'Last name must be 50 characters or fewer.',
+        maxLength: 'Last name must be 50 characters or less',
       },
     },
   ],
