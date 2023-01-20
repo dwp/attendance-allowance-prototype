@@ -104,6 +104,7 @@ router.use(`/${urls.emailConfirm}`, controllers.emailConfirm);
 
 // claim submission
 router.use(`/${urls.claimSubmission}`, controllers.claimSubmission);
+router.use(`/${urls.sercoLateApplication}`, controllers.sercoLateApplication);
 
 // check your answers
 router.use(`/${urls.checkAnswersDetails}`, controllers.checkAnswersDetails);

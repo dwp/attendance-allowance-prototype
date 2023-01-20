@@ -1,0 +1,47 @@
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "../macros/phase-button.njk" import phaseButton %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <h1 class="govuk-fieldset__heading govuk-body govuk-!-margin-bottom-4">
+      Your application took longer than 6 weeks
+    </h1>
+  </legend>
+
+  <p class="govuk-body">
+    Tell us about the illness, physical and mental disability you have.
+  </p>
+
+  <p class="govuk-body">
+    Can you tell us:
+  </p>
+
+  <ul class="govuk-list">
+    <li>
+      the name of your illness or disability
+    </li>
+  </ul>
+
+  <div class="govuk-inset-text">
+    <span class="govuk-body govuk-!-font-weight-bold">
+      Example
+    </span>
+    <br/>
+    Fibromyalgia.
+    <br/>
+    Bowel cancer.
+  </div>
+
+  <div class="govuk-!-margin-bottom-8">
+    {{ govukInput({
+      errorMessage: data.validation['illness-disability-manual'].error,
+      id: "illness-disability-manual",
+      name:  "illness-disability-manual"
+    }) }}
+  </div>
+
+{% endblock %}
+
