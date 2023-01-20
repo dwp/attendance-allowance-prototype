@@ -21,6 +21,7 @@ const homeAddressInternational = require('./identity/home-address-international'
 
 // payability
 const careHomeHospital = require('./payability/care-home-hospital');
+const sercoCareHomeHospital = require('./payability/serco-care-home-hospital');
 
 // illness and disabilities
 const illnessDisability = require('./illness-and-disabilities/illness-disability');
@@ -119,6 +120,7 @@ module.exports = {
   homeAddressInternational,
   treatmentSurgery,
   careHomeHospital,
+  sercoCareHomeHospital,
   illnessDisability,
   illnessDisabilityAdded,
   illnessDisabilityManual,

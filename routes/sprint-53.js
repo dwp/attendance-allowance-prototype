@@ -27,6 +27,7 @@ router.use(`/${urls.homeAddressInternational}`, controllers.homeAddressInternati
 
 // payability
 router.use(`/${urls.careHomeHospital}`, controllers.careHomeHospital);
+router.use(`/${urls.sercoCareHomeHospital}`, controllers.sercoCareHomeHospital);
 
 // illness and disabilities
 router.use(`/${urls.illnessDisability}`, controllers.illnessDisability);
