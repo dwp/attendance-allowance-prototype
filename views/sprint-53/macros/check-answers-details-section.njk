@@ -223,6 +223,19 @@
           {{ changeLink('care-home-hospital') }}
         </dd>
       </div>
+      {% if data['care-home-hospital'] == 'no' %}
+        <div class="govuk-summary-list__row care-home-hospital">
+          <dt class="govuk-summary-list__key">
+            Stayed in a care home or hospital at any point since [token date]
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['serco-care-home-hospital'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('serco-care-home-hospital') }}
+          </dd>
+        </div>
+      {% endif %}
     </dl>
   </section>
 

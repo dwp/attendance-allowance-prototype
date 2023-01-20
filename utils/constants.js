@@ -28,6 +28,8 @@ module.exports = {
 
     // payability
     careHomeHospital: 'care-home-hospital',
+    sercoCareHomeHospital: 'serco-care-home-hospital',
+
 
     // illness and disabilities
     illnessDisability: 'illness-disability',
