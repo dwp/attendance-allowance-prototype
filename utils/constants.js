@@ -110,6 +110,7 @@ module.exports = {
 
     // claim submission
     claimSubmission: 'claim-submission',
+    sercoLateApplication: 'serco-late-application',
     checkAnswersFullList: 'check-answers-full-list',
 
   },
