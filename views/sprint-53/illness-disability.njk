@@ -1,6 +1,7 @@
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 {% from "../macros/phase-button.njk" import phaseButton %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% extends "layouts/prototypeLayout.njk" %}
 
@@ -47,7 +48,18 @@
 
   {% block formButton %} 
   {% endblock %}
-  {{ phaseButton(data, "Add condition") }}
+
+  <div class="govuk-button-group">
+    {{ phaseButton(data, "Add condition") }}
+
+    {% if data['illness-disability-rows'] %}
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-button--secondary",
+        href: "special-rules-declaration"
+      }) }}
+    {% endif %}
+  </div>
 
   <div>
     <a href="illness-disability-manual" class="govuk-link">
