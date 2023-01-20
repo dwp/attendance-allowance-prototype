@@ -12,34 +12,18 @@
   </legend>
 
   <p class="govuk-body">
-    Tell us about the illness, physical and mental disability you have.
+    If your claim is approved we may not be able to consider your claim as starting from [token date].
   </p>
 
   <p class="govuk-body">
-    Can you tell us:
+    Please explain why it took longer, and we will consider the reason during the decision making process.
   </p>
-
-  <ul class="govuk-list">
-    <li>
-      the name of your illness or disability
-    </li>
-  </ul>
-
-  <div class="govuk-inset-text">
-    <span class="govuk-body govuk-!-font-weight-bold">
-      Example
-    </span>
-    <br/>
-    Fibromyalgia.
-    <br/>
-    Bowel cancer.
-  </div>
 
   <div class="govuk-!-margin-bottom-8">
     {{ govukInput({
-      errorMessage: data.validation['illness-disability-manual'].error,
-      id: "illness-disability-manual",
-      name:  "illness-disability-manual"
+      errorMessage: data.validation['serco-late-application'].error,
+      id: "serco-late-application",
+      name:  "serco-late-application"
     }) }}
   </div>
 
