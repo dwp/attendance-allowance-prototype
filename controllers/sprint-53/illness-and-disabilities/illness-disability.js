@@ -12,18 +12,13 @@ const config = {
     {
       page: urls.careHomeHospital,
       condition: {
-        field: urls.careHomeHospital, 
+        field: urls.careHomeHospital,
         value: 'yes',
-        match: match.value, 
-      }, 
+        match: match.value,
+      },
     },
     {
       page: urls.sercoCareHomeHospital,
-      condition: {
-        field: urls.careHomeHospital, 
-        value: 'no',
-        match: match.value, 
-      }, 
     },
   ],
   validation: {
