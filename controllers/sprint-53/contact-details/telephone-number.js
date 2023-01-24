@@ -30,8 +30,8 @@ const config = {
         maxLength: 15,
       },
       errors: {
-        required: 'Enter a telephone number.',
-        maxLength: 'Telephone number must be 15 characters or fewer.',
+        required: 'Your main contact telephone number must be in the correct format, like 01632 960 001, 07700 900 982 or +44 808 157 0192. For international numbers include the country code.',
+        maxLength: 'Telephone number must be 15 characters or less.',
       },
     },
   ],
