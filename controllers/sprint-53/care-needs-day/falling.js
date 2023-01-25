@@ -79,7 +79,7 @@ const config = {
         maxLength: 4,
       },
       errors: {
-        required: 'Enter the number of times you fall in a year.',
+        required: 'Enter the number of times you fell in the last year.',
       },
     },
     {
