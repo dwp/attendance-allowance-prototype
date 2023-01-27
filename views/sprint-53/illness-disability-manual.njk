@@ -30,7 +30,7 @@
       Example
     </span>
     <br/>
-    Fibromyalgia.
+    Alzheimer’s disease.
     <br/>
     Bowel cancer.
   </div>
@@ -41,6 +41,13 @@
       id: "illness-disability-manual",
       name:  "illness-disability-manual"
     }) }}
+  </div>
+
+  {% block formButton %} 
+  {% endblock %}
+
+  <div class="govuk-button-group">
+    {{ phaseButton(data, "Add condition") }}
   </div>
 
 {% endblock %}
