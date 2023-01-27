@@ -8,7 +8,7 @@
 {% block form %}
 
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-    {% if data['illness-disability-rows'] > 1 %}
+    {% if data['illness-disability-rows'].length > 1 %}
       <h1 class="govuk-fieldset__heading govuk-body govuk-!-margin-bottom-4">
         You have added {{ data['illness-disability-rows'].length }} illnesses, physical or mental disabilities
       </h1>
