@@ -18,7 +18,7 @@
       {
         value: "myself",
         text: "I’m applying for myself",
-        checked: true if data["person-claiming"] === "myself"
+        checked: true if data["person-claiming"] and data["person-claiming"].includes("myself")
       },
       {
         value: "helping-someone",
@@ -26,7 +26,7 @@
         hint: {
           text: "I will answer the questions as if I were the applicant using information they give me."
         },
-        checked: true if data["person-claiming"] === "helping-someone"
+        checked: true if data["person-claiming"] and data["person-claiming"].includes("helping-someone")
       },
       {
         value: "official-capacity",
@@ -36,7 +36,7 @@
           for the person I’m applying for. Or I’m the registered DWP 
           appointee, deputy or belong to a Corporate Acting Body (CAB)."
         },
-        checked: true if data["person-claiming"] === "official-capacity"
+        checked: true if data["person-claiming"] and data["person-claiming"].includes("official-capacity")
       },
       {
         value: "become-appointed",
@@ -44,8 +44,7 @@
         hint: {
           text: "This is because they are either too ill or disabled to deal with their claim themselves, or they lack the mental capacity to manage their own affairs. Or I'm in the process of becoming their legally appointed representative."
         },
-        checked: true if data["person-claiming"] === "become-appointed"
-      }
-    ]
+        checked: true if data["person-claiming"] and data["person-claiming"].includes("become-appointed")
+      }]
   }) }}
 {% endblock %}

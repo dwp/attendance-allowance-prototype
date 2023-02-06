@@ -13,15 +13,8 @@ const config = {
       page: urls.personClaimingIneligible,
       condition: {
         field: urls.personClaiming,
-        value: 'official-capacity',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.personClaimingIneligible,
-      condition: {
-        field: urls.personClaiming,
-        value: 'become-appointed',
+        value:
+          'official-capacity',
         match: match.value,
       },
     },
