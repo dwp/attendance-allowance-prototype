@@ -135,7 +135,10 @@
           Who is claiming
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['person-claiming'] | replace("myself", "I’m applying for myself") }}
+          {{ data['person-claiming'] 
+          | replace("myself", "I’m applying for myself")
+          | replace("helping-someone", "I'm helping someone else with their application") 
+          }}
         </dd>
         <dd class="govuk-summary-list__actions">
           {{ changeLink('person-claiming') }}

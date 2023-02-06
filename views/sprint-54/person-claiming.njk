@@ -32,18 +32,17 @@
         value: "official-capacity",
         text: "I’m applying for someone else in an official capacity",
         hint: {
-          text: "This means you have a lasting power of attorney in place for 
-                property and finance for the person you are applying for.
-                Or you’re the registered appointee, deputy or belong to a 
-                Corporate Acting Body (CAB)."
+          text: "I have a lasting Power of Attorney (for finance and property) 
+          for the person I’m applying for. Or I’m the registered DWP 
+          appointee, deputy or belong to a Corporate Acting Body (CAB)."
         },
         checked: true if data["person-claiming"] === "official-capacity"
       },
       {
         value: "become-appointed",
-        text: "I’m applying for someone else in an official capacity",
+        text: "I wish to be appointed to deal with the applicant's benefits",
         hint: {
-          text: "This is because they are either too ill or disabled to deal with their claim themselves, or they lack the mental capacity to manage their own affairs. Or I am in the process of becoming their legally appointed representative."
+          text: "This is because they are either too ill or disabled to deal with their claim themselves, or they lack the mental capacity to manage their own affairs. Or I'm in the process of becoming their legally appointed representative."
         },
         checked: true if data["person-claiming"] === "become-appointed"
       }
