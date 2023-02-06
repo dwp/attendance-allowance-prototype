@@ -18,6 +18,14 @@ const config = {
       },
     },
     {
+      page: urls.personClaimingIneligible,
+      condition: {
+        field: urls.personClaiming,
+        value: 'become-appointed',
+        match: match.value,
+      },
+    },
+    {
       page: urls.birthDate,
     },
   ],
