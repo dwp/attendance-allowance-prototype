@@ -3,6 +3,7 @@ module.exports = {
     // start
     root: '/',
     start: 'start',
+    beforeYouStart: 'before-you-start',
 
     // eligibility
     personClaiming: 'person-claiming',
