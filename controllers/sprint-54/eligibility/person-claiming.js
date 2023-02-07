@@ -7,13 +7,21 @@ const {
 
 const config = {
   name: urls.personClaiming,
-  previous: urls.start,
+  previous: urls.beforeYouStart,
   next: [
     {
       page: urls.personClaimingIneligible,
       condition: {
         field: urls.personClaiming,
         value: 'official-capacity',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.personClaimingIneligible,
+      condition: {
+        field: urls.personClaiming,
+        value: 'become-appointed',
         match: match.value,
       },
     },
