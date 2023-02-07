@@ -8,6 +8,7 @@ const { urls } = require('../utils/constants');
 router.use(urls.root, controllers.verificationCode);
 router.use(`/${urls.start}`, controllers.start);
 router.use(`/${urls.beforeYouStart}`, controllers.beforeYouStart);
+router.use(`/${urls.helpingSomeoneIntro}`, controllers.helpingSomeoneIntro);
 
 // eligibility
 router.use(`/${urls.personClaiming}`, controllers.personClaiming);

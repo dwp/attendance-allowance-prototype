@@ -2,6 +2,7 @@
 const verificationCode = require('./start/verification-code');
 const start = require('./start/start');
 const beforeYouStart = require('./start/before-you-start');
+const helpingSomeoneIntro = require('./start/helping-someone-intro');
 
 // eligibility
 const birthDate = require('./eligibility/birth-date');
@@ -110,6 +111,7 @@ module.exports = {
   verificationCode,
   start,
   beforeYouStart,
+  helpingSomeoneIntro,
   personClaiming,
   birthDate,
   otherBenefits,

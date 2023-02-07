@@ -7,7 +7,19 @@ const {
 
 const config = {
   name: urls.birthDate,
-  previous: urls.personClaiming,
+  previous: [
+    {
+      page: urls.helpingSomeoneIntro,
+      condition: {
+        field: urls.personClaiming,
+        value: 'helping-someone',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.personClaiming,
+    },
+  ],
   next: [
     {
       page: urls.birthDateIneligible,
