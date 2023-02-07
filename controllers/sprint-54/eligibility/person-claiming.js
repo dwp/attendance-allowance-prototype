@@ -26,6 +26,14 @@ const config = {
       },
     },
     {
+      page: urls.helpingSomeoneIntro,
+      condition: {
+        field: urls.personClaiming,
+        value: 'helping-someone',
+        match: match.value,
+      },
+    },
+    {
       page: urls.birthDate,
     },
   ],

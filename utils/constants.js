@@ -4,6 +4,7 @@ module.exports = {
     root: '/',
     start: 'start',
     beforeYouStart: 'before-you-start',
+    helpingSomeoneIntro: 'helping-someone-intro',
 
     // eligibility
     personClaiming: 'person-claiming',
