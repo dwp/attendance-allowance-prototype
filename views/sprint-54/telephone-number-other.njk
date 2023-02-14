@@ -9,20 +9,14 @@
       What is their telephone number?
     </h1>
   </legend>
-  <p class="govuk-body">We will only phone you if we need to talk to you about your claim.</p>
-
-  <div class="govuk-form-group">
-    <div class="govuk-inset-text">
-      Later you will have the opportunity to add contact details for someone else.
-    </div> 
-  </div>
+  <p class="govuk-body govuk-!-margin-bottom-8">You've given us permission to contact the person who is helping you to apply. We’ll only phone them if we have questions about your application.</p>
   
   {{ govukInput({
     label: {
       text: "Their telephone number"
     },
     hint: {
-    text: "Enter your main contact number. It can be a mobile or landline, and should include any dialling codes."
+    text: "Enter their telephone number. It can be a mobile or landline, and should include any dialling codes."
     },
     classes: "govuk-input--width-30",
     errorMessage: data.validation['main-contact-number-other'].error,

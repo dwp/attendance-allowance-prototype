@@ -6,8 +6,8 @@ const {
 
 const config = {
   name: urls.emailConfirm,
-  previous: urls.alternativeFormats,
-  next: urls.checkAnswersContactDetails,
+  previous: urls.preferenceContact,
+  next: urls.alternativeFormats,
   validation: [
     {
       name: 'email-confirm',
