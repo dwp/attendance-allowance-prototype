@@ -4,44 +4,34 @@
 
 {% block form %}
   {{ govukRadios({
-    idPrefix: "residence-country",
-    name: "residence-country",
+    idPrefix: "preference-contact",
+    name: "preference-contact",
     fieldset: {
       legend: {
-        text: "Where do you live?",
+        text: "Who should we contact first if we have questions?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"
       }
     },
-    errorMessage: data.validation['residence-country'].error,
+    errorMessage: data.validation['preference-contact'].error,
     items: [
       {
-        value: "england",
-        text: "England",
-        checked: true if data["residence-country"] === "england"
+        value: "prefer-claimant",
+        text: "Call me first",
+        checked: true if data["preference-contact"] === "prefer-claimant"
       },
       {
-        value: "scotland",
-        text: "Scotland",
-        checked: true if data["residence-country"] === "scotland"
-      },
-      {
-        value: "wales",
-        text: "Wales",
-        checked: true if data["residence-country"] === "wales"
-      },
-      {
-        value: "northern-ireland",
-        text: "Northern Ireland",
-        checked: true if data["residence-country"] === "northern-ireland"
+        value: "prefer-person-helping",
+        text: "Call the person who’s helping me first",
+        checked: true if data["preference-contact"] === "prefer-person-helping"
       },
       {
         divider: "or"
       },
       {
-        value: "abroad",
-        text: "Somewhere else",
-        checked: true if data["residence-country"] === "abroad"
+        value: "no-preference",
+        text: "I don’t mind",
+        checked: true if data["preference-contact"] === "no-preference"
       }
     ]
   }) }}
