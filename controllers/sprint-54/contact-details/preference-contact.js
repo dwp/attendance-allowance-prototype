@@ -6,7 +6,7 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.residenceCountry,
+  name: urls.preferenceContact,
   previous: [
     {
       page: urls.nationalityOther,

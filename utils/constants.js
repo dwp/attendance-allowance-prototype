@@ -103,6 +103,7 @@ module.exports = {
     telephoneNumber: 'telephone-number',
     addContactDetails: 'add-contact-details',
     telephoneNumberOther: 'telephone-number-other', 
+    preferenceContact: 'preference-contact',
     alternativeFormats: 'alternative-formats',
     emailConfirm: 'email-confirm',
 

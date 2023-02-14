@@ -93,6 +93,7 @@ const watchOverNightFrequency = require('./care-needs-night/watch-over-night-fre
 const telephoneNumber = require('./contact-details/telephone-number');
 const telephoneNumberOther = require('./contact-details/telephone-number-other');
 const addContactDetails = require('./contact-details/add-contact-details');
+const preferenceContact = require('./contact-details/preference-contact');
 const alternativeFormats = require('./contact-details/alternative-formats');
 const emailConfirm = require('./contact-details/email-confirm');
 
@@ -132,6 +133,7 @@ module.exports = {
   illnessDisabilityManual,
   telephoneNumber,
   telephoneNumberOther,
+  preferenceContact, 
   dayDifficulties,
   nightDifficulties,
   emailConfirm,
