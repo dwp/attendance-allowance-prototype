@@ -17,7 +17,7 @@ const config = {
         maxLength: 15,
       },
       errors: {
-        required: 'Their main contact telephone number must be in the correct format, like 01632 960 001, 07700 900 982 or +44 808 157 0192. For international numbers include the country code.',
+        required: 'Their telephone number must be in the correct format, like 01632 960 001, 07700 900 982 or +44 808 157 0192. For international numbers include the country code.',
         maxLength: 'Telephone number must be 15 characters or less.',
       },
     },

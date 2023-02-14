@@ -13,6 +13,9 @@
         classes: "govuk-fieldset__legend--l"
       }
     },
+    hint: {
+          text: "We’ll only call if we have questions about your application."
+        },
     errorMessage: data.validation['preference-contact'].error,
     items: [
       {
@@ -32,7 +35,7 @@
         value: "no-preference",
         text: "I don’t mind",
         hint: {
-          text: "We’ll only phone them if we have questions about your application."
+          text: "If you don’t give a preference we’ll call you first, and call the person that’s helping you if we cannot get hold of you."
         },
         checked: true if data["preference-contact"] === "no-preference"
       }
