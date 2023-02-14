@@ -7,7 +7,7 @@ const {
 const config = {
   name: urls.addContactDetails,
   previous: urls.telephoneNumber,
-  next: urls.telephoneNumber,
+  next: urls.telephoneNumberOther,
   validation: [
     {
       type: validation.radios,
