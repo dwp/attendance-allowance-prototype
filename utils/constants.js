@@ -101,6 +101,7 @@ module.exports = {
 
     // contact details
     telephoneNumber: 'telephone-number',
+    addContactDetails: 'add-contact-details',
     alternativeFormats: 'alternative-formats',
     emailConfirm: 'email-confirm',
 

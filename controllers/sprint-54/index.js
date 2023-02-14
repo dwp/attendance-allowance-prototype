@@ -91,6 +91,7 @@ const watchOverNightFrequency = require('./care-needs-night/watch-over-night-fre
 
 // contact details
 const telephoneNumber = require('./contact-details/telephone-number');
+const addContactDetails = require('./contact-details/add-contact-details');
 const alternativeFormats = require('./contact-details/alternative-formats');
 const emailConfirm = require('./contact-details/email-confirm');
 
@@ -191,4 +192,5 @@ module.exports = {
   keepEyeDuration,
   claimSubmission,
   sercoLateApplication,
+  addContactDetails,
 };

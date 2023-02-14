@@ -102,6 +102,7 @@ router.use(`/${urls.watchOverNightFrequency}`, controllers.watchOverNightFrequen
 
 // contact details
 router.use(`/${urls.telephoneNumber}`, controllers.telephoneNumber);
+router.use(`/${urls.addContactDetails}`, controllers.addContactDetails);
 router.use(`/${urls.alternativeFormats}`, controllers.alternativeFormats);
 router.use(`/${urls.emailConfirm}`, controllers.emailConfirm);
 
