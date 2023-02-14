@@ -6,8 +6,8 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.returnBedDay,
-  previous: urls.bedDay,
+  name: urls.addContactDetails,
+  previous: urls.telephoneNumber,
   next: [
     {
       page: urls.washDay,

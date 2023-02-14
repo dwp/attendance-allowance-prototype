@@ -20,7 +20,7 @@ const config = {
       page: urls.checkAnswersStartDate,
     },
   ],
-  next: urls.alternativeFormats,
+  next: urls.addContactDetails,
   validation: [
     {
       name: 'main-contact-number',
