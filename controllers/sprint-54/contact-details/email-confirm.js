@@ -1,12 +1,26 @@
 const {
   urls,
+  match,
   validation,
   registerController,
 } = require('../../../utils/controller');
 
 const config = {
   name: urls.emailConfirm,
-  previous: urls.preferenceContact,
+  previous:
+  [
+    {
+      page: urls.addContactDetails,
+      condition: {
+        field: urls.addContactDetails,
+        value: 'no',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.preferenceContact,
+    },
+  ],
   next: urls.alternativeFormats,
   validation: [
     {

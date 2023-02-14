@@ -1,5 +1,6 @@
 const {
   urls,
+  match, 
   validation,
   registerController,
 } = require('../../../utils/controller');
@@ -7,7 +8,19 @@ const {
 const config = {
   name: urls.addContactDetails,
   previous: urls.telephoneNumber,
-  next: urls.telephoneNumberOther,
+  next: [
+    {
+      page: urls.telephoneNumberOther,
+      condition: {
+        field: urls.addContactDetails,
+        value: 'yes',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.emailConfirm,
+    },
+  ],
   validation: [
     {
       type: validation.radios,
