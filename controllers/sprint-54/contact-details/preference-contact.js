@@ -7,19 +7,7 @@ const {
 
 const config = {
   name: urls.preferenceContact,
-  previous: [
-    {
-      page: urls.nationalityOther,
-      condition: {
-        field: urls.nationality,
-        value: 'other',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.nationality,
-    },
-  ],
+  previous: urls.telephoneNumberOther,
   next: [
     {
       page: urls.residenceCountryIneligible,
