@@ -1,6 +1,5 @@
 const {
   urls,
-  match,
   validation,
   registerController,
 } = require('../../../utils/controller');
@@ -8,101 +7,25 @@ const {
 const config = {
   name: urls.addContactDetails,
   previous: urls.telephoneNumber,
-  next: [
-    {
-      page: urls.washDay,
-      condition: {
-        field: urls.dayDifficulties,
-        value: ['daytime-washing'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.dressDay,
-      condition: {
-        field: urls.dayDifficulties,
-        value: ['daytime-dressing'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.movingIndoorsDay,
-      condition: {
-        field: urls.dayDifficulties,
-        value: ['daytime-moving'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.fallingOrStumbling,
-      condition: {
-        field: urls.dayDifficulties,
-        value: ['stumbling-falling'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.toiletDay,
-      condition: {
-        field: urls.dayDifficulties,
-        value: ['daytime-toilet'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.eatDrinkDay,
-      condition: {
-        field: urls.dayDifficulties,
-        value: ['daytime-eating'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.medicationTreatmentDay,
-      condition: {
-        field: urls.dayDifficulties,
-        value: ['daytime-medication'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.socialActivitiesDay,
-      condition: {
-        field: urls.dayDifficulties,
-        value: ['daytime-hobbies'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.communicationDay,
-      condition: {
-        field: urls.dayDifficulties,
-        value: ['daytime-communication'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.keepEyeIntroduction,
-    },
-  ],
+  next: urls.telephoneNumber,
   validation: [
     {
       type: validation.radios,
-      name: 'return-bed-day',
+      name: 'add-contact-details',
     },
     {
-      name: 'return-bed-day-times',
+      name: 'add-contact-details',
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 4,
+        maxLength: 75,
       },
       errors: {
-        required: 'Enter how many times do you need to get in and out of bed.',
+        required: 'Enter their full name.',
       },
       condition: {
-        field: 'return-bed-day',
-        value: 'yes',
+        field: 'add-contact-details',
+        value: 'add-contact-yes',
       },
     },
   ],
