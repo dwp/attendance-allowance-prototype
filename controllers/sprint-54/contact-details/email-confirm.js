@@ -7,8 +7,7 @@ const {
 
 const config = {
   name: urls.emailConfirm,
-  previous:
-  [
+  previous:[
     {
       page: urls.addContactDetails,
       condition: {
