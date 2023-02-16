@@ -13,16 +13,16 @@
 
   <div class="govuk-form-group">
     <div class="govuk-inset-text">
-      If you are filling the form on behalf of someone else, make sure you put the number that you would like to be contacted on with regards to this claim.
+      Later you will have the opportunity to add contact details for someone else.
     </div> 
   </div>
   
   {{ govukInput({
     label: {
-      text: "Main contact number"
+      text: "Your telephone number"
     },
     hint: {
-    text: "Enter your main contact number which can either be a mobile or a landline number, including the dialling code."
+    text: "Enter your main contact number. It can be a mobile or landline, and should include any dialling codes."
     },
     classes: "govuk-input--width-30",
     errorMessage: data.validation['main-contact-number'].error,
@@ -30,20 +30,6 @@
     name: "main-contact-number",
     value: data["main-contact-number"],
     autocomplete: "main-contact-number"
-  }) }}
-
-  {{ govukInput({
-    label: {
-      text: "Alternative phone number (optional)"
-    },
-    hint: {
-    text: "Enter an alternative number you can be contacted on, including the dialling code."
-    },
-    classes: "govuk-input--width-30",
-    id: "mobile-number-other",
-    name: "mobile-number-other",
-    value: data["mobile-number-other"],
-    autocomplete: "mobile-number-other"
   }) }}
 
 {% endblock %}

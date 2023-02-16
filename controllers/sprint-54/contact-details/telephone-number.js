@@ -20,7 +20,7 @@ const config = {
       page: urls.checkAnswersStartDate,
     },
   ],
-  next: urls.alternativeFormats,
+  next: urls.addContactDetails,
   validation: [
     {
       name: 'main-contact-number',
@@ -30,7 +30,7 @@ const config = {
         maxLength: 15,
       },
       errors: {
-        required: 'Your main contact telephone number must be in the correct format, like 01632 960 001, 07700 900 982 or +44 808 157 0192. For international numbers include the country code.',
+        required: 'Your telephone number must be in the correct format, like 01632 960 001, 07700 900 982 or +44 808 157 0192. For international numbers include the country code.',
         maxLength: 'Telephone number must be 15 characters or less.',
       },
     },

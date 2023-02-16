@@ -8,10 +8,10 @@ const config = {
   name: urls.alternativeFormats,
   previous: [
     {
-      page: urls.telephoneNumber,
+      page: urls.emailConfirm,
     },
   ],
-  next: urls.emailConfirm,
+  next: urls.checkAnswersContactDetails,
   validation: {
     type: validation.checkboxes,
   },

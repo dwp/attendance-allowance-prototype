@@ -8,55 +8,70 @@
 		<h2 class="govuk-heading-l">
 			Contact details
 		</h2>
+
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row telephone-number">
 				<dt class="govuk-summary-list__key">
-					Main contact number
+					Your telephone number
 				</dt>
-				{% if data['main-contact-number'] %}
-					<dd class="govuk-summary-list__value">
-						{{ data['main-contact-number'] }}
-					</dd>
-				{% endif %}
-				{% if not data['main-contact-number'] %}
-					<dd class="govuk-summary-list__value">
-					</dd>
-				{% endif %}
-				<dd class="govuk-summary-list__actions">
+				<dd class="govuk-summary-list__value">
+					{{ data['main-contact-number'] }}
+				</dd>
+				 <dd class="govuk-summary-list__actions">
 					{{ changeLink('telephone-number') }}
 				</dd>
 			</div>
-			{% if data['mobile-number-other'] %}
-			<div class="govuk-summary-list__row mobile-number-other">
-				<dt class="govuk-summary-list__key">
-					Alternative phone number
-				</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['mobile-number-other'] }}
-					</dd>
-				<dd class="govuk-summary-list__actions">
-					{{ changeLink('telephone-number') }}
-				</dd>
-			</div>
-			{% endif %}
 
-      <div class="govuk-summary-list__row formats">
+			<div class="govuk-summary-list__row add-contact-details">
         <dt class="govuk-summary-list__key">
-          Alternative Formats
+          Do you want to add contact details for someone else?
         </dt>
         <dd class="govuk-summary-list__value">
-          <ul class="govuk-list">
-            {% for format in data['alternative-formats'] %}
-              <li>
-                {{ rewordFormat(format) }}
-              </li>
-            {% endfor %}
-          </ul>
+          {{ data['add-contact-details'] | replace("yes", "Yes") | replace("no", "No")| capitalize }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          {{ changeLink('alternative-formats') }}
+          {{ changeLink('add-contact-details') }}
         </dd>
       </div>
+      {% if data['add-contact-details'] == 'yes' %}
+        <div class="govuk-summary-list__row add-contact-details">
+          <dt class="govuk-summary-list__key">
+            Their name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['add-contact-details-name'] | capitalize }}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						{{ changeLink('add-contact-details') }}
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row telephone-number-other">
+					<dt class="govuk-summary-list__key">
+						Their telephone number
+					</dt>
+					<dd class="govuk-summary-list__value">
+					{{ data['main-contact-number-other'] }}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						{{ changeLink('telephone-number-other') }}
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row preference-contact">
+					<dt class="govuk-summary-list__key">
+						Who should we contact first if we have questions?
+					</dt>
+					<dd class="govuk-summary-list__value">
+					{{ data['preference-contact'] 
+					| replace("prefer-claimant", "Call me first") 
+					| replace("prefer-person-helping", "Call the person who’s helping me first")
+					| replace("no-preference", "I don’t mind")
+					}}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						{{ changeLink('preference-contact') }}
+					</dd>
+				</div>
+			{% endif %}
 
 			<div class="govuk-summary-list__row email-confirm">
 				<dt class="govuk-summary-list__key">
@@ -81,7 +96,25 @@
 						{{ changeLink('email-confirm') }}
 					</dd>
 				</div>
-        	{% endif %}
+      {% endif %}
+
+			<div class="govuk-summary-list__row formats">
+        <dt class="govuk-summary-list__key">
+          Alternative Formats
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <ul class="govuk-list">
+            {% for format in data['alternative-formats'] %}
+              <li>
+                {{ rewordFormat(format) }}
+              </li>
+            {% endfor %}
+          </ul>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {{ changeLink('alternative-formats') }}
+        </dd>
+      </div>
 		</dl>
 	</section>
 
