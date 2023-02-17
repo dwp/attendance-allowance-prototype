@@ -1,0 +1,61 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  <span class="govuk-caption-l">Using the toilet or managing incontinence during the day</span>
+   <h1 class="govuk-heading-l">
+     You told us you have difficulty using the toilet or managing incontinence
+   </h1>
+  <p class="govuk-body govuk-!-margin-bottom-2">
+    Using the toilet means:
+  </p>
+  <ul class="govuk-list govuk-list--bullet">
+      <li>being able to get on or off a toilet</li>
+      <li>cleaning yourself after using the toilet</li>
+    </ul>
+  <p class="govuk-body govuk-!-margin-bottom-2">
+    Managing incontinence means:
+  </p>
+  <ul class="govuk-list govuk-list--bullet">
+      <li>managing the emptying of your bowel and bladder when you have difficulty controlling this, including if you need a collecting device such as a catheter or stoma bag</li>
+      <li>cleaning yourself after doing so</li>
+    </ul>
+  <div class="govuk-inset-text"> 
+    This does not mean physically getting to the toilet.
+  </div>
+
+  {{ govukCheckboxes
+    ({
+      idPrefix: "toilet-day",
+      name: "toilet-day",
+      fieldset: {
+        legend: {
+          text: "Does your condition affect you using the toilet or managing incontinence?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      errorMessage: data.validation['toilet-day'].error,
+      items: [{
+        value: "toilet-physical",
+        text: "Yes, I have physical difficulty using the toilet or managing my incontinence",
+        checked: true if data["toilet-day"] and data["toilet-day"].includes("toilet-physical")
+      },
+      {
+        value: "toilet-motivation",
+        text: "Yes, I need encouragement or prompting to use the toilet or manage my incontinence",
+        checked: true if data["toilet-day"] and data["toilet-day"].includes("toilet-motivation")
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "no-other-apply",
+        text: "None of these apply to me",
+        behaviour: "exclusive",
+        checked: true if data["toilet-day"] and data["toilet-day"].includes("no-other-apply")
+      }]
+    })
+  }}
+{% endblock %}
