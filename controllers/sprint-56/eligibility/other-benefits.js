@@ -22,6 +22,14 @@ const config = {
       },
     },
     {
+      page: urls.signpostAttendanceAllowance,
+      condition: {
+        field: urls.otherBenefits,
+        value:'attendance-allowance',
+        match: match.anyOne,
+      },
+    },
+    {
       page: urls.nationality,
     },
   ],
