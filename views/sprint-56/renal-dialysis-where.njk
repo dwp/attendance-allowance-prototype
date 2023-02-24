@@ -1,0 +1,34 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+  {{ govukRadios({
+    idPrefix: "renal-dialysis-where",
+    name: "renal-dialysis-where",
+    fieldset: {
+      legend: {
+        text: "Where are you receiving treatment?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    errorMessage: data.validation['renal-dialysis-where'].error,
+    hint: {
+      html: specialRulesBody
+    },
+    items: [
+      {
+        value: "home",
+        text: "I am receiving my treatment at home",
+        checked: true if data["renal-dialysis-where"] === "home"
+      },
+      {
+        value: "hospital",
+        text: "I am receiving my treatment in a hospital or health centre",
+        checked: true if data["renal-dialysis-where"] === "hospital"
+      }
+    ]
+  }) }}
+{% endblock %}
