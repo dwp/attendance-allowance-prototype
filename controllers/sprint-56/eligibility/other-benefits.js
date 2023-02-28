@@ -13,8 +13,10 @@ const config = {
       page: urls.attendanceAllowanceIneligible,
       condition: {
         field: urls.otherBenefits,
-        value:'attendance-allowance',
-        match: match.value,
+        value:[
+          'attendance-allowance'
+        ],
+        match: match.anyOne,
       },
     },
     {
@@ -25,6 +27,7 @@ const config = {
           'disability-living-allowance',
           'personal-independence-payment',
           'adult-disability-payment',
+          'attendance-allowance',
         ],
         match: match.anyOne,
       },

@@ -19,6 +19,7 @@ module.exports = {
     residenceCountryIneligible: 'residence-country-ineligible',
     countryOutsideUKDuration: 'country-outside-uk-duration',
     countryOutsideUKDurationInelgible: 'country-outside-uk-duration-ineligible',
+    attendanceAllowanceIneligible: 'attendance-allowance-ineligible',
 
     // identity
     nationalInsurance: 'national-insurance',
