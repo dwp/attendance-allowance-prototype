@@ -10,6 +10,14 @@ const config = {
   previous: urls.birthDate,
   next: [
     {
+      page: urls.attendanceAllowanceIneligible,
+      condition: {
+        field: urls.otherBenefits,
+        value:'attendance-allowance',
+        match: match.value,
+      },
+    },
+    {
       page: urls.otherBenefitsIneligible,
       condition: {
         field: urls.otherBenefits,
@@ -18,14 +26,6 @@ const config = {
           'personal-independence-payment',
           'adult-disability-payment',
         ],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.signpostAttendanceAllowance,
-      condition: {
-        field: urls.otherBenefits,
-        value:'attendance-allowance',
         match: match.anyOne,
       },
     },
