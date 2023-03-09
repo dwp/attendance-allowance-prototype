@@ -18,7 +18,23 @@
         text: "Select all that apply."
       },
       errorMessage: data.validation['other-benefits'].error,
-      items: [{
+      items: [
+      {
+        value: "adult-disability-payment",
+        text: "Adult Disability Payment (ADP)",
+        checked: true if data["other-benefits"] and data["other-benefits"].includes("adult-disability-payment")
+      },
+      {
+        value: "attendance-allowance",
+        text: "Attendance Allowance (AA)",
+        checked: true if data["other-benefits"] and data["other-benefits"].includes("attendance-allowance")
+      },
+      {
+        value: "constant-attendance-allowance",
+        text: "Constant Attendance Allowance (CAA)",
+        checked: true if data["other-benefits"] and data["other-benefits"].includes("constant-attendance-allowance")
+      },
+      {
         value: "disability-living-allowance",
         text: "Disability Living Allowance (DLA)",
         checked: true if data["other-benefits"] and data["other-benefits"].includes("disability-living-allowance")
@@ -27,21 +43,6 @@
         value: "personal-independence-payment",
         text: "Personal Independence Payment (PIP)",
         checked: true if data["other-benefits"] and data["other-benefits"].includes("personal-independence-payment")
-      },
-      {
-        value: "adult-disability-payment",
-        text: "Adult Disability Payment (ADP)",
-        checked: true if data["other-benefits"] and data["other-benefits"].includes("adult-disability-payment")
-      },
-      {
-        value: "constant-attendance-allowance",
-        text: "Constant Attendance Allowance (CAA)",
-        checked: true if data["other-benefits"] and data["other-benefits"].includes("constant-attendance-allowance")
-      },
-      {
-        value: "attendance-allowance",
-        text: "Attendance Allowance (AA)",
-        checked: true if data["other-benefits"] and data["other-benefits"].includes("attendance-allowance")
       },
       {
         divider: "or"
