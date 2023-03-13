@@ -10,16 +10,6 @@ const config = {
   previous: urls.birthDate,
   next: [
     {
-      page: urls.attendanceAllowanceIneligible,
-      condition: {
-        field: urls.otherBenefits,
-        value:[
-          'attendance-allowance'
-        ],
-        match: match.anyOne,
-      },
-    },
-    {
       page: urls.otherBenefitsIneligible,
       condition: {
         field: urls.otherBenefits,
