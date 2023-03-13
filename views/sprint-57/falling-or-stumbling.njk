@@ -1,0 +1,54 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  <span class="govuk-caption-l">Stumbling or falling during the day</span>
+    <h1 class="govuk-heading-l">
+       You told us you are at risk of stumbling or falling
+    </h1>
+  <p class="govuk-body govuk-!-margin-bottom-2">
+    This might be the result of:
+  </p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>weak muscles</li>
+    <li>stiff joints or your knee gives way</li>
+    <li>problems with your sight</li>
+    <li>feeling faint or dizzy</li>
+    <li>blackouts or fits</li>
+  </ul>
+  
+  {{ govukCheckboxes
+    ({
+      idPrefix: "falling-or-stumbling",
+      name: "falling-or-stumbling",
+      fieldset: {
+        legend: {
+          text: "Does your condition affect you which results in stumbling or falling?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      errorMessage: data.validation['falling-or-stumbling'].error,
+      items: [{
+        value: "risk-stumbling",
+        text: "Yes, I am at risk of stumbling",
+        checked: true if data["falling-or-stumbling"] and data["falling-or-stumbling"].includes("risk-stumbling")
+      },
+      {
+        value: "risk-falling",
+        text: "Yes, I am at risk of falling",
+        checked: true if data["falling-or-stumbling"] and data["falling-or-stumbling"].includes("risk-falling")
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "no-other-apply",
+        text: "None of these apply to me",
+        behaviour: "exclusive",
+        checked: true if data["falling-or-stumbling"] and data["falling-or-stumbling"].includes("no-other-apply")
+      }]
+    })
+  }}
+{% endblock %}
