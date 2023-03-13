@@ -51,12 +51,11 @@
 
   <div class="govuk-button-group">
     {{ phaseButton(data, "Add condition") }}
-
-    {% if data['illness-disability-rows'] %}
+    {% if data['illness-disability'] %}
       {{ govukButton({
         text: "Skip",
         classes: "govuk-button--secondary",
-        href: "special-rules-declaration"
+        href: "renal-dialysis" if 'Acute Kidney (renal) failure R21' in data['illness-disability'] or 'Kidney (renal) Chronic failure R22' in data['illness-disability'] or 'Kidney (renal) transplantation R23' in data['illness-disability'] or 'Kidney (renal) transplantation – rejection of R30' in data['illness-disability'] or 'Kidney (renal) Dialysis (which fulfils the deeming provision criteria)' in data['illness-disability'] else "special-rules-declaration"
       }) }}
     {% endif %}
   </div>
@@ -72,7 +71,12 @@
       "Anaemia - Iron deficiency",
       "Anaemia - B12 (pernicious)/folate deficiency",
       "Anaemia - Aplastic",
-      "Anaemias ",
+      "Anaemias",
+      "Acute Kidney (renal) failure R21",
+      "Kidney (renal) Chronic failure R22",
+      "Kidney (renal) transplantation R23",
+      "Kidney (renal) transplantation – rejection of R30",
+      "Kidney (renal) Dialysis (which fulfils the deeming provision criteria)",
       "Hereditary spherocytosis",
       "Thalassaemia",
       "Anaemia - Sickle cell",

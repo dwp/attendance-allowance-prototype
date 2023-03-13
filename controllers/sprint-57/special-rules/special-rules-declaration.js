@@ -18,7 +18,7 @@ const config = {
       },
     },
     {
-      page: urls.renalDialysis,
+      page: urls.treatmentSurgery,
     },
   ],
   validation: {
