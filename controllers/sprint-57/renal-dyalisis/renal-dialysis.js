@@ -9,7 +9,7 @@ const config = {
   name: urls.renalDialysis,
   previous: [
     {
-      page: urls.surgeryMedicalCentre,
+      page: urls.illnessDisability,
       condition: {
         field: urls.specialRulesDeclaration,
         value: 'yes',
@@ -17,7 +17,7 @@ const config = {
       },
     },
     {
-      page: urls.specialRulesDeclaration,
+      page: urls.illnessDisability,
     },
   ],
   next: [
