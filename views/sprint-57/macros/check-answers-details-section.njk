@@ -308,12 +308,12 @@
       {% if data['renal-dialysis'] == 'yes' %}
         <div class="govuk-summary-list__row renal-dialysis">
           <dt class="govuk-summary-list__key">
-            Where you undertake your treatment
+            Where you have your dialysis
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['renal-dialysis-where'] 
             | replace("home", "I’m receiving my treatment at home") 
-            | replace("hospital", "I’m receiving my treatment in a hospital or health centre")
+            | replace("hospital", "I’m receiving my treatment at a hospital or health centre")
             | capitalize }}
           </dd>
           <dd class="govuk-summary-list__actions">
@@ -324,7 +324,7 @@
       {% if data['renal-dialysis-where'] == 'home' %}
         <div class="govuk-summary-list__row renal-dialysis">
           <dt class="govuk-summary-list__key">
-            When you undertake your treatment
+            When you have your dialysis
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['renal-dialysis-when'] 
@@ -338,7 +338,7 @@
         </div>
         <div class="govuk-summary-list__row renal-dialysis">
           <dt class="govuk-summary-list__key">
-            Days a week you receive the treatment
+            Days a week you have dialysis
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['renal-dialysis-frequency'] 
@@ -353,7 +353,7 @@
         </div>
         <div class="govuk-summary-list__row renal-dialysis">
           <dt class="govuk-summary-list__key">
-            Help from another person during renal dialysis treatment
+            Help from someone else during your dialysis
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['renal-dialysis-help']
