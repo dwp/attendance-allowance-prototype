@@ -279,21 +279,6 @@
       </div>
      {% endif %}
      
-     {% if data['special-rules-declaration'] === 'no' %}
-      <div class="govuk-summary-list__row special-rules-declaration">
-        <dt class="govuk-summary-list__key">
-          Special rules
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['special-rules-declaration'] 
-            | replace("no", "Does not apply to me") 
-            | capitalize }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          {{ changeLink('special-rules-declaration') }}
-        </dd>
-      </div>
-
       <div class="govuk-summary-list__row renal-dialysis">
         <dt class="govuk-summary-list__key">
           Renal dialysis treatment
@@ -366,34 +351,49 @@
           </dd>
         </div>
       {% endif %}
-    {% endif %}
+      
+      {% if data['special-rules-declaration'] === 'no' %}
+        <div class="govuk-summary-list__row special-rules-declaration">
+          <dt class="govuk-summary-list__key">
+            Special rules
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['special-rules-declaration'] 
+              | replace("no", "Does not apply to me") 
+              | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('special-rules-declaration') }}
+          </dd>
+        </div>
+      {% endif %}
 
-    <div class="govuk-summary-list__row treatment-surgery">
-      <dt class="govuk-summary-list__key">
-        Other surgeries or treatments
-      </dt>
-      <dd class="govuk-summary-list__value">
-        {{ data['treatment-surgery'] 
-        | replace("yes", "Yes") 
-        | replace("no", "No") }}
-      </dd>
-      <dd class="govuk-summary-list__actions">
-        {{ changeLink('treatment-surgery') }}
-      </dd>
-    </div>
-    {% if data['treatment-surgery'] == 'yes' %}
-      <div class="govuk-summary-list__row treatment">
+      <div class="govuk-summary-list__row treatment-surgery">
         <dt class="govuk-summary-list__key">
-          About your surgery or treatment
+          Other surgeries or treatments
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['treatment-surgery-information'] }}
+          {{ data['treatment-surgery'] 
+          | replace("yes", "Yes") 
+          | replace("no", "No") }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          {{ changeLink('treatment-surgery-information') }}
+          {{ changeLink('treatment-surgery') }}
         </dd>
       </div>
-    {% endif %}
+      {% if data['treatment-surgery'] == 'yes' %}
+        <div class="govuk-summary-list__row treatment">
+          <dt class="govuk-summary-list__key">
+            About your surgery or treatment
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['treatment-surgery-information'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('treatment-surgery-information') }}
+          </dd>
+        </div>
+      {% endif %}
     </dl>
   </section>
 {% endmacro %}
