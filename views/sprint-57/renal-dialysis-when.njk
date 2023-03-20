@@ -4,12 +4,14 @@
 
 {% block form %}
 
+  <span class="govuk-caption-l">Kidney conditions</span>
+
   {{ govukRadios({
     idPrefix: "renal-dialysis-when",
     name: "renal-dialysis-when",
     fieldset: {
       legend: {
-        text: "When do you receive your treatment?",
+        text: "When do you have your dialysis?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"
       }
