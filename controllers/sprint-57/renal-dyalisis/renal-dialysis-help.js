@@ -7,7 +7,7 @@ const {
 const config = {
   name: urls.renalDialysisHelp,
   previous: urls.renalDialysisFrequency,
-  next: urls.treatmentSurgery,
+  next: urls.specialRulesDeclaration,
   validation: {
     type: validation.radios,
     errors: {
