@@ -4,12 +4,14 @@
 
 {% block form %}
 
+  <span class="govuk-caption-l">Kidney conditions</span>  
+
   {{ govukRadios({
     idPrefix: "renal-dialysis-where",
     name: "renal-dialysis-where",
     fieldset: {
       legend: {
-        text: "Where are you receiving treatment?",
+        text: "Where do you have your dialysis?", 
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"
       }
@@ -21,12 +23,12 @@
     items: [
       {
         value: "home",
-        text: "I am receiving my treatment at home",
+        text: "I'm receiving my treatment at home",
         checked: true if data["renal-dialysis-where"] === "home"
       },
       {
         value: "hospital",
-        text: "I am receiving my treatment in a hospital or health centre",
+        text: "I'm receiving my treatment at a hospital or health centre",
         checked: true if data["renal-dialysis-where"] === "hospital"
       }
     ]
