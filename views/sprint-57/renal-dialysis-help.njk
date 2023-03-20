@@ -3,13 +3,16 @@
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
+
+  <span class="govuk-caption-l">Kidney conditions</span>
+
   {{ govukRadios({
     classes: "govuk-radios",
     idPrefix: "renal-dialysis-help",
     name: "renal-dialysis-help",
     fieldset: {
       legend: {
-        text: "Do you require help from another person during renal dialysis?",
+        text: "Do you require help from someone else during your dialysis?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"
       }
