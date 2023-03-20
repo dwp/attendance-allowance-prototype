@@ -30,17 +30,17 @@ const illnessDisability = require('./illness-and-disabilities/illness-disability
 const illnessDisabilityAdded = require('./illness-and-disabilities/illness-disability-added');
 const illnessDisabilityManual = require('./illness-and-disabilities/illness-disability-manual');
 
-// special rules
-const specialRulesDeclaration = require('./special-rules/special-rules-declaration');
-const specialRulesForm = require('./special-rules/special-rules-form');
-const surgeryMedicalCentre = require('./special-rules/surgery-medical-centre');
-
 // renal dyalisis
 const renalDialysis = require('./renal-dyalisis/renal-dialysis');
 const renalDialysisWhere = require('./renal-dyalisis/renal-dialysis-where');
 const renalDialysisWhen = require('./renal-dyalisis/renal-dialysis-when');
 const renalDialysisFrequency = require('./renal-dyalisis/renal-dialysis-frequency');
 const renalDialysisHelp = require('./renal-dyalisis/renal-dialysis-help');
+
+// special rules
+const specialRulesDeclaration = require('./special-rules/special-rules-declaration');
+const specialRulesForm = require('./special-rules/special-rules-form');
+const surgeryMedicalCentre = require('./special-rules/surgery-medical-centre');
 
 // surgery or treatment
 const treatmentSurgery = require('./surgery-or-treatment/treatment-surgery');
