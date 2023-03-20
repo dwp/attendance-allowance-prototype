@@ -279,18 +279,19 @@
       </div>
      {% endif %}
      
-      <div class="govuk-summary-list__row renal-dialysis">
-        <dt class="govuk-summary-list__key">
-          Renal dialysis treatment
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['renal-dialysis'] | replace("yes", "Yes") | replace("no", "No")| capitalize }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          {{ changeLink('renal-dialysis') }}
-        </dd>
-      </div>
+      
       {% if data['renal-dialysis'] == 'yes' %}
+        <div class="govuk-summary-list__row renal-dialysis">
+          <dt class="govuk-summary-list__key">
+            Renal dialysis treatment
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['renal-dialysis'] | replace("yes", "Yes") | replace("no", "No")| capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('renal-dialysis') }}
+          </dd>
+        </div>
         <div class="govuk-summary-list__row renal-dialysis">
           <dt class="govuk-summary-list__key">
             Where you have your dialysis
