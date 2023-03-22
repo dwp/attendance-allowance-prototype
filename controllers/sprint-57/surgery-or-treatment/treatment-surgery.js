@@ -7,27 +7,7 @@ const {
 
 const config = {
   name: urls.treatmentSurgery,
-  previous: [
-    {
-      page: urls.renalDialysis,
-      condition: {
-        field: urls.renalDialysis,
-        value: 'no',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.renalDialysisWhere,
-      condition: {
-        field: urls.renalDialysisWhere,
-        value: 'hospital',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.renalDialysisHelp,
-    },
-  ],
+  previous: urls.specialRulesDeclaration,
   next: [
     {
       page: urls.treatmentSurgeryInformation,
