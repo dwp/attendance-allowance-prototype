@@ -55,7 +55,7 @@
       {{ govukButton({
         text: "Skip",
         classes: "govuk-button--secondary",
-        href: "renal-dialysis" if 'Acute Kidney (renal) failure R21' in data['illness-disability'] or 'Kidney (renal) Chronic failure R22' in data['illness-disability'] or 'Kidney (renal) transplantation R23' in data['illness-disability'] or 'Kidney (renal) transplantation – rejection of R30' in data['illness-disability'] or 'Kidney (renal) Dialysis (which fulfils the deeming provision criteria)' in data['illness-disability'] else "special-rules-declaration"
+        href: "renal-dialysis" if 'Kidney disease or disorder' in data['illness-disability'] or 'Renal failure - acute' in data['illness-disability'] or 'Acute kidney disease (AKD)' in data['illness-disability'] or 'Chronic kidney failure / renal failure' in data['illness-disability'] or 'Kidney transplantation / renal' in data['illness-disability'] or 'Transplant rejection - kidney / renal' in data['illness-disability'] else "special-rules-declaration"
       }) }}
     {% endif %}
   </div>
@@ -70,6 +70,7 @@
     const illnesses = [
       "Achondroplasia (restricted growth)",
       "Acne vulgaris",
+      "Acute kidney disease",
       "Addison's disease",
       "ADHD / ADD including hyperkinetic syndrome",
       "Adrenal disease",
@@ -170,6 +171,7 @@
       "Chorioretinal disorders",
       "Chromosomal syndrome ",
       "Chronic fatigue syndrome (CFS)",
+      "Chronic kidney failure / renal failure",
       "Chronic obstructive pulmonary disease (COPD) chronic bronchitis / emphysema",
       "Chronic pain syndrome",
       "Chronic secretory otitis media",
@@ -343,6 +345,7 @@
       "Keratoconus",
       "Kidney cancer",
       "Kidney disease or disorder",
+      "Kidney transplantation / renal",
       "Knee disorder",
       "Kyphosis",
       "Labyrinthitis",
@@ -566,6 +569,7 @@
       "Tourette's syndrome",
       "Transient ischaemic attacks (TIAs)",
       "Transplant rejection - renal",
+      "Transplant rejection - kidney / renal",
       "Tricuspid valve disease",
       "Tuberculosis",
       "Brain tumour (benign)",
@@ -594,11 +598,6 @@
       "Womb (uterus) cancer",
       "Wrist and hand disorders",
       "Writer's cramp",
-      "Acute Kidney (renal) failure R21",
-      "Kidney (renal) Chronic failure R22",
-      "Kidney (renal) transplantation R23",
-      "Kidney (renal) transplantation – rejection of R30",
-      "Kidney (renal) Dialysis (which fulfils the deeming provision criteria)",
     ];
 
     accessibleAutocomplete({
