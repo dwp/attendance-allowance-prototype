@@ -7,7 +7,27 @@ const {
 
 const config = {
   name: urls.specialRulesDeclaration,
-  previous: urls.illnessDisability,
+  previous: [
+    {
+      page: urls.renalDialysis,
+      condition: {
+        field: urls.renalDialysis,
+        value: 'no',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.renalDialysisWhere,
+      condition: {
+        field: urls.renalDialysisWhere,
+        value: 'hospital',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.renalDialysisHelp,
+    },
+  ],
   next: [
     {
       page: urls.personClaimingIneligible,
