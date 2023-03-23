@@ -1,0 +1,23 @@
+{% from "./macros/check-answers-contact-details-section.njk" import checkAnswersContactDetailsSection %}
+
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <h1 class="govuk-heading-xl">
+          Check your answers 
+        </h1>
+        
+        {{ checkAnswersContactDetailsSection(data) }}
+
+        <a href="serco-late-application">
+          <button class="govuk-button" data-module="govuk-button">
+            Accept and continue
+          </button>  
+        </a> 
+      </div>
+    </div>
+  </div>    
+{% endblock %}
