@@ -26,6 +26,27 @@ const config = {
     },
     {
       page: urls.renalDialysisHelp,
+      condition: {
+        field: urls.renalDialysisHelp, 
+        value: 'yes', 
+        match: match.value,
+      }, 
+    },
+    {
+      page: urls.renalDialysisHelp,
+      condition: {
+        field: urls.renalDialysisHelp, 
+        value: 'no', 
+        match: match.value,
+      }, 
+    },
+    {
+      page: urls.illnessDisabilityAdded,
+      condition: {
+        field: urls.illnessDisability,
+        value: ['Acute Kidney (renal) failure R21', 'Kidney (renal) Chronic failure R22', 'Kidney (renal) transplantation R23', 'Kidney (renal) transplantation – rejection of R30', 'Kidney (renal) Dialysis (which fulfils the deeming provision criteria)'],
+        match: match.none,
+      },
     },
   ],
   next: [
