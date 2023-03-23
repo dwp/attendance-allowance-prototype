@@ -44,7 +44,7 @@ const config = {
       page: urls.illnessDisabilityAdded,
       condition: {
         field: urls.illnessDisability,
-        value: ['Acute Kidney (renal) failure R21', 'Kidney (renal) Chronic failure R22', 'Kidney (renal) transplantation R23', 'Kidney (renal) transplantation – rejection of R30', 'Kidney (renal) Dialysis (which fulfils the deeming provision criteria)'],
+        value: ['Kidney disease or disorder', 'Renal failure - acute', 'Acute kidney disease (AKD)', 'Chronic kidney failure / renal failure', 'Kidney transplantation / renal', 'Transplant rejection - kidney / renal'],
         match: match.none,
       },
     },
