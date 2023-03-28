@@ -1,6 +1,7 @@
 const {
   urls,
   validation,
+  match, 
   registerController,
 } = require('../../../utils/controller');
 
@@ -8,10 +9,15 @@ const config = {
   name: urls.alternativeFormats,
   previous: [
     {
-      page: urls.emailConfirm,
+      page: urls.addContactDetails,
+      condition: {
+        field: urls.addContactDetails,
+        value: 'no',
+        match: match.value,
+      },
     },
   ],
-  next: urls.checkAnswersContactDetails,
+  next: urls.emailConfirm,
   validation: {
     type: validation.checkboxes,
   },
