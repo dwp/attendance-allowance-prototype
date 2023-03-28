@@ -18,7 +18,7 @@ const config = {
       },
     },
     {
-      page: urls.emailConfirm,
+      page: urls.alternativeFormats,
     },
   ],
   validation: [

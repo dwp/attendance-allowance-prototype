@@ -7,20 +7,8 @@ const {
 
 const config = {
   name: urls.emailConfirm,
-  previous:[
-    {
-      page: urls.addContactDetails,
-      condition: {
-        field: urls.addContactDetails,
-        value: 'no',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.preferenceContact,
-    },
-  ],
-  next: urls.alternativeFormats,
+  previous: urls.alternativeFormats,
+  next: urls.checkAnswersContactDetails,
   validation: [
     {
       name: 'email-confirm',
