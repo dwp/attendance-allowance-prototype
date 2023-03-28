@@ -72,7 +72,24 @@
 					</dd>
 				</div>
 			{% endif %}
-
+ 			
+			<div class="govuk-summary-list__row formats">
+				<dt class="govuk-summary-list__key">
+				Alternative Formats
+				</dt>
+				<dd class="govuk-summary-list__value">
+				<ul class="govuk-list">
+					{% for format in data['alternative-formats'] %}
+					<li>
+						{{ rewordFormat(format) }}
+					</li>
+					{% endfor %}
+				</ul>
+				</dd>
+				<dd class="govuk-summary-list__actions">
+				{{ changeLink('alternative-formats') }}
+				</dd>
+      		</div>
 			<div class="govuk-summary-list__row email-confirm">
 				<dt class="govuk-summary-list__key">
 					Would you like an email confirmation
@@ -84,7 +101,7 @@
 					{{ changeLink('email-confirm') }}
 				</dd>
 			</div>
- 			{% if data['email-confirm']== "yes" %}
+			{% if data['email-confirm']== "yes" %}
 				<div class="govuk-summary-list__row email-confirm">
 					<dt class="govuk-summary-list__key">
 						Email address
@@ -96,25 +113,7 @@
 						{{ changeLink('email-confirm') }}
 					</dd>
 				</div>
-      {% endif %}
-
-			<div class="govuk-summary-list__row formats">
-        <dt class="govuk-summary-list__key">
-          Alternative Formats
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <ul class="govuk-list">
-            {% for format in data['alternative-formats'] %}
-              <li>
-                {{ rewordFormat(format) }}
-              </li>
-            {% endfor %}
-          </ul>
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          {{ changeLink('alternative-formats') }}
-        </dd>
-      </div>
+      		{% endif %}
 		</dl>
 	</section>
 
