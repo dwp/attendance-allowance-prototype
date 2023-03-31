@@ -210,15 +210,19 @@
 			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 				<div class="govuk-summary-list__row moving-indoors-day">
 					<dt class="govuk-summary-list__key">
-						Does your condition affect you moving around indoors?
+						What do you find difficult when moving around indoors?
 					</dt>
 					<dd class="govuk-summary-list__value">
 						<ul class="govuk-list">
 							{% for item in data['moving-indoors-day'] %}
 								<li>
 									{{ item 
-									| replace("moving-physical", "Yes, I have physical difficulty when moving around indoors")
-									| replace("moving-motivation", "Yes, I need encouragement or prompting to move around indoors") 
+									| replace("walking-around", "Walking around")
+									| replace("chair", "Getting in or out of a chair")
+									| replace("wheelchair", "Transferring to or from a wheelchair")
+									| replace("stairs", "Going up or down stairs") 
+									| replace("reminding-motivating", "Reminding or motivating myself to move")
+									| replace("moving-indoors-something-else", "I struggle with something else when moving around indoors")  
 									| replace("no-other-apply", "None of these apply to me") }}
 								</li>
 							{% endfor %}
