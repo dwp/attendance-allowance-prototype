@@ -110,7 +110,7 @@ const config = {
     },
     condition: {
       field: 'moving-indoors-day',
-      value: ['something-else-explain'], 
+      value: 'moving-indoors-something-else', 
     },
   }, 
   {
