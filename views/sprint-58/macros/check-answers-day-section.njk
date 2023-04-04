@@ -232,6 +232,19 @@
 						{{ changeLink('moving-indoors-day') }}
 					</dd>
 				</div>	
+				{% if data['something-else-explain'] %}
+					<div class="govuk-summary-list__row something-else-explain">
+						<dt class="govuk-summary-list__key">
+							Something else you find difficult
+						</dt>
+						<dd class="govuk-summary-list__value">
+							{{ data['something-else-explain'] | capitalize }}
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							{{ changeLink('moving-indoors-day') }}
+						</dd>
+					</div>
+				{% endif %}
 				{% if data['moving-indoors-why'] %}
 					<div class="govuk-summary-list__row moving-indoors-why">
 						<dt class="govuk-summary-list__key">
