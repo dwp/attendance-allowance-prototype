@@ -1,4 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
 
 {% extends "layouts/prototypeLayout.njk" %}
 
@@ -48,7 +49,10 @@
       {
         value: "moving-indoors-something-else",
         text: "I struggle with something else when moving around indoors",
-        checked: true if data["moving-indoors-day"] and data["moving-indoors-day"].includes("moving-indoors-something-else")
+        checked: true if data["moving-indoors-day"] and data["moving-indoors-day"].includes("moving-indoors-something-else"), 
+        conditional: {
+          html: conditionalSomethingElseHtml
+             }
       },
       {
         divider: "or"
@@ -62,3 +66,17 @@
     })
   }}
 {% endblock %}
+
+{% set conditionalSomethingElseHtml %}
+   {{ govukInput({
+    classes: "govuk-input--width-40",
+    isPageHeading: true,
+    label: {
+      text: 'Tell us what you find difficult'
+      },
+    id: "something-else-explain",
+    name: "something-else-explain",
+    errorMessage: data.validation['something-else-explain'].error,
+    value: data['something-else-explain']
+    }) }}
+{% endset %}

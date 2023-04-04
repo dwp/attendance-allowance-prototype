@@ -97,9 +97,26 @@ const config = {
       page: urls.keepEyeIntroduction,
     },
   ],
-  validation: {
+  validation: [
+  {
+    name: 'something-else-explain',
+    type: validation.textInput,
+    options: {
+      minLength: 1,
+      maxLength: 100,
+    },
+    errors: {
+      required: 'Enter what you find difficult.',
+    },
+    condition: {
+      field: 'something-else-explain',
+      value: [''], 
+    },
+  }, 
+  {
+    name: 'moving-indoors-day',
     type: validation.checkboxes,
-  },
+  }]
 };
 
 module.exports = registerController(config.name, config);
