@@ -109,8 +109,8 @@ const config = {
       required: 'Enter what you find difficult.',
     },
     condition: {
-      field: 'something-else-explain',
-      value: [''], 
+      field: 'moving-indoors-day',
+      value: ['something-else-explain'], 
     },
   }, 
   {
