@@ -232,7 +232,50 @@
 						{{ changeLink('moving-indoors-day') }}
 					</dd>
 				</div>	
+				{% if data['moving-indoors-why'] %}
+					<div class="govuk-summary-list__row moving-indoors-why">
+						<dt class="govuk-summary-list__key">
+							Your difficulties moving around indoors 
+						</dt>
+						<ul class="govuk-list">
+							{% for item in data['moving-indoors-day'] %}
+								<li>
+									{{ item 
+									| replace("shuffle", "I shuffle or take very small steps")
+									| replace("unsteady", "I'm very unsteady, even if I use an aid or lean on things")
+									| replace("slow", "I'm very slow")
+									| replace("several-attemps-chair", "It takes me several attempts to get out of a chair") 
+									| replace("physically-assisted", "Someone has to physically assist me")
+									| replace("move-around-safely", "I cannot move around safely")  
+									| replace("chair-bound", "I sit in a chair all day")
+									| replace("bed-bound", "I'm confined by my bed") 
+									| replace("none-apply", "None of these apply to me") }}
+								</li>
+							{% endfor %}
+						</ul>
+						<dd class="govuk-summary-list__actions">
+							{{ changeLink('moving-around-why') }}
+						</dd>
+          </div>
+				{% endif %}
+
 			</dl>
+			{% if data['moving-indoors-stairs'] %}
+				<ul class="govuk-list">
+					{% for item in data['moving-indoors-stairs'] %}
+						<li>
+							{{ item 
+							| replace("toilet", "To get to the toilet")
+							| replace("bathroom", "To get to the bathroom")
+							| replace("kitchen", "To get to the kitchen") 
+							| replace("in-out-property", "To get in and out of my property") }}
+						</li>
+					{% endfor %}
+				</ul>
+				<dd class="govuk-summary-list__actions">
+					{{ changeLink('moving-around-stairs') }}
+				</dd>
+			{% endif %}
 		</section>
 	{% endif %}
 
@@ -273,7 +316,7 @@
 						<dd class="govuk-summary-list__actions">
 							{{ changeLink('stumbling') }}
 						</dd>
-          			</div>
+          </div>
 				{% endif %}
 				{% if data['frequency-falling'] %}
 					<div class="govuk-summary-list__row frequency-falling">

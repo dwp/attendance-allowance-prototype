@@ -56,6 +56,8 @@ const additionalWashDay = require('./care-needs-day/additional-wash-day');
 const dressDay = require('./care-needs-day/dress-day');
 const additionalDressDay = require('./care-needs-day/additional-dress-day');
 const movingIndoorsDay = require('./care-needs-day/moving-indoors-day');
+const movingIndoorsWhy = require('./care-needs-day/moving-indoors-why');
+const movingIndoorsStairs = require('./care-needs-day/moving-indoors-stairs');
 const fallingOrStumbling = require('./care-needs-day/falling-or-stumbling');
 const stumbling = require('./care-needs-day/stumbling');
 const falling = require('./care-needs-day/falling');
@@ -172,6 +174,8 @@ module.exports = {
   medicationTreatmentNightFrequency,
   difficultiesStartDate,
   movingIndoorsDay,
+  movingIndoorsWhy,
+  movingIndoorsStairs,
   fallingOrStumbling,
   stumbling,
   falling,

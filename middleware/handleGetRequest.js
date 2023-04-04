@@ -32,6 +32,9 @@ const handleGetRequest = (urlPath, config = null) => (req, res, next) => {
     res.locals.data['back-link'] = backLink;
   }
   res.render(path, config, (error, html) => {
+    if (error) {
+      console.log('error rendering page', error)
+    }
     if (!error) {
       res.set({ 'Content-type': 'text/html; charset=utf-8' });
       res.send(html);
