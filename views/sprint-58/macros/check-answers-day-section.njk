@@ -259,22 +259,25 @@
           </div>
 				{% endif %}
 
-			</dl>
 			{% if data['moving-indoors-stairs'] %}
-				<ul class="govuk-list">
-					{% for item in data['moving-indoors-stairs'] %}
-						<li>
-							{{ item 
-							| replace("toilet", "To get to the toilet")
-							| replace("bathroom", "To get to the bathroom")
-							| replace("kitchen", "To get to the kitchen") 
-							| replace("in-out-property", "To get in and out of my property") }}
-						</li>
-					{% endfor %}
-				</ul>
-				<dd class="govuk-summary-list__actions">
-					{{ changeLink('moving-around-stairs') }}
-				</dd>
+				<div class="govuk-summary-list__row moving-indoors-why">
+						<dt class="govuk-summary-list__key">
+							Why you need to go up or down the stairs
+						</dt>
+							<ul class="govuk-list">
+								{% for item in data['moving-indoors-stairs'] %}
+									<li>
+										{{ item 
+										| replace("toilet", "To get to the toilet")
+										| replace("bathroom", "To get to the bathroom")
+										| replace("kitchen", "To get to the kitchen") 
+										| replace("in-out-property", "To get in and out of my property") }}
+									</li>
+								{% endfor %}
+							</ul>
+							<dd class="govuk-summary-list__actions">
+								{{ changeLink('moving-indoors-stairs') }}
+							</dd>
 			{% endif %}
 		</section>
 	{% endif %}
