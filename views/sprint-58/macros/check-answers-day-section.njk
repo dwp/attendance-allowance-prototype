@@ -219,7 +219,7 @@
 									{{ item 
 									| replace("walking-around", "Walking around")
 									| replace("chair", "Getting in or out of a chair")
-									| replace("wheelchair", "Transferring to or from a wheelchair")
+									| replace("wheel", "Transferring to or from a wheelchair")
 									| replace("stairs", "Going up or down stairs") 
 									| replace("reminding-motivating", "Reminding or motivating myself to move")
 									| replace("moving-indoors-something-else", "I struggle with something else when moving around indoors")  
@@ -238,7 +238,7 @@
 							Your difficulties moving around indoors 
 						</dt>
 						<ul class="govuk-list">
-							{% for item in data['moving-indoors-day'] %}
+							{% for item in data['moving-indoors-why'] %}
 								<li>
 									{{ item 
 									| replace("shuffle", "I shuffle or take very small steps")
