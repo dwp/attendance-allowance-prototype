@@ -303,15 +303,15 @@
 			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 				<div class="govuk-summary-list__row falling-or-stumbling">
 					<dt class="govuk-summary-list__key">
-						Does your condition affect you which results in stumbling or falling?
+						Do you stumble or fall because of your illness or disability?
 					</dt>
 					<dd class="govuk-summary-list__value">
 						<ul class="govuk-list">
 							{% for item in data['falling-or-stumbling'] %}
 								<li>
 									{{ item 
-									| replace("risk-stumbling", "Yes, I am at risk of stumbling")
-									| replace("risk-falling", "Yes, I am at risk of falling") 
+									| replace("risk-stumbling", "Yes, I stumble")
+									| replace("risk-falling", "Yes, I fall down") 
 									| replace("no-other-apply", "None of these apply to me") }}
 								</li>
 							{% endfor %}
@@ -320,24 +320,72 @@
 					<dd class="govuk-summary-list__actions">
 						{{ changeLink('falling-or-stumbling') }}
 					</dd>
-				</div>	
+				</div>
+				{% if data['falling-or-stumbling-why'] %}
+					<div class="govuk-summary-list__row falling-or-stumbling-why">
+						<dt class="govuk-summary-list__key">
+							Why do you stumble or fall down?
+						</dt>
+						<dd class="govuk-summary-list__value">
+							<ul class="govuk-list">
+								{% for item in data['falling-or-stumbling-why'] %}
+									<li>
+										{{ item 
+										| replace("joints-weak", "My joints are stiff or weak")
+										| replace("weak-frail", "I'm physically weak or frail") 
+										| replace("visually-impaired", "I'm visually impaired") 
+										| replace("unbalanced-dizzy", "I feel unbalanced or dizzy")
+										| replace("blackouts-fits", "I have blackouts or fits") 
+										| replace("something-else", "I struggle with something else") }}
+									</li>
+								{% endfor %}
+							</ul>
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							{{ changeLink('falling-or-stumbling-why') }}
+						</dd>
+          </div>
+				{% endif %}
 				{% if data['frequency-stumbling'] %}
 					<div class="govuk-summary-list__row frequency-stumbling ">
 						<dt class="govuk-summary-list__key">
-							How many times a week do you stumble? 
+							How many times do you stumble on a weekly basis? 
 						</dt>
 						<dd class="govuk-summary-list__value">
-							{{ data['frequency-stumbling'] | capitalize }}
+							{{ data['frequency-stumbling'] 
+							| replace("less-than-once", "Less than once a week")
+							| replace("one-two", "1 or 2 times a week")
+							| replace("three-four", "3 or 4 times a week")
+							| replace("five-six", "5 or 6 times a week")
+							| replace("less-than-six", "More than 6 times a week") 
+							}}
 						</dd>
 						<dd class="govuk-summary-list__actions">
 							{{ changeLink('stumbling') }}
 						</dd>
           </div>
 				{% endif %}
-				{% if data['frequency-falling'] %}
+				{% if data['falling-when'] %}
+					<div class="govuk-summary-list__row falling-when">
+						<dt class="govuk-summary-list__key">
+							When did you last fall?
+						</dt>
+						<dd class="govuk-summary-list__value">
+							{{ data['falling-when']
+							| replace("last-week", "Last week")
+							| replace("last-month", "Last month")
+							| replace("one-three-months", "1 to 3 months ago")
+							| replace("less-than-six", "Less than 6 months ago")
+							| replace("more-than-six", "More than 6 months ago")
+							| replace("more-than-twelve", "More than 12 months ago") }}
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							{{ changeLink('falling-when') }}
+						</dd>
+					</div>
 					<div class="govuk-summary-list__row frequency-falling">
 						<dt class="govuk-summary-list__key">
-							In the last year, how many times did you fall? 
+							In the last 12 months, roughly how many times did you fall? 
 						</dt>
 						<dd class="govuk-summary-list__value">
 							{{ data['frequency-falling'] }}
@@ -354,7 +402,7 @@
 							{{ data['help-falling'] | capitalize }}
 						</dd>
 						<dd class="govuk-summary-list__actions">
-							{{ changeLink('falling') }}
+							{{ changeLink('falling-help') }}
 						</dd>
 					</div>
 					<div class="govuk-summary-list__row falls-clinic">
@@ -365,10 +413,10 @@
 							{{ data['falls-clinic'] | capitalize }}
 						</dd>
 						<dd class="govuk-summary-list__actions">
-							{{ changeLink('falling') }}
+							{{ changeLink('falling-help') }}
 						</dd>
 					</div>
-				{% endif %}  
+				{% endif %}
 			</dl>
 		</section>
 	{% endif %}
