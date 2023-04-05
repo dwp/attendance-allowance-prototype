@@ -9,7 +9,15 @@ const config = {
   name: urls.fallingOrStumbling,
   previous: [
     {
-      page: urls.movingIndoorsDay,
+      page: urls.movingIndoorsStairs,
+      condition: {
+        field: urls.movingIndoorsDay,
+        value: ['stairs'],
+        match: match.anyOne,
+      },
+    },
+    {
+      page: urls.movingIndoorsWhy,
       condition: {
         field: urls.dayDifficulties,
         value: ['daytime-moving'],

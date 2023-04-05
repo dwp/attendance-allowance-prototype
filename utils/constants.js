@@ -66,6 +66,8 @@ module.exports = {
     dressDay: 'dress-day',
     additionalDressDay: 'additional-dress-day',
     movingIndoorsDay: 'moving-indoors-day',
+    movingIndoorsWhy: 'moving-indoors-why',
+    movingIndoorsStairs: 'moving-indoors-stairs',
     fallingOrStumbling: 'falling-or-stumbling',
     stumbling: 'stumbling',
     falling: 'falling',
