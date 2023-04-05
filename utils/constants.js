@@ -73,6 +73,7 @@ module.exports = {
     stumbling: 'stumbling',
     fallingWhen: 'falling-when',
     falling: 'falling',
+    fallingHelp: 'falling-help',
     toiletDay: 'toilet-day',
     toiletDayFrequency: 'toilet-day-frequency',
     eatDrinkDay: 'eat-drink-day',

@@ -7,10 +7,10 @@ const {
 
 const config = {
   name: urls.stumbling,
-  previous: urls.fallingOrStumbling,
+  previous: urls.fallingOrStumblingWhy,
   next: [
     {
-      page: urls.falling,
+      page: urls.fallingWhen,
       condition: {
         field: urls.fallingOrStumbling,
         value: ['risk-falling'],
