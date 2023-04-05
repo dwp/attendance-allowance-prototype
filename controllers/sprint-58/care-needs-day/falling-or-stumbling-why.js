@@ -10,18 +10,18 @@ const config = {
   previous: urls.fallingOrStumbling,
   next: [
     {
-      page: urls.movingIndoorsStairs,
+      page: urls.stumbling,
       condition: {
-        field: urls.movingIndoorsDay,
-        value: ['stairs'],
+        field: urls.fallingOrStumbling,
+        value: ['risk-stumbling'],
         match: match.anyOne,
       },
     },
     {
-      page: urls.fallingOrStumbling,
+      page: urls.falling,
       condition: {
-        field: urls.dayDifficulties,
-        value: ['stumbling-falling'],
+        field: urls.fallingOrStumbling,
+        value: ['risk-falling'],
         match: match.anyOne,
       },
     },

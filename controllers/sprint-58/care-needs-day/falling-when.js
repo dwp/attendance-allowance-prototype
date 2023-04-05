@@ -7,7 +7,23 @@ const {
 
 const config = {
   name: urls.fallingWhen,
-  previous: urls.fallingOrStumbling,
+  previous: [
+  {
+    page: urls.stumbling,
+    condition: {
+      field: urls.fallingOrStumbling,
+      value: ['risk-stumbling'],
+      match: match.anyOne,
+    },
+  },
+  {
+    page: urls.fallingOrStumbling,
+    condition: {
+      field: urls.fallingOrStumblingWhy,
+      value: ['risk-falling'],
+      match: match.anyOne,
+    },
+  }],
   next: [
     {
       page: urls.falling,

@@ -64,13 +64,9 @@ const config = {
   validation: [
     {
       name: 'frequency-stumbling',
-      type: validation.textInput,
-      options: {
-        minLength: 1,
-        maxLength: 4,
-      },
+      type: validation.radios,
       errors: {
-        required: 'Enter how many times you stumble a week.',
+        required: 'Select how many times you stumble a week.',
       },
     },
   ],
