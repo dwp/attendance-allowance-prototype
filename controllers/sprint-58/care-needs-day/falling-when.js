@@ -6,7 +6,7 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.stumbling,
+  name: urls.fallingWhen,
   previous: urls.fallingOrStumbling,
   next: [
     {

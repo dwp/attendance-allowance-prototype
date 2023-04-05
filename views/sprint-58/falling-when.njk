@@ -1,49 +1,51 @@
-{% from "govuk/components/input/macro.njk" import govukRadios %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
-  <h1 class="govuk-heading-l">
-    How many times do you stumble on a weekly basis?
-  </h1>
 
   {{ govukRadios({
-    idPrefix: "frequency-stumbling",
-    name: "frequency-stumbling",
+    idPrefix: "falling-when",
+    name: "falling-when",
     fieldset: {
       legend: {
-        text: "What is your nationality?",
+        text: "When did you last fall?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"
       }
     },
-    errorMessage: data.validation['frequency-stumbling'].error,
+    errorMessage: data.validation['falling-when'].error,
     items: [
       {
-        value: "less-than-once",
-        text: "Less than once a week",
-        checked: true if data["frequency-stumbling"] === "less-than-once"
+        value: "last-week",
+        text: "Last week",
+        checked: true if data["falling-when"] === "last-week"
       },
       {
-        value: "one-two",
-        text: "1 or 2 times a week",
-        checked: true if data["frequency-stumbling"] === "one-two"
+        value: "last-month",
+        text: "Last month",
+        checked: true if data["falling-when"] === "last-month"
       },
       {
-        value: "three-four",
-        text: "3 or 4 times a week",
-        checked: true if data["frequency-stumbling"] === "three-four"
-      }, 
-      {
-        value: "five-six",
-        text: "5 or 6 times a week",
-        checked: true if data["frequency-stumbling"] === "five-six"
+        value: "one-three-months",
+        text: "1 to 3 months ago",
+        checked: true if data["falling-when"] === "one-three-months"
       }, 
       {
         value: "less-than-six",
-        text: "More than 6 times a week",
-        checked: true if data["frequency-stumbling"] === "less-than-six"
+        text: "Less than 6 months ago",
+        checked: true if data["falling-when"] === "less-than-six"
+      }, 
+      {
+        value: "more-than-six",
+        text: "More than 6 months ago",
+        checked: true if data["falling-when"] === "more-than-six"
+      }, 
+      {
+        value: "more-than-twelve",
+        text: "More than 12 months ago",
+        checked: true if data["falling-when"] === "more-than-twelve"
       }
     ]
   }) }}

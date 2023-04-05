@@ -71,6 +71,7 @@ module.exports = {
     fallingOrStumbling: 'falling-or-stumbling',
     fallingOrStumblingWhy: 'falling-or-stumbling-why',
     stumbling: 'stumbling',
+    fallingWhen: 'falling-when',
     falling: 'falling',
     toiletDay: 'toilet-day',
     toiletDayFrequency: 'toilet-day-frequency',

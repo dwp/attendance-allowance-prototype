@@ -61,6 +61,7 @@ const movingIndoorsStairs = require('./care-needs-day/moving-indoors-stairs');
 const fallingOrStumbling = require('./care-needs-day/falling-or-stumbling');
 const fallingOrStumblingWhy = require('./care-needs-day/falling-or-stumbling-why');
 const stumbling = require('./care-needs-day/stumbling');
+const fallingWhen = require('./care-needs-day/falling-when');
 const falling = require('./care-needs-day/falling');
 const toiletDay = require('./care-needs-day/toilet-day');
 const toiletDayFrequency = require('./care-needs-day/toilet-day-frequency');
@@ -178,7 +179,8 @@ module.exports = {
   movingIndoorsWhy,
   movingIndoorsStairs,
   fallingOrStumbling,
-  fallingOrStumblingWhy, 
+  fallingOrStumblingWhy,
+  fallingWhen, 
   stumbling,
   falling,
   toiletDay,

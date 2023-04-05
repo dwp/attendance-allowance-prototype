@@ -1,19 +1,16 @@
-{% from "govuk/components/input/macro.njk" import govukRadios %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
-  <h1 class="govuk-heading-l">
-    How many times do you stumble on a weekly basis?
-  </h1>
 
   {{ govukRadios({
     idPrefix: "frequency-stumbling",
     name: "frequency-stumbling",
     fieldset: {
       legend: {
-        text: "What is your nationality?",
+        text: "How many times do you stumble on a weekly basis?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"
       }
