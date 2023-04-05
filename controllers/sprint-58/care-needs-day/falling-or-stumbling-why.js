@@ -6,8 +6,8 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.movingIndoorsWhy,
-  previous: urls.movingIndoorsDay,
+  name: urls.fallingOrStumblingWhy,
+  previous: urls.fallingOrStumbling,
   next: [
     {
       page: urls.movingIndoorsStairs,

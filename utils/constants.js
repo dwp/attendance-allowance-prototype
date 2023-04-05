@@ -69,6 +69,7 @@ module.exports = {
     movingIndoorsWhy: 'moving-indoors-why',
     movingIndoorsStairs: 'moving-indoors-stairs',
     fallingOrStumbling: 'falling-or-stumbling',
+    fallingOrStumblingWhy: 'falling-or-stumbling-why',
     stumbling: 'stumbling',
     falling: 'falling',
     toiletDay: 'toilet-day',

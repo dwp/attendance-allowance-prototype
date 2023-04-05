@@ -70,6 +70,7 @@ router.use(`/${urls.movingIndoorsDay}`, controllers.movingIndoorsDay);
 router.use(`/${urls.movingIndoorsWhy}`, controllers.movingIndoorsWhy);
 router.use(`/${urls.movingIndoorsStairs}`, controllers.movingIndoorsStairs);
 router.use(`/${urls.fallingOrStumbling}`, controllers.fallingOrStumbling);
+router.use(`/${urls.fallingOrStumblingWhy}`, controllers.fallingOrStumblingWhy);
 router.use(`/${urls.stumbling}`, controllers.stumbling);
 router.use(`/${urls.falling}`, controllers.falling);
 router.use(`/${urls.toiletDay}`, controllers.toiletDay);
