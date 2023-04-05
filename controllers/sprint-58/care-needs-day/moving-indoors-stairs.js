@@ -6,45 +6,9 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.movingIndoorsDay,
-  previous: [
-    {
-      page: urls.dressDay,
-      condition: {
-        field: urls.dayDifficulties,
-        value: ['daytime-dressing'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.washDay,
-      condition: {
-        field: urls.dayDifficulties,
-        value: ['daytime-washing'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.bedDay,
-      condition: {
-        field: urls.dayDifficulties,
-        value: ['daytime-bed'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.dayDifficulties,
-    },
-  ],
+  name: urls.movingIndoorsStairs,
+  previous: urls.movingIndoorsWhy,
   next: [
-    {
-      page: urls.movingIndoorsWhy,
-      condition: {
-        field: urls.movingIndoorsDay,
-        value: ['walking-around', 'chair', 'wheelchair', 'stairs', 'reminding-motivating', 'moving-indoors-something-else'],
-        match: match.anyOne,
-      },
-    },
     {
       page: urls.fallingOrStumbling,
       condition: {
@@ -97,26 +61,9 @@ const config = {
       page: urls.keepEyeIntroduction,
     },
   ],
-  validation: [
-  {
-    name: 'something-else-explain',
-    type: validation.textInput,
-    options: {
-      minLength: 1,
-      maxLength: 100,
-    },
-    errors: {
-      required: 'Enter what you find difficult.',
-    },
-    condition: {
-      field: 'moving-indoors-day',
-      value: 'moving-indoors-something-else', 
-    },
-  }, 
-  {
-    name: 'moving-indoors-day',
+  validation: {
     type: validation.checkboxes,
-  }]
+  },
 };
 
 module.exports = registerController(config.name, config);
