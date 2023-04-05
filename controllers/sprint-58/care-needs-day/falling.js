@@ -7,24 +7,7 @@ const {
 
 const config = {
   name: urls.falling,
-  previous: [
-    {
-      page: urls.stumbling,
-      condition: {
-        field: urls.fallingOrStumbling,
-        value: ['risk-stumbling'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.fallingOrStumbling,
-      condition: {
-        field: urls.dayDifficulties,
-        value: ['stumbling-falling'],
-        match: match.anyOne,
-      },
-    },
-  ],
+  previous: urls.fallingWhen,  
   next: urls.fallingHelp,
   validation: [
   {
