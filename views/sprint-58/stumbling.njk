@@ -1,24 +1,49 @@
-{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
-  <span class="govuk-caption-l">Stumbling during the day</span>
-  <h1 class="govuk-heading-l">
-    How many times a week do you stumble? 
-  </h1>
-  
-  {{ govukInput({
+
+  {{ govukRadios({
+    idPrefix: "frequency-stumbling",
     name: "frequency-stumbling",
-    type: "stumbling",
-    autocomplete: "stumbling",
-    classes: "govuk-input--width-4",
-    value: data['frequency-stumbling'],
+    fieldset: {
+      legend: {
+        text: "How many times do you stumble on a weekly basis?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
     errorMessage: data.validation['frequency-stumbling'].error,
-    hint: {
-      text: "Please enter a number (it can be approximate)"
-    }
+    items: [
+      {
+        value: "less-than-once",
+        text: "Less than once a week",
+        checked: true if data["frequency-stumbling"] === "less-than-once"
+      },
+      {
+        value: "one-two",
+        text: "1 or 2 times a week",
+        checked: true if data["frequency-stumbling"] === "one-two"
+      },
+      {
+        value: "three-four",
+        text: "3 or 4 times a week",
+        checked: true if data["frequency-stumbling"] === "three-four"
+      }, 
+      {
+        value: "five-six",
+        text: "5 or 6 times a week",
+        checked: true if data["frequency-stumbling"] === "five-six"
+      }, 
+      {
+        value: "less-than-six",
+        text: "More than 6 times a week",
+        checked: true if data["frequency-stumbling"] === "less-than-six"
+      }
+    ]
   }) }}
+
  
 {% endblock %}

@@ -6,11 +6,19 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.stumbling,
-  previous: urls.fallingOrStumblingWhy,
+  name: urls.fallingOrStumblingWhy,
+  previous: urls.fallingOrStumbling,
   next: [
     {
-      page: urls.fallingWhen,
+      page: urls.stumbling,
+      condition: {
+        field: urls.fallingOrStumbling,
+        value: ['risk-stumbling'],
+        match: match.anyOne,
+      },
+    },
+    {
+      page: urls.falling,
       condition: {
         field: urls.fallingOrStumbling,
         value: ['risk-falling'],
@@ -20,7 +28,7 @@ const config = {
     {
       page: urls.toiletDay,
       condition: {
-        field: urls.dayDifficulties,
+        field: urls.dayDiffulties,
         value: ['daytime-toilet'],
         match: match.anyOne,
       },
@@ -63,13 +71,24 @@ const config = {
   ],
   validation: [
     {
-      name: 'frequency-stumbling',
-      type: validation.radios,
-      errors: {
-        required: 'Select how many times you stumble a week.',
+      name: 'something-else-falling-explain',
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 100,
       },
-    },
-  ],
+      errors: {
+        required: 'Tell us what is causing you to stumble or fall',
+      },
+      condition: {
+        field: 'falling-or-stumbling-why',
+        value: 'something-else', 
+      },
+    }, 
+    {
+      name: 'falling-or-stumbling-why',
+      type: validation.checkboxes,
+    }]
 };
 
 module.exports = registerController(config.name, config);

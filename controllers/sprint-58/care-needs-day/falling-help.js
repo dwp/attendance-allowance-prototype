@@ -6,17 +6,9 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.stumbling,
-  previous: urls.fallingOrStumblingWhy,
+  name: urls.fallingHelp,
+  previous: urls.falling,
   next: [
-    {
-      page: urls.fallingWhen,
-      condition: {
-        field: urls.fallingOrStumbling,
-        value: ['risk-falling'],
-        match: match.anyOne,
-      },
-    },
     {
       page: urls.toiletDay,
       condition: {
@@ -63,10 +55,17 @@ const config = {
   ],
   validation: [
     {
-      name: 'frequency-stumbling',
+      name: 'help-falling',
       type: validation.radios,
       errors: {
-        required: 'Select how many times you stumble a week.',
+        required: 'You must select an option. We need to know whether you need help after you fall.',
+      },
+    },
+    {
+      name: 'falls-clinic',
+      type: validation.radios,
+      errors: {
+        required: 'You must select an option. We need to know whether you have been referred to a Falls Clinic.',
       },
     },
   ],
