@@ -4,27 +4,27 @@
 
 {% block form %}
   
-    {% if data['moving-indoors-day']%}
-      <p class="govuk-body-m govuk-!-margin-bottom-1">
-        You told us you have difficulties with:
-      </p>
-      <h1 class="govuk-heading-m">
-        <ul class="govuk-list govuk-heading-m govuk-!-margin-bottom-8">
-          {% for item in data['moving-indoors-day'] %}
-            <li>
-              {{ item 
-              | replace("walking-around", "walking around")
-              | replace("chair", "getting in or out of a chair")
-              | replace("wheel", "transferring to or from a wheelchair")
-              | replace("stairs", "going up or down stairs") 
-              | replace("reminding-motivating", "reminding or motivating myself to move")
-              | replace("moving-indoors-something-else", "something else when moving around indoors")  
-              | replace("no-other-apply", "None of these apply to me") }}
-            </li>
-          {% endfor %}
-        </ul>
-      </h1>
-    {% endif %}
+  <h1 class="govuk-heading-l govuk-!-margin-bottom-5">Tell us more about your difficulties</h1>
+
+  <p class="govuk-body govuk-!-margin-bottom-0">
+    You told us you have difficulties with:
+  </p>
+  <p class="govuk-heading-m">
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-0 govuk-!-margin-bottom-8">
+      {% for item in data['moving-indoors-day'] %}
+        <li>
+          {{ item 
+          | replace("walking-around", "walking around")
+          | replace("chair", "getting in or out of a chair")
+          | replace("wheel", "transferring to or from a wheelchair")
+          | replace("stairs", "going up or down stairs") 
+          | replace("reminding-motivating", "reminding or motivating myself to move")
+          | replace("moving-indoors-something-else", "something else when moving around indoors")  
+          | replace("no-other-apply", "None of these apply to me") }}
+        </li>
+      {% endfor %}
+    </ul>
+  </p>
   
   {{ govukCheckboxes
     ({
@@ -32,9 +32,9 @@
       name: "moving-indoors-why",
       fieldset: {
         legend: {
-          text: "Tell us more about your difficulties",
+          text: "Why do you think you're having difficulties?",
           isPageHeading: false,
-          classes: "govuk-fieldset__legend--l"
+          classes: "govuk-fieldset__legend--m"
         }
       },
       hint: {
