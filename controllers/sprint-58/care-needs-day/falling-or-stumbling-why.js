@@ -18,14 +18,6 @@ const config = {
       },
     },
     {
-      page: urls.stumbling,
-      condition: {
-        field: urls.fallingOrStumbling,
-        value: ['risk-stumbling'],
-        match: match.anyOne,
-      },
-    },
-    {
       page: urls.falling,
       condition: {
         field: urls.fallingOrStumbling,
@@ -36,7 +28,7 @@ const config = {
     {
       page: urls.toiletDay,
       condition: {
-        field: urls.dayDifficulties,
+        field: urls.dayDiffulties,
         value: ['daytime-toilet'],
         match: match.anyOne,
       },

@@ -48,7 +48,39 @@ const config = {
       },
     },
     {
-      page: urls.movingIndoorsDay,
+      page: urls.falling,
+      condition: {
+        field: urls.fallingOrStumbling,
+        value: ['risk-falling'],
+        match: match.anyOne,
+      },
+    },
+    {
+      page: urls.stumbling,
+      condition: {
+        field: urls.fallingOrStumbling,
+        value: ['risk-stumbling'],
+        match: match.anyOne,
+      },
+    },
+    {
+      page: urls.fallingOrStumbling,
+      condition: {
+        field: urls.dayDifficulties,
+        value: ['stumbling-falling'],
+        match: match.anyOne,
+      },
+    },
+    {
+      page: urls.movingIndoorsStairs,
+      condition: {
+        field: urls.movingIndoorsDay,
+        value: ['stairs'],
+        match: match.anyOne,
+      },
+    },
+    {
+      page: urls.movingIndoorsWhy,
       condition: {
         field: urls.dayDifficulties,
         value: ['daytime-moving'],
