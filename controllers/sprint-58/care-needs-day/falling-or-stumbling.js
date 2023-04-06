@@ -53,19 +53,27 @@ const config = {
     },
   ],
   next: [
+    // {
+    //   page: urls.stumbling,
+    //   condition: {
+    //     field: urls.fallingOrStumbling,
+    //     value: ['risk-stumbling'],
+    //     match: match.anyOne,
+    //   },
+    // },
+    // {
+    //   page: urls.falling,
+    //   condition: {
+    //     field: urls.fallingOrStumbling,
+    //     value: ['risk-falling'],
+    //     match: match.anyOne,
+    //   },
+    // },
     {
-      page: urls.stumbling,
+      page: urls.fallingOrStumblingWhy,
       condition: {
         field: urls.fallingOrStumbling,
-        value: ['risk-stumbling'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.falling,
-      condition: {
-        field: urls.fallingOrStumbling,
-        value: ['risk-falling'],
+        value: ['risk-falling', 'risk-stumbling'],
         match: match.anyOne,
       },
     },

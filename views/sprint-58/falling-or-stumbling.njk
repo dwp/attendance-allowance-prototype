@@ -8,6 +8,12 @@
        You told us you are at risk of stumbling or falling
     </h1>
   <p class="govuk-body govuk-!-margin-bottom-2">
+    By stumbling we mean tripping over or losing balance but staying on your feet.
+  </p>
+  <p class="govuk-body govuk-!-margin-bottom-4">
+    By falling we mean falling down and needing to get up again.
+  </p>
+  <p class="govuk-body govuk-!-margin-bottom-2">
     This might be the result of:
   </p>
   <ul class="govuk-list govuk-list--bullet">
@@ -24,20 +30,23 @@
       name: "falling-or-stumbling",
       fieldset: {
         legend: {
-          text: "Does your condition affect you which results in stumbling or falling?",
+          text: "Do you stumble or fall because of your illness or disability?",
           isPageHeading: false,
           classes: "govuk-fieldset__legend--m"
         }
       },
+      hint: {
+        text: "Choose all that apply to you."
+      },
       errorMessage: data.validation['falling-or-stumbling'].error,
       items: [{
         value: "risk-stumbling",
-        text: "Yes, I am at risk of stumbling",
+        text: "Yes, I stumble",
         checked: true if data["falling-or-stumbling"] and data["falling-or-stumbling"].includes("risk-stumbling")
       },
       {
         value: "risk-falling",
-        text: "Yes, I am at risk of falling",
+        text: "Yes, I fall down",
         checked: true if data["falling-or-stumbling"] and data["falling-or-stumbling"].includes("risk-falling")
       },
       {
@@ -45,7 +54,7 @@
       },
       {
         value: "no-other-apply",
-        text: "None of these apply to me",
+        text: "No, I don't stumble or fall",
         behaviour: "exclusive",
         checked: true if data["falling-or-stumbling"] and data["falling-or-stumbling"].includes("no-other-apply")
       }]
