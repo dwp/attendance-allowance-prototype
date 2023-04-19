@@ -6,7 +6,7 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.toiletDay,
+  name: urls.toiletDayWhy,
   previous: [
     {
       page: urls.falling,

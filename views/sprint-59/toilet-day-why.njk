@@ -3,9 +3,8 @@
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
-  <span class="govuk-caption-l">Using the toilet or managing incontinence in the daytime</span>
    <h1 class="govuk-heading-l">
-     You told us you have difficulty with your toilet needs
+     Tell us more about your difficulties
    </h1>
 
   {{ govukCheckboxes
@@ -14,7 +13,7 @@
       name: "toilet-day-why",
       fieldset: {
         legend: {
-          text: "What do you struggle with?",
+          text: "Why do you think you're having difficulties?",
           isPageHeading: false,
           classes: "govuk-fieldset__legend--m"
         }
@@ -25,63 +24,53 @@
       errorMessage: data.validation['toilet-day-why'].error,
       items: [{
         value: "toilet-getting-to",
-        text: "Getting to the toilet or commode",
+        text: "I need to lean on something such as the sink or radiator",
         checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-getting-to")
       },
       {
         value: "toilet-urgent",
-        text: "Needing the toilet urgently",
+        text: "I can only use a toilet if it's raised",
         checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-urgent")
       },
       {
         value: "toilet-getting-on-off",
-        text: "Getting on or off the toilet or commode",
+        text: "It takes me several attempts to get on or off the toilet or commode",
         checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-getting-on-off")
       },
       {
         value: "toilet-cleaning-myself",
-        text: "Cleaning myself after using the toilet",
+        text: "I have accidents because I cannot get there in time",
         checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-cleaning-myself")
       },
       {
         value: "toilet-emptying",
-        text: "Emptying and managing my stoma, catheter or similar",
+        text: "I cannot get on or off the toilet safely",
+        hint: {
+          text: "For example, you get dizzy or are unbalanced"
+        },
         checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-emptying")
       },
       {
         value: "toilet-remembering",
-        text: "Remembering to use the toilet",
+        text: "Someone has to physically assist me",
+        hint: {
+          text: "This might be to get on or off the toilet, to clean or change your stoma bag, or to change clothes after an accident"
+        },
         checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-remembering")
       },
       {
         value: "managing-incontinence",
-        text: "Managing my incontinence",
-        hint: {
-          text: "For example, cleaning yourself, changing pads or changing clothes"
-        },
+        text: "I use a commode, catheter, stoma or bedpan instead of the toilet",
         checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("managing-incontinence")
-      },
-      {
-        value: "toilet-not-always",
-        text: "I do not always use the toilet or commode",
-        hint: {
-          text: "For example, you use a catheter, stoma or bedpan instead of the toilet"
-        },
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-not-always")
-      },
-      {
-        value: "toilet-something-else",
-        text: "I struggle with something else",
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-something-else")
       },
       {
         divider: "or"
       },
       {
-        value: "no-other-apply",
-        text: "I do not struggle using the toilet or managing my incontinence",
+        value: "none-apply",
+        text: "None of these apply to me",
         behaviour: "exclusive",
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("no-other-apply")
+        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("none-apply")
       }]
     })
   }}
