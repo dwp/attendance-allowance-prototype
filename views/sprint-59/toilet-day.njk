@@ -1,4 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
 
 {% extends "layouts/prototypeLayout.njk" %}
 
@@ -72,7 +73,10 @@
       {
         value: "toilet-something-else",
         text: "I struggle with something else",
-        checked: true if data["toilet-day"] and data["toilet-day"].includes("toilet-something-else")
+        checked: true if data["toilet-day"] and data["toilet-day"].includes("toilet-something-else"),
+        conditional: {
+          html: conditionalSomethingElseToiletHtml
+          }
       },
       {
         divider: "or"
@@ -86,3 +90,17 @@
     })
   }}
 {% endblock %}
+
+{% set conditionalSomethingElseToiletHtml %}
+   {{ govukInput({
+    classes: "govuk-input--width-40",
+    isPageHeading: true,
+    label: {
+      text: 'Tell us what you find difficult'
+      },
+    id: "something-else-explain-toilet",
+    name: "something-else-explain-toilet",
+    errorMessage: data.validation['something-else-explain-toilet'].error,
+    value: data['something-else-explain-toilet']
+    }) }}
+{% endset %}

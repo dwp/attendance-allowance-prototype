@@ -421,7 +421,7 @@
 		</section>
 	{% endif %}
 
-	{% if data["day-difficulties"] and data["day-difficulties"].includes("daytime-toilet") %}
+	{% if data["day-difficulties"] and data["day-difficulties"].includes("daytime-toilet") and data['toilet-day'] != "no-other-apply" %}
 		<section class="Getting to and using the toilet">
 			<h2 class="govuk-heading-m">
 				Using the toilet or managing incontinence
@@ -429,37 +429,77 @@
 			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 				<div class="govuk-summary-list__row toilet-day">
 					<dt class="govuk-summary-list__key">
-						Does your condition affect you using the toilet or managing incontinence?
+						What do you struggle with?
 					</dt>
 					<dd class="govuk-summary-list__value">
 						<ul class="govuk-list">
 							{% for item in data['toilet-day'] %}
 								<li>
 									{{ item 
-									| replace("toilet-physical", "Yes, I have physical difficulty using the toilet or managing my incontinence")
-									| replace("toilet-motivation", "Yes, I need encouragement or prompting to use the toilet or manage my incontinence") 
-									| replace("no-other-apply", "None of these apply to me") }}
+									| replace("toilet-getting-to", "Getting to the toilet or commode")
+									| replace("toilet-urgent", "Needing the toilet urgently")
+									| replace("toilet-getting-on-off", "Getting on or off the toilet or commode") 
+									| replace("toilet-cleaning-myself", "Cleaning myself after using the toilet")
+									| replace("toilet-emptying", "Emptying and managing my stoma, catheter or similar")
+									| replace("toilet-remembering", "Remembering to use the toilet")
+									| replace("managing-incontinence", "Managing my incontinence")
+									| replace("toilet-not-always", "I do not always use the toilet or commode")
+									| replace("toilet-something-else", "I struggle with something else") }}
 								</li>
 							{% endfor %}
+							{% if data['something-else'] %}
+								<dd class="govuk-summary-list__value">
+									{{ data['toilet-something-else'] }}
+								</dd>
+								{% endif %}
 						</ul>
-					</dd>
+					{# </dd>
 					<dd class="govuk-summary-list__actions">
 						{{ changeLink('toilet-day') }}
 					</dd>
-				</div>
-				{% if data['toilet-day'] != "no-other-apply" %}
-					<div class="govuk-summary-list__row day-frequency">
+				</div> #}
+				{% if data['toilet-day-why'] %}
+					<div class="govuk-summary-list__row toilet-day-why">
 						<dt class="govuk-summary-list__key">
-							On a typical day how many times do you have difficulty using the toilet, or managing incontinence?
+							Why do you think you're having difficulties?
 						</dt>
 						<dd class="govuk-summary-list__value">
-							{{ data['toilet-day-frequency'] }}
+							<ul class="govuk-list">
+								{% for item in data['toilet-day-why'] %}
+									<li>
+										{{ item 
+										| replace("lean-on-sink-radiator", "I need to lean on something such as the sink or radiator")
+										| replace("toilet-raised", "I can only use a toilet if it's raised") 
+										| replace("toilet-several-attempts", "It takes me several attempts to get on or off the toilet or commode") 
+										| replace("toilet-accident", "I have accidents because I cannot get there in time")
+										| replace("toilet-safely", "I cannot get on or off the toilet safely") 
+										| replace("toilet-physical-assist", "Someone has to physically assist me")
+										| replace("collecting-device", "I use a commode, catheter, stoma or bedpan instead of the toilet") }}
+									</li>
+								{% endfor %}
+							</ul>
 						</dd>
 						<dd class="govuk-summary-list__actions">
-							{{ changeLink('toilet-day-frequency') }}
+							{{ changeLink('toilet-day-why') }}
 						</dd>
-					</div>
-				{% endif %}  
+          </div>
+				{% endif %}
+				<div class="govuk-summary-list__row day-frequency">
+					<dt class="govuk-summary-list__key">
+						How often do you struggle with using the toilet or incontinence?
+					</dt>
+					<dd class="govuk-summary-list__value">
+						{{ data['toilet-day-frequency'] 
+						| replace("less-than-once", "Less than once a day")
+						| replace("one-or-two", "1 or 2 times a day")
+						| replace("three-or-four", "3 or 4 times a day")
+						| replace("five-or-more", "5 or more times a day")
+						}}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						{{ changeLink('toilet-day-frequency') }}
+					</dd>
+				</div> 
 			</dl>
 		</section>
 	{% endif %}

@@ -3,9 +3,31 @@
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
-   <h1 class="govuk-heading-l">
-     Tell us more about your difficulties
-   </h1>
+  <h1 class="govuk-heading-l">
+    Tell us more about your difficulties
+  </h1>
+
+  <p class="govuk-body govuk-!-margin-bottom-0">
+    You told us you have difficulties with:
+  </p>
+  <p class="govuk-heading-m">
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-0 govuk-!-margin-bottom-8">
+      {% for item in data['toilet-day'] %}
+        <li>
+          {{ item 
+          | replace("toilet-getting-to", "getting to the toilet or commode")
+          | replace("toilet-urgent", "needing the toilet urgently")
+          | replace("toilet-getting-on-off", "getting on or off the toilet or commode")
+          | replace("toilet-cleaning-myself", "cleaning myself after using the toilet") 
+          | replace("toilet-emptying", "emptying and managing my stoma, catheter or similar")
+          | replace("toilet-remembering", "remembering to use the toilet")  
+          | replace("managing-incontinence", "managing my incontinence")
+          | replace("toilet-not-always", "I do not always use the toilet or commode")
+          | replace("toilet-something-else", "I struggle with something else") }}
+        </li>
+      {% endfor %}
+    </ul>
+  </p>
 
   {{ govukCheckboxes
     ({
