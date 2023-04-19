@@ -23,45 +23,45 @@
       },
       errorMessage: data.validation['toilet-day-why'].error,
       items: [{
-        value: "toilet-getting-to",
+        value: "lean-on-sink-radiator",
         text: "I need to lean on something such as the sink or radiator",
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-getting-to")
+        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("lean-on-sink-radiator")
       },
       {
-        value: "toilet-urgent",
+        value: "toilet-raised",
         text: "I can only use a toilet if it's raised",
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-urgent")
+        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-raised")
       },
       {
-        value: "toilet-getting-on-off",
+        value: "toilet-several-attempts",
         text: "It takes me several attempts to get on or off the toilet or commode",
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-getting-on-off")
+        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-several-attempts")
       },
       {
-        value: "toilet-cleaning-myself",
+        value: "toilet-accident",
         text: "I have accidents because I cannot get there in time",
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-cleaning-myself")
+        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-accident")
       },
       {
-        value: "toilet-emptying",
+        value: "toilet-safely",
         text: "I cannot get on or off the toilet safely",
         hint: {
           text: "For example, you get dizzy or are unbalanced"
         },
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-emptying")
+        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-safely")
       },
       {
-        value: "toilet-remembering",
+        value: "toilet-physical-assist",
         text: "Someone has to physically assist me",
         hint: {
           text: "This might be to get on or off the toilet, to clean or change your stoma bag, or to change clothes after an accident"
         },
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-remembering")
+        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-physical-assist")
       },
       {
-        value: "managing-incontinence",
+        value: "collecting-device",
         text: "I use a commode, catheter, stoma or bedpan instead of the toilet",
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("managing-incontinence")
+        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("collecting-device")
       },
       {
         divider: "or"
