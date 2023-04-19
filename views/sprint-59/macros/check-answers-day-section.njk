@@ -295,7 +295,7 @@
 		</section>
 	{% endif %}
 
-	{% if data["day-difficulties"] and data["day-difficulties"].includes("stumbling-falling") %}
+	{% if data["day-difficulties"] and data["day-difficulties"].includes("stumbling-falling") and data['falling-or-stumbling'] != "no-other-apply" %}
 		<section class="Stumbling or falling">
 			<h2 class="govuk-heading-m">
 				Stumbling or falling
