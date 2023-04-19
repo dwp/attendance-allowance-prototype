@@ -15,6 +15,9 @@
         classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-6"
       }
     },
+    hint: {
+      html: bodyToiletHtml
+    }, 
     errorMessage: data.validation['toilet-day-frequency'].error,
     items: [
       {
@@ -41,3 +44,9 @@
   }) }}
 
 {% endblock %}
+
+{% set bodyToiletHtml %}
+  <p class="govuk-body">
+       Include any times when a partner or friend might help you currently.
+    </p>
+{% endset %}
