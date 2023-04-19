@@ -77,6 +77,7 @@ module.exports = {
     toiletDay: 'toilet-day',
     toiletDayFrequency: 'toilet-day-frequency',
     eatDrinkDay: 'eat-drink-day',
+    eatDrinkDayWhy: 'eat-drink-day-why',
     eatDrinkDayFrequency: 'eat-drink-day-frequency',
     medicationTreatmentDay: 'medication-treatment-day',
     medicationTreatmentDayFrequency: 'medication-treatment-day-frequency',
