@@ -4,14 +4,13 @@
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
- <span class="govuk-caption-l">Using the toilet or managing incontinence during the day</span>
 
   {{ govukRadios({
     idPrefix: "toilet-day-frequency",
     name: "toilet-day-frequency",
     fieldset: {
       legend: {
-        text: "On a typical day how many times do you have difficulty using the toilet, or managing incontinence?",
+        text: "How often do you struggle with using the toilet or incontinence?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-6"
       }
@@ -19,19 +18,24 @@
     errorMessage: data.validation['toilet-day-frequency'].error,
     items: [
       {
-        value: "1",
-        text: "1",
-        checked: true if data["toilet-day-frequency"] === "1h"
+        value: "less-than-one",
+        text: "Less than once a day",
+        checked: true if data["toilet-day-frequency"] === "less-than-one"
       },
       {
-        value: "2",
-        text: "2",
-        checked: true if data["toilet-day-frequency"] === "2"
+        value: "one-or-two",
+        text: "1 or 2 times a day",
+        checked: true if data["toilet-day-frequency"] === "one-or-two"
       },
       {
-        value: "3 or more",
-        text: "3 or more",
-        checked: true if data["toilet-day-frequency"] === "3 or more"
+        value: "three-or-four",
+        text: "3 or 4 times a day",
+        checked: true if data["toilet-day-frequency"] === "three-or-four"
+      }, 
+      {
+        value: "five-or-more",
+        text: "5 or more times a day",
+        checked: true if data["toilet-day-frequency"] === "five-or-more"
       }
     ]
   }) }}
