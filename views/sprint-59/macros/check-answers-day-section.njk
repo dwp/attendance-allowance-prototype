@@ -420,7 +420,6 @@
 			</dl>
 		</section>
 	{% endif %}
-
 	{% if data["day-difficulties"] and data["day-difficulties"].includes("daytime-toilet") and data['toilet-day'] != "no-other-apply" %}
 		<section class="Getting to and using the toilet">
 			<h2 class="govuk-heading-m">
@@ -447,17 +446,25 @@
 									| replace("toilet-something-else", "I struggle with something else") }}
 								</li>
 							{% endfor %}
-							{% if data['something-else'] %}
-								<dd class="govuk-summary-list__value">
-									{{ data['toilet-something-else'] }}
-								</dd>
-								{% endif %}
 						</ul>
-					{# </dd>
+					</dd>
 					<dd class="govuk-summary-list__actions">
 						{{ changeLink('toilet-day') }}
 					</dd>
-				</div> #}
+				</div>
+				{% if data['something-else-explain-toilet'] %}
+					<div class="govuk-summary-list__row toilet-day">
+						<dt class="govuk-summary-list__key">
+							What else do you struggle with?
+						</dt>
+						<dd class="govuk-summary-list__value">
+							{{data['something-else-explain-toilet'] | capitalize}}
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							{{ changeLink('toilet-day')}}
+						</dd>
+					</div>
+				{% endif %}
 				{% if data['toilet-day-why'] %}
 					<div class="govuk-summary-list__row toilet-day-why">
 						<dt class="govuk-summary-list__key">

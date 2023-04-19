@@ -4,11 +4,11 @@ const {
   validation,
   registerController,
 } = require('../../../utils/controller');
-const toiletDay = require('./toilet-day');
+
 
 const config = {
   name: urls.toiletDayWhy,
-  previous: toiletDay,
+  previous: urls.toiletDay,
   next: [
     {
       page: urls.toiletDayFrequency,
