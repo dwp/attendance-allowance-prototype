@@ -56,11 +56,17 @@
       {
         value: "toilet-physical",
         text: "Managing my incontinence",
+        hint: {
+          text: "For example, cleaning yourself, changing pads or changing clothes"
+        },
         checked: true if data["toilet-day"] and data["toilet-day"].includes("toilet-physical")
       },
       {
         value: "toilet-motivation",
         text: "I do not always use the toilet or commode",
+        hint: {
+          text: "For example, you use a catheter, stoma or bedpan instead of the toilet"
+        },
         checked: true if data["toilet-day"] and data["toilet-day"].includes("toilet-motivation")
       },
       {
