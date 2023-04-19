@@ -75,6 +75,7 @@ module.exports = {
     falling: 'falling',
     fallingHelp: 'falling-help',
     toiletDay: 'toilet-day',
+    toiletDayWhy: 'toilet-day-why',
     toiletDayFrequency: 'toilet-day-frequency',
     eatDrinkDay: 'eat-drink-day',
     eatDrinkDayWhy: 'eat-drink-day-why',
