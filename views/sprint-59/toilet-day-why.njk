@@ -13,18 +13,22 @@
   <p class="govuk-heading-m">
     <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-0 govuk-!-margin-bottom-8">
       {% for item in data['toilet-day'] %}
-        <li>
-          {{ item 
-          | replace("toilet-getting-to", "getting to the toilet or commode")
-          | replace("toilet-urgent", "needing the toilet urgently")
-          | replace("toilet-getting-on-off", "getting on or off the toilet or commode")
-          | replace("toilet-cleaning-myself", "cleaning myself after using the toilet") 
-          | replace("toilet-emptying", "emptying and managing my stoma, catheter or similar")
-          | replace("toilet-remembering", "remembering to use the toilet")  
-          | replace("managing-incontinence", "managing my incontinence")
-          | replace("toilet-not-always", "I do not always use the toilet or commode")
-          | replace("toilet-something-else", "I struggle with something else") }}
-        </li>
+        {% if item == 'toilet-something-else' %}
+          <li>{{data['something-else-explain-toilet']}}</li>
+        {% endif %}
+        {% if item != 'toilet-something-else' %}
+          <li>
+            {{ item 
+            | replace("toilet-getting-to", "getting to the toilet or commode")
+            | replace("toilet-urgent", "needing the toilet urgently")
+            | replace("toilet-getting-on-off", "getting on or off the toilet or commode")
+            | replace("toilet-cleaning-myself", "cleaning myself after using the toilet") 
+            | replace("toilet-emptying", "emptying and managing my stoma, catheter or similar")
+            | replace("toilet-remembering", "remembering to use the toilet")  
+            | replace("managing-incontinence", "managing my incontinence")
+            | replace("toilet-not-always", "I do not always use the toilet or commode") }}
+          </li>
+        {% endif %}
       {% endfor %}
     </ul>
   </p>
