@@ -70,11 +70,11 @@ const config = {
   ],
   next: [
     {
-      page: urls.eatDrinkDayFrequency,
+      page: urls.eatDrinkDayWhy,
       condition: {
         field: urls.eatDrinkDay,
-        value: ['eating-physical', 'eating-motivation'],
-        match: match.anyOne,
+        value: ['none'],
+        match: match.none,
       },
     },
     {
