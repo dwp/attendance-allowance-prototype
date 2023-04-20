@@ -23,11 +23,11 @@ const config = {
   ],
   validation: [
     {
-      type: validation.radios,
       name: 'add-contact-details',
+      type: validation.radios,
     },
     {
-      name: 'add-contact-details',
+      name: 'add-contact-details-name',
       type: validation.textInput,
       options: {
         minLength: 1,
@@ -38,7 +38,7 @@ const config = {
       },
       condition: {
         field: 'add-contact-details',
-        value: 'add-contact-yes',
+        value: 'yes',
       },
     },
   ],
