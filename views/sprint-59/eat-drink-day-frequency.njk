@@ -4,33 +4,40 @@
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
- <span class="govuk-caption-l">Eating or drinking during the day</span>
   {{ govukRadios({
     idPrefix: "eat-drink-day-frequency",
     name: "eat-drink-day-frequency",
     fieldset: {
       legend: {
-        text: "On a typical day how many times do you experience difficulties eating or drinking?",
+        text: "How often do you struggle with eating or drinking?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-5"
       }
     },
+    hint: {
+      text: 'Include any times when a partner or friend might help you currently.'
+    },
     errorMessage: data.validation['eat-drink-day-frequency'].error,
     items: [
       {
-        value: "1",
-        text: "1",
-        checked: true if data["eat-drink-day-frequency"] === "1"
+        value: "few",
+        text: "A few times a week",
+        checked: true if data["eat-drink-day-frequency"] === "few"
       },
       {
-        value: "2",
-        text: "2",
-        checked: true if data["eat-drink-day-frequency"] === "2"
+        value: "1-or-2",
+        text: "1 or 2 times every day",
+        checked: true if data["eat-drink-day-frequency"] === "1-or-2"
       },
       {
-        value: "3 or more",
-        text: "3 or more",
-        checked: true if data["eat-drink-day-frequency"] === "3 or more"
+        value: "3-or-4",
+        text: "3 or 4 times everyday",
+        checked: true if data["eat-drink-day-frequency"] === "3-or-4"
+      },
+      {
+        value: "5",
+        text: "5 or more times everyday",
+        checked: true if data["eat-drink-day-frequency"] === "5"
       }
     ]
   }) }}

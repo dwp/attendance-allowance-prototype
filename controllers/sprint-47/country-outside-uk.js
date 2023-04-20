@@ -4,7 +4,6 @@ const {
   match,
   registerController,
 } = require('../../utils/controller');
-const residenceCountry = require('./residence-country');
 
 const config = {
   name: urls.countryOutsideUK,

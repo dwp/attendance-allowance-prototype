@@ -463,7 +463,7 @@
 			</dl>
 		</section>
 	{% endif %}
-	{% if data["day-difficulties"] and data["day-difficulties"].includes("daytime-eating") %}
+	{% if data["day-difficulties"] and data["day-difficulties"].includes("daytime-eating") and data['eat-drink-day'] != "none" %}
 		<section class="Eating and drinking">
 			<h2 class="govuk-heading-m">
 				Eating or drinking
@@ -471,17 +471,25 @@
 			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 				<div class="govuk-summary-list__row eat-drink-day">
 					<dt class="govuk-summary-list__key">
-						Does your condition affect your eating or drinking?
+						What do you struggle with?
 					</dt>
 					<dd class="govuk-summary-list__value">
-						<ul class="govuk-list">
+						<ul class="govuk-list govuk-list--bullet">
 							{% for item in data['eat-drink-day'] %}
-								<li>
-									{{ item 
-									| replace("eating-physical", "Yes, I have physical difficulty when I eat or drink")
-									| replace("eating-motivation", "Yes, I need encouragement or prompting to eat or drink") 
-									| replace("no-other-apply", "None of these apply to me") }}
-								</li>
+								{% if item == 'something-else' %}
+									<li>{{ data['something-else-eating-drinking-day-explain'] }}</li>
+								{% endif %}
+								{% if item != 'something-else' %}
+									<li>
+										{{ item 
+										| replace("cutting-food", "cutting up the food on my plate")
+										| replace("putting-food", "putting food or drink in my mouth") 
+										| replace("chewing-swallowing", "chewing or swallowing food or drink")
+										| replace("identifying-food", "identifying the food on my plate") 
+										| replace("motivation-eat", "forgetting or lacking the motivation to eat") 
+										| replace("motivation-drink", "forgetting or lacking the motivation to drink") }}
+									</li>
+								{% endif %}
 							{% endfor %}
 						</ul>
 					</dd>
@@ -489,19 +497,45 @@
 					{{ changeLink('eat-drink-day') }}
 					</dd>
 				</div>
-				{% if data['eat-drink-day'] != "no-other-apply" %}
-					<div class="govuk-summary-list__row day-frequency">
-						<dt class="govuk-summary-list__key">
-							On a typical day how many times do you experience difficulties eating or drinking?
-						</dt>
-						<dd class="govuk-summary-list__value">
-							{{ data['eat-drink-day-frequency'] }}
-						</dd>
-						<dd class="govuk-summary-list__actions">
-							{{ changeLink('eat-drink-day-frequency') }}
-						</dd>
-					</div>
-				{% endif %}  
+				<div class="govuk-summary-list__row eat-drink-day-why">
+					<dt class="govuk-summary-list__key">
+						Why do you think you're having difficulties?
+					</dt>
+					<dd class="govuk-summary-list__value">
+						<ul class="govuk-list govuk-list--bullet">
+							{% for item in data['eat-drink-day-why'] %}
+								<li>
+									{{ item 
+									| replace("hold", "I cannot hold cutlery and/or a cup")
+									| replace("spill", "I spill food and drink") 
+									| replace("choke", "I choke when I eat")
+									| replace("help", "someone has to physically help me eat or drink") 
+									| replace("safety", "I cannot eat or drink safely") 
+									| replace("confused", "I get confused when eating")
+									| replace("tube", "I'm tube fed") }}
+								</li>
+							{% endfor %}
+						</ul>
+					</dd>
+					<dd class="govuk-summary-list__actions">
+					{{ changeLink('eat-drink-day-why') }}
+					</dd>
+				</div>
+				<div class="govuk-summary-list__row day-frequency">
+					<dt class="govuk-summary-list__key">
+						How often do you struggle with eating or drinking?
+					</dt>
+					<dd class="govuk-summary-list__value">
+						{{ data['eat-drink-day-frequency'] 
+						| replace("few", "A few times a week")
+						| replace("1-or-2", "1 or 2 times every day") 
+						| replace("3-or-4", "3 or 4 times everyday") 
+						| replace("5", "5 or more times everyday") }}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						{{ changeLink('eat-drink-day-frequency') }}
+					</dd>
+				</div>
 			</dl>
 		</section>
 	{% endif %}
