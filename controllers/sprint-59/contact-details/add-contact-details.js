@@ -23,6 +23,10 @@ const config = {
   ],
   validation: [
     {
+      name: 'add-contact-details',
+      type: validation.radios,
+    },
+    {
       name: 'add-contact-details-name',
       type: validation.textInput,
       options: {
