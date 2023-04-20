@@ -1,0 +1,98 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  
+  <h1 class="govuk-heading-l govuk-!-margin-bottom-5">Tell us more about your difficulties</h1>
+
+  <p class="govuk-body govuk-!-margin-bottom-0">
+    You told us you have difficulties with:
+  </p>
+  <p class="govuk-heading-m">
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-0 govuk-!-margin-bottom-8">
+      {% for item in data['moving-indoors-day'] %}
+        <li>
+          {{ item 
+          | replace("walking-around", "walking around")
+          | replace("chair", "getting in or out of a chair")
+          | replace("wheel", "transferring to or from a wheelchair")
+          | replace("stairs", "going up or down stairs") 
+          | replace("reminding-motivating", "reminding or motivating myself to move")
+          | replace("moving-indoors-something-else", "something else when moving around indoors")  
+          | replace("no-other-apply", "None of these apply to me") }}
+        </li>
+      {% endfor %}
+    </ul>
+  </p>
+  
+  {{ govukCheckboxes
+    ({
+      idPrefix: "moving-indoors-why",
+      name: "moving-indoors-why",
+      fieldset: {
+        legend: {
+          text: "Why do you think you're having difficulties?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "Choose all that apply to you."
+      },
+      errorMessage: data.validation['moving-indoors-why'].error,
+      items: [{
+        value: "shuffle",
+        text: "I shuffle or take very small steps",
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("shuffle")
+      },
+      {
+        value: "unsteady",
+        text: "I'm very unsteady, even if I use an aid or lean on things",
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("unsteady")
+      },
+      {
+        value: "slow",
+        text: "I'm very slow",
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("slow")
+      },
+      {
+        value: "several-attemps-chair",
+        text: "It takes me several attempts to get out of a chair",
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("several-attemps-chair")
+      },
+      {
+        value: "physically-assisted",
+        text: "Someone has to physically assist me",
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("physically-assisted")
+      },
+      {
+        value: "move-around-safely",
+        text: "I cannot move around safely",
+        hint: {
+          text: "For example, you get dizzy, crawl or go downstairs on your bottom"
+        },
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("move-around-safely") 
+      },
+      {
+        value: "chair-bound",
+        text: "I sit in a chair all day",
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("chair-bound")
+      },
+      {
+        value: "bed-bound",
+        text: "I'm confined by my bed",
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("bed-bound")
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "none-apply",
+        text: "None of these apply to me",
+        behaviour: "exclusive",
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("none-apply")
+      }]
+    })
+  }}
+{% endblock %}
