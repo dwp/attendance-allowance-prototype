@@ -1,14 +1,23 @@
 const {
   urls,
-  validation,
   match,
+  validation,
   registerController,
 } = require('../../../utils/controller');
 
+
 const config = {
-  name: urls.toiletDayFrequency,
-  previous: urls.toiletDayWhy,
+  name: urls.toiletDayWhy,
+  previous: urls.toiletDay,
   next: [
+    {
+      page: urls.toiletDayFrequency,
+      condition: {
+        field: urls.toiletDay,
+        value: ['toilet-getting-to', 'toilet-urgent', 'toilet-getting-on-off', 'toilet-cleaning-myself', 'toilet-emptying', 'toilet-remembering', 'managing-incontinence', 'toilet-not-always', 'toilet-something-else'],
+        match: match.anyOne,
+      },
+    },
     {
       page: urls.eatDrinkDay,
       condition: {
@@ -46,7 +55,7 @@ const config = {
     },
   ],
   validation: {
-    type: validation.radios,
+    type: validation.checkboxes,
   },
 };
 

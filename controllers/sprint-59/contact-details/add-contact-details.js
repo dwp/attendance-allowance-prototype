@@ -31,15 +31,20 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 75,
+        maxLength: 100,
       },
       errors: {
         required: 'Enter their full name.',
+        maxLength: 'Your answer must be 100 characters or less.',
       },
       condition: {
         field: 'add-contact-details',
         value: 'yes',
       },
+    },
+    {
+      type: validation.radios,
+      name: 'add-contact-details',
     },
   ],
 };

@@ -65,8 +65,10 @@ const fallingWhen = require('./care-needs-day/falling-when');
 const falling = require('./care-needs-day/falling');
 const fallingHelp = require('./care-needs-day/falling-help');
 const toiletDay = require('./care-needs-day/toilet-day');
+const toiletDayWhy = require('./care-needs-day/toilet-day-why');
 const toiletDayFrequency = require('./care-needs-day/toilet-day-frequency');
 const eatDrinkDay = require('./care-needs-day/eat-drink-day');
+const eatDrinkDayWhy = require('./care-needs-day/eat-drink-day-why');
 const eatDrinkDayFrequency = require('./care-needs-day/eat-drink-day-frequency');
 const medicationTreatmentDay = require('./care-needs-day/medication-treatment-day');
 const medicationTreatmentDayFrequency = require('./care-needs-day/medication-treatment-day-frequency');
@@ -138,7 +140,7 @@ module.exports = {
   illnessDisabilityManual,
   telephoneNumber,
   telephoneNumberOther,
-  preferenceContact, 
+  preferenceContact,
   dayDifficulties,
   nightDifficulties,
   emailConfirm,
@@ -181,13 +183,15 @@ module.exports = {
   movingIndoorsStairs,
   fallingOrStumbling,
   fallingOrStumblingWhy,
-  fallingWhen, 
+  fallingWhen,
   stumbling,
   falling,
   fallingHelp,
   toiletDay,
+  toiletDayWhy,
   toiletDayFrequency,
   eatDrinkDay,
+  eatDrinkDayWhy,
   eatDrinkDayFrequency,
   medicationTreatmentDay,
   medicationTreatmentDayFrequency,
