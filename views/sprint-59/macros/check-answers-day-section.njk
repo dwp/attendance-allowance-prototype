@@ -364,16 +364,14 @@
                         {% if data['falling-when'] %}
                             <div class="govuk-summary-list__row falling-when">
                                 <dt class="govuk-summary-list__key">
-                                    When did you last fall?
+                                    Approximately when did you last fall?
                                 </dt>
                                 <dd class="govuk-summary-list__value">
                                     {{ data['falling-when']
-							| replace("last-week", "Last week")
-							| replace("last-month", "Last month")
-							| replace("one-three-months", "1 to 3 months ago")
-							| replace("less-than-six", "Less than 6 months ago")
-							| replace("more-than-six", "More than 6 months ago")
-							| replace("more-than-twelve", "More than 12 months ago") }}
+                                    | replace("within-last-month", "Within the last month")
+                                    | replace("within-two-six-months", "Within the last 2 to 6 months")
+                                    | replace("within-seven-twelve-months", "Within the last 7 to 12 months")
+                                    | replace("more-than-twelve", "More than 12 months ago") }}
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
                                     {{ changeLink('falling-when') }}
