@@ -1,0 +1,29 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <h1 class="govuk-fieldset__heading">
+      What is their telephone number?
+    </h1>
+  </legend>
+  <p class="govuk-body govuk-!-margin-bottom-8">You've given us permission to contact the person who is helping you to apply. We’ll only phone them if we have questions about your application.</p>
+  
+  {{ govukInput({
+    label: {
+      text: "Their telephone number"
+    },
+    hint: {
+    text: "Enter their telephone number. It can be a mobile or landline, and should include any dialling codes."
+    },
+    classes: "govuk-input--width-30",
+    errorMessage: data.validation['main-contact-number-other'].error,
+    id: "main-contact-number-other",
+    name: "main-contact-number-other",
+    value: data["main-contact-number-other"],
+    autocomplete: "main-contact-number-other"
+  }) }}
+
+{% endblock %}
