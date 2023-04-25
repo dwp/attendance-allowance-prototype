@@ -76,6 +76,7 @@ router.use(`/${urls.fallingWhen}`, controllers.fallingWhen);
 router.use(`/${urls.falling}`, controllers.falling);
 router.use(`/${urls.fallingHelp}`, controllers.fallingHelp);
 router.use(`/${urls.toiletDay}`, controllers.toiletDay);
+router.use(`/${urls.toiletDayWhy}`, controllers.toiletDayWhy);
 router.use(`/${urls.toiletDayFrequency}`, controllers.toiletDayFrequency);
 router.use(`/${urls.eatDrinkDay}`, controllers.eatDrinkDay);
 router.use(`/${urls.eatDrinkDayWhy}`, controllers.eatDrinkDayWhy);

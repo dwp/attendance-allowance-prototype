@@ -78,10 +78,10 @@ const config = {
   ],
   next: [
     {
-      page: urls.toiletDayFrequency,
+      page: urls.toiletDayWhy,
       condition: {
         field: urls.toiletDay,
-        value: ['toilet-physical', 'toilet-motivation'],
+        value: ['toilet-getting-to', 'toilet-urgent', 'toilet-getting-on-off', 'toilet-cleaning-myself', 'toilet-emptying', 'toilet-remembering', 'managing-incontinence', 'toilet-not-always', 'toilet-something-else'],
         match: match.anyOne,
       },
     },
@@ -121,9 +121,27 @@ const config = {
       page: urls.keepEyeIntroduction,
     },
   ],
-  validation: {
-    type: validation.checkboxes,
-  },
+  validation: [
+    {
+      name: 'something-else-explain-toilet',
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 100,
+      },
+      errors: {
+        required: 'You must tell us what you find difficult',
+      },
+      condition: {
+        field: 'toilet-day',
+        value: 'toilet-something-else', 
+      },
+    }, 
+    {
+      name: 'toilet-day',
+      type: validation.checkboxes,
+    }
+  ]
 };
 
 module.exports = registerController(config.name, config);
