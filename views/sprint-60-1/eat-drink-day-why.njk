@@ -13,10 +13,10 @@
   
   <ul class="govuk-list govuk-list--bullet">
     {% for item in data['eat-drink-day'] %}
-      {% if item == 'something-else' %}
+      {% if item == 'eat-drink-something-else' %}
         <li>{{ data['something-else-eating-drinking-day-explain'] }}</li>
       {% endif %}
-      {% if item != 'something-else' %}
+      {% if item != 'eat-drink-something-else' %}
         <li>
           {{ item 
           | replace("cutting-food", "cutting up the food on my plate")
