@@ -1,10 +1,11 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
 
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
   <h1 class="govuk-heading-l">
-    Tell us more about your difficulties
+    Tell us more about your difficulties with eating or drinking
   </h1>
   <p class="govuk-body">
     You told us you have difficulties with:
@@ -12,10 +13,10 @@
   
   <ul class="govuk-list govuk-list--bullet">
     {% for item in data['eat-drink-day'] %}
-      {% if item == 'something-else' %}
+      {% if item == 'eat-drink-something-else' %}
         <li>{{ data['something-else-eating-drinking-day-explain'] }}</li>
       {% endif %}
-      {% if item != 'something-else' %}
+      {% if item != 'eat-drink-something-else' %}
         <li>
           {{ item 
           | replace("cutting-food", "cutting up the food on my plate")
@@ -35,7 +36,7 @@
       name: "eat-drink-day-why",
       fieldset: {
         legend: {
-          text: "Why do you think you're having difficulties?",
+          text: "Can you tell us more about how you're struggling?",
           isPageHeading: false,
           classes: "govuk-fieldset__legend--m"
         }
@@ -46,7 +47,7 @@
       errorMessage: data.validation['eat-drink-day-why'].error,
       items: [{
         value: "hold",
-        text: "I cannot hold cutlery and/or a cup",
+        text: "I cannot hold cutlery or a cup",
         checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("hold")
       },
       {
@@ -78,7 +79,32 @@
         value: "tube",
         text: "I'm tube fed",
         checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("tube")
+      }, 
+      {
+        divider: "or"
+      }, 
+      {
+        value: "eat-drink-why-something-else",
+        text: "I struggle with something else",
+        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("eat-drink-why-something-else"),
+        conditional: {
+          html: conditionalSomethingElseEatDrinkWhy
+        }
       }]
     })
   }}
 {% endblock %}
+
+{% set conditionalSomethingElseEatDrinkWhy %}
+   {{ govukInput({
+    classes: "govuk-input--width-40",
+    isPageHeading: false,
+    label: {
+      text: 'Tell us what you struggle with'
+      },
+    id: "something-else-eating-drinking-day-why-explain",
+    name: "something-else-eating-drinking-day-why-explain",
+    errorMessage: data.validation['something-else-eating-drinking-day-why-explain'].error,
+    value: data['something-else-eating-drinking-day-why-explain']
+    }) }}
+{% endset %}

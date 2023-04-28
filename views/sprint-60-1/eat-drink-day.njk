@@ -4,9 +4,8 @@
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
-  <span class="govuk-caption-l">Eating or drinking during the day</span>
   <h1 class="govuk-heading-l">
-    You told us you have difficulty eating or drinking
+    You told us you have difficulty eating or drinking during the day
   </h1>
   <p class="govuk-body">
     Note that shopping for food or preparing and cooking a meal are not taken into consideration.
@@ -58,9 +57,9 @@
         checked: true if data["eat-drink-day"] and data["eat-drink-day"].includes("motivation-drink")
       },
       {
-        value: "something-else",
-        text: "I struggle with something else related to eating or drinking",
-        checked: true if data["eat-drink-day"] and data["eat-drink-day"].includes("something-else"),
+        value: "eat-drink-something-else",
+        text: "I struggle with something else",
+        checked: true if data["eat-drink-day"] and data["eat-drink-day"].includes("eat-drink-something-else"),
         conditional: {
           html: conditionalSomethingElseEatDrink
         }
@@ -83,7 +82,7 @@
     classes: "govuk-input--width-40",
     isPageHeading: false,
     label: {
-      text: 'Tell us what you find difficult'
+      text: 'Tell us what you struggle with'
       },
     id: "something-else-eating-drinking-day-explain",
     name: "something-else-eating-drinking-day-explain",
