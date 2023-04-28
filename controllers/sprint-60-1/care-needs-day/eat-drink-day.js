@@ -105,9 +105,26 @@ const config = {
       page: urls.keepEyeIntroduction,
     },
   ],
-  validation: {
-    type: validation.checkboxes,
-  },
+  validation: [
+    {
+      name: 'something-else-eating-drinking-day-explain',
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 100,
+      },
+      errors: {
+        required: 'You must tell us what you struggle with',
+      },
+      condition: {
+        field: 'eat-drink-day',
+        value: 'eat-drink-something-else', 
+      },
+    }, 
+    {
+      name: 'eat-drink-day',
+      type: validation.checkboxes,
+    }]
 };
 
 module.exports = registerController(config.name, config);
