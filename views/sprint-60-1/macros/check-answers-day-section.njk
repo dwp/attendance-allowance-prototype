@@ -429,15 +429,15 @@
                                     {% for item in data['toilet-day'] %}
                                         <li>
                                             {{ item 
-									| replace("toilet-getting-to", "Getting to the toilet or commode")
-									| replace("toilet-urgent", "Needing the toilet urgently")
-									| replace("toilet-getting-on-off", "Getting on or off the toilet or commode") 
-									| replace("toilet-cleaning-myself", "Cleaning myself after using the toilet")
-									| replace("toilet-emptying", "Emptying and managing my stoma, catheter or similar")
-									| replace("toilet-remembering", "Remembering to use the toilet")
-									| replace("managing-incontinence", "Managing my incontinence")
-									| replace("toilet-not-always", "I do not always use the toilet or commode")
-									| replace("toilet-something-else", "I struggle with something else") }}
+                                                | replace("toilet-getting-to", "Getting to the toilet or commode")
+                                                | replace("toilet-urgent", "Needing the toilet urgently")
+                                                | replace("toilet-getting-on-off", "Getting on or off the toilet or commode") 
+                                                | replace("toilet-cleaning-myself", "Cleaning myself after using the toilet")
+                                                | replace("toilet-emptying", "Emptying and managing my stoma, catheter or similar")
+                                                | replace("toilet-remembering", "Remembering to use the toilet")
+                                                | replace("managing-incontinence", "Managing my incontinence")
+                                                | replace("toilet-not-always", "I do not always use the toilet or commode")
+                                                | replace("toilet-something-else", "I struggle with something else") }}
                                         </li>
                                     {% endfor %}
                                 </ul>
@@ -469,13 +469,13 @@
                                         {% for item in data['toilet-day-why'] %}
                                             <li>
                                                 {{ item 
-										| replace("lean-on-sink-radiator", "I need to lean on something such as the sink or radiator")
-										| replace("toilet-raised", "I can only use a toilet if it's raised") 
-										| replace("toilet-several-attempts", "It takes me several attempts to get on or off the toilet or commode") 
-										| replace("toilet-accident", "I have accidents because I cannot get there in time")
-										| replace("toilet-safely", "I cannot get on or off the toilet safely") 
-										| replace("toilet-physical-assist", "Someone has to physically assist me")
-										| replace("collecting-device", "I use a commode, catheter, stoma or bedpan instead of the toilet") }}
+                                                | replace("lean-on-sink-radiator", "I need to lean on something such as the sink or radiator")
+                                                | replace("toilet-raised", "I can only use a toilet if it's raised") 
+                                                | replace("toilet-several-attempts", "It takes me several attempts to get on or off the toilet or commode") 
+                                                | replace("toilet-accident", "I have accidents because I cannot get there in time")
+                                                | replace("toilet-safely", "I cannot get on or off the toilet safely") 
+                                                | replace("toilet-physical-assist", "Someone has to physically assist me")
+                                                | replace("collecting-device", "I use a commode, catheter, stoma or bedpan instead of the toilet") }}
                                             </li>
                                         {% endfor %}
                                     </ul>
@@ -511,16 +511,20 @@
                     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                         <div class="govuk-summary-list__row eat-drink-day">
                             <dt class="govuk-summary-list__key">
-                                Does your condition affect your eating or drinking?
+                                What do you struggle with?
                             </dt>
                             <dd class="govuk-summary-list__value">
                                 <ul class="govuk-list">
                                     {% for item in data['eat-drink-day'] %}
                                         <li>
                                             {{ item 
-									| replace("eating-physical", "Yes, I have physical difficulty when I eat or drink")
-									| replace("eating-motivation", "Yes, I need encouragement or prompting to eat or drink") 
-									| replace("no-other-apply", "None of these apply to me") }}
+                                            | replace("cutting-food", "Cutting up the food on my plate")
+                                            | replace("putting-food", "Putting food or drink in my mouth") 
+                                            | replace("chewing-swallowing", "Chewing or swallowing food or drink")
+                                            | replace("identifying-food", "Cutting up the food on my plate")
+                                            | replace("motivation-eat", "Forgetting or lacking the motivation to eat") 
+                                            | replace("motivation-drink", "Forgetting or lacking the motivation to drink")
+                                            | replace("eat-drink-something-else", "I struggle with something else") }}
                                         </li>
                                     {% endfor %}
                                 </ul>
@@ -529,19 +533,76 @@
                                 {{ changeLink('eat-drink-day') }}
                             </dd>
                         </div>
-                        {% if data['eat-drink-day'] != "no-other-apply" %}
-                            <div class="govuk-summary-list__row day-frequency">
+                        {% if data['something-else-eating-drinking-day-explain'] %}
+                            <div class="govuk-summary-list__row toilet-day">
                                 <dt class="govuk-summary-list__key">
-                                    On a typical day how many times do you experience difficulties eating or drinking?
+                                    What else do you struggle with?
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                    {{ data['eat-drink-day-frequency'] }}
+                                    {{ data['something-else-eating-drinking-day-explain'] | capitalize }}
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
-                                    {{ changeLink('eat-drink-day-frequency') }}
+                                    {{ changeLink('eat-drink-day') }}
                                 </dd>
                             </div>
                         {% endif %}
+                        {% if data['eat-drink-day'] != "none" %}
+                            <div class="govuk-summary-list__row eat-drink-day-why">
+                                <dt class="govuk-summary-list__key">
+                                    Can you tell us more about how you're struggling?
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    <ul class="govuk-list">
+                                        {% for item in data['eat-drink-day-why'] %}
+                                            <li>
+                                                {{ item 
+                                                | replace("hold", "I cannot hold cutlery or a cup")
+                                                | replace("spill", "I spill food and drink") 
+                                                | replace("choke", "I choke when I eat") 
+                                                | replace("help", "Someone has to physically help me eat or drink")
+                                                | replace("safety", "I cannot eat or drink safely") 
+                                                | replace("confused", "I get confused when eating")
+                                                | replace("tube", "I'm tube fed")
+                                                | replace("eat-drink-why-something-else", "I struggle with something else") 
+                                                }}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                    {{ changeLink('eat-drink-day-why') }}
+                                </dd>
+                            </div>
+                        {% endif %}
+                        {% if data['something-else-eating-drinking-day-why-explain'] %}
+                            <div class="govuk-summary-list__row toilet-day">
+                                <dt class="govuk-summary-list__key">
+                                    What else do you struggle with?
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    {{ data['something-else-eating-drinking-day-why-explain'] | capitalize }}
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                    {{ changeLink('eat-drink-day-why') }}
+                                </dd>
+                            </div>
+                        {% endif %}
+                        <div class="govuk-summary-list__row day-frequency">
+                            <dt class="govuk-summary-list__key">
+                                How often do you struggle with eating or drinking?
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                {{ data['eat-drink-day-frequency']
+                                | replace("few", "A few times a week") 
+                                | replace("1-or-2", "1 or 2 times every day") 
+                                | replace("3-or-4", "3 or 4 times everyday") 
+                                | replace("5", "5 or more times everyday") 
+                                }}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                {{ changeLink('eat-drink-day-frequency') }}
+                            </dd>
+                        </div>
                     </dl>
                 </section>
             {% endif %}
