@@ -4,9 +4,8 @@
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
-  <span class="govuk-caption-l">Using the toilet or managing incontinence in the daytime</span>
    <h1 class="govuk-heading-l">
-     You told us you have difficulty with your toilet needs
+     You told us you have difficulty with your toilet needs during the day
    </h1>
 
   {{ govukCheckboxes
@@ -96,7 +95,7 @@
     classes: "govuk-input--width-40",
     isPageHeading: true,
     label: {
-      text: 'Tell us what you find difficult'
+      text: 'Tell us what you struggle with'
       },
     id: "something-else-explain-toilet",
     name: "something-else-explain-toilet",

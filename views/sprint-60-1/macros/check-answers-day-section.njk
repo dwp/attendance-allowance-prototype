@@ -462,7 +462,7 @@
                         {% if data['toilet-day-why'] %}
                             <div class="govuk-summary-list__row toilet-day-why">
                                 <dt class="govuk-summary-list__key">
-                                    Why do you think you're having difficulties?
+                                    Can you tell us more about how you're struggling?
                                 </dt>
                                 <dd class="govuk-summary-list__value">
                                     <ul class="govuk-list">
@@ -475,10 +475,24 @@
 										| replace("toilet-accident", "I have accidents because I cannot get there in time")
 										| replace("toilet-safely", "I cannot get on or off the toilet safely") 
 										| replace("toilet-physical-assist", "Someone has to physically assist me")
-										| replace("collecting-device", "I use a commode, catheter, stoma or bedpan instead of the toilet") }}
+										| replace("collecting-device", "I use a commode, catheter, stoma or bedpan instead of the toilet")
+                                        | replace("toilet-day-why-something-else", "I struggle with something else")}}
                                             </li>
                                         {% endfor %}
                                     </ul>
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                    {{ changeLink('toilet-day-why') }}
+                                </dd>
+                            </div>
+                        {% endif %}
+                        {% if data['something-else-toilet-day-why-explain'] %}
+                            <div class="govuk-summary-list__row toilet-day-why">
+                                <dt class="govuk-summary-list__key">
+                                    What else do you struggle with?
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    {{ data['something-else-toilet-day-why-explain'] | capitalize }}
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
                                     {{ changeLink('toilet-day-why') }}

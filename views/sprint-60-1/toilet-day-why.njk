@@ -1,10 +1,11 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
 
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
   <h1 class="govuk-heading-l">
-    Tell us more about your difficulties
+    Tell us more about your difficulties with using the toilet or managing incontinence
   </h1>
 
   <p class="govuk-body govuk-!-margin-bottom-0">
@@ -39,7 +40,7 @@
       name: "toilet-day-why",
       fieldset: {
         legend: {
-          text: "Why do you think you're having difficulties?",
+          text: "Can you tell us more about how you're struggling?",
           isPageHeading: false,
           classes: "govuk-fieldset__legend--m"
         }
@@ -93,11 +94,28 @@
         divider: "or"
       },
       {
-        value: "none-apply",
-        text: "None of these apply to me",
+        value: "toilet-day-why-something-else",
+        text: "I struggle with something else",
         behaviour: "exclusive",
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("none-apply")
+        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-day-why-something-else"),
+        conditional: {
+          html: conditionalSomethingElseToiletWhy
+        }
       }]
     })
   }}
 {% endblock %}
+
+{% set conditionalSomethingElseToiletWhy %}
+   {{ govukInput({
+    classes: "govuk-input--width-40",
+    isPageHeading: false,
+    label: {
+      text: 'Tell us what you struggle with'
+      },
+    id: "something-else-toilet-day-why-explain",
+    name: "something-else-toilet-day-why-explain",
+    errorMessage: data.validation['something-else-toilet-day-why-explain'].error,
+    value: data['something-else-toilet-day-why-explain']
+    }) }}
+{% endset %}
