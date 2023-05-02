@@ -73,8 +73,8 @@ const config = {
       page: urls.eatDrinkDayWhy,
       condition: {
         field: urls.eatDrinkDay,
-        value: ['none'],
-        match: match.none,
+        value: ['cutting-food', 'putting-food','chewing-swallowing', 'identifying-food', 'motivation-eat', 'motivation-drink', 'eat-drink-something-else'],
+        match: match.anyOne,
       },
     },
     {
