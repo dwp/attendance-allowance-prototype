@@ -4,6 +4,9 @@
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
+
+<span class="govuk-caption-l">Eating or drinking during the day</span>
+
   {{ govukRadios({
     idPrefix: "eat-drink-day-frequency",
     name: "eat-drink-day-frequency",
