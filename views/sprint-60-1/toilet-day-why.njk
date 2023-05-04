@@ -95,12 +95,8 @@
         checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("collecting-device")
       },
       {
-        divider: "or"
-      },
-      {
         value: "toilet-day-why-something-else",
         text: "I struggle with something else",
-        behaviour: "exclusive",
         checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-day-why-something-else"),
         conditional: {
           html: conditionalSomethingElseToiletWhy
