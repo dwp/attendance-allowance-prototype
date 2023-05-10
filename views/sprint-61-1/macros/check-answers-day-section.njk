@@ -1,4 +1,4 @@
-{% from "./change-link.njk" import changeLink %}
+ {% from "./change-link.njk" import changeLink %}
 {% from "./reword-date.njk" import rewordDate %}
 {% macro checkAnswersDaySection(data) %}
     <section class="Your care needs during the day">
@@ -620,24 +620,30 @@
                     </dl>
                 </section>
             {% endif %}
+
             {% if data["day-difficulties"] and data["day-difficulties"].includes("daytime-medication") %}
-                <section class="Eating and drinking">
+                <section class="medication-treatment">
                     <h2 class="govuk-heading-m">
                         Taking medication or receiving treatment
                     </h2>
                     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                        <div class="govuk-summary-list__row medication-treatment-day">
+                        <div class="govuk-summary-list__row eat-drink-day">
                             <dt class="govuk-summary-list__key">
-                                Which difficulties do you have when you take medication or receive treatment?
+                                What do you struggle with?
                             </dt>
                             <dd class="govuk-summary-list__value">
                                 <ul class="govuk-list">
                                     {% for item in data['medication-treatment-day'] %}
                                         <li>
                                             {{ item
-									| replace("medication-physical", "I have physical difficulty when taking medication or receiving treatment")
-									| replace("medication-motivation", "I need encouragement or prompting to take medication or receive treatment")
-									| replace("no-other-apply", "None of these apply to me") }}
+                                            | replace("dressings-bandages", "Changing dressings or bandages")
+                                            | replace("applying-cream", "Applying cream")
+                                            | replace("administering-medication", "Administering medication")
+                                            | replace("oxygen-therapy", "Having oxygen therapy")
+                                            | replace("right-medication-dosage", "Taking the right medication and dosage at the right day or time")
+                                            | replace("coping-side-effects", "Coping with the side effects of my medication or treatment")
+                                            | replace("motivation-medication", "Motivating myself to take medication or receive treatment")
+                                            | replace("something-else-medication", "I struggle with something else related to taking medication or receiving treatment") }}
                                         </li>
                                     {% endfor %}
                                 </ul>
@@ -646,19 +652,73 @@
                                 {{ changeLink('medication-treatment-day') }}
                             </dd>
                         </div>
-                        {% if data['medication-treatment-day'] != "no-other-apply" %}
-                            <div class="govuk-summary-list__row day-frequency">
+                        {% if data['something-else-explain-medication'] %}
+                            <div class="govuk-summary-list__row medication-treatment-day">
                                 <dt class="govuk-summary-list__key">
-                                    On a typical day how many times do you have difficulties taking medication or receiving treatment?
+                                    What else do you struggle with?
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                    {{ data['medication-treatment-day-frequency'] }}
+                                    {{ data['something-else-explain-medication'] | capitalize }}
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
-                                    {{ changeLink('medication-treatment-day-frequency') }}
+                                    {{ changeLink('medication-treatment-day') }}
                                 </dd>
                             </div>
                         {% endif %}
+                        {% if data['medication-treatment-day'] != "none" %}
+                            <div class="govuk-summary-list__row medication-treatment-day-why">
+                                <dt class="govuk-summary-list__key">
+                                    Can you tell us more about how you're struggling?
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    <ul class="govuk-list">
+                                        {% for item in data['medication-treatment-day-why'] %}
+                                            <li>
+                                                {{ item
+                                                | replace("long-time", "I do not have help but I struggle and it takes me a long time")
+                                                | replace("someone-prepare", "Someone has to prepare the medication or treatment for me") 
+                                                | replace("remind-encourage", "Someone has to remind or encourage me to take my medication or treatment")
+                                                | replace("help", "Someone has to physically help me take the medication or treament")
+                                                | replace("medication-treatment-day-why-something-else", "I struggle with something else")
+                                                }}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                    {{ changeLink('medication-treatment-day-why') }}
+                                </dd>
+                            </div>
+                        {% endif %}
+                        {% if data['something-else-explain-medication'] %}
+                            <div class="govuk-summary-list__row medication-treatment-day">
+                                <dt class="govuk-summary-list__key">
+                                    What else do you struggle with?
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    {{ data['something-else-explain-medication'] | capitalize }}
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                    {{ changeLink('medication-treatment-day-why') }}
+                                </dd>
+                            </div>
+                        {% endif %}
+                        <div class="govuk-summary-list__row day-frequency">
+                            <dt class="govuk-summary-list__key">
+                                How often do you take medication or receive treatment?
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                {{ data['medication-treatment-day-frequency']
+                                | replace("few-days-week", "A few days a week")
+                                | replace("one-or-two", "1 or 2 times every day")
+                                | replace("three-or-four", "3 or 4 times every day")
+                                | replace("five-or-more", "5 or more times every day")
+                                }}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                {{ changeLink('medication-treatment-day-frequency') }}
+                            </dd>
+                        </div>
                     </dl>
                 </section>
             {% endif %}
