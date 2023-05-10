@@ -72,7 +72,7 @@
       },
       {
         value: "no-other-apply",
-        text: "None of these apply to me",
+        text: "I do not struggle when taking medication or receiving treatment",
         behaviour: "exclusive",
         checked: true if data["medication-treatment-day"] and data["medication-treatment-day"].includes("no-other-apply")
       }]
@@ -87,9 +87,9 @@
     label: {
       text: 'Tell us what you struggle with'
       },
-    id: "something-else-explain-toilet",
-    name: "something-else-explain-toilet",
-    errorMessage: data.validation['something-else-explain-toilet'].error,
-    value: data['something-else-explain-toilet']
+    id: "something-else-explain-medication",
+    name: "something-else-explain-medication",
+    errorMessage: data.validation['something-else-explain-medication'].error,
+    value: data['something-else-explain-medication']
     }) }}
 {% endset %}
