@@ -1,0 +1,33 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  {{ govukRadios({
+    idPrefix: "care-home-hospital",
+    name: "care-home-hospital",
+    fieldset: {
+      legend: {
+        text: "Are you currently in a care home or hospital?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: "This includes similar institutions, such as a nursing home or hospice."
+    },
+    errorMessage: data.validation['care-home-hospital'].error,
+    items: [
+      {
+        value: "yes",
+        text: "Yes",
+        checked: true if data["care-home-hospital"] === "yes"
+      },
+      {
+        value: "no",
+        text: "No",
+        checked: true if data["care-home-hospital"] === "no"
+      }
+    ]
+  }) }}
+{% endblock %}

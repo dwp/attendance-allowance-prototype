@@ -1,0 +1,55 @@
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+  <span class="govuk-caption-l">Taking medication or receiving treatment during the night</span>
+
+  <h1 class="govuk-heading-l">
+    You told us you have difficulty when you take medication or receive treatment
+  </h1>
+
+  <p class="govuk-body govuk-!-margin-bottom-2">This could mean:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>struggling to handle your medicines</li>
+    <li>understanding how much to take and when to take them</li>
+    <li>physical difficulties receiving treatment that you need</li>
+  </ul>
+
+  {{ govukCheckboxes
+    ({
+      id: "medication-treatment-night",
+      name: "medication-treatment-night",
+      fieldset: {
+        legend: {
+          text: "If you need to take medication or receive treatment during the night, which difficulties do you have?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      errorMessage: data.validation['medication-treatment-night'].error,
+      items: [{
+        value: "physical",
+        text: "I have physical difficulty when I take medication or receive treatment",
+        checked: true if data["medication-treatment-night"] and data["medication-treatment-night"].includes("physical")
+      },
+      {
+        value: "prompt",
+        text: "I need encouragement or prompting to take medication or receive treatment",
+        checked: true if data["medication-treatment-night"] and data["medication-treatment-night"].includes("prompt")
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "none",
+        text: "None of these apply to me",
+        behaviour: "exclusive",
+        checked: true if data["medication-treatment-night"] and data["medication-treatment-night"].includes("none")
+      }]
+    })
+  }}
+{% endblock %}
