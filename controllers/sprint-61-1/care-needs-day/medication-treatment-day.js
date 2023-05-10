@@ -78,10 +78,10 @@ const config = {
   ],
   next: [
     {
-      page: urls.medicationTreatmentDayFrequency,
+      page: urls.medicationTreatmentDayWhy,
       condition: {
         field: urls.medicationTreatmentDay,
-        value: ['medication-physical', 'medication-motivation'],
+        value: [, 'dressings-bandages', 'applying-cream', 'administering-medication', 'oxygen-therapy', 'right-medication-dosage', 'coping-side-effects', 'motivation-medication', 'something-else-medication'],
         match: match.anyOne,
       },
     },

@@ -81,6 +81,7 @@ module.exports = {
     eatDrinkDayWhy: 'eat-drink-day-why',
     eatDrinkDayFrequency: 'eat-drink-day-frequency',
     medicationTreatmentDay: 'medication-treatment-day',
+    medicationTreatmentDayWhy: 'medication-treatment-day-why',
     medicationTreatmentDayFrequency: 'medication-treatment-day-frequency',
     socialActivitiesDay: 'social-activities-day',
     socialActivitiesDayFrequency: 'social-activities-day-frequency',

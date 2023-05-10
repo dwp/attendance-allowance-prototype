@@ -82,6 +82,7 @@ router.use(`/${urls.eatDrinkDay}`, controllers.eatDrinkDay);
 router.use(`/${urls.eatDrinkDayWhy}`, controllers.eatDrinkDayWhy);
 router.use(`/${urls.eatDrinkDayFrequency}`, controllers.eatDrinkDayFrequency);
 router.use(`/${urls.medicationTreatmentDay}`, controllers.medicationTreatmentDay);
+router.use(`/${urls.medicationTreatmentDayWhy}`, controllers.medicationTreatmentDayWhy);
 router.use(`/${urls.medicationTreatmentDayFrequency}`, controllers.medicationTreatmentDayFrequency);
 router.use(`/${urls.socialActivitiesDay}`, controllers.socialActivitiesDay);
 router.use(`/${urls.socialActivitiesDayFrequency}`, controllers.socialActivitiesDayFrequency);

@@ -71,6 +71,7 @@ const eatDrinkDay = require('./care-needs-day/eat-drink-day');
 const eatDrinkDayWhy = require('./care-needs-day/eat-drink-day-why');
 const eatDrinkDayFrequency = require('./care-needs-day/eat-drink-day-frequency');
 const medicationTreatmentDay = require('./care-needs-day/medication-treatment-day');
+const medicationTreatmentDayWhy = require('./care-needs-day/medication-treatment-day-why');
 const medicationTreatmentDayFrequency = require('./care-needs-day/medication-treatment-day-frequency');
 const socialActivitiesDay = require('./care-needs-day/social-activities-day');
 const socialActivitiesDayFrequency = require('./care-needs-day/social-activities-day-frequency');
@@ -194,6 +195,7 @@ module.exports = {
   eatDrinkDayWhy,
   eatDrinkDayFrequency,
   medicationTreatmentDay,
+  medicationTreatmentDayWhy,
   medicationTreatmentDayFrequency,
   socialActivitiesDay,
   socialActivitiesDayFrequency,
