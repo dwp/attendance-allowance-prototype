@@ -290,7 +290,7 @@
                 {% if data['something-else-explain'] %}
                     <div class="govuk-summary-list__row something-else-explain">
                         <dt class="govuk-summary-list__key">
-                            Something else you find difficult
+                            Something else you struggle with
                         </dt>
                         <dd class="govuk-summary-list__value">
                             {{ data['something-else-explain'] | capitalize }}
@@ -317,12 +317,25 @@
 									| replace("move-around-safely", "I cannot move around safely")
 									| replace("chair-bound", "I sit in a chair all day")
 									| replace("bed-bound", "I'm confined to my bed")
-									| replace("none-apply", "None of these apply to me") }}
+									| replace("something-else-moving-around", "I struggle for another reason") }}
                                 </li>
                             {% endfor %}
                         </ul>
                         <dd class="govuk-summary-list__actions">
                             {{ changeLink('moving-around-why') }}
+                        </dd>
+                    </div>
+                {% endif %}
+                {% if data['something-else-moving-around-why-explain'] %}
+                    <div class="govuk-summary-list__row omething-else-moving-aorund-why-explain">
+                        <dt class="govuk-summary-list__key">
+                            Other reason you struggle moving around indoors
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['something-else-moving-around-why-explain'] | capitalize }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            {{ changeLink('moving-indoors-why') }}
                         </dd>
                     </div>
                 {% endif %}
