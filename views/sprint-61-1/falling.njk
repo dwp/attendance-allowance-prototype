@@ -8,7 +8,7 @@
   <span class="govuk-caption-l">Stumbling or falling during the day</span>
 
   <h1 class="govuk-heading-l">
-    In the last year, how many times did you fall? 
+    In the last 12 months, how many times did you fall?
   </h1>
   
   {{ govukInput({
@@ -19,7 +19,7 @@
     value: data['frequency-falling'],
     errorMessage: data.validation['frequency-falling'].error,
     hint: {
-      text: "Please enter a number (it can be approximate)"
+      text: "Please enter a number. It can be rough estimate if you're not sure."
     }
   }) }}
  
