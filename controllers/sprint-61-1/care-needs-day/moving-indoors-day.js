@@ -106,7 +106,7 @@ const config = {
       maxLength: 100,
     },
     errors: {
-      required: 'Enter what you find difficult.',
+      required: 'You must tell us what you struggle with.',
     },
     condition: {
       field: 'moving-indoors-day',
