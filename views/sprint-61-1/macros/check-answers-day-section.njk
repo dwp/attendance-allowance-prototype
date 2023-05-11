@@ -690,13 +690,13 @@
                                 </dd>
                             </div>
                         {% endif %}
-                        {% if data['something-else-explain-medication'] %}
+                        {% if data['something-else-medication-treatment-day-why-explain'] %}
                             <div class="govuk-summary-list__row medication-treatment-day">
                                 <dt class="govuk-summary-list__key">
                                     What else do you struggle with?
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                    {{ data['something-else-explain-medication'] | capitalize }}
+                                    {{ data['something-else-medication-treatment-day-why-explain'] | capitalize }}
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
                                     {{ changeLink('medication-treatment-day-why') }}
