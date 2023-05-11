@@ -1,0 +1,43 @@
+{% from "./change-link.njk" import changeLink %}
+{% from "./reword-date.njk" import rewordDate %}
+
+{% macro checkAnswersStartDateSection(data) %}
+
+	<section class="When your care needs started">
+		<h2 class="govuk-heading-l">
+			When you started to experience difficulties
+		</h2>
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+			<div class="govuk-summary-list__row difficulties-start-date">
+				<dt class="govuk-summary-list__key">
+					How long have you had these difficulties?
+				</dt>
+				<dd class="govuk-summary-list__value">
+				{{ data['start-date'] 
+					| replace("less-than-six-months", "Less than 6 months")
+					| replace("more-than-six-months", "More than 6 months")
+				}}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+					{{ changeLink('difficulties-start-date') }}
+				</dd>
+			</div>
+			{% if data['start-date'] == "less-than-six-months" %}
+				<div class="govuk-summary-list__row difficulties-start-date">
+					<dt class="govuk-summary-list__key">
+						Start date of your difficulties
+					</dt>
+					<dd class="govuk-summary-list__value">
+						{% if data['difficulties-start-date-day'] %}
+							{{ rewordDate(data['difficulties-start-date-day'], data['difficulties-start-date-month'], data['difficulties-start-date-year']) }}
+						{% endif %}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						{{ changeLink('difficulties-start-date') }}
+					</dd>
+				</div>
+			{% endif %}
+		</dl>
+	</section>
+
+{% endmacro %}
