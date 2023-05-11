@@ -105,9 +105,27 @@ const config = {
       page: urls.keepEyeIntroduction,
     },
   ],
-  validation: {
-    type: validation.checkboxes,
-  },
+  validation: [
+    {
+      name: 'something-else-explain-medication',
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 100,
+      },
+      errors: {
+        required: 'You must tell us what you struggle with',
+      },
+      condition: {
+        field: 'medication-treatment-day',
+        value: 'something-else-medication', 
+      },
+    }, 
+    {
+      name: 'medication-treatment-day',
+      type: validation.checkboxes,
+    }
+  ]
 };
 
 module.exports = registerController(config.name, config);

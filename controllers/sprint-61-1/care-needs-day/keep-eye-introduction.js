@@ -112,7 +112,7 @@ const config = {
       },
     },
     {
-      page: urls.difficultiesStartDate,
+      page: urls.dayDifficulties,
     },
   ],
   next: urls.keepEyeChoice,
