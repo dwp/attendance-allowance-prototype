@@ -154,16 +154,17 @@
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row dress-day">
                     <dt class="govuk-summary-list__key">
-                        Does your condition affect you dressing or undressing?
+                        What do you struggle with?
                     </dt>
                     <dd class="govuk-summary-list__value">
                         <ul class="govuk-list">
                             {% for item in data['dress-day'] %}
                                 <li>
                                     {{ item
-									| replace("dress-physical", "Yes, I have physical difficulty when I dress or undress myself")
-									| replace("dress-motivation", "Yes, I need encouragement or prompting to dress or undress myself")
-									| replace("no-other-apply", "None of these apply to me") }}
+									| replace("put-on-take-off", "Putting on or taking off clothes or footwear")
+									| replace("choosing-clothes", "Choosing appropiate clothes")
+									| replace("forget-want-change-clothes", "Forgetting to or not wanting to change my clothes")
+                                    | replace("something-else-dressing", "I struggle with something else related to dressing or undressing") }}
                                 </li>
                             {% endfor %}
                         </ul>
@@ -172,10 +173,65 @@
                         {{ changeLink('dress-day') }}
                     </dd>
                 </div>
-                {% if data['dress-day'] != "no-other-apply" %}
+
+                {% if data['something-else-explain-dressing'] %}
+                    <div class="govuk-summary-list__row dress-dayy">
+                        <dt class="govuk-summary-list__key">
+                            What else do you struggle with?
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['something-else-explain-dressing'] | capitalize }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            {{ changeLink('dress-day') }}
+                        </dd>
+                    </div>
+                {% endif %}
+                {% if data['dress-day'] != "no-other-apply-dress-day" %}
+                    <div class="govuk-summary-list__row eat-drink-day-why">
+                        <dt class="govuk-summary-list__key">
+                            Can you tell us more about how you're struggling?
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <ul class="govuk-list">
+                                {% for item in data['dress-day-why'] %}
+                                    <li>
+                                        {{ item
+                                        | replace("breathless", "I get breathless")
+                                        | replace("restricted-movement", "I have restricted movement due to pain")
+                                        | replace("long-time-dress", "It takes me a long time to get dressed or undressed")
+                                        | replace("remind-get-dressed", "Someone has to remind me to get dressed or undressed")
+                                        | replace("help-dress", "Someone has to physically help me getting dressed or undressed")
+                                        | replace("cannot-dress", "I cannot put on or take off clothes or footwear on my own")
+                                        | replace("dress-day-why-something-else", "I struggle for another reason")
+                                        }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            {{ changeLink('dress-day-why') }}
+                        </dd>
+                    </div>
+                {% endif %}
+                {% if data['something-else-dress-day-why-explain'] %}
+                    <div class="govuk-summary-list__row toilet-day">
+                        <dt class="govuk-summary-list__key">
+                            What else do you struggle with?
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['something-else-dress-day-why-explain'] | capitalize }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            {{ changeLink('dress-day-why') }}
+                        </dd>
+                    </div>
+                {% endif %}
+
+                {% if data['dress-day'] != "no-other-apply-dress-day" %}
                     <div class="govuk-summary-list__row ">
                         <dt class="govuk-summary-list__key">
-                            Do you need to dress or undress yourself again?
+                            Do you need to change your clothes at any point during the day?
                         </dt>
                         <dd class="govuk-summary-list__value">
                             {{ data['additional-dress-day'] | capitalize }}
@@ -187,7 +243,7 @@
                     {% if data['additional-dress-day'] == "yes" %}
                         <div class="govuk-summary-list__row day-frequency">
                             <dt class="govuk-summary-list__key">
-                                On a typical day how many times do you need to dress or undress yourself?
+                                Approximately how often do you change your clothes during the day?
                             </dt>
                             <dd class="govuk-summary-list__value">
                                 {{ data['dress-frequency'] }}

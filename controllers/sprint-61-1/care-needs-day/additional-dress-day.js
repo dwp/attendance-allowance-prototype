@@ -7,7 +7,7 @@ const {
 
 const config = {
   name: urls.additionalDressDay,
-  previous: urls.dressDay,
+  previous: urls.dressDayWhy,
   next: [
     {
       page: urls.movingIndoorsDay,
@@ -82,7 +82,7 @@ const config = {
         maxLength: 4,
       },
       errors: {
-        required: 'Enter how many times do you need to dress and undress again during the day.',
+        required: 'Enter how many times do you need to change your clothes during the day.',
       },
       condition: {
         field: 'additional-dress-day',

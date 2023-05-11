@@ -65,6 +65,7 @@ router.use(`/${urls.returnBedDay}`, controllers.returnBedDay);
 router.use(`/${urls.washDay}`, controllers.washDay);
 router.use(`/${urls.additinalWashDay}`, controllers.additionalWashDay);
 router.use(`/${urls.dressDay}`, controllers.dressDay);
+router.use(`/${urls.dressDayWhy}`, controllers.dressDayWhy);
 router.use(`/${urls.additionalDressDay}`, controllers.additionalDressDay);
 router.use(`/${urls.movingIndoorsDay}`, controllers.movingIndoorsDay);
 router.use(`/${urls.movingIndoorsWhy}`, controllers.movingIndoorsWhy);

@@ -30,7 +30,7 @@ const config = {
   ],
   next: [
     {
-      page: urls.additionalDressDay,
+      page: urls.dressDayWhy,
       condition: {
         field: urls.dressDay,
         value: ['put-on-take-off', 'choosing-clothes', 'forget-want-change-clothes', 'something-else-dressing'],
