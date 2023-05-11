@@ -33,7 +33,7 @@ const config = {
       page: urls.additionalDressDay,
       condition: {
         field: urls.dressDay,
-        value: ['dress-physical', 'dress-motivation'],
+        value: ['put-on-take-off', 'choosing-clothes', 'forget-want-change-clothes', 'something-else-dressing'],
         match: match.anyOne,
       },
     },
@@ -97,9 +97,27 @@ const config = {
       page: urls.keepEyeIntroduction,
     },
   ],
-  validation: {
-    type: validation.checkboxes,
-  },
+  validation: [ 
+    {
+      name: 'something-else-explain-dressing',
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 100,
+      },
+      errors: {
+        required: 'You must tell us what you struggle with',
+      },
+      condition: {
+        field: 'dress-day',
+        value: 'something-else-dressing', 
+      },
+    }, 
+    {
+      name: 'dress-day',
+      type: validation.checkboxes,
+    }
+  ]
 };
 
 module.exports = registerController(config.name, config);

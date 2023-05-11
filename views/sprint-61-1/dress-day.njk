@@ -1,20 +1,13 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
 
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
   <span class="govuk-caption-l">Dressing or undressing yourself during the day</span>
      <h1 class="govuk-heading-l">
-       You told us you have difficulty when you dress or undress yourself
+       You told us you have difficulty when you dress or undress yourself during the day
      </h1>
-
-  <p class="govuk-body govuk-!-margin-bottom-2">
-    This means:
-  </p>
-  <ul class="govuk-list govuk-list--bullet">
-      <li>putting on and taking off clothing, including shoes and socks</li>
-      <li>needing help to fasten or undo zips or buttons</li>
-    </ul>
 
   {{ govukCheckboxes
     ({
@@ -22,31 +15,61 @@
       name: "dress-day",
       fieldset: {
         legend: {
-          text: "Does your condition affect you dressing or undressing?",
+          text: "What do you struggle with?",
           isPageHeading: false,
           classes: "govuk-fieldset__legend--m"
         }
       },
+      hint: {
+        text: 'Choose all that apply to you.'
+      },
       errorMessage: data.validation['dress-day'].error,
       items: [{
-        value: "dress-physical",
-        text: "Yes, I have physical difficulty when I dress or undress myself",
-        checked: true if data["dress-day"] and data["dress-day"].includes("dress-physical")
+        value: "put-on-take-off",
+        text: "Putting on or taking off clothes or footwear",
+        checked: true if data["dress-day"] and data["dress-day"].includes("put-on-take-off")
       },
       {
-        value: "dress-motivation",
-        text: "Yes, I need encouragement or prompting to dress or undress myself",
-        checked: true if data["dress-day"] and data["dress-day"].includes("dress-motivation")
+        value: "choosing-clothes",
+        text: "Choosing appropiate clothes",
+        checked: true if data["dress-day"] and data["dress-day"].includes("choosing-clothes")
+      },
+      {
+        value: "forget-want-change-clothes",
+        text: "Forgetting to or not wanting to change my clothes",
+        checked: true if data["dress-day"] and data["dress-day"].includes("forget-want-change-clothes")
+      },
+      {
+        value: "something-else-dressing",
+        text: "I struggle with something else related to dressing or undressing",
+        checked: true if data["dress-day"] and data["dress-day"].includes("something-else-dressing"), 
+        conditional: {
+          html: conditionalSomethingElseDressingHtml
+          }
       },
       {
         divider: "or"
       },
       {
-        value: "no-other-apply",
+        value: "no-other-apply-dress-day",
         text: "None of these apply to me",
         behaviour: "exclusive",
-        checked: true if data["dress-day"] and data["dress-day"].includes("no-other-apply")
+        checked: true if data["dress-day"] and data["dress-day"].includes("no-other-apply-dress-day")
       }]
     })
   }}
 {% endblock %}
+
+{% set conditionalSomethingElseDressingHtml %}
+   {{ govukInput({
+    classes: "govuk-input--width-40",
+    isPageHeading: true,
+    label: {
+      text: 'Tell us what you struggle with'
+      },
+    id: "something-else-explain-dressing",
+    name: "something-else-explain-dressing",
+    errorMessage: data.validation['something-else-explain-dressing'].error,
+    value: data['something-else-explain-dressing']
+    }) }}
+{% endset %}
