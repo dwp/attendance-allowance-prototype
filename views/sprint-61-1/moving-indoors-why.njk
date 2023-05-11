@@ -1,4 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
 
 {% extends "layouts/prototypeLayout.njk" %}
 
@@ -12,16 +13,19 @@
   <p class="govuk-heading-m">
     <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-0 govuk-!-margin-bottom-8">
       {% for item in data['moving-indoors-day'] %}
+      {% if item == 'moving-indoors-something-else' %}
+        <li>{{ data['something-else-explain'] }}</li>
+      {% endif %}
+       {% if item != 'moving-indoors-something-else' %}
         <li>
           {{ item 
           | replace("walking-around", "walking around")
           | replace("chair", "getting in or out of a chair")
           | replace("wheel", "transferring to or from a wheelchair")
           | replace("stairs", "going up or down stairs") 
-          | replace("reminding-motivating", "reminding or motivating myself to move")
-          | replace("moving-indoors-something-else", "something else when moving around indoors")  
-          | replace("no-other-apply", "None of these apply to me") }}
+          | replace("reminding-motivating", "reminding or motivating myself to move") }}
         </li>
+        {% endif %}
       {% endfor %}
     </ul>
   </p>
@@ -32,7 +36,7 @@
       name: "moving-indoors-why",
       fieldset: {
         legend: {
-          text: "Why do you think you're having difficulties?",
+          text: "Can you tell us more about how you're struggling?",
           isPageHeading: false,
           classes: "govuk-fieldset__legend--m"
         }
@@ -85,14 +89,27 @@
         checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("bed-bound")
       },
       {
-        divider: "or"
-      },
-      {
-        value: "none-apply",
-        text: "None of these apply to me",
-        behaviour: "exclusive",
-        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("none-apply")
+        value: "something-else-moving-around",
+        text: "I struggle for another reason",
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("something-else-moving-around"), 
+        conditional: {
+          html: conditionalSomethingElseMovingAroundIndoorsWhy
+        }
       }]
     })
   }}
 {% endblock %}
+
+{% set conditionalSomethingElseMovingAroundIndoorsWhy %}
+   {{ govukInput({
+    classes: "govuk-input--width-40",
+    isPageHeading: false,
+    label: {
+      text: 'Tell us the reason you are struggling'
+      },
+    id: "something-else-moving-around-why-explain",
+    name: "something-else-moving-around-why-explain",
+    errorMessage: data.validation['something-else-moving-around-why-explain'].error,
+    value: data['something-else-medication-moving-around-why-explain']
+    }) }}
+{% endset %}

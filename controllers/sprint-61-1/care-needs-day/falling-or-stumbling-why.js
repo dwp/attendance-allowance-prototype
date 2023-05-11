@@ -78,7 +78,7 @@ const config = {
         maxLength: 100,
       },
       errors: {
-        required: 'Tell us what is causing you to stumble or fall',
+        required: 'You must tell us the reason you stumble or fall.',
       },
       condition: {
         field: 'falling-or-stumbling-why',

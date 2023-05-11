@@ -69,9 +69,27 @@ const config = {
       page: urls.keepEyeIntroduction,
     },
   ],
-  validation: {
-    type: validation.checkboxes,
-  },
+  validation: [
+    {
+      name: 'something-else-moving-around-why-explain',
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 100,
+      },
+      errors: {
+        required: 'You must tell us the reason you struggle.',
+      },
+      condition: {
+        field: 'moving-indoors-why',
+        value: 'something-else-moving-around', 
+      },
+    }, 
+    {
+      name: 'moving-indoors-why',
+      type: validation.checkboxes,
+    }
+  ]
 };
 
 module.exports = registerController(config.name, config);
