@@ -7,7 +7,7 @@ const {
 
 const config = {
   name: urls.medicationTreatmentDayFrequency,
-  previous: urls.medicationTreatmentDay,
+  previous: urls.medicationTreatmentDayWhy,
   next: [
     {
       page: urls.socialActivitiesDay,
