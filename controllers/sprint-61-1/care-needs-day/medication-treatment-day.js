@@ -81,7 +81,7 @@ const config = {
       page: urls.medicationTreatmentDayWhy,
       condition: {
         field: urls.medicationTreatmentDay,
-        value: [, 'dressings-bandages', 'applying-cream', 'administering-medication', 'oxygen-therapy', 'right-medication-dosage', 'coping-side-effects', 'motivation-medication', 'something-else-medication'],
+        value: [, 'dressings-bandages', 'applying-cream', 'administering-medication', 'administering-treatment', 'right-medication-dosage', 'coping-side-effects', 'motivation-medication', 'something-else-medication'],
         match: match.anyOne,
       },
     },

@@ -26,7 +26,7 @@
           | replace("dressings-bandages", "changing dressings or bandages")
           | replace("applying-cream", "applying cream") 
           | replace("administering-medication", "administering medication")
-          | replace("oxygen-therapy", "Having oxygen therapy") 
+          | replace("administering-treatment", "administering treatment") 
           | replace("right-medication-dosage", "taking the right medication and dosage at the right day or time") 
           | replace("coping-side-effects", "Coping with the side effects of my medication or treatment")
           | replace("motivation-medication", "Motivating myself to take medication or receive treatment") }}
@@ -75,7 +75,7 @@
       },
       {
         value: "medication-treatment-day-why-something-else",
-        text: "I struggle with something else",
+        text: "I struggle in another way",
         checked: true if data["medication-treatment-day-why"] and data["medication-treatment-day-why"].includes("medication-treatment-day-why-something-else"),
         conditional: {
           html: conditionalSomethingElseMedicationTreatmentWhy
@@ -90,7 +90,7 @@
     classes: "govuk-input--width-40",
     isPageHeading: false,
     label: {
-      text: 'Tell us what you struggle with'
+      text: 'Tell us how you are struggling'
       },
     id: "something-else-medication-treatment-day-why-explain",
     name: "something-else-medication-treatment-day-why-explain",
