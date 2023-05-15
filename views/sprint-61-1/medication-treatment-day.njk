@@ -40,9 +40,12 @@
         checked: true if data["medication-treatment-day"] and data["medication-treatment-day"].includes("administering-medication")
       },
       {
-        value: "oxygen-therapy",
-        text: "Having oxygen therapy",
-        checked: true if data["medication-treatment-day"] and data["medication-treatment-day"].includes("oxygen-therapy")
+        value: "administering-treatment",
+        text: "Administering treatment",
+        hint: {
+          text: "For example, oxygen therapy, physiotherapy, speech therapy"
+        },
+        checked: true if data["medication-treatment-day"] and data["medication-treatment-day"].includes("administering-treatment")
       },
       {
         value: "right-medication-dosage",
@@ -61,7 +64,7 @@
       },
       {
         value: "something-else-medication",
-        text: "I struggle with something else related to taking medication or receiving treatment",
+        text: "I struggle with something else",
         checked: true if data["medication-treatment-day"] and data["medication-treatment-day"].includes("something-else-medication"), 
         conditional: {
           html: conditionalSomethingElseMedicationHtml
