@@ -5,7 +5,7 @@
 
 {% block form %}
   <span class="govuk-caption-l">Moving around indoors during the day</span>
-  <h1 class="govuk-heading-l govuk-!-margin-bottom-5">Tell us more about your difficulties</h1>
+  <h1 class="govuk-heading-l govuk-!-margin-bottom-5">Tell us more about your difficulties with moving around indoors</h1>
 
   <p class="govuk-body govuk-!-margin-bottom-0">
     You told us you have difficulties with:
@@ -90,7 +90,7 @@
       },
       {
         value: "something-else-moving-around",
-        text: "I struggle for another reason",
+        text: "I struggle in another way",
         checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("something-else-moving-around"), 
         conditional: {
           html: conditionalSomethingElseMovingAroundIndoorsWhy
@@ -105,7 +105,7 @@
     classes: "govuk-input--width-40",
     isPageHeading: false,
     label: {
-      text: 'Tell us the reason you are struggling'
+      text: 'Tell us in what other way you struggle'
       },
     id: "something-else-moving-around-why-explain",
     name: "something-else-moving-around-why-explain",
