@@ -255,7 +255,7 @@
                                         | replace("remind-get-dressed", "Someone has to remind me to get dressed or undressed")
                                         | replace("help-dress", "Someone has to physically help me getting dressed or undressed")
                                         | replace("cannot-dress", "I cannot put on or take off clothes or footwear on my own")
-                                        | replace("dress-day-why-something-else", "I struggle for another reason")
+                                        | replace("dress-day-why-something-else", "I struggle in another way")
                                         }}
                                     </li>
                                 {% endfor %}
@@ -317,7 +317,7 @@
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row moving-indoors-day">
                     <dt class="govuk-summary-list__key">
-                        What do you find difficult when moving around indoors?
+                        What do you struggle with?
                     </dt>
                     <dd class="govuk-summary-list__value">
                         <ul class="govuk-list">
@@ -329,7 +329,7 @@
 									| replace("wheel", "Transferring to or from a wheelchair")
 									| replace("stairs", "Going up or down stairs")
 									| replace("reminding-motivating", "Reminding or motivating myself to move")
-									| replace("moving-indoors-something-else", "I struggle with something else when moving around indoors")
+									| replace("moving-indoors-something-else", "I struggle with something else")
 									| replace("no-other-apply", "None of these apply to me") }}
                                 </li>
                             {% endfor %}
@@ -355,7 +355,7 @@
                 {% if data['moving-indoors-why'] %}
                     <div class="govuk-summary-list__row moving-indoors-why">
                         <dt class="govuk-summary-list__key">
-                            Your difficulties moving around indoors
+                            How are you struggling?
                         </dt>
                         <ul class="govuk-list">
                             {% for item in data['moving-indoors-why'] %}
@@ -369,7 +369,7 @@
 									| replace("move-around-safely", "I cannot move around safely")
 									| replace("chair-bound", "I sit in a chair all day")
 									| replace("bed-bound", "I'm confined to my bed")
-									| replace("something-else-moving-around", "I struggle for another reason") }}
+									| replace("something-else-moving-around", "I struggle in another way") }}
                                 </li>
                             {% endfor %}
                         </ul>
@@ -381,7 +381,7 @@
                 {% if data['something-else-moving-around-why-explain'] %}
                     <div class="govuk-summary-list__row omething-else-moving-aorund-why-explain">
                         <dt class="govuk-summary-list__key">
-                            Other reason you struggle moving around indoors
+                            Other way you struggle
                         </dt>
                         <dd class="govuk-summary-list__value">
                             {{ data['something-else-moving-around-why-explain'] | capitalize }}
