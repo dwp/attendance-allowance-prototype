@@ -61,6 +61,7 @@ router.use(`/${urls.treatmentSurgeryInformation}`, controllers.treatmentSurgeryI
 router.use(`/${urls.dayDifficulties}`, controllers.dayDifficulties);
 router.use(`/${urls.difficultiesStartDate}`, controllers.difficultiesStartDate);
 router.use(`/${urls.bedDay}`, controllers.bedDay);
+router.use(`/${urls.bedDayWhy}`, controllers.bedDayWhy);
 router.use(`/${urls.returnBedDay}`, controllers.returnBedDay);
 router.use(`/${urls.washDay}`, controllers.washDay);
 router.use(`/${urls.washDayWhy}`, controllers.washDayWhy);

@@ -6,9 +6,21 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.returnBedDay,
-  previous: urls.bedDayWhy,
+  name: urls.bedDayWhy,
+  previous: [
+    {
+      page: urls.bedDay,
+    },
+  ],
   next: [
+    {
+      page: urls.returnBedDay,
+      condition: {
+        field: urls.bedDayWhy,
+        value: ['restricted-movement', 'hold-on-to-things', 'get-in-out-bed-safely', 'encouragement', 'help-bed', 'bed-day-why-something-else'],
+        match: match.anyOne,
+      },
+    },
     {
       page: urls.washDay,
       condition: {
@@ -87,25 +99,24 @@ const config = {
   ],
   validation: [
     {
-      type: validation.radios,
-      name: 'return-bed-day',
-    },
-    {
-      name: 'return-bed-day-times',
+      name: 'something-else-bed-day-why-explain',
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 4,
+        maxLength: 100,
       },
       errors: {
-        required: 'Enter how many times do you need to get in and out of bed.',
+        required: 'You must tell us in what other way you struggle.',
       },
       condition: {
-        field: 'return-bed-day',
-        value: 'yes',
+        field: 'bed-day-why',
+        value: 'bed-day-why-something-else', 
       },
-    },
-  ],
+    }, 
+    {
+      name: 'bed-day-why',
+      type: validation.checkboxes,
+    }]
 };
 
 module.exports = registerController(config.name, config);
