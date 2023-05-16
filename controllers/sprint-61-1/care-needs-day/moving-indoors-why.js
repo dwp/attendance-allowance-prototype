@@ -78,7 +78,7 @@ const config = {
         maxLength: 100,
       },
       errors: {
-        required: 'You must tell us the reason you struggle.',
+        required: 'Tell us in what other way you struggle.',
       },
       condition: {
         field: 'moving-indoors-why',
