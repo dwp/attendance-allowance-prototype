@@ -50,6 +50,7 @@ const treatmentSurgeryInformation = require('./surgery-or-treatment/treatment-su
 const dayDifficulties = require('./care-needs-day/day-difficulties');
 const difficultiesStartDate = require('./care-needs-day/difficulties-start-date');
 const bedDay = require('./care-needs-day/bed-day');
+const bedDayWhy = require('./care-needs-day/bed-day-why');
 const returnBedDay = require('./care-needs-day/return-bed-day');
 const washDay = require('./care-needs-day/wash-day');
 const washDayWhy = require('./care-needs-day/wash-day-why');
@@ -167,6 +168,7 @@ module.exports = {
   renalDialysisHelp,
   treatmentSurgeryInformation,
   bedDay,
+  bedDayWhy,
   additionalWashDay,
   additionalDressDay,
   returnBedDay,

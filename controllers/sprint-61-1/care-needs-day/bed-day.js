@@ -10,10 +10,10 @@ const config = {
   previous: urls.dayDifficulties,
   next: [
     {
-      page: urls.returnBedDay,
+      page: urls.bedDayWhy,
       condition: {
         field: urls.bedDay,
-        value: ['physical', 'motivation'],
+        value: ['getting-into-bed', 'getting-out-bed', 'motivation-bed', 'something-else-bed'],
         match: match.anyOne,
       },
     },
@@ -93,9 +93,27 @@ const config = {
       page: urls.keepEyeIntroduction,
     },
   ],
-  validation: {
-    type: validation.checkboxes,
-  },
+  validation: [ 
+    {
+      name: 'something-else-explain-bed',
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 100,
+      },
+      errors: {
+        required: 'You must tell us what you struggle with',
+      },
+      condition: {
+        field: 'bed-day',
+        value: 'something-else-bed', 
+      },
+    }, 
+    {
+      name: 'bed-day',
+      type: validation.checkboxes,
+    }
+  ]
 };
 
 module.exports = registerController(config.name, config);

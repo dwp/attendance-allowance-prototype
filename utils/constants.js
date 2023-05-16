@@ -60,6 +60,7 @@ module.exports = {
     dayDifficulties: 'day-difficulties',
     difficultiesStartDate: 'difficulties-start-date',
     bedDay: 'bed-day',
+    bedDayWhy: 'bed-day-why',
     returnBedDay: 'return-bed-day',
     washDay: 'wash-day',
     washDayWhy: 'wash-day-why',
