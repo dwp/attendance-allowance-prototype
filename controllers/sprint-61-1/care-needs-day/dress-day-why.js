@@ -25,7 +25,7 @@ const config = {
         maxLength: 100,
       },
       errors: {
-        required: 'You must tell us how you are struggling.',
+        required: 'You must tell us in what other way you struggle.',
       },
       condition: {
         field: 'dress-day-why',
