@@ -44,16 +44,17 @@
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row bed-day">
                     <dt class="govuk-summary-list__key">
-                        Which difficulty do you have when you get in and out of bed?
+                        What do you struggle with?
                     </dt>
                     <dd class="govuk-summary-list__value">
                         <ul class="govuk-list">
                             {% for item in data['bed-day'] %}
                                 <li>
                                     {{ item
-									| replace("physical", "I have physical difficulty when I get in and out of bed")
-									| replace("motivation", "I need encouragement or prompting to get in and out of bed")
-									| replace("none", "None of these apply to me") }}
+									| replace("getting-into-bed", "Getting into bed")
+									| replace("getting-out-bed", "Getting out of bed")
+									| replace("motivation-bed", "Forgetting or lacking the motivation to get up in the morning or go to bed at night")
+                                    | replace("something-else-bed", "I struggle with something else") }}
                                 </li>
                             {% endfor %}
                         </ul>
@@ -62,31 +63,81 @@
                         {{ changeLink('bed-day') }}
                     </dd>
                 </div>
-                {% if data['bed-day'] != "none" %}
-                    <div class="govuk-summary-list__row ">
+                {% if data['something-else-explain-bed'] %}
+                    <div class="govuk-summary-list__row bed-day">
                         <dt class="govuk-summary-list__key">
-                            Do you usually need to go back to bed during the day?
+                            What else do you struggle with?
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            {{ data['return-bed-day'] | capitalize }}
+                            {{ data['something-else-explain-bed'] | capitalize }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            {{ changeLink('bed-day') }}
+                        </dd>
+                    </div>
+                {% endif %}
+                {% if data['bed-day'] != "none" %}
+                    <div class="govuk-summary-list__row bed-day-why">
+                        <dt class="govuk-summary-list__key">
+                            Can you tell us more about how you're struggling?
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <ul class="govuk-list">
+                                {% for item in data['bed-day-why'] %}
+                                    <li>
+                                        {{ item
+                                        | replace("restricted-movement", "I have restricted movement due to my pain or disability")
+                                        | replace("hold-on-to-things", "I hold on to things to get in or out of bed")
+                                        | replace("get-in-out-bed-safely", "I cannot get in or out of bed safely")
+                                        | replace("encouragement", "I need to be encouraged to get in or out of bed")
+                                        | replace("help-bed", "Someone has to physically help me get in or out of bed")
+                                        | replace("sleep-chair", "I sleep in a chair at night instead of going to bed")
+                                        | replace("bed-day-why-something-else", "I struggle in another way") }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            {{ changeLink('bed-day-why') }}
+                        </dd>
+                    </div>
+                {% endif %}
+                {% if data['something-else-bed-day-why-explain'] %}
+                        <div class="govuk-summary-list__row bed-day-why">
+                            <dt class="govuk-summary-list__key">
+                                Other way you struggle
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                {{ data['something-else-bed-day-why-explain'] | capitalize }}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                {{ changeLink('bed-day-why') }}
+                            </dd>
+                        </div>
+                {% endif %}
+                <div class="govuk-summary-list__row ">
+                    <dt class="govuk-summary-list__key">
+                        Do you usually need to go back to bed during the day?
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['return-bed-day'] | capitalize }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        {{ changeLink('return-bed-day') }}
+                    </dd>
+                </div>
+                {% if data['return-bed-day'] == "yes" %}
+                    <div class="govuk-summary-list__row day-frequency">
+                        <dt class="govuk-summary-list__key">
+                            On a typical day how many times do you need to go back to bed?
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['return-bed-day-times'] }}
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             {{ changeLink('return-bed-day') }}
                         </dd>
                     </div>
-                    {% if data['return-bed-day'] == "yes" %}
-                        <div class="govuk-summary-list__row day-frequency">
-                            <dt class="govuk-summary-list__key">
-                                On a typical day how many times do you need to go back to bed?
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                                {{ data['return-bed-day-times'] }}
-                            </dd>
-                            <dd class="govuk-summary-list__actions">
-                                {{ changeLink('return-bed-day') }}
-                            </dd>
-                        </div>
-                    {% endif %}
                 {% endif %}
             </dl>
         </section>
