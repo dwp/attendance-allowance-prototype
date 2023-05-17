@@ -99,16 +99,18 @@
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row wash-day">
                     <dt class="govuk-summary-list__key">
-                        Does your condition affect you washing or bathing?
+                        What do you struggle with?
                     </dt>
                     <dd class="govuk-summary-list__value">
                         <ul class="govuk-list">
                             {% for item in data['wash-day'] %}
                                 <li>
                                     {{ item
-									| replace("wash-physical", "Yes, I have physical difficulty when I wash or bathe myself")
-									| replace("wash-motivation", "Yes, I need encouragement or prompting to wash or bathe myself")
-									| replace("no-other-apply", "None of these apply to me") }}
+									| replace("get-in-out-bath", "Getting in or out of a bath")
+									| replace("wash-drying-myself", "Washing or drying myself")
+									| replace("taking-shower", "Taking a shower")
+                                    | replace("forgetting-lacking-motivation-wash", "Forgetting or lacking the motivation to wash, bathe or shower") 
+                                    | replace("something-else-washing", "I struggle with something else")}}
                                 </li>
                             {% endfor %}
                         </ul>
@@ -117,7 +119,57 @@
                         {{ changeLink('wash-day') }}
                     </dd>
                 </div>
+                {% if data['something-else-explain-washing'] %}
+                    <div class="govuk-summary-list__row toilet-day">
+                        <dt class="govuk-summary-list__key">
+                            Something else you struggle with
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['something-else-explain-washing'] | capitalize }}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            {{ changeLink('wash-day') }}
+                        </dd>
+                    </div>
+                {% endif %}
+
                 {% if data['wash-day'] != "no-other-apply" %}
+                    <div class="govuk-summary-list__row wash-day-why">
+                        <dt class="govuk-summary-list__key">
+                            How are you struggling?
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            <ul class="govuk-list">
+                                {% for item in data['wash-day-why'] %}
+                                    <li>
+                                        {{ item
+                                        | replace("hold-on-to-things", "I hold on to things to get in or out of the bath or shower")
+                                        | replace("wash-bathe-safely", "I cannot wash or bathe safely on my own")
+                                        | replace("wash-encouragement", "I need someone to encourage me to wash or bathe")
+                                        | replace("wash-help", "Someone has to physically help me wash or bathe")
+                                        | replace("wash-day-why-something-else", "I struggle in another way")
+                                        }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            {{ changeLink('wash-day-why') }}
+                        </dd>
+                    </div>
+                    {% if data['something-else-wash-day-why-explain'] %}
+                        <div class="govuk-summary-list__row wash-day-why">
+                            <dt class="govuk-summary-list__key">
+                                Other way you struggle
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                {{ data['something-else-wash-day-why-explain'] | capitalize }}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                {{ changeLink('wash-day-why') }}
+                            </dd>
+                        </div>
+                    {% endif %}
                     <div class="govuk-summary-list__row ">
                         <dt class="govuk-summary-list__key">
                             Do you need to wash or bathe yourself again during the day?
@@ -132,7 +184,7 @@
                     {% if data['additional-wash-day'] == "yes" %}
                         <div class="govuk-summary-list__row day-frequency">
                             <dt class="govuk-summary-list__key">
-                                On a typical day how many times do you need to wash or bathe again?
+                                Approximately, how many times do you need to wash or bathe?
                             </dt>
                             <dd class="govuk-summary-list__value">
                                 {{ data['wash-frequency'] }}
