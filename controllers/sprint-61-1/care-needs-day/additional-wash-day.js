@@ -7,7 +7,7 @@ const {
 
 const config = {
   name: urls.additinalWashDay,
-  previous: urls.washDay,
+  previous: urls.washDayWhy,
   next: [
     {
       page: urls.dressDay,
