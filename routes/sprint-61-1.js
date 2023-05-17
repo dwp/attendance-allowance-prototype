@@ -63,6 +63,7 @@ router.use(`/${urls.difficultiesStartDate}`, controllers.difficultiesStartDate);
 router.use(`/${urls.bedDay}`, controllers.bedDay);
 router.use(`/${urls.returnBedDay}`, controllers.returnBedDay);
 router.use(`/${urls.washDay}`, controllers.washDay);
+router.use(`/${urls.washDayWhy}`, controllers.washDayWhy);
 router.use(`/${urls.additinalWashDay}`, controllers.additionalWashDay);
 router.use(`/${urls.dressDay}`, controllers.dressDay);
 router.use(`/${urls.dressDayWhy}`, controllers.dressDayWhy);

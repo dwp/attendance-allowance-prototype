@@ -62,6 +62,7 @@ module.exports = {
     bedDay: 'bed-day',
     returnBedDay: 'return-bed-day',
     washDay: 'wash-day',
+    washDayWhy: 'wash-day-why',
     additinalWashDay: 'additional-wash-day',
     dressDay: 'dress-day',
     dressDayWhy: 'dress-day-why',

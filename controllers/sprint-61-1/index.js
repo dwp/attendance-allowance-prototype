@@ -52,6 +52,7 @@ const difficultiesStartDate = require('./care-needs-day/difficulties-start-date'
 const bedDay = require('./care-needs-day/bed-day');
 const returnBedDay = require('./care-needs-day/return-bed-day');
 const washDay = require('./care-needs-day/wash-day');
+const washDayWhy = require('./care-needs-day/wash-day-why');
 const additionalWashDay = require('./care-needs-day/additional-wash-day');
 const dressDay = require('./care-needs-day/dress-day');
 const dressDayWhy = require('./care-needs-day/dress-day-why');
@@ -170,6 +171,7 @@ module.exports = {
   additionalDressDay,
   returnBedDay,
   washDay,
+  washDayWhy,
   dressDay,
   dressDayWhy,
   bedPositionNight,
