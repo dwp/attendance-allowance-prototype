@@ -30,10 +30,10 @@ const config = {
   ],
   next: [
     {
-      page: urls.additinalWashDay,
+      page: urls.washDayWhy,
       condition: {
         field: urls.washDay,
-        value: ['wash-physical', 'wash-motivation'],
+        value: ['get-in-out-bath', 'wash-drying-myself','taking-shower', 'forgetting-lacking-motivation-wash', 'something-else-washing'],
         match: match.anyOne,
       },
     },
@@ -105,9 +105,27 @@ const config = {
       page: urls.keepEyeIntroduction,
     },
   ],
-  validation: {
-    type: validation.checkboxes,
-  },
+  validation: [ 
+    {
+      name: 'something-else-explain-washing',
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 100,
+      },
+      errors: {
+        required: 'You must tell us what you struggle with.',
+      },
+      condition: {
+        field: 'wash-day',
+        value: 'something-else-washing', 
+      },
+    }, 
+    {
+      name: 'wash-day',
+      type: validation.checkboxes,
+    }
+  ]
 };
 
 module.exports = registerController(config.name, config);
