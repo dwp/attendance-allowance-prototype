@@ -61,9 +61,27 @@ const config = {
       page: urls.keepEyeIntroduction,
     },
   ],
-  validation: {
-    type: validation.checkboxes,
-  },
+  validation: [ 
+    {
+      name: 'something-else-explain-stairs',
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 100,
+      },
+      errors: {
+        required: 'You must tell us the other reason why you need to use stairs.',
+      },
+      condition: {
+        field: 'moving-indoors-stairs',
+        value: 'something-else-stairs', 
+      },
+    }, 
+    {
+      name: 'moving-indoors-stairs',
+      type: validation.checkboxes,
+    }
+  ]
 };
 
 module.exports = registerController(config.name, config);
