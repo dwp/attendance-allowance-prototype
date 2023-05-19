@@ -390,80 +390,95 @@
                         {{ changeLink('moving-indoors-day') }}
                     </dd>
                 </div>
-                {% if data['something-else-explain'] %}
-                    <div class="govuk-summary-list__row something-else-explain">
+            {% if data['something-else-explain'] %}
+                <div class="govuk-summary-list__row something-else-explain">
+                    <dt class="govuk-summary-list__key">
+                        Something else you struggle with
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['something-else-explain'] | capitalize }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        {{ changeLink('moving-indoors-day') }}
+                    </dd>
+                </div>
+            {% endif %}
+            {% if data['moving-indoors-why'] %}
+                <div class="govuk-summary-list__row moving-indoors-why">
+                    <dt class="govuk-summary-list__key">
+                        How are you struggling?
+                    </dt>
+                    <ul class="govuk-list">
+                        {% for item in data['moving-indoors-why'] %}
+                            <li>
+                                {{ item
+                                | replace("shuffle", "I shuffle or take very small steps")
+                                | replace("unsteady", "I'm very unsteady, even if I use an aid or lean on things")
+                                | replace("slow", "I'm very slow")
+                                | replace("several-attemps-chair", "It takes me several attempts to get out of a chair")
+                                | replace("physically-assisted", "Someone has to physically assist me")
+                                | replace("move-around-safely", "I cannot move around safely")
+                                | replace("chair-bound", "I sit in a chair all day")
+                                | replace("bed-bound", "I'm confined to my bed")
+                                | replace("something-else-moving-around", "I struggle in another way") }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <dd class="govuk-summary-list__actions">
+                        {{ changeLink('moving-around-why') }}
+                    </dd>
+                </div>
+            {% endif %}
+            {% if data['something-else-moving-around-why-explain'] %}
+                <div class="govuk-summary-list__row omething-else-moving-aorund-why-explain">
+                    <dt class="govuk-summary-list__key">
+                        Other way you struggle
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{ data['something-else-moving-around-why-explain'] | capitalize }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        {{ changeLink('moving-indoors-why') }}
+                    </dd>
+                </div>
+            {% endif %}
+            {% if data['moving-indoors-stairs'] %}
+                <div class="govuk-summary-list__row moving-indoors-why">
+                    <dt class="govuk-summary-list__key">
+                        Why you need to go up or down the stairs
+                    </dt>
+                    <ul class="govuk-list">
+                        {% for item in data['moving-indoors-stairs'] %}
+                            <li>
+                                {{ item
+                                    | replace("toilet", "To get to the toilet")
+                                    | replace("bathroom", "To get to the bathroom")
+                                    | replace("kitchen", "To get to the kitchen")
+                                    | replace("in-out-property", "To get in and out of my property")
+                                    | replace("something-else-stairs", "I need to use stairs for another reason") }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <dd class="govuk-summary-list__actions">
+                        {{ changeLink('moving-indoors-stairs') }}
+                    </dd>
+                </div>
+            {% endif %}
+            {% if data['something-else-explain-stairs'] %}
+                    <div class="govuk-summary-list__row toilet-day">
                         <dt class="govuk-summary-list__key">
-                            Something else you struggle with
+                            Other reason you need to use stairs
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            {{ data['something-else-explain'] | capitalize }}
+                            {{ data['something-else-explain-stairs'] | capitalize }}
                         </dd>
-                        <dd class="govuk-summary-list__actions">
-                            {{ changeLink('moving-indoors-day') }}
-                        </dd>
-                    </div>
-                {% endif %}
-                {% if data['moving-indoors-why'] %}
-                    <div class="govuk-summary-list__row moving-indoors-why">
-                        <dt class="govuk-summary-list__key">
-                            How are you struggling?
-                        </dt>
-                        <ul class="govuk-list">
-                            {% for item in data['moving-indoors-why'] %}
-                                <li>
-                                    {{ item
-									| replace("shuffle", "I shuffle or take very small steps")
-									| replace("unsteady", "I'm very unsteady, even if I use an aid or lean on things")
-									| replace("slow", "I'm very slow")
-									| replace("several-attemps-chair", "It takes me several attempts to get out of a chair")
-									| replace("physically-assisted", "Someone has to physically assist me")
-									| replace("move-around-safely", "I cannot move around safely")
-									| replace("chair-bound", "I sit in a chair all day")
-									| replace("bed-bound", "I'm confined to my bed")
-									| replace("something-else-moving-around", "I struggle in another way") }}
-                                </li>
-                            {% endfor %}
-                        </ul>
-                        <dd class="govuk-summary-list__actions">
-                            {{ changeLink('moving-around-why') }}
-                        </dd>
-                    </div>
-                {% endif %}
-                {% if data['something-else-moving-around-why-explain'] %}
-                    <div class="govuk-summary-list__row omething-else-moving-aorund-why-explain">
-                        <dt class="govuk-summary-list__key">
-                            Other way you struggle
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            {{ data['something-else-moving-around-why-explain'] | capitalize }}
-                        </dd>
-                        <dd class="govuk-summary-list__actions">
-                            {{ changeLink('moving-indoors-why') }}
-                        </dd>
-                    </div>
-                {% endif %}
-                {% if data['moving-indoors-stairs'] %}
-                    <div class="govuk-summary-list__row moving-indoors-why">
-                        <dt class="govuk-summary-list__key">
-                            Why you need to go up or down the stairs
-                        </dt>
-                        <ul class="govuk-list">
-                            {% for item in data['moving-indoors-stairs'] %}
-                                <li>
-                                    {{ item
-										| replace("toilet", "To get to the toilet")
-										| replace("bathroom", "To get to the bathroom")
-										| replace("kitchen", "To get to the kitchen")
-										| replace("in-out-property", "To get in and out of my property") }}
-                                </li>
-                            {% endfor %}
-                        </ul>
                         <dd class="govuk-summary-list__actions">
                             {{ changeLink('moving-indoors-stairs') }}
                         </dd>
-                    {% endif %}
-                </section>
-            {% endif %}
+                    </div>
+                {% endif %}
+        </section>
+    {% endif %}
             {% if data["day-difficulties"] and data["day-difficulties"].includes("stumbling-falling") and data['falling-or-stumbling'] != "no-other-apply" %}
                 <section class="Stumbling or falling">
                     <h2 class="govuk-heading-m">
