@@ -24,26 +24,25 @@
       },
       errorMessage: data.validation['moving-indoors-stairs'].error,
       items: [
-        {
-          value: "toilet",
-          text: "To get to the toilet",
-          checked: true if data["moving-indoors-stairs"] and data["moving-indoors-stairs"].includes("toilet")
-        },
-        {
-          value: "bathroom",
-          text: "To get to the bathroom",
-          checked: true if data["moving-indoors-stairs"] and data["moving-indoors-stairs"].includes("bathroom")
-        },
-        {
-          value: "kitchen",
-          text: "To get to the kitchen",
-          checked: true if data["moving-indoors-stairs"] and data["moving-indoors-stairs"].includes("kitchen")
-        },
-        {
-          value: "in-out-property",
-          text: "To get in and out of my property",
-          checked: true if data["moving-indoors-stairs"] and data["moving-indoors-stairs"].includes("in-out-property")
-        }
+      {
+        value: "toilet",
+        text: "To get to the toilet",
+        checked: true if data["moving-indoors-stairs"] and data["moving-indoors-stairs"].includes("toilet")
+      },
+      {
+        value: "bathroom",
+        text: "To get to the bathroom",
+        checked: true if data["moving-indoors-stairs"] and data["moving-indoors-stairs"].includes("bathroom")
+      },
+      {
+        value: "kitchen",
+        text: "To get to the kitchen",
+        checked: true if data["moving-indoors-stairs"] and data["moving-indoors-stairs"].includes("kitchen")
+      },
+      {
+        value: "in-out-property",
+        text: "To get in and out of my property",
+        checked: true if data["moving-indoors-stairs"] and data["moving-indoors-stairs"].includes("in-out-property")
       }]
     })
   }} 
