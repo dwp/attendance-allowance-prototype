@@ -43,21 +43,21 @@
           value: "in-out-property",
           text: "To get in and out of my property",
           checked: true if data["moving-indoors-stairs"] and data["moving-indoors-stairs"].includes("in-out-property")
-        }, 
+        },
         {
           value: "something-else-stairs",
           text: "I need to use stairs for another reason",
-          checked: true if data["moving-indoors-stairs"] and data["moving-indoors-stairs"].includes("something-else-stairs"), 
+          checked: true if data["moving-indoors-stairs"] and data["moving-indoors-stairs"].includes("something-else-stairs"),
           conditional: {
             html: conditionalSomethingElseStairsHtml
           }
-        } 
+        }
       ]
     })
-  }} 
+  }}
 
 {% endblock %}
-        
+
 {% set conditionalSomethingElseStairsHtml %}
   {{ govukInput({
     classes: "govuk-input--width-40",
@@ -69,6 +69,6 @@
     name: "something-else-explain-stairs",
     errorMessage: data.validation['something-else-explain-stairs'].error,
     value: data['something-else-explain-stairs']
-    }) 
+    })
   }}
 {% endset %}
