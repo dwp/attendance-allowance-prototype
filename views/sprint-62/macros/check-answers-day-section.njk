@@ -938,10 +938,12 @@
                                     {% for item in data['social-activities-day'] %}
                                         <li>
                                             {{ item
-									| replace("social-physical", "I have physical difficulty when I take part in social activities or hobbies")
-									| replace("social-motivation", "I need encouragement or prompting to take part in social activities or hobbies")
-									| replace("social-no", "I no longer take part due to my condition")
-									| replace("no-other-apply", "None of these apply to me") }}
+                                            | replace("social-physical", "I have physical difficulty when I take part in social activities or hobbies")
+                                            | replace("social-motivation", "I need encouragement or prompting to take part in social activities or hobbies")
+                                            | replace("social-no-help", "I cannot take part unless someone helps me")
+                                            | replace("social-no", "I no longer take part due to my condition")
+                                            | replace("something-else-social", "I struggle with something else")
+                                            | replace("no-other-apply", "None of these apply to me") }}
                                         </li>
                                     {% endfor %}
                                 </ul>
@@ -950,13 +952,31 @@
                                 {{ changeLink('social-activities-day') }}
                             </dd>
                         </div>
+                        {% if data['something-else-explain-social'] %}
+                            <div class="govuk-summary-list__row social-activities-day">
+                                <dt class="govuk-summary-list__key">
+                                    Something else you struggle with
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    {{ data['something-else-explain-social'] | capitalize }}
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                    {{ changeLink('social-activities-day') }}
+                                </dd>
+                            </div>
+                        {% endif %}
                         {% if data['social-activities-day-frequency'] %}
                             <div class="govuk-summary-list__row social-activities-day-frequency">
                                 <dt class="govuk-summary-list__key">
                                     In a typical week how many times do take part in social activities or hobbies?
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                    {{ data['social-activities-day-frequency'] }}
+                                    {{ data['social-activities-day-frequency'] 
+                                    | replace("1-or-less", "Once a week or less")
+                                    | replace("2-to-3", "2 to 3 times a week")
+                                    | replace("4-to-6", "4 to 6 times a week")
+                                    | replace("every-day", "Every day")
+                                    }}
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
                                     {{ changeLink('social-activities-day-frequency') }}
