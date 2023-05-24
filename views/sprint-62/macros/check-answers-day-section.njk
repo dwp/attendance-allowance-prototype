@@ -994,16 +994,20 @@
                     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                         <div class="govuk-summary-list__row communication-day">
                             <dt class="govuk-summary-list__key">
-                                Which difficulties do you have when you communicate with other people?
+                                What do you find difficult about communicating with others?
                             </dt>
                             <dd class="govuk-summary-list__value">
                                 <ul class="govuk-list">
                                     {% for item in data['communication-day'] %}
                                         <li>
                                             {{ item
-									| replace("communication-day-physical", "I have physical difficulty when I communicate with other people")
-									| replace("communication-day-motivation", "I need encouragement or prompting to communicate with other people")
-									| replace("no-other-apply", "None of these apply to me") }}
+                                            | replace("reading-writing-understanding", "Reading, writing or understanding written communication such as letters or emails")
+                                            | replace("answering-using-phone", "Answering or using the phone")
+                                            | replace("understanding-people", "Understanding or being understood by people I do not know well")
+                                            | replace("concentrating-remembering", "Concentrating or remembering things")
+                                            | replace("asking-for-help", "Asking for help when I need it")
+                                            | replace("something-else-communication", "I struggle with something else")
+                                            | replace("no-other-apply", "I do not struggle communicating with other people") }}
                                         </li>
                                     {% endfor %}
                                 </ul>
@@ -1012,26 +1016,52 @@
                                 {{ changeLink('communication-day') }}
                             </dd>
                         </div>
+                        {% if data['something-else-explain-communication'] %}
+                            <div class="govuk-summary-list__row communication-day">
+                                <dt class="govuk-summary-list__key">
+                                    What else do you struggle with?
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    {{ data['something-else-explain-communication'] | capitalize }}
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                    {{ changeLink('communication-day') }}
+                                </dd>
+                            </div>
+                        {% endif %}
                         {% if data['communication-day'] != "no-other-apply" %}
                             <div class="govuk-summary-list__row day-frequency">
                                 <dt class="govuk-summary-list__key">
-                                    Which of the following difficulties apply to you when you communicate with other people?
+                                    How you currently manage
                                 </dt>
                                 <dd class="govuk-summary-list__value">
                                     <ul class="govuk-list">
                                         {% for item in data['communication-day-difficulties'] %}
                                             <li>
                                                 {{ item
-										| replace("understanding-people", "Understanding people I do not know well")
-										| replace("being-understood", "Being understood by people who do not know me well")
-										| replace("concentrating-remembering", "Concentrating or remembering things")
-										| replace("using-phone", "Answering or using the phone")
-										| replace("letters-forms-mail", "Reading letters, filling in forms, replying to mail")
-										| replace("asking-for-help", "Asking for help when I need it")
-										| replace("communication-none", "None of these apply to me") }}
+										| replace("manage-without-help", "I can manage without help")
+										| replace("encouragement-communication", "I need someone to encourage me to answer letters or use the phone")
+										| replace("help-understanding-letters", "I need someone to help me understand letters, forms, emails")
+										| replace("using-phone", "I need someone to answer or use the telephone for me")
+										| replace("need-translator", "I need a translator because English is not my first language")
+										| replace("speak-communicate-on-behalf", "I need someone to speak or communicate on my behalf")
+										| replace("something-else-communication-difficulties", "I manage in another way") }}
                                             </li>
                                         {% endfor %}
                                     </ul>
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                    {{ changeLink('communication-day-difficulties') }}
+                                </dd>
+                            </div>
+                        {% endif %}
+                        {% if data['something-else-explain-communication-difficulties'] %}
+                            <div class="govuk-summary-list__row communication-day">
+                                <dt class="govuk-summary-list__key">
+                                    The other way you manage
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    {{ data['something-else-explain-communication-difficulties'] | capitalize }}
                                 </dd>
                                 <dd class="govuk-summary-list__actions">
                                     {{ changeLink('communication-day-difficulties') }}

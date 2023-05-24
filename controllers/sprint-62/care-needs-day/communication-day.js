@@ -97,7 +97,7 @@ const config = {
       page: urls.communicationDayDifficulties,
       condition: {
         field: urls.communicationDay,
-        value: ['communication-day-physical', 'communication-day-motivation'],
+        value: ['reading-writing-understanding', 'answering-using-phone', 'understanding-people', 'concentrating-remembering', 'asking-for-help', 'something-else-communication'],
         match: match.anyOne,
       },
     },
@@ -105,9 +105,26 @@ const config = {
       page: urls.keepEyeIntroduction,
     },
   ],
-  validation: {
-    type: validation.checkboxes,
-  },
+  validation: [
+    {
+      name: 'something-else-explain-communication',
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 100,
+      },
+      errors: {
+        required: 'You must tell us what you struggle with',
+      },
+      condition: {
+        field: 'communication-day',
+        value: 'something-else-communication', 
+      },
+    }, 
+    {
+      name: 'communication-day',
+      type: validation.checkboxes,
+    }]
 };
 
 module.exports = registerController(config.name, config);
