@@ -1,4 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
 
 {% extends "layouts/prototypeLayout.njk" %}
 
@@ -6,50 +7,93 @@
  <span class="govuk-caption-l">Communication</span>
 
 <h1 class="govuk-heading-l">
-  Which of the following difficulties apply to you when you  communicate with other people?
+  Tell us more about your difficulties with communicating
 </h1>
   
-<p class="govuk-hint">
-Choose all that apply to you:</p>
+<p class="govuk-body">
+    You told us you have difficulties with:
+  </p>
+  
+  <ul class="govuk-list govuk-list--bullet">
+    {% for item in data['communication-day'] %}
+      {% if item == 'something-else-communication' %}
+        <li>{{ data['something-else-explain-communication'] }}</li>
+      {% endif %}
+      {% if item != 'something-else-communication' %}
+        <li>
+          {{ item 
+          | replace("reading-writing-understanding", "reading, writing or understanding written communication such as letters or emails")
+          | replace("answering-using-phone", "answering or using the phone") 
+          | replace("understanding-people", "understanding or being understood by people I do not know well")
+          | replace("concentrating-remembering", "concentrating or remembering things") 
+          | replace("asking-for-help", "asking for help when I need it") }}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
 
 {{ govukCheckboxes
   ({
     name: "communication-day-difficulties",
+    fieldset: {
+        legend: {
+          text: "How do you currently manage?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+    hint: {
+      text: "Choose all that apply to you."
+    },
     errorMessage: data.validation['communication-day-difficulties'].error,
     items: [{
-      value: "understanding-people",
-      text: "Understanding people I do not know well",
-      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("understanding-people")
+      value: "manage-without-help",
+      text: "I can manage without help",
+      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("manage-without-help")
     },{
-      value: "being-understood",
-      text: "Being understood by people who do not know me well",
-      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("being-understood")
+      value: "encouragement-communication",
+      text: "I need someone to encourage me to answer letters or use the phone",
+      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("encouragement-communication")
     },{
-      value: "concentrating-remembering",
-      text: "Concentrating or remembering things",
-      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("concentrating-remembering")
+      value: "help-understanding-letters",
+      text: "I need someone to help me understand letters, forms, emails",
+      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("help-understanding-letters")
     },{
       value: "using-phone",
-      text: "Answering or using the phone",
+      text: "I need someone to answer or use the telephone for me",
       checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("using-phone")
     },{
-      value: "letters-forms-mail",
-      text: "Reading letters, filling in forms, replying to mail",
-      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("letters-forms-mail")
+      value: "need-translator",
+      text: "I need a translator because English is not my first language",
+      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("need-translator")
     },{
-      value: "asking-for-help",
-      text: "Asking for help when I need it",
-      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("asking-for-help")
-    },{
-        divider: "or"
-      },
-      {
-        value: "communication-none",
-        text: "None of these apply to me",
-        behaviour: "exclusive",
-        checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("communication-none")
+      value: "speak-communicate-on-behalf",
+      text: "I need someone to speak or communicate on my behalf",
+      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("speak-communicate-on-behalf")
+    },
+    {
+        value: "something-else-communication-difficulties",
+        text: "I manage in another way",
+        checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("something-else-communication-difficulties"), 
+        conditional: {
+          html: conditionalSomethingElseCommunicationSeverityHtml
+        }
       }]
   })
 }} 
 
 {% endblock %}
+
+{% set conditionalSomethingElseCommunicationSeverityHtml %}
+   {{ govukInput({
+    classes: "govuk-input--width-40",
+    isPageHeading: true,
+    label: {
+      text: 'How else do you manage?'
+      },
+    id: "something-else-explain-communication-difficulties",
+    name: "something-else-explain-communication-difficulties",
+    errorMessage: data.validation['something-else-explain-communication-difficulties'].error,
+    value: data['something-else-explain-communication-difficulties']
+    }) }}
+{% endset %}
