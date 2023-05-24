@@ -87,23 +87,8 @@ const config = {
   ],
   validation: [
     {
-      type: validation.radios,
       name: 'return-bed-day',
-    },
-    {
-      name: 'return-bed-day-times',
-      type: validation.textInput,
-      options: {
-        minLength: 1,
-        maxLength: 4,
-      },
-      errors: {
-        required: 'Enter how many times do you need to get in and out of bed.',
-      },
-      condition: {
-        field: 'return-bed-day',
-        value: 'yes',
-      },
+      type: validation.radios,
     },
   ],
 };
