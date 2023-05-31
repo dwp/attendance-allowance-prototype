@@ -38,6 +38,93 @@
     </ul>
   </p>
 
+  {% set struggling = [] %}
+  {% if data['toilet-day'].includes("toilet-getting-to") %}
+    {% set struggling = (struggling.push({
+        value: "lean-on-sink-radiator",
+        text: "I need to lean on something such as the sink or radiator",
+        checked: true if data["toilet-day"] and data["toilet-day"].includes("lean-on-sink-radiator")
+      }), struggling) %}
+  {% endif %}
+  {% if data['toilet-day'].includes("toilet-getting-on-off") 
+      or data['toilet-day'].includes("toilet-not-always") %}
+    {% set struggling = (struggling.push({
+        value: "toilet-raised",
+        text: "I can only use a toilet if it's raised",
+        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-raised")
+      }), struggling) %}
+  {% endif %}
+  {% if data['toilet-day'].includes("toilet-getting-on-off")  
+      or data['toilet-day'].includes("toilet-not-always") %}
+    {% set struggling = (struggling.push({
+        value: "toilet-several-attempts",
+        text: "It takes me several attempts to get on or off the toilet or commode",
+        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-several-attempts")
+      }), struggling) %}
+  {% endif %}
+  {% if data['toilet-day'].includes("toilet-getting-to")  
+      or data['toilet-day'].includes("toilet-urgent")
+      or data['toilet-day'].includes("managing-incontinence")  
+      or data['toilet-day'].includes("toilet-not-always") %}
+    {% set struggling = (struggling.push({
+        value: "toilet-accident",
+        text: "I have accidents because I cannot get there in time",
+        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-accident")
+      }), struggling) %}
+  {% endif %}
+  {% if data['toilet-day'].includes("toilet-getting-on-off") %}
+    {% set struggling = (struggling.push({
+        value: "toilet-safely",
+        text: "I cannot get on or off the toilet safely",
+        hint: {
+          text: "For example, you get dizzy or are unbalanced"
+        },
+        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-safely")
+      }), struggling) %}
+  {% endif %}
+  {% if data['toilet-day'].includes("toilet-getting-to")      
+      or data['toilet-day'].includes("toilet-getting-on-off") 
+      or data['toilet-day'].includes("toilet-cleaning-myself")
+      or data['toilet-day'].includes("toilet-emptying") %}
+    {% set struggling = (struggling.push({
+        value: "toilet-physical-assist",
+        text: "Someone has to physically assist me",
+        hint: {
+          text: "This might be to get on or off the toilet, to clean or change your stoma bag, or to change clothes after an accident"
+        },
+        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-physical-assist")
+      }), struggling) %}
+  {% endif %}
+  {% if data['toilet-day'].includes("toilet-getting-to")      
+      or data['toilet-day'].includes("toilet-urgent") 
+      or data['toilet-day'].includes("toilet-getting-on-off")     
+      or data['toilet-day'].includes("managing-incontinence") 
+      or data['toilet-day'].includes("toilet-not-always") %}
+    {% set struggling = (struggling.push({
+        value: "collecting-device",
+        text: "I use a commode, catheter, stoma or bedpan instead of the toilet",
+        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("collecting-device")
+      }), struggling) %}
+  {% endif %}
+  {% if data['toilet-day'].includes("toilet-getting-to")      
+      or data['toilet-day'].includes("toilet-urgent") 
+      or data['toilet-day'].includes("toilet-getting-on-off")  
+      or data['toilet-day'].includes("toilet-cleaning-myself")     
+      or data['toilet-day'].includes("toilet-emptying") 
+      or data['toilet-day'].includes("toilet-remembering") 
+      or data['toilet-day'].includes("managing-incontinence")
+      or data['toilet-day'].includes("toilet-not-always")
+      or data['toilet-day'].includes("toilet-something-else") %} 
+    {% set struggling = (struggling.push({
+        value: "toilet-day-something-else",
+        text: "I struggle for another reason",
+        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-day-something-else"), 
+        conditional: {
+          html: conditionalSomethingElseToiletWhy
+        }
+      }), struggling) %}
+  {% endif %}
+
   {{ govukCheckboxes
     ({
       idPrefix: "toilet-day-why",
@@ -53,55 +140,7 @@
         text: "Choose all that apply to you."
       },
       errorMessage: data.validation['toilet-day-why'].error,
-      items: [{
-        value: "lean-on-sink-radiator",
-        text: "I need to lean on something such as the sink or radiator",
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("lean-on-sink-radiator")
-      },
-      {
-        value: "toilet-raised",
-        text: "I can only use a toilet if it's raised",
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-raised")
-      },
-      {
-        value: "toilet-several-attempts",
-        text: "It takes me several attempts to get on or off the toilet or commode",
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-several-attempts")
-      },
-      {
-        value: "toilet-accident",
-        text: "I have accidents because I cannot get there in time",
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-accident")
-      },
-      {
-        value: "toilet-safely",
-        text: "I cannot get on or off the toilet safely",
-        hint: {
-          text: "For example, you get dizzy or are unbalanced"
-        },
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-safely")
-      },
-      {
-        value: "toilet-physical-assist",
-        text: "Someone has to physically assist me",
-        hint: {
-          text: "This might be to get on or off the toilet, to clean or change your stoma bag, or to change clothes after an accident"
-        },
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-physical-assist")
-      },
-      {
-        value: "collecting-device",
-        text: "I use a commode, catheter, stoma or bedpan instead of the toilet",
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("collecting-device")
-      },
-      {
-        value: "toilet-day-why-something-else",
-        text: "I struggle for another reason",
-        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-day-why-something-else"),
-        conditional: {
-          html: conditionalSomethingElseToiletWhy
-        }
-      }]
+      items: struggling
     })
   }}
 {% endblock %}
@@ -113,9 +152,9 @@
     label: {
       text: 'Tell us the reason you are struggling'
       },
-    id: "something-else-toilet-day-why-explain",
-    name: "something-else-toilet-day-why-explain",
-    errorMessage: data.validation['something-else-toilet-day-why-explain'].error,
-    value: data['something-else-toilet-day-why-explain']
+    id: "something-else-toilet-day-explain",
+    name: "something-else-toilet-day-explain",
+    errorMessage: data.validation['something-else-toilet-day-explain'].error,
+    value: data['something-else-toilet-day-explain']
     }) }}
 {% endset %}
