@@ -33,7 +33,81 @@
       {% endif %}
     {% endfor %}
   </ul>
-							
+	
+  {% set struggling = [] %}
+  {% if data['eat-drink-day'].includes("cutting-food")
+      or data['eat-drink-day'].includes("putting-food") %}
+    {% set struggling = (struggling.push({
+        value: "hold",
+        text: "I cannot hold cutlery or a cup",
+        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("hold")
+      }), struggling) %}
+  {% endif %}
+  {% if data['eat-drink-day'].includes("putting-food") %}
+    {% set struggling = (struggling.push({
+        value: "spill",
+        text: "I spill food and drink",
+        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("spill")
+      }), struggling) %}
+  {% endif %}
+  {% if data['eat-drink-day'].includes("chewing-swallowing") %}
+    {% set struggling = (struggling.push({
+        value: "choke",
+        text: "I choke when I eat",
+        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("choke")
+      }), struggling) %}
+  {% endif %}
+  {% if data['eat-drink-day'].includes("cutting-food")
+      or data['eat-drink-day'].includes("putting-food") %}
+    {% set struggling = (struggling.push({
+        value: "help",
+        text: "Someone has to physically help me eat or drink",
+        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("help")
+      }), struggling) %}
+  {% endif %}
+  {% if data['eat-drink-day'].includes("putting-food")  
+      or data['eat-drink-day'].includes("chewing-swallowing") %}
+    {% set struggling = (struggling.push({
+        value: "safety",
+        text: "I cannot eat or drink safely",
+        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("safety")
+      }), struggling) %}
+  {% endif %}
+  {% if data['eat-drink-day'].includes("putting-food")      
+      or data['eat-drink-day'].includes("identifying-food") %}
+    {% set struggling = (struggling.push({
+        value: "confused",
+        text: "I get confused when eating",
+        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("confused")
+      }), struggling) %}
+  {% endif %}
+  {% if data['eat-drink-day'].includes("cutting-food") 
+      or data['eat-drink-day'].includes("putting-food") 
+      or data['eat-drink-day'].includes("chewing-swallowing") %}
+    {% set struggling = (struggling.push({
+        value: "tube",
+        text: "I'm tube fed",
+        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("tube")
+      }), struggling) %}
+  {% endif %}
+  {% if data['eat-drink-day'].includes("cutting-food")      
+      or data['eat-drink-day'].includes("putting-food") 
+      or data['eat-drink-day'].includes("chewing-swallowing")     
+      or data['eat-drink-day'].includes("identifying-food") 
+      or data['eat-drink-day'].includes("motivation-eat") 
+      or data['eat-drink-day'].includes("motivation-drink") 
+      or data['eat-drink-day'].includes("eat-drink-something-else") %}
+    {% set struggling = (struggling.push({
+        value: "eat-drink-why-something-else",
+        text: "I struggle in another way",
+        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("eat-drink-why-something-else"),
+        conditional: {
+          html: conditionalSomethingElseEatDrinkWhy
+        }
+      }), struggling) %}
+  {% endif %}
+
+
   {{ govukCheckboxes
     ({
       idPrefix: "eat-drink-day-why",
@@ -49,49 +123,7 @@
         text: 'Choose all that apply to you.'
       },
       errorMessage: data.validation['eat-drink-day-why'].error,
-      items: [{
-        value: "hold",
-        text: "I cannot hold cutlery or a cup",
-        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("hold")
-      },
-      {
-        value: "spill",
-        text: "I spill food and drink",
-        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("spill")
-      },
-      {
-        value: "choke",
-        text: "I choke when I eat",
-        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("choke")
-      },
-      {
-        value: "help",
-        text: "Someone has to physically help me eat or drink",
-        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("help")
-      },
-      {
-        value: "safety",
-        text: "I cannot eat or drink safely",
-        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("safety")
-      },
-      {
-        value: "confused",
-        text: "I get confused when eating",
-        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("confused")
-      },
-      {
-        value: "tube",
-        text: "I'm tube fed",
-        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("tube")
-      },  
-      {
-        value: "eat-drink-why-something-else",
-        text: "I struggle in another way",
-        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("eat-drink-why-something-else"),
-        conditional: {
-          html: conditionalSomethingElseEatDrinkWhy
-        }
-      }]
+      items: struggling
     })
   }}
 {% endblock %}
