@@ -10,7 +10,7 @@
   <p class="govuk-body govuk-!-margin-bottom-0">
     You told us you have difficulties with:
   </p>
-  <p class="govuk-heading-m">
+  <p class="govuk-heading-m govuk-!-margin-bottom-0">
     <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-0 govuk-!-margin-bottom-8">
       {% for item in data['moving-indoors-day'] %}
       {% if item == 'moving-indoors-something-else' %}
@@ -29,6 +29,99 @@
       {% endfor %}
     </ul>
   </p>
+
+  {% set struggling = [] %}
+  {% if data['moving-indoors-day'].includes("walking-around") %}
+    {% set struggling = (struggling.push({
+        value: "shuffle",
+        text: "I shuffle or take very small steps",
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("shuffle")
+      }), struggling) %}
+  {% endif %}
+  {% if data['moving-indoors-day'].includes("walking-around") 
+      or data['moving-indoors-day'].includes("chair") 
+      or data['moving-indoors-day'].includes("wheel")  
+      or data['moving-indoors-day'].includes("stairs") %}
+    {% set struggling = (struggling.push({
+        value: "unsteady",
+        text: "I'm very unsteady, even if I use an aid or lean on things",
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("unsteady")
+      }), struggling) %}
+  {% endif %}
+  {% if data['moving-indoors-day'].includes("walking-around")  
+      or data['moving-indoors-day'].includes("stairs") %}
+    {% set struggling = (struggling.push({
+        value: "slow",
+        text: "I'm very slow",
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("slow")
+      }), struggling) %}
+  {% endif %}
+  {% if data['moving-indoors-day'].includes("chair")  
+      or data['moving-indoors-day'].includes("wheel") %}
+    {% set struggling = (struggling.push({
+        value: "several-attemps-chair",
+        text: "It takes me several attempts to get out of a chair",
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("several-attemps-chair")
+      }), struggling) %}
+  {% endif %}
+  {% if data['moving-indoors-day'].includes("walking-around")  
+      or data['moving-indoors-day'].includes("chair") 
+      or data['moving-indoors-day'].includes("wheel")     
+      or data['moving-indoors-day'].includes("stairs") 
+      or data['moving-indoors-day'].includes("moving-indoors-something-else") %}
+    {% set struggling = (struggling.push({
+        value: "physically-assisted",
+        text: "Someone has to physically assist me",
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("physically-assisted")
+      }), struggling) %}
+  {% endif %}
+  {% if data['moving-indoors-day'].includes("walking-around")      
+      or data['moving-indoors-day'].includes("stairs") 
+      or data['moving-indoors-day'].includes("moving-indoors-something-else") %}
+    {% set struggling = (struggling.push({
+        value: "move-around-safely",
+        text: "I cannot move around safely",
+        hint: {
+          text: "For example, you get dizzy, crawl or go downstairs on your bottom"
+        },
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("move-around-safely") 
+      }), struggling) %}
+  {% endif %}
+  {% if data['moving-indoors-day'].includes("walking-around")      
+      or data['moving-indoors-day'].includes("chair") 
+      or data['moving-indoors-day'].includes("wheel")     
+      or data['moving-indoors-day'].includes("stairs") 
+      or data['moving-indoors-day'].includes("reminding-motivating") 
+      or data['moving-indoors-day'].includes("moving-indoors-something-else") %}
+    {% set struggling = (struggling.push({
+        value: "chair-bound",
+        text: "I sit in a chair all day",
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("chair-bound")
+      }), struggling) %}
+  {% endif %}
+  {% if data['moving-indoors-day'].includes("walking-around")      
+      or data['moving-indoors-day'].includes("moving-indoors-something-else") %}
+    {% set struggling = (struggling.push({
+        value: "bed-bound",
+        text: "I'm confined to my bed",
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("bed-bound")
+      }), struggling) %}
+  {% endif %}
+  {% if data['moving-indoors-day'].includes("walking-around")      
+      or data['moving-indoors-day'].includes("chair") 
+      or data['moving-indoors-day'].includes("wheel")     
+      or data['moving-indoors-day'].includes("stairs") 
+      or data['moving-indoors-day'].includes("reminding-motivating") 
+      or data['moving-indoors-day'].includes("moving-indoors-something-else") %}
+    {% set struggling = (struggling.push({
+        value: "something-else-moving-around",
+        text: "I struggle in another way",
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("something-else-moving-around"), 
+        conditional: {
+          html: conditionalSomethingElseMovingAroundIndoorsWhy
+        }
+      }), struggling) %}
+  {% endif %}
   
   {{ govukCheckboxes
     ({
@@ -45,57 +138,7 @@
         text: "Choose all that apply to you."
       },
       errorMessage: data.validation['moving-indoors-why'].error,
-      items: [{
-        value: "shuffle",
-        text: "I shuffle or take very small steps",
-        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("shuffle")
-      },
-      {
-        value: "unsteady",
-        text: "I'm very unsteady, even if I use an aid or lean on things",
-        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("unsteady")
-      },
-      {
-        value: "slow",
-        text: "I'm very slow",
-        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("slow")
-      },
-      {
-        value: "several-attemps-chair",
-        text: "It takes me several attempts to get out of a chair",
-        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("several-attemps-chair")
-      },
-      {
-        value: "physically-assisted",
-        text: "Someone has to physically assist me",
-        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("physically-assisted")
-      },
-      {
-        value: "move-around-safely",
-        text: "I cannot move around safely",
-        hint: {
-          text: "For example, you get dizzy, crawl or go downstairs on your bottom"
-        },
-        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("move-around-safely") 
-      },
-      {
-        value: "chair-bound",
-        text: "I sit in a chair all day",
-        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("chair-bound")
-      },
-      {
-        value: "bed-bound",
-        text: "I'm confined to my bed",
-        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("bed-bound")
-      },
-      {
-        value: "something-else-moving-around",
-        text: "I struggle in another way",
-        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("something-else-moving-around"), 
-        conditional: {
-          html: conditionalSomethingElseMovingAroundIndoorsWhy
-        }
-      }]
+      items: struggling
     })
   }}
 {% endblock %}
