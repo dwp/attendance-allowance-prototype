@@ -35,6 +35,60 @@
     </ul>
   </p>
 
+  {% set struggling = [] %}
+  {% if data['wash-day'].includes("get-in-out-bath") 
+      or data['wash-day'].includes("wash-drying-myself") 
+      or data['wash-day'].includes("taking-shower")  
+      or data['wash-day'].includes("something-else-washing") %}
+    {% set struggling = (struggling.push({
+        value: "hold-on-to-things",
+        text: "I hold on to things to get in or out of the bath or shower",
+        checked: true if data["wash-day-why"] and data["wash-day-why"].includes("hold-on-to-things")
+      }), struggling) %}
+  {% endif %}
+  {% if data['wash-day'].includes("get-in-out-bath") 
+      or data['wash-day'].includes("wash-drying-myself") 
+      or data['wash-day'].includes("taking-shower")  
+      or data['wash-day'].includes("something-else-washing") %}
+    {% set struggling = (struggling.push({
+        value: "wash-bathe-safely",
+        text: "I cannot wash or bathe safely on my own",
+        checked: true if data["wash-day-why"] and data["wash-day-why"].includes("wash-bathe-safely")
+      }), struggling) %}
+  {% endif %}
+  {% if data['wash-day'].includes("forgetting-lacking-motivation-wash")  
+      or data['wash-day'].includes("something-else-washing") %}
+    {% set struggling = (struggling.push({
+        value: "wash-encouragement",
+        text: "I need someone to encourage me to wash or bathe",
+        checked: true if data["wash-day-why"] and data["wash-day-why"].includes("wash-encouragement")
+      }), struggling) %}
+  {% endif %}
+  {% if data['wash-day'].includes("get-in-out-bath") 
+      or data['wash-day'].includes("wash-drying-myself") 
+      or data['wash-day'].includes("taking-shower")  
+      or data['wash-day'].includes("something-else-washing") %}
+    {% set struggling = (struggling.push({
+        value: "wash-help",
+        text: "Someone has to physically help me wash or bathe",
+        checked: true if data["wash-day-why"] and data["wash-day-why"].includes("wash-help")
+      }), struggling) %}
+  {% endif %}
+  {% if data['wash-day'].includes("get-in-out-bath") 
+      or data['wash-day'].includes("wash-drying-myself") 
+      or data['wash-day'].includes("taking-shower")
+      or data['wash-day'].includes("forgetting-lacking-motivation-wash")
+      or data['wash-day'].includes("something-else-washing") %}
+    {% set struggling = (struggling.push({
+        value: "wash-day-why-something-else",
+        text: "I struggle in another way",
+        checked: true if data["wash-day-why"] and data["wash-day-why"].includes("wash-day-why-something-else"),
+        conditional: {
+          html: conditionalSomethingElseWashWhy
+        }
+      }), struggling) %}
+  {% endif %}
+
   {{ govukCheckboxes
     ({
       idPrefix: "wash-day-why",
@@ -50,34 +104,7 @@
         text: "Choose all that apply to you."
       },
       errorMessage: data.validation['wash-day-why'].error,
-      items: [{
-        value: "hold-on-to-things",
-        text: "I hold on to things to get in or out of the bath or shower",
-        checked: true if data["wash-day-why"] and data["wash-day-why"].includes("hold-on-to-things")
-      },
-      {
-        value: "wash-bathe-safely",
-        text: "I cannot wash or bathe safely on my own",
-        checked: true if data["wash-day-why"] and data["wash-day-why"].includes("wash-bathe-safely")
-      },
-      {
-        value: "wash-encouragement",
-        text: "I need someone to encourage me to wash or bathe",
-        checked: true if data["wash-day-why"] and data["wash-day-why"].includes("wash-encouragement")
-      },
-      {
-        value: "wash-help",
-        text: "Someone has to physically help me wash or bathe",
-        checked: true if data["wash-day-why"] and data["wash-day-why"].includes("wash-help")
-      },
-      {
-        value: "wash-day-why-something-else",
-        text: "I struggle in another way",
-        checked: true if data["wash-day-why"] and data["wash-day-why"].includes("wash-day-why-something-else"),
-        conditional: {
-          html: conditionalSomethingElseWashWhy
-        }
-      }]
+      items: struggling
     })
   }}
 {% endblock %}
