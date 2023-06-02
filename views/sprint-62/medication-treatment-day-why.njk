@@ -34,7 +34,86 @@
       {% endif %}
     {% endfor %}
   </ul>
-							
+
+   {% set struggling = [] %}
+  {% if data['medication-treatment-day'].includes("dressings-bandages") 
+      or data['medication-treatment-day'].includes("applying-cream") 
+      or data['medication-treatment-day'].includes("administering-medication")  
+      or data['medication-treatment-day'].includes("administering treatment")
+      or data['medication-treatment-day'].includes("motivation-medication") %}
+    {% set struggling = (struggling.push({
+        value: "long-time",
+        text: "I do not have help but I struggle and it takes me a long time",
+        checked: true if data["medication-treatment-day-why"] and data["medication-treatment-day-why"].includes("long-time")
+      }), struggling) %}
+  {% endif %}
+  {% if data['medication-treatment-day'].includes("administering-medication")  
+      or data['medication-treatment-day'].includes("administering treatment")
+      or data['medication-treatment-day'].includes("right-medication-dosage") %}
+    {% set struggling = (struggling.push({
+        value: "someone-prepare",
+        text: "Someone has to prepare my medication or treatment for me",
+        checked: true if data["medication-treatment-day-why"] and data["medication-treatment-day-why"].includes("someone-prepare")
+      }), struggling) %}
+  {% endif %}
+  {% if data['medication-treatment-day'].includes("dressings-bandages") 
+      or data['medication-treatment-day'].includes("applying-cream") 
+      or data['medication-treatment-day'].includes("administering-medication")  
+      or data['medication-treatment-day'].includes("administering treatment")
+      or data['medication-treatment-day'].includes("right-medication-dosage")
+      or data['medication-treatment-day'].includes("motivation-medication") %}
+    {% set struggling = (struggling.push({
+        value: "remind-encourage",
+        text: "Someone has to remind or encourage me to take my medication or treatment",
+        checked: true if data["medication-treatment-day-why"] and data["medication-treatment-day-why"].includes("remind-encourage")
+      }), struggling) %}
+  {% endif %}
+  {% if data['medication-treatment-day'].includes("dressings-bandages") 
+      or data['medication-treatment-day'].includes("applying-cream") 
+      or data['medication-treatment-day'].includes("administering-medication")  
+      or data['medication-treatment-day'].includes("administering treatment")
+      or data['medication-treatment-day'].includes("right-medication-dosage") %}
+    {% set struggling = (struggling.push({
+        value: "help",
+        text: "Someone has to physically help me take my medication or treatment",
+        hint: {
+          text: 'For example, this might be taking medicine, using an inhaler or having an injection'
+          },
+        checked: true if data["medication-treatment-day-why"] and data["medication-treatment-day-why"].includes("help")
+      }), struggling) %}
+  {% endif %}
+  {% if data['medication-treatment-day'].includes("walking-around")  
+      or data['medication-treatment-day'].includes("chair") 
+      or data['medication-treatment-day'].includes("wheel")     
+      or data['medication-treatment-day'].includes("stairs") 
+      or data['medication-treatment-day'].includes("moving-indoors-something-else") %}
+    {% set struggling = (struggling.push({
+        value: "medication-treatment-day-why-something-else",
+        text: "I struggle in another way",
+        checked: true if data["medication-treatment-day-why"] and data["medication-treatment-day-why"].includes("medication-treatment-day-why-something-else"),
+        conditional: {
+          html: conditionalSomethingElseMedicationTreatmentWhy
+        }
+      }), struggling) %}
+  {% endif %}
+  {% if data['medication-treatment-day'].includes("dressings-bandages") 
+      or data['medication-treatment-day'].includes("applying-cream") 
+      or data['medication-treatment-day'].includes("administering-medication")  
+      or data['medication-treatment-day'].includes("administering treatment")
+      or data['medication-treatment-day'].includes("right-medication-dosage")
+      or data['medication-treatment-day'].includes("coping-side-effects")
+      or data['medication-treatment-day'].includes("motivation-medication")
+      or data['medication-treatment-day'].includes("something-else-medication") %} 
+    {% set struggling = (struggling.push({
+        value: "medication-treatment-day-why-something-else",
+        text: "I struggle in another way",
+        checked: true if data["medication-treatment-day-why"] and data["medication-treatment-day-why"].includes("medication-treatment-day-why-something-else"),
+        conditional: {
+          html: conditionalSomethingElseMedicationTreatmentWhy
+        }
+      }), struggling) %}
+  {% endif %}       
+
   {{ govukCheckboxes
     ({
       idPrefix: "medication-treatment-day-why",
@@ -50,37 +129,7 @@
         text: 'Choose all that apply to you.'
       },
       errorMessage: data.validation['medication-treatment-day-why'].error,
-      items: [{
-        value: "long-time",
-        text: "I do not have help but I struggle and it takes me a long time",
-        checked: true if data["medication-treatment-day-why"] and data["medication-treatment-day-why"].includes("long-time")
-      },
-      {
-        value: "someone-prepare",
-        text: "Someone has to prepare my medication or treatment for me",
-        checked: true if data["medication-treatment-day-why"] and data["medication-treatment-day-why"].includes("someone-prepare")
-      },
-      {
-        value: "remind-encourage",
-        text: "Someone has to remind or encourage me to take my medication or treatment",
-        checked: true if data["medication-treatment-day-why"] and data["medication-treatment-day-why"].includes("remind-encourage")
-      },
-      {
-        value: "help",
-        text: "Someone has to physically help me take my medication or treatment",
-        hint: {
-          text: 'For example, this might be taking medicine, using an inhaler or having an injection'
-          },
-        checked: true if data["medication-treatment-day-why"] and data["medication-treatment-day-why"].includes("help")
-      },
-      {
-        value: "medication-treatment-day-why-something-else",
-        text: "I struggle in another way",
-        checked: true if data["medication-treatment-day-why"] and data["medication-treatment-day-why"].includes("medication-treatment-day-why-something-else"),
-        conditional: {
-          html: conditionalSomethingElseMedicationTreatmentWhy
-        }
-      }]
+      items: struggling
     })
   }}
 {% endblock %}
