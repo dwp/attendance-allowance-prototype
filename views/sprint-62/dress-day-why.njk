@@ -31,7 +31,68 @@
       {% endif %}
     {% endfor %}
   </ul>
-							
+
+  {% set struggling = [] %}
+  {% if data['dress-day'].includes("put-on-take-off") %}
+    {% set struggling = (struggling.push({
+        value: "breathless",
+        text: "I get breathless",
+        checked: true if data["dress-day-why"] and data["dress-day-why"].includes("breathless")
+      }), struggling) %}
+  {% endif %}
+  {% if data['dress-day'].includes("put-on-take-off") %}
+    {% set struggling = (struggling.push({
+        value: "restricted-movement",
+        text: "I have restricted movement due to pain",
+        checked: true if data["dress-day-why"] and data["dress-day-why"].includes("restricted-movement")
+      }), struggling) %}
+  {% endif %}
+  {% if data['dress-day'].includes("put-on-take-off")  
+      or data['dress-day'].includes("forget-want-change-clothes") %}
+    {% set struggling = (struggling.push({
+        value: "long-time-dress",
+        text: "It takes me a long time to get dressed or undressed",
+        checked: true if data["dress-day-why"] and data["dress-day-why"].includes("long-time-dress")
+      }), struggling) %}
+  {% endif %}
+  {% if data['dress-day'].includes("put-on-take-off")  
+      or data['dress-day'].includes("forget-want-change-clothes") %}
+    {% set struggling = (struggling.push({
+        value: "remind-get-dressed",
+        text: "Someone has to remind me to get dressed or undressed",
+        checked: true if data["dress-day-why"] and data["dress-day-why"].includes("remind-get-dressed")
+      }), struggling) %}
+  {% endif %}
+  {% if data['dress-day'].includes("put-on-take-off")  
+      or data['dress-day'].includes("choosing-clothes") %}
+    {% set struggling = (struggling.push({
+        value: "help-dress",
+        text: "Someone has to physically help me getting dressed or undressed",
+        checked: true if data["dress-day-why"] and data["dress-day-why"].includes("help-dress")
+      }), struggling) %}
+  {% endif %}
+  {% if data['dress-day'].includes("put-on-take-off")      
+      or data['dress-day'].includes("forget-want-change-clothes") %}
+    {% set struggling = (struggling.push({
+        value: "cannot-dress",
+        text: "I cannot put on or take off clothes or footwear on my own",
+        checked: true if data["dress-day-why"] and data["dress-day-why"].includes("cannot-dress")
+      }), struggling) %}
+  {% endif %}
+  {% if data['dress-day'].includes("put-on-take-off")      
+      or data['dress-day'].includes("choosing-clothes") 
+      or data['dress-day'].includes("forget-want-change-clothes")     
+      or data['dress-day'].includes("something-else-dressing") %}
+    {% set struggling = (struggling.push({
+        value: "dress-day-why-something-else",
+        text: "I struggle in another way",
+        checked: true if data["dress-day-why"] and data["dress-day-why"].includes("dress-day-why-something-else"),
+        conditional: {
+          html: conditionalSomethingElseDressDayWhy
+        }
+      }), struggling) %}
+  {% endif %}
+
   {{ govukCheckboxes
     ({
       idPrefix: "dress-day-why",
@@ -47,44 +108,7 @@
         text: 'Choose all that apply to you.'
       },
       errorMessage: data.validation['dress-day-why'].error,
-      items: [{
-        value: "breathless",
-        text: "I get breathless",
-        checked: true if data["dress-day-why"] and data["dress-day-why"].includes("breathless")
-      },
-      {
-        value: "restricted-movement",
-        text: "I have restricted movement due to pain",
-        checked: true if data["dress-day-why"] and data["dress-day-why"].includes("restricted-movement")
-      },
-      {
-        value: "long-time-dress",
-        text: "It takes me a long time to get dressed or undressed",
-        checked: true if data["dress-day-why"] and data["dress-day-why"].includes("long-time-dress")
-      },
-      {
-        value: "remind-get-dressed",
-        text: "Someone has to remind me to get dressed or undressed",
-        checked: true if data["dress-day-why"] and data["dress-day-why"].includes("remind-get-dressed")
-      },
-      {
-        value: "help-dress",
-        text: "Someone has to physically help me getting dressed or undressed",
-        checked: true if data["dress-day-why"] and data["dress-day-why"].includes("help-dress")
-      },
-      {
-        value: "cannot-dress",
-        text: "I cannot put on or take off clothes or footwear on my own",
-        checked: true if data["dress-day-why"] and data["dress-day-why"].includes("cannot-dress")
-      },
-      {
-        value: "dress-day-why-something-else",
-        text: "I struggle in another way",
-        checked: true if data["dress-day-why"] and data["dress-day-why"].includes("dress-day-why-something-else"),
-        conditional: {
-          html: conditionalSomethingElseDressDayWhy
-        }
-      }]
+      items: struggling
     })
   }}
 {% endblock %}
