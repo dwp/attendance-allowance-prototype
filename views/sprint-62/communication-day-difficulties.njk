@@ -32,6 +32,85 @@
     {% endfor %}
   </ul>
 
+{% set struggling = [] %}
+  {% if data['communication-day'].includes("reading-writing-understanding")
+      or data['communication-day'].includes("answering-using-phone") 
+      or data['communication-day'].includes("understanding-people")  
+      or data['communication-day'].includes("concentrating-remembering") 
+      or data['communication-day'].includes("asking-for-help") 
+      or data['communication-day'].includes("something-else-communication") %}
+    {% set struggling = (struggling.push({
+      value: "manage-without-help",
+      text: "I can manage without help",
+      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("manage-without-help")
+    }), struggling) %}
+  {% endif %}
+  {% if data['communication-day'].includes("reading-writing-understanding") 
+      or data['communication-day'].includes("answering-using-phone") 
+      or data['communication-day'].includes("concentrating-remembering")  
+      or data['communication-day'].includes("something-else-communication") %}
+    {% set struggling = (struggling.push({
+      value: "encouragement-communication",
+      text: "I need someone to encourage me to answer letters or use the phone",
+      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("encouragement-communication")
+    }), struggling) %}
+  {% endif %}
+  {% if data['communication-day'].includes("reading-writing-understanding")  
+      or data['communication-day'].includes("concentrating-remembering")
+      or data['communication-day'].includes("something-else-communication") %}
+    {% set struggling = (struggling.push({
+      value: "help-understanding-letters",
+      text: "I need someone to help me understand letters, forms, emails",
+      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("help-understanding-letters")
+    }), struggling) %}
+  {% endif %}
+  {% if data['communication-day'].includes("answering-using-phone")  
+      or data['communication-day'].includes("understanding-people") %}
+    {% set struggling = (struggling.push({
+      value: "using-phone",
+      text: "I need someone to answer or use the telephone for me",
+      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("using-phone")
+    }), struggling) %}
+  {% endif %}
+  {% if data['communication-day'].includes("reading-writing-understanding")  
+      or data['communication-day'].includes("answering-using-phone") 
+      or data['communication-day'].includes("understanding-people")     
+      or data['communication-day'].includes("asking-for-help") 
+      or data['communication-day'].includes("something-else-communication") %}
+    {% set struggling = (struggling.push({
+      value: "need-translator",
+      text: "I need a translator because English is not my first language",
+      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("need-translator")
+    }), struggling) %}
+  {% endif %}
+  {% if data['communication-day'].includes("reading-writing-understanding")      
+      or data['communication-day'].includes("answering-using-phone") 
+      or data['communication-day'].includes("understanding-people")
+      or data['communication-day'].includes("asking-for-help")
+      or data['communication-day'].includes("something-else-communication")  %}
+    {% set struggling = (struggling.push({
+      value: "speak-communicate-on-behalf",
+      text: "I need someone to speak or communicate on my behalf",
+      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("speak-communicate-on-behalf")
+    }), struggling) %}
+  {% endif %}
+  {% if data['communication-day'].includes("reading-writing-understanding")
+      or data['communication-day'].includes("answering-using-phone") 
+      or data['communication-day'].includes("understanding-people")  
+      or data['communication-day'].includes("concentrating-remembering") 
+      or data['communication-day'].includes("asking-for-help") 
+      or data['communication-day'].includes("something-else-communication") %}
+    {% set struggling = (struggling.push({
+      value: "something-else-communication-difficulties",
+      text: "I manage in another way",
+      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("something-else-communication-difficulties"), 
+      conditional: {
+        html: conditionalSomethingElseCommunicationSeverityHtml
+      }
+    }), struggling) %}
+  {% endif %}
+
+
 {{ govukCheckboxes
   ({
     name: "communication-day-difficulties",
@@ -46,39 +125,7 @@
       text: "Choose all that apply to you."
     },
     errorMessage: data.validation['communication-day-difficulties'].error,
-    items: [{
-      value: "manage-without-help",
-      text: "I can manage without help",
-      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("manage-without-help")
-    },{
-      value: "encouragement-communication",
-      text: "I need someone to encourage me to answer letters or use the phone",
-      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("encouragement-communication")
-    },{
-      value: "help-understanding-letters",
-      text: "I need someone to help me understand letters, forms, emails",
-      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("help-understanding-letters")
-    },{
-      value: "using-phone",
-      text: "I need someone to answer or use the telephone for me",
-      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("using-phone")
-    },{
-      value: "need-translator",
-      text: "I need a translator because English is not my first language",
-      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("need-translator")
-    },{
-      value: "speak-communicate-on-behalf",
-      text: "I need someone to speak or communicate on my behalf",
-      checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("speak-communicate-on-behalf")
-    },
-    {
-        value: "something-else-communication-difficulties",
-        text: "I manage in another way",
-        checked: true if data["communication-day-difficulties"] and data["communication-day-difficulties"].includes("something-else-communication-difficulties"), 
-        conditional: {
-          html: conditionalSomethingElseCommunicationSeverityHtml
-        }
-      }]
+    items: struggling
   })
 }} 
 
