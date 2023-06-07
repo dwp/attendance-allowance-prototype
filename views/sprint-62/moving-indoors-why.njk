@@ -31,7 +31,8 @@
   </p>
 
   {% set struggling = [] %}
-  {% if data['moving-indoors-day'].includes("walking-around") %}
+  {% if data['moving-indoors-day'].includes("walking-around")
+      or data['moving-indoors-day'].includes("moving-indoors-something-else") %}
     {% set struggling = (struggling.push({
         value: "shuffle",
         text: "I shuffle or take very small steps",
@@ -41,7 +42,8 @@
   {% if data['moving-indoors-day'].includes("walking-around") 
       or data['moving-indoors-day'].includes("chair") 
       or data['moving-indoors-day'].includes("wheel")  
-      or data['moving-indoors-day'].includes("stairs") %}
+      or data['moving-indoors-day'].includes("stairs")
+      or data['moving-indoors-day'].includes("moving-indoors-something-else") %}
     {% set struggling = (struggling.push({
         value: "unsteady",
         text: "I'm very unsteady, even if I use an aid or lean on things",
@@ -49,7 +51,8 @@
       }), struggling) %}
   {% endif %}
   {% if data['moving-indoors-day'].includes("walking-around")  
-      or data['moving-indoors-day'].includes("stairs") %}
+      or data['moving-indoors-day'].includes("stairs")
+      or data['moving-indoors-day'].includes("moving-indoors-something-else") %}
     {% set struggling = (struggling.push({
         value: "slow",
         text: "I'm very slow",
@@ -57,7 +60,8 @@
       }), struggling) %}
   {% endif %}
   {% if data['moving-indoors-day'].includes("chair")  
-      or data['moving-indoors-day'].includes("wheel") %}
+      or data['moving-indoors-day'].includes("wheel")
+      or data['moving-indoors-day'].includes("moving-indoors-something-else") %}
     {% set struggling = (struggling.push({
         value: "several-attemps-chair",
         text: "It takes me several attempts to get out of a chair",

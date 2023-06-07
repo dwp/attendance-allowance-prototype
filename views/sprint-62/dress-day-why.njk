@@ -33,14 +33,16 @@
   </ul>
 
   {% set struggling = [] %}
-  {% if data['dress-day'].includes("put-on-take-off") %}
+  {% if data['dress-day'].includes("put-on-take-off")
+      or data['dress-day'].includes("something-else-dressing") %}
     {% set struggling = (struggling.push({
         value: "breathless",
         text: "I get breathless",
         checked: true if data["dress-day-why"] and data["dress-day-why"].includes("breathless")
       }), struggling) %}
   {% endif %}
-  {% if data['dress-day'].includes("put-on-take-off") %}
+  {% if data['dress-day'].includes("put-on-take-off")
+      or data['dress-day'].includes("something-else-dressing") %}
     {% set struggling = (struggling.push({
         value: "restricted-movement",
         text: "I have restricted movement due to pain",
@@ -48,7 +50,8 @@
       }), struggling) %}
   {% endif %}
   {% if data['dress-day'].includes("put-on-take-off")  
-      or data['dress-day'].includes("forget-want-change-clothes") %}
+      or data['dress-day'].includes("forget-want-change-clothes")
+      or data['dress-day'].includes("something-else-dressing") %}
     {% set struggling = (struggling.push({
         value: "long-time-dress",
         text: "It takes me a long time to get dressed or undressed",
@@ -56,7 +59,8 @@
       }), struggling) %}
   {% endif %}
   {% if data['dress-day'].includes("put-on-take-off")  
-      or data['dress-day'].includes("forget-want-change-clothes") %}
+      or data['dress-day'].includes("forget-want-change-clothes")
+      or data['dress-day'].includes("something-else-dressing") %}
     {% set struggling = (struggling.push({
         value: "remind-get-dressed",
         text: "Someone has to remind me to get dressed or undressed",
@@ -64,7 +68,8 @@
       }), struggling) %}
   {% endif %}
   {% if data['dress-day'].includes("put-on-take-off")  
-      or data['dress-day'].includes("choosing-clothes") %}
+      or data['dress-day'].includes("choosing-clothes")
+      or data['dress-day'].includes("something-else-dressing") %}
     {% set struggling = (struggling.push({
         value: "help-dress",
         text: "Someone has to physically help me getting dressed or undressed",
@@ -72,7 +77,8 @@
       }), struggling) %}
   {% endif %}
   {% if data['dress-day'].includes("put-on-take-off")      
-      or data['dress-day'].includes("forget-want-change-clothes") %}
+      or data['dress-day'].includes("forget-want-change-clothes")
+      or data['dress-day'].includes("something-else-dressing") %}
     {% set struggling = (struggling.push({
         value: "cannot-dress",
         text: "I cannot put on or take off clothes or footwear on my own",

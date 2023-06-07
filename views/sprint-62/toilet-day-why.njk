@@ -39,7 +39,8 @@
   </p>
 
   {% set struggling = [] %}
-  {% if data['toilet-day'].includes("toilet-getting-to") %}
+  {% if data['toilet-day'].includes("toilet-getting-to")
+      or data['toilet-day'].includes("toilet-something-else") %}
     {% set struggling = (struggling.push({
         value: "lean-on-sink-radiator",
         text: "I need to lean on something such as the sink or radiator",
@@ -47,7 +48,8 @@
       }), struggling) %}
   {% endif %}
   {% if data['toilet-day'].includes("toilet-getting-on-off") 
-      or data['toilet-day'].includes("toilet-not-always") %}
+      or data['toilet-day'].includes("toilet-not-always")
+      or data['toilet-day'].includes("toilet-something-else") %}
     {% set struggling = (struggling.push({
         value: "toilet-raised",
         text: "I can only use a toilet if it's raised",
@@ -55,7 +57,8 @@
       }), struggling) %}
   {% endif %}
   {% if data['toilet-day'].includes("toilet-getting-on-off")  
-      or data['toilet-day'].includes("toilet-not-always") %}
+      or data['toilet-day'].includes("toilet-not-always")
+      or data['toilet-day'].includes("toilet-something-else") %}
     {% set struggling = (struggling.push({
         value: "toilet-several-attempts",
         text: "It takes me several attempts to get on or off the toilet or commode",
@@ -65,7 +68,8 @@
   {% if data['toilet-day'].includes("toilet-getting-to")  
       or data['toilet-day'].includes("toilet-urgent")
       or data['toilet-day'].includes("managing-incontinence")  
-      or data['toilet-day'].includes("toilet-not-always") %}
+      or data['toilet-day'].includes("toilet-not-always")
+      or data['toilet-day'].includes("toilet-something-else") %}
     {% set struggling = (struggling.push({
         value: "toilet-accident",
         text: "I have accidents because I cannot get there in time",
@@ -85,7 +89,8 @@
   {% if data['toilet-day'].includes("toilet-getting-to")      
       or data['toilet-day'].includes("toilet-getting-on-off") 
       or data['toilet-day'].includes("toilet-cleaning-myself")
-      or data['toilet-day'].includes("toilet-emptying") %}
+      or data['toilet-day'].includes("toilet-emptying")
+      or data['toilet-day'].includes("toilet-something-else") %}
     {% set struggling = (struggling.push({
         value: "toilet-physical-assist",
         text: "Someone has to physically assist me",
@@ -99,7 +104,8 @@
       or data['toilet-day'].includes("toilet-urgent") 
       or data['toilet-day'].includes("toilet-getting-on-off")     
       or data['toilet-day'].includes("managing-incontinence") 
-      or data['toilet-day'].includes("toilet-not-always") %}
+      or data['toilet-day'].includes("toilet-not-always")
+      or data['toilet-day'].includes("toilet-something-else") %}
     {% set struggling = (struggling.push({
         value: "collecting-device",
         text: "I use a commode, catheter, stoma or bedpan instead of the toilet",

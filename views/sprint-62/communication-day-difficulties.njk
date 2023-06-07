@@ -65,7 +65,8 @@
     }), struggling) %}
   {% endif %}
   {% if data['communication-day'].includes("answering-using-phone")  
-      or data['communication-day'].includes("understanding-people") %}
+      or data['communication-day'].includes("understanding-people")
+      or data['communication-day'].includes("something-else-communication") %}
     {% set struggling = (struggling.push({
       value: "using-phone",
       text: "I need someone to answer or use the telephone for me",
