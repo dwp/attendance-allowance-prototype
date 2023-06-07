@@ -36,7 +36,8 @@
 	
   {% set struggling = [] %}
   {% if data['eat-drink-day'].includes("cutting-food")
-      or data['eat-drink-day'].includes("putting-food") %}
+      or data['eat-drink-day'].includes("putting-food")
+      or data['eat-drink-day'].includes("eat-drink-something-else") %}
     {% set struggling = (struggling.push({
         value: "hold",
         text: "I cannot hold cutlery or a cup",
@@ -50,7 +51,8 @@
         checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("spill")
       }), struggling) %}
   {% endif %}
-  {% if data['eat-drink-day'].includes("chewing-swallowing") %}
+  {% if data['eat-drink-day'].includes("chewing-swallowing")
+      or data['eat-drink-day'].includes("eat-drink-something-else") %}
     {% set struggling = (struggling.push({
         value: "choke",
         text: "I choke when I eat",
@@ -58,7 +60,8 @@
       }), struggling) %}
   {% endif %}
   {% if data['eat-drink-day'].includes("cutting-food")
-      or data['eat-drink-day'].includes("putting-food") %}
+      or data['eat-drink-day'].includes("putting-food")
+      or data['eat-drink-day'].includes("eat-drink-something-else") %}
     {% set struggling = (struggling.push({
         value: "help",
         text: "Someone has to physically help me eat or drink",
@@ -66,7 +69,8 @@
       }), struggling) %}
   {% endif %}
   {% if data['eat-drink-day'].includes("putting-food")  
-      or data['eat-drink-day'].includes("chewing-swallowing") %}
+      or data['eat-drink-day'].includes("chewing-swallowing")
+      or data['eat-drink-day'].includes("eat-drink-something-else") %}
     {% set struggling = (struggling.push({
         value: "safety",
         text: "I cannot eat or drink safely",
@@ -74,7 +78,8 @@
       }), struggling) %}
   {% endif %}
   {% if data['eat-drink-day'].includes("putting-food")      
-      or data['eat-drink-day'].includes("identifying-food") %}
+      or data['eat-drink-day'].includes("identifying-food")
+      or data['eat-drink-day'].includes("eat-drink-something-else") %}
     {% set struggling = (struggling.push({
         value: "confused",
         text: "I get confused when eating",
@@ -83,7 +88,8 @@
   {% endif %}
   {% if data['eat-drink-day'].includes("cutting-food") 
       or data['eat-drink-day'].includes("putting-food") 
-      or data['eat-drink-day'].includes("chewing-swallowing") %}
+      or data['eat-drink-day'].includes("chewing-swallowing")
+      or data['eat-drink-day'].includes("eat-drink-something-else") %}
     {% set struggling = (struggling.push({
         value: "tube",
         text: "I'm tube fed",
