@@ -39,7 +39,7 @@
   </p>
 
   {% set struggling = [] %}
-  {% if data['toilet-day'].includes("toilet-getting-to")
+  {% if data['toilet-day'].includes("toilet-getting-on-off")
       or data['toilet-day'].includes("toilet-something-else") %}
     {% set struggling = (struggling.push({
         value: "lean-on-sink-radiator",
