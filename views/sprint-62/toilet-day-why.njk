@@ -76,7 +76,8 @@
         checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-accident")
       }), struggling) %}
   {% endif %}
-  {% if data['toilet-day'].includes("toilet-getting-on-off") %}
+  {% if data['toilet-day'].includes("toilet-getting-on-off")
+      or data['toilet-day'].includes("toilet-something-else") %}
     {% set struggling = (struggling.push({
         value: "toilet-safely",
         text: "I cannot get on or off the toilet safely",
@@ -110,6 +111,15 @@
         value: "collecting-device",
         text: "I use a commode, catheter, stoma or bedpan instead of the toilet",
         checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("collecting-device")
+      }), struggling) %}
+  {% endif %}
+  {% if data['toilet-day'].includes("toilet-remembering")      
+      or data['toilet-day'].includes("toilet-not-always")
+      or data['toilet-day'].includes("toilet-something-else") %}
+    {% set struggling = (struggling.push({
+        value: "remind-encourage-toilet",
+        text: "Someone has to remind or encourage me to use the toilet or commode",
+        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("remind-encourage-toilet")
       }), struggling) %}
   {% endif %}
   {% if data['toilet-day'].includes("toilet-getting-to")      
