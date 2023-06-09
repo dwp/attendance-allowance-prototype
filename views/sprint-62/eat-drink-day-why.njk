@@ -51,14 +51,14 @@
         checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("spill")
       }), struggling) %}
   {% endif %}
-  {% if data['eat-drink-day'].includes("chewing-swallowing")
+  {# {% if data['eat-drink-day'].includes("chewing-swallowing")
       or data['eat-drink-day'].includes("eat-drink-something-else") %}
     {% set struggling = (struggling.push({
         value: "choke",
         text: "I choke when I eat",
         checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("choke")
       }), struggling) %}
-  {% endif %}
+  {% endif %} #}
   {% if data['eat-drink-day'].includes("cutting-food")
       or data['eat-drink-day'].includes("putting-food")
       or data['eat-drink-day'].includes("eat-drink-something-else") %}
@@ -74,6 +74,9 @@
     {% set struggling = (struggling.push({
         value: "safety",
         text: "I cannot eat or drink safely",
+        hint: {
+          text: 'For example, you might choke, or eat or drink when it is too hot'
+          },
         checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("safety")
       }), struggling) %}
   {% endif %}
@@ -83,6 +86,9 @@
     {% set struggling = (struggling.push({
         value: "confused",
         text: "I get confused when eating",
+        hint: {
+          text: 'For example, you eat out of date or inappropriate food'
+          },
         checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("confused")
       }), struggling) %}
   {% endif %}
@@ -94,6 +100,16 @@
         value: "tube",
         text: "I'm tube fed",
         checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("tube")
+      }), struggling) %}
+  {% endif %}
+  {% if data['eat-drink-day'].includes("cutting-food") 
+      or data['eat-drink-day'].includes("motivation-eat") 
+      or data['eat-drink-day'].includes("motivation-drink") 
+      or data['eat-drink-day'].includes("eat-drink-something-else") %}
+    {% set struggling = (struggling.push({
+        value: "remind-encourage-eat-drink",
+        text: "Someone has to remind or encourage me to eat or drink",
+        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("remind-encourage-eat-drink")
       }), struggling) %}
   {% endif %}
   {% if data['eat-drink-day'].includes("cutting-food")      
