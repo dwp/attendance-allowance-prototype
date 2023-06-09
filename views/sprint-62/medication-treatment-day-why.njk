@@ -25,8 +25,8 @@
           {{ item 
           | replace("dressings-bandages", "changing dressings or bandages")
           | replace("applying-cream", "applying cream") 
-          | replace("administering-medication", "administering medication")
-          | replace("administering-treatment", "administering treatment") 
+          | replace("administering-medication", "administering-medication")
+          | replace("administering-treatment", "administering-treatment") 
           | replace("right-medication-dosage", "taking the right medication and dosage at the right day or time") 
           | replace("coping-side-effects", "coping with the side effects of my medication or treatment")
           | replace("motivation-medication", "motivating myself to take medication or receive treatment")
@@ -40,7 +40,7 @@
   {% if data['medication-treatment-day'].includes("dressings-bandages") 
       or data['medication-treatment-day'].includes("applying-cream") 
       or data['medication-treatment-day'].includes("administering-medication")  
-      or data['medication-treatment-day'].includes("administering treatment")
+      or data['medication-treatment-day'].includes("administering-treatment")
       or data['medication-treatment-day'].includes("motivation-medication")
       or data['medication-treatment-day'].includes("something-else-medication") %}
     {% set struggling = (struggling.push({
@@ -50,7 +50,7 @@
       }), struggling) %}
   {% endif %}
   {% if data['medication-treatment-day'].includes("administering-medication")  
-      or data['medication-treatment-day'].includes("administering treatment")
+      or data['medication-treatment-day'].includes("administering-treatment")
       or data['medication-treatment-day'].includes("right-medication-dosage")
       or data['medication-treatment-day'].includes("something-else-medication") %}
     {% set struggling = (struggling.push({
@@ -62,7 +62,7 @@
   {% if data['medication-treatment-day'].includes("dressings-bandages") 
       or data['medication-treatment-day'].includes("applying-cream") 
       or data['medication-treatment-day'].includes("administering-medication")  
-      or data['medication-treatment-day'].includes("administering treatment")
+      or data['medication-treatment-day'].includes("administering-treatment")
       or data['medication-treatment-day'].includes("right-medication-dosage")
       or data['medication-treatment-day'].includes("motivation-medication")
       or data['medication-treatment-day'].includes("something-else-medication") %}
@@ -75,7 +75,7 @@
   {% if data['medication-treatment-day'].includes("dressings-bandages") 
       or data['medication-treatment-day'].includes("applying-cream") 
       or data['medication-treatment-day'].includes("administering-medication")  
-      or data['medication-treatment-day'].includes("administering treatment")
+      or data['medication-treatment-day'].includes("administering-treatment")
       or data['medication-treatment-day'].includes("right-medication-dosage")
       or data['medication-treatment-day'].includes("something-else-medication") %}
     {% set struggling = (struggling.push({
@@ -90,7 +90,7 @@
   {% if data['medication-treatment-day'].includes("dressings-bandages") 
       or data['medication-treatment-day'].includes("applying-cream") 
       or data['medication-treatment-day'].includes("administering-medication")  
-      or data['medication-treatment-day'].includes("administering treatment")
+      or data['medication-treatment-day'].includes("administering-treatment")
       or data['medication-treatment-day'].includes("right-medication-dosage")
       or data['medication-treatment-day'].includes("coping-side-effects")
       or data['medication-treatment-day'].includes("motivation-medication")
