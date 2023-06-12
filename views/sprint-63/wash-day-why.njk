@@ -1,0 +1,124 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+
+{% block form %}
+
+  <span class="govuk-caption-l">Washing or bathing during the day</span>
+
+  <h1 class="govuk-heading-l">
+    Tell us more about your difficulties with washing or bathing
+  </h1>
+
+  <p class="govuk-body govuk-!-margin-bottom-0">
+    You told us you have difficulties with:
+  </p>
+  <p class="govuk-heading-m">
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-0 govuk-!-margin-bottom-8">
+      {% for item in data['wash-day'] %}
+        {% if item == 'something-else-washing' %}
+          <li>{{data['something-else-explain-washing']}}</li>
+        {% endif %}
+        {% if item != 'something-else-washing' %}
+          <li>
+            {{ item 
+            | replace("get-in-out-bath", "getting in or out of a bath")
+            | replace("wash-drying-myself", "washing or drying myself")
+            | replace("taking-shower", "taking a shower")
+            | replace("forgetting-lacking-motivation-wash", "forgetting or lacking the motivation to wash, bathe or shower") 
+            }}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </p>
+
+  {% set struggling = [] %}
+  {% if data['wash-day'].includes("get-in-out-bath") 
+      or data['wash-day'].includes("wash-drying-myself") 
+      or data['wash-day'].includes("taking-shower")  
+      or data['wash-day'].includes("something-else-washing") %}
+    {% set struggling = (struggling.push({
+        value: "hold-on-to-things",
+        text: "I hold on to things to get in or out of the bath or shower",
+        checked: true if data["wash-day-why"] and data["wash-day-why"].includes("hold-on-to-things")
+      }), struggling) %}
+  {% endif %}
+  {% if data['wash-day'].includes("get-in-out-bath") 
+      or data['wash-day'].includes("wash-drying-myself") 
+      or data['wash-day'].includes("taking-shower")  
+      or data['wash-day'].includes("something-else-washing") %}
+    {% set struggling = (struggling.push({
+        value: "wash-bathe-safely",
+        text: "I cannot wash or bathe safely on my own",
+        checked: true if data["wash-day-why"] and data["wash-day-why"].includes("wash-bathe-safely")
+      }), struggling) %}
+  {% endif %}
+  {% if data['wash-day'].includes("forgetting-lacking-motivation-wash")  
+      or data['wash-day'].includes("something-else-washing") %}
+    {% set struggling = (struggling.push({
+        value: "wash-encouragement",
+        text: "I need someone to encourage me to wash or bathe",
+        checked: true if data["wash-day-why"] and data["wash-day-why"].includes("wash-encouragement")
+      }), struggling) %}
+  {% endif %}
+  {% if data['wash-day'].includes("get-in-out-bath") 
+      or data['wash-day'].includes("wash-drying-myself") 
+      or data['wash-day'].includes("taking-shower")  
+      or data['wash-day'].includes("something-else-washing") %}
+    {% set struggling = (struggling.push({
+        value: "wash-help",
+        text: "Someone has to physically help me wash or bathe",
+        checked: true if data["wash-day-why"] and data["wash-day-why"].includes("wash-help")
+      }), struggling) %}
+  {% endif %}
+  {% if data['wash-day'].includes("get-in-out-bath") 
+      or data['wash-day'].includes("wash-drying-myself") 
+      or data['wash-day'].includes("taking-shower")
+      or data['wash-day'].includes("forgetting-lacking-motivation-wash")
+      or data['wash-day'].includes("something-else-washing") %}
+    {% set struggling = (struggling.push({
+        value: "wash-day-why-something-else",
+        text: "I struggle in another way",
+        checked: true if data["wash-day-why"] and data["wash-day-why"].includes("wash-day-why-something-else"),
+        conditional: {
+          html: conditionalSomethingElseWashWhy
+        }
+      }), struggling) %}
+  {% endif %}
+
+  {{ govukCheckboxes
+    ({
+      idPrefix: "wash-day-why",
+      name: "wash-day-why",
+      fieldset: {
+        legend: {
+          text: "Can you tell us more about how you're struggling?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "Choose all that apply to you."
+      },
+      errorMessage: data.validation['wash-day-why'].error,
+      items: struggling
+    })
+  }}
+{% endblock %}
+
+{% set conditionalSomethingElseWashWhy %}
+   {{ govukInput({
+    classes: "govuk-input--width-40",
+    isPageHeading: false,
+    label: {
+      text: 'Tell us in what other way you struggle'
+      },
+    id: "something-else-wash-day-why-explain",
+    name: "something-else-wash-day-why-explain",
+    errorMessage: data.validation['something-else-wash-day-why-explain'].error,
+    value: data['something-else-wash-day-why-explain']
+    }) }}
+{% endset %}
