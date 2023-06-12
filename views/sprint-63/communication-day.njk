@@ -1,0 +1,85 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  <span class="govuk-caption-l">Communication</span>
+     <h1 class="govuk-heading-l">
+       You told us you have difficulty when you communicate with other people
+     </h1>
+
+  {{ govukCheckboxes
+    ({
+      idPrefix: "communication-day",
+      name: "communication-day",
+      fieldset: {
+        legend: {
+          text: "What do you find difficult about communicating with others?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+      text: "Choose all that apply to you."
+    },
+      errorMessage: data.validation['communication-day'].error,
+      items: [{
+        value: "reading-writing-understanding",
+        text: "Reading, writing or understanding written communication such as letters or emails",
+        checked: true if data["communication-day"] and data["communication-day"].includes("reading-writing-understanding")
+      },
+      {
+        value: "answering-using-phone",
+        text: "Answering or using the phone",
+        checked: true if data["communication-day"] and data["communication-day"].includes("answering-using-phone")
+      },
+      {
+        value: "understanding-people",
+        text: "Understanding or being understood by people I do not know well",
+        checked: true if data["communication-day"] and data["communication-day"].includes("understanding-people")
+      },
+      {
+        value: "concentrating-remembering",
+        text: "Concentrating or remembering things",
+        checked: true if data["communication-day"] and data["communication-day"].includes("concentrating-remembering")
+      },
+      {
+        value: "asking-for-help",
+        text: "Asking for help when I need it",
+        checked: true if data["communication-day"] and data["communication-day"].includes("asking-for-help")
+      },
+      {
+        value: "something-else-communication",
+        text: "I struggle with something else",
+        checked: true if data["communication-day"] and data["communication-day"].includes("something-else-communication"), 
+        conditional: {
+          html: conditionalSomethingElseCommunicationHtml
+        }
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "no-other-apply",
+        text: "I do not struggle communicating with other people",
+        behaviour: "exclusive",
+        checked: true if data["communication-day"] and data["communication-day"].includes("no-other-apply")
+      }]
+    })
+  }}
+{% endblock %}
+
+{% set conditionalSomethingElseCommunicationHtml %}
+   {{ govukInput({
+    classes: "govuk-input--width-40",
+    isPageHeading: true,
+    label: {
+      text: 'Tell us what you struggle with'
+      },
+    id: "something-else-explain-communication",
+    name: "something-else-explain-communication",
+    errorMessage: data.validation['something-else-explain-communication'].error,
+    value: data['something-else-explain-communication']
+    }) }}
+{% endset %}
