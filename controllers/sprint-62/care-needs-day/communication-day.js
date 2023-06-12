@@ -92,19 +92,7 @@ const config = {
       page: urls.dayDifficulties,
     },
   ],
-  next: [
-    {
-      page: urls.communicationDayDifficulties,
-      condition: {
-        field: urls.communicationDay,
-        value: ['reading-writing-understanding', 'answering-using-phone', 'understanding-people', 'concentrating-remembering', 'asking-for-help', 'something-else-communication'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.keepEyeIntroduction,
-    },
-  ],
+  next: urls.keepEyeIntroduction,
   validation: [
     {
       name: 'something-else-explain-communication',
