@@ -82,21 +82,6 @@ const config = {
       name: 'additional-wash-day',
       type: validation.radios,
     },
-    {
-      name: 'wash-frequency',
-      type: validation.textInput,
-      options: {
-        minLength: 1,
-        maxLength: 4,
-      },
-      errors: {
-        required: 'Enter how many times do you need to wash or bathe again during the day.',
-      },
-      condition: {
-        field: 'additional-wash-day',
-        value: 'yes',
-      },
-    },
   ],
 };
 module.exports = registerController(config.name, config);

@@ -41,7 +41,7 @@ const config = {
       page: urls.movingIndoorsWhy,
       condition: {
         field: urls.movingIndoorsDay,
-        value: ['walking-around', 'chair', 'wheelchair', 'stairs', 'reminding-motivating', 'moving-indoors-something-else'],
+        value: ['walking-around', 'chair', 'wheel', 'stairs', 'reminding-motivating', 'moving-indoors-something-else'],
         match: match.anyOne,
       },
     },
@@ -98,25 +98,25 @@ const config = {
     },
   ],
   validation: [
-  {
-    name: 'something-else-explain',
-    type: validation.textInput,
-    options: {
-      minLength: 1,
-      maxLength: 100,
+    {
+      name: 'something-else-explain',
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 100,
+      },
+      errors: {
+        required: 'You must tell us what you struggle with.',
+      },
+      condition: {
+        field: 'moving-indoors-day',
+        value: 'moving-indoors-something-else',
+      },
     },
-    errors: {
-      required: 'You must tell us what you struggle with.',
-    },
-    condition: {
-      field: 'moving-indoors-day',
-      value: 'moving-indoors-something-else', 
-    },
-  }, 
-  {
-    name: 'moving-indoors-day',
-    type: validation.checkboxes,
-  }]
+    {
+      name: 'moving-indoors-day',
+      type: validation.checkboxes,
+    }],
 };
 
 module.exports = registerController(config.name, config);
