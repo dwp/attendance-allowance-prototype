@@ -1,0 +1,78 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+   <span class="govuk-caption-l">Social activities or hobbies</span>
+     <h1 class="govuk-heading-l">
+       You told us you have difficulty when you take part in social activities or hobbies
+     </h1>
+
+
+  {{ govukCheckboxes
+    ({
+      idPrefix: "social-activities-day",
+      name: "social-activities-day",
+      fieldset: {
+        legend: {
+          text: "What do you find difficult with social activities or hobbies?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      errorMessage: data.validation['social-activities-day'].error,
+      items: [{
+        value: "social-physical",
+        text: "I have physical difficulty when I take part in social activities or hobbies",
+        checked: true if data["social-activities-day"] and data["social-activities-day"].includes("social-physical")
+      },
+      {
+        value: "social-motivation",
+        text: "I forget or lack the motivation to take part in social activities or hobbies",
+        checked: true if data["social-activities-day"] and data["social-activities-day"].includes("social-motivation")
+      },
+      {
+        value: "social-no-help",
+        text: "I cannot take part unless someone helps me",
+        checked: true if data["social-activities-day"] and data["social-activities-day"].includes("social-no-help")
+      },
+      {
+        value: "social-no",
+        text: "I no longer take part due to my condition",
+        checked: true if data["social-activities-day"] and data["social-activities-day"].includes("social-no")
+      },
+      {
+        value: "something-else-social",
+        text: "I struggle with something else",
+        checked: true if data["social-activities-day"] and data["social-activities-day"].includes("something-else-social"),
+        conditional: {
+          html: conditionalSomethingElseSocialHtml
+        }
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "no-other-apply",
+        text: "I do not struggle taking part in social activities or hobbies",
+        behaviour: "exclusive",
+        checked: true if data["social-activities-day"] and data["social-activities-day"].includes("no-other-apply")
+      }]
+    })
+  }}
+{% endblock %}
+
+{% set conditionalSomethingElseSocialHtml %}
+   {{ govukInput({
+    classes: "govuk-input--width-40",
+    isPageHeading: true,
+    label: {
+      text: 'Tell us what you struggle with'
+      },
+    id: "something-else-explain-social",
+    name: "something-else-explain-social",
+    errorMessage: data.validation['something-else-explain-social'].error,
+    value: data['something-else-explain-social']
+    }) }}
+{% endset %}
