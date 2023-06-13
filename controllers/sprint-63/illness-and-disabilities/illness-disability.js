@@ -7,7 +7,7 @@ const {
 
 const config = {
   name: urls.illnessDisability,
-  next: urls.illnessDisabilityAdded,
+  next: urls.illnessDisabilityDate,
   previous: [
     {
       page: urls.careHomeHospital,

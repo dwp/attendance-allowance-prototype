@@ -33,12 +33,12 @@ module.exports = {
     careHomeHospital: 'care-home-hospital',
     sercoCareHomeHospital: 'serco-care-home-hospital',
 
-
     // illness and disabilities
     illnessDisability: 'illness-disability',
     illnessDisabilityAdded: 'illness-disability-added',
     illnessDisabilityRemove: 'illness-disability-remove',
     illnessDisabilityManual: 'illness-disability-manual',
+    illnessDisabilityDate: 'illness-disability-date',
 
     // special rules
     specialRulesDeclaration: 'special-rules-declaration',
@@ -114,7 +114,7 @@ module.exports = {
     // contact details
     telephoneNumber: 'telephone-number',
     addContactDetails: 'add-contact-details',
-    telephoneNumberOther: 'telephone-number-other', 
+    telephoneNumberOther: 'telephone-number-other',
     preferenceContact: 'preference-contact',
     alternativeFormats: 'alternative-formats',
     emailConfirm: 'email-confirm',
