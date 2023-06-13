@@ -89,8 +89,8 @@ const config = {
       page: urls.socialActivitiesDayFrequency,
       condition: {
         field: urls.socialActivitiesDay,
-        value: ['social-physical', 'social-motivation'],
-        match: match.all, 
+        value: ['social-physical', 'social-motivation', 'social-no-help', 'social-no', 'something-else-social'],
+        match: match.anyOne,
       },
     },
     {
@@ -121,9 +121,27 @@ const config = {
       page: urls.keepEyeIntroduction,
     },
   ],
-  validation: {
-    type: validation.checkboxes,
-  },
+  validation: [
+    {
+      name: 'something-else-explain-social',
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 100,
+      },
+      errors: {
+        required: 'You must tell us what you struggle with.',
+      },
+      condition: {
+        field: 'social-activities-day',
+        value: 'something-else-social',
+      },
+    },
+    {
+      name: 'social-activities-day',
+      type: validation.checkboxes,
+    },
+  ],
 };
 
 module.exports = registerController(config.name, config);

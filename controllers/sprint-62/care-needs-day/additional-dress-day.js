@@ -74,21 +74,6 @@ const config = {
       name: 'additional-dress-day',
       type: validation.radios,
     },
-    {
-      name: 'dress-frequency',
-      type: validation.textInput,
-      options: {
-        minLength: 1,
-        maxLength: 4,
-      },
-      errors: {
-        required: 'Tell us approximately how many times you need to change your clothes during the day.',
-      },
-      condition: {
-        field: 'additional-dress-day',
-        value: 'yes',
-      },
-    },
   ],
 };
 module.exports = registerController(config.name, config);

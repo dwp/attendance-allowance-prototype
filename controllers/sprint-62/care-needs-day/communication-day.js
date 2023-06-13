@@ -92,22 +92,27 @@ const config = {
       page: urls.dayDifficulties,
     },
   ],
-  next: [
+  next: urls.keepEyeIntroduction,
+  validation: [
     {
-      page: urls.communicationDayDifficulties,
+      name: 'something-else-explain-communication',
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 100,
+      },
+      errors: {
+        required: 'You must tell us what you struggle with.',
+      },
       condition: {
-        field: urls.communicationDay,
-        value: ['communication-day-physical', 'communication-day-motivation'],
-        match: match.anyOne,
+        field: 'communication-day',
+        value: 'something-else-communication',
       },
     },
     {
-      page: urls.keepEyeIntroduction,
-    },
-  ],
-  validation: {
-    type: validation.checkboxes,
-  },
+      name: 'communication-day',
+      type: validation.checkboxes,
+    }],
 };
 
 module.exports = registerController(config.name, config);

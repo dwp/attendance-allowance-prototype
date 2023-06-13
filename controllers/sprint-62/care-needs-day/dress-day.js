@@ -97,7 +97,7 @@ const config = {
       page: urls.keepEyeIntroduction,
     },
   ],
-  validation: [ 
+  validation: [
     {
       name: 'something-else-explain-dressing',
       type: validation.textInput,
@@ -106,18 +106,18 @@ const config = {
         maxLength: 100,
       },
       errors: {
-        required: 'You must tell us what you struggle with',
+        required: 'You must tell us what you struggle with.',
       },
       condition: {
         field: 'dress-day',
-        value: 'something-else-dressing', 
+        value: 'something-else-dressing',
       },
-    }, 
+    },
     {
       name: 'dress-day',
       type: validation.checkboxes,
-    }
-  ]
+    },
+  ],
 };
 
 module.exports = registerController(config.name, config);
