@@ -79,6 +79,11 @@
         checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("move-around-safely")
       },
       {
+        value: "encourage-move-around",
+        text: "Someone has to encourage me to get up and move around",
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("encourage-move-around")
+      },
+      {
         value: "chair-bound",
         text: "I sit in a chair all day",
         checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("chair-bound")
