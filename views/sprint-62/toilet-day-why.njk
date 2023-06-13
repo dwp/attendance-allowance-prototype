@@ -23,13 +23,13 @@
         {% endif %}
         {% if item != 'toilet-something-else' %}
           <li>
-            {{ item 
+            {{ item
             | replace("toilet-getting-to", "getting to the toilet or commode")
             | replace("toilet-urgent", "needing the toilet urgently")
             | replace("toilet-getting-on-off", "getting on or off the toilet or commode")
-            | replace("toilet-cleaning-myself", "cleaning myself after using the toilet") 
+            | replace("toilet-cleaning-myself", "cleaning myself after using the toilet")
             | replace("toilet-emptying", "emptying and managing my stoma, catheter or similar")
-            | replace("toilet-remembering", "remembering to use the toilet")  
+            | replace("toilet-remembering", "remembering to use the toilet")
             | replace("managing-incontinence", "managing my incontinence")
             | replace("toilet-not-always", "I do not always use the toilet or commode") }}
           </li>
@@ -93,6 +93,11 @@
         value: "collecting-device",
         text: "I use a commode, catheter, stoma or bedpan instead of the toilet",
         checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("collecting-device")
+      },
+      {
+        value: "remind-encourage-toilet",
+        text: "Someone has to remind or encourage me to use the toilet or commode",
+        checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("remind-encourage-toilet")
       },
       {
         value: "toilet-day-why-something-else",

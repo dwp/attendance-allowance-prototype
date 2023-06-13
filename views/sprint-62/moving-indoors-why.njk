@@ -10,7 +10,7 @@
   <p class="govuk-body govuk-!-margin-bottom-0">
     You told us you have difficulties with:
   </p>
-  <p class="govuk-heading-m">
+  <p class="govuk-heading-m govuk-!-margin-bottom-0">
     <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-0 govuk-!-margin-bottom-8">
       {% for item in data['moving-indoors-day'] %}
       {% if item == 'moving-indoors-something-else' %}
@@ -18,18 +18,18 @@
       {% endif %}
        {% if item != 'moving-indoors-something-else' %}
         <li>
-          {{ item 
+          {{ item
           | replace("walking-around", "walking around")
           | replace("chair", "getting in or out of a chair")
           | replace("wheel", "transferring to or from a wheelchair")
-          | replace("stairs", "going up or down stairs") 
+          | replace("stairs", "going up or down stairs")
           | replace("reminding-motivating", "reminding or motivating myself to move") }}
         </li>
         {% endif %}
       {% endfor %}
     </ul>
   </p>
-  
+
   {{ govukCheckboxes
     ({
       idPrefix: "moving-indoors-why",
@@ -76,7 +76,7 @@
         hint: {
           text: "For example, you get dizzy, crawl or go downstairs on your bottom"
         },
-        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("move-around-safely") 
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("move-around-safely")
       },
       {
         value: "chair-bound",
@@ -91,7 +91,7 @@
       {
         value: "something-else-moving-around",
         text: "I struggle in another way",
-        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("something-else-moving-around"), 
+        checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("something-else-moving-around"),
         conditional: {
           html: conditionalSomethingElseMovingAroundIndoorsWhy
         }
