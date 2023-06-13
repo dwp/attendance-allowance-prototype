@@ -33,6 +33,7 @@ router.use(`/${urls.sercoCareHomeHospital}`, controllers.sercoCareHomeHospital);
 
 // illness and disabilities
 router.use(`/${urls.illnessDisability}`, controllers.illnessDisability);
+router.use(`/${urls.illnessDisabilityDate}`, controllers.illnessDisabilityDate);
 router.use(`/${urls.illnessDisabilityAdded}`, controllers.illnessDisabilityAdded);
 router.use(`/${urls.illnessDisabilityManual}`, controllers.illnessDisabilityManual);
 router.use(`/${urls.illnessDisabilityRemove}`, (req, res) => {

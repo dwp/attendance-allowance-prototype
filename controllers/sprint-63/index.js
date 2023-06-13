@@ -27,6 +27,7 @@ const sercoCareHomeHospital = require('./payability/serco-care-home-hospital');
 
 // illness and disabilities
 const illnessDisability = require('./illness-and-disabilities/illness-disability');
+const illnessDisabilityDate = require('./illness-and-disabilities/illness-disability-date');
 const illnessDisabilityAdded = require('./illness-and-disabilities/illness-disability-added');
 const illnessDisabilityManual = require('./illness-and-disabilities/illness-disability-manual');
 
@@ -140,6 +141,7 @@ module.exports = {
   careHomeHospital,
   sercoCareHomeHospital,
   illnessDisability,
+  illnessDisabilityDate,
   illnessDisabilityAdded,
   illnessDisabilityManual,
   telephoneNumber,
