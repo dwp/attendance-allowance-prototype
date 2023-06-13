@@ -1,0 +1,29 @@
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "layouts/layout.njk" %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {% block backLink %}
+                {{ govukBackLink({
+                text: "Back",
+                href: "who-is-claiming"
+                }) }}
+            {% endblock %}
+            <div class="govuk-form-group">
+                <h1 class="govuk-heading-l">Based on your answers, you need to apply using the paper form</h1>
+                <p class="govuk-body">To claim Attendance Allowance the claimant must not be receiving Disability Living Allowance (DLA) or Personal Independence Payment (PIP).
+                </p>
+                <p>
+                <h1 class="govuk-heading-m">Apply for someone in a legal capacity</h1>
+                </p>
+                <p class="govuk-body">If you're applying for Attendance Allowance on behalf of someone else, for example, you have a lasting power of attorney 
+                    in place for property and finance, then you need to use the 
+                    <a class="govuk-link govuk-link--no-underline" href="https://www.gov.uk/government/publications/attendance-allowance-claim-form">paper claim form</a>. 
+                </p>
+            </div>
+        </div>
+    </div>
+  </div>
+{% endblock %}     
