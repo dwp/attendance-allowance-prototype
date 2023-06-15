@@ -1,0 +1,20 @@
+$schema: https://gitlab.com/dwp/secure-development/schema/project-metadata/-/raw/v1.0.0/schema/project-metadata.json
+
+schema_version: 1.0.0
+
+project:
+  - project_id: 41972990
+    component_name: prototype-attendance-allowance
+    description: Prototype for Attendance Allowance private beta.
+
+    version: 1.0.0
+
+    last_verified:
+      date: 2023-07-28
+      name: Nathan Maybrey
+
+    tags:
+      payments: false
+      personally_identifying_information: true
+
+    cmdb_id: PRJ0050011
