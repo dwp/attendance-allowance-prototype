@@ -1,0 +1,78 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+    <span class="govuk-caption-l">Washing or bathing during the day</span>
+     <h1 class="govuk-heading-l">
+       You told us you have difficulty washing or bathing
+     </h1>
+
+  {{ govukCheckboxes
+    ({
+      idPrefix: "wash-day",
+      name: "wash-day",
+      fieldset: {
+        legend: {
+          text: "What do you struggle with?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      errorMessage: data.validation['wash-day'].error,
+      items: [{
+        value: "get-in-out-bath",
+        text: "Getting in or out of a bath",
+        checked: true if data["wash-day"] and data["wash-day"].includes("get-in-out-bath")
+      },
+      {
+        value: "wash-drying-myself",
+        text: "Washing or drying myself",
+        checked: true if data["wash-day"] and data["wash-day"].includes("wash-drying-myself")
+      },
+      {
+        value: "taking-shower",
+        text: "Taking a shower",
+        checked: true if data["wash-day"] and data["wash-day"].includes("taking-shower")
+      },
+      {
+        value: "forgetting-lacking-motivation-wash",
+        text: "Forgetting or lacking the motivation to wash, bathe or shower",
+        checked: true if data["wash-day"] and data["wash-day"].includes("forgetting-lacking-motivation-wash")
+      },
+       {
+        value: "something-else-washing",
+        text: "I struggle with something else",
+        checked: true if data["wash-day"] and data["wash-day"].includes("something-else-washing"), 
+        conditional: {
+          html: conditionalSomethingElseWashingHtml
+          }
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "no-other-apply",
+        text: "I do not struggle with washing or bathing",
+        behaviour: "exclusive",
+        checked: true if data["wash-day"] and data["wash-day"].includes("no-other-apply")
+      }]
+    })
+  }}
+{% endblock %}
+
+{% set conditionalSomethingElseWashingHtml %}
+   {{ govukInput({
+    classes: "govuk-input--width-40",
+    isPageHeading: true,
+    label: {
+      text: 'Tell us what you struggle with'
+      },
+    id: "something-else-explain-washing",
+    name: "something-else-explain-washing",
+    errorMessage: data.validation['something-else-explain-washing'].error,
+    value: data['something-else-explain-washing']
+    }) }}
+{% endset %}
