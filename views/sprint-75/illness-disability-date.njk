@@ -1,0 +1,35 @@
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+  {% set currentIllness = data['illness-disability'] | last if data['illness-disability'] else "" %}
+
+  {{ govukDateInput({
+    id: "illness-start-date",
+    namePrefix: "illness-start-date",
+    fieldset: {
+      legend: {
+        text: "Tell us the approximate date when your " + currentIllness + " started",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: "For example, 04 2021"
+    },
+    items: [
+      {
+        name: "month",
+        classes: "govuk-input--width-2"
+      },
+      {
+        name: "year",
+        classes: "govuk-input--width-4"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
