@@ -118,3 +118,7 @@
     value: data['something-else-medication-moving-around-why-explain']
     }) }}
 {% endset %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

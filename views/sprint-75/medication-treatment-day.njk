@@ -96,3 +96,7 @@
     value: data['something-else-explain-medication']
     }) }}
 {% endset %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
