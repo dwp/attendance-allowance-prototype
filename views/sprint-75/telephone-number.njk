@@ -4,11 +4,7 @@
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
-  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-    <h1 class="govuk-fieldset__heading">
-      What is your telephone number?
-    </h1>
-  </legend>
+  <h1 class="govuk-heading-l govuk-!-margin-bottom-2">What is your telephone number?</h1>
   <p class="govuk-body">We will only phone you if we need to talk to you about your claim.</p>
 
   <div class="govuk-form-group">
@@ -19,10 +15,7 @@
   
   {{ govukInput({
     label: {
-      text: "Your telephone number"
-    },
-    hint: {
-    text: "Enter your main contact number. It can be a mobile or landline, and should include any dialling codes."
+      text: "UK telephone number"
     },
     classes: "govuk-input--width-30",
     errorMessage: data.validation['main-contact-number'].error,
