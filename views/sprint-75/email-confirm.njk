@@ -16,10 +16,8 @@
     classes: "govuk-input",
     label: {
       text: "Email address"
-    },
-    hint: {
-    text: "We will only use this to send you a confirmation email"
     }
+
   }) }}
   {{ govukInput({
     id: "contact-by-email-confirm",
@@ -45,9 +43,6 @@
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
-  },
-  hint: {
-    text: "If we need more information about your application, we will contact you by phone or post."
   },
   errorMessage: data.validation['email-confirm'].error,
   items: [

@@ -4,19 +4,12 @@
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
-  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-    <h1 class="govuk-fieldset__heading">
-      What is their telephone number?
-    </h1>
-  </legend>
-  <p class="govuk-body govuk-!-margin-bottom-8">You've given us permission to contact the person who is helping you to apply. We’ll only phone them if we have questions about your application.</p>
-  
+  <h1 class="govuk-heading-l govuk-!-margin-bottom-2">What is your telephone number?</h1>
+  <p class="govuk-body">You have given us permission to contact the person who is helping you to apply. We will only phone them if we have questions about your application.</p>
+
   {{ govukInput({
     label: {
-      text: "Their telephone number"
-    },
-    hint: {
-    text: "Enter their telephone number. It can be a mobile or landline, and should include any dialling codes."
+      text: "UK telephone number"
     },
     classes: "govuk-input--width-30",
     errorMessage: data.validation['main-contact-number-other'].error,
