@@ -112,6 +112,7 @@ const emailConfirm = require('./contact-details/email-confirm');
 // claim submission
 const claimSubmission = require('./claim-submission/claim-submission');
 const sercoLateApplication = require('./claim-submission/serco-late-application');
+const done = require('./claim-submission/done');
 
 // check your answers
 const checkAnswersDetails = require('./check-your-answers/check-answers-details');
@@ -219,6 +220,7 @@ module.exports = {
   keepEyeWhy,
   keepEyeDuration,
   claimSubmission,
+  done,
   sercoLateApplication,
   addContactDetails,
 };

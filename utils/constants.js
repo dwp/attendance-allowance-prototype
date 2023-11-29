@@ -131,6 +131,7 @@ module.exports = {
     claimSubmission: 'claim-submission',
     sercoLateApplication: 'serco-late-application',
     checkAnswersFullList: 'check-answers-full-list',
+    done: 'done',
 
   },
   validation: {
