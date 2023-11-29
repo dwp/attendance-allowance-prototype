@@ -9,20 +9,28 @@ const config = {
   name: urls.specialRulesDeclaration,
   previous: [
     {
-      page: urls.helpingSomeoneIntro,
+      page: urls.bestDescribe,
       condition: {
-        field: urls.personClaiming,
-        value: 'helping-someone',
+        field: urls.bestDescribe,
+        value: 'friend',
         match: match.value,
       },
     },
     {
-      page: urls.personClaiming,
+      page: urls.bestDescribe,
+      condition: {
+        field: urls.bestDescribe,
+        value: 'charity',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.whoIsApplying,
     },
   ],
   next: [
     {
-      page: urls.personClaimingIneligible,
+      page: urls.whoIsApplyingIneligible,
       condition: {
         field: urls.specialRulesDeclaration,
         value: 'yes',
@@ -30,7 +38,7 @@ const config = {
       },
     },
     {
-      page: urls.birthDate,
+      page: urls.specialRulesDeclaration,
     },
   ],
   validation: {

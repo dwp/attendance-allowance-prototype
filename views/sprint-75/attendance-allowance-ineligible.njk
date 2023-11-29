@@ -1,27 +1,17 @@
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
-{% extends "layouts/layout.njk" %}
+{% extends "layouts/prototypeLayout.njk" %}
 
-{% block content %}
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-            {% block backLink %}
-                {{ govukBackLink({
-                text: "Back",
-                href: "other-benefits"
-                }) }}
-            {% endblock %}
-            <div class="govuk-form-group">
-                <h1 class="govuk-heading-l">You told us you already get Attendance Allowance</h1>
-                <h2 class="govuk-heading-m">If you already get Attendance Allowance</h2>
-                <p class="govuk-body">Do not make a new application. Update your existing claim by telling us about changes that may affect your Attendance Allowance.</p>
-                <p class="govuk-body">
-                    <a class="govuk-link govuk-link--no-underline" href="https://www.gov.uk/attendance-allowance/report-change-in-circumstances">Report a change in circumstances</a>. 
-                </p>
-            </div>
-        </div>
+{% block form %}
+    <div class="govuk-form-group">
+        <h1 class="govuk-heading-l">You told us you already get Attendance Allowance</h1>
+        <p class="govuk-body">If you want to renew your claim you can <a class="govuk-link" href="nationality">continue and use the online service.</a></p>
+        <p class="govuk-body">Alternatively, you can use the paper form.</p>
+        <p class="govuk-body">If you want to report a change in circumstances, you must contact the <a class="govuk-link" href="https://www.gov.uk/attendance-allowance/report-change-in-circumstances">Attendance Allowance helpline.</a></p>
     </div>
-  </div>
+{% endblock %}     
+
+{% block formButton %}
 {% endblock %}
 
 {% block postForm %}
