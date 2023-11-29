@@ -1,0 +1,30 @@
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block pageTitle %}
+  Tell us the approximate date when your condition or disability started
+{% endblock %}
+
+{% block form %}
+
+  {{ govukInput({
+      errorMessage: data.validation['illness-start-date'].error,
+      id: "illness-start-date",
+      name: "illness-start-date",
+      label: {
+        text: "Tell us the approximate date when your condition or disability started",
+        isPageHeading: true,
+        classes: "govuk-label--l"
+      },
+      hint: {
+        text: "For example, 04/21 or 1992"
+      }
+    }) }}
+
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
+

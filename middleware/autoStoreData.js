@@ -60,6 +60,7 @@ const handleIllnessDisability = (input, data) => {
       data['illness-disability'].push(input['illness-disability-manual']);
       data['illness-disability-rows'].push(buildTableRow(input['illness-disability-manual']));
     }
+    data['illness-disability-manual'] = input['illness-disability-manual'];
   }
   if (input['illness-disability']?.length > 0) {
     if (!data['illness-disability']) {

@@ -6,15 +6,12 @@ const {
 
 const config = {
   name: urls.illnessDisabilityManual,
-  next: urls.illnessDisabilityDate,
+  next: urls.illnessDisabilityDateManual,
   previous: urls.illnessDisability,
   validation: [
     {
       name: 'illness-disability-manual',
       type: validation.textInput,
-      options: {
-        minLength: 1,
-      },
       errors: {
         required: 'Enter the name of your health condition or disability',
       },

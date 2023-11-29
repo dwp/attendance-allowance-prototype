@@ -2,13 +2,12 @@ const {
   urls,
   validation,
   registerController,
-  match,
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.illnessDisabilityDate,
+  name: urls.illnessDisabilityDateManual,
   next: urls.illnessDisabilityAdded,
-  previous: urls.illnessDisability,
+  previous: urls.illnessDisabilityManual,
   validation: [
     {
       name: 'illness-start-date',
