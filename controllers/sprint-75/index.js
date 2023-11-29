@@ -6,7 +6,9 @@ const helpingSomeoneIntro = require('./start/helping-someone-intro');
 
 // eligibility
 const birthDate = require('./eligibility/birth-date');
+const birthDateIneligible = require('./eligibility/birth-date-ineligible');
 const otherBenefits = require('./eligibility/other-benefits');
+const otherBenefitsIneligible = require('./eligibility/other-benefits-ineligible');
 const attendanceAllowanceIneligible = require('./eligibility/attendance-allowance-ineligible');
 const nationality = require('./eligibility/nationality');
 const nationalityOther = require('./eligibility/nationality-other');
@@ -145,7 +147,9 @@ module.exports = {
   whoIsApplyingIneligible,
   bestDescribe,
   birthDate,
+  birthDateIneligible,
   otherBenefits,
+  otherBenefitsIneligible,
   attendanceAllowanceIneligible,
   residenceCountry,
   countryOutsideUkDuration,

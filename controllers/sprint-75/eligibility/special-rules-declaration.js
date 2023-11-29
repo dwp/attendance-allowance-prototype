@@ -38,7 +38,7 @@ const config = {
       },
     },
     {
-      page: urls.specialRulesDeclaration,
+      page: urls.birthDate,
     },
   ],
   validation: {

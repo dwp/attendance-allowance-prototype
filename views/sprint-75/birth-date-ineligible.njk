@@ -1,37 +1,20 @@
-{% extends "layouts/layout.njk" %}
+{% extends "layouts/prototypeLayout.njk" %}
 
-{% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <a href="birth-date" class="govuk-back-link">Back</a>
-      <div class="govuk-form-group">
-        <h1 class="govuk-heading-l">Based on your answer, you may not be eligible to apply</h1>
-        <p class="govuk-body">You must be over State Pension age to claim Attendance Allowance.</p>
-        <h2 class="govuk-heading-m">If you think you are over State Pension age</h2>
-        <p class="govuk-body">You may have entered your date of birth incorrectly.
-        You can <a href="birth-date" class="govuk-link">enter your date of birth</a> again.
-        </p>
-        <h2 class="govuk-heading-m">If you are under State Pension age </h2>
-        <p class="govuk-body">You may be eligible for Personal Independence Payment (PIP). This is for people under State
-          Pension age who have a long-term physical or mental health condition or disability.</p>
-        <div class="govuk-inset-text">
-          If you live in Scotland and are under State Pension age you need to <a href="https://www.mygov.scot/adult-disability-payment" class="govuk-link">apply for Adult Disability Payment (ADP)</a>, which has replaced PIP.
-        </div>
-        <a
-          class="govuk-button"
-          href="https://www.gov.uk/pip"
-          role="button">
-          Apply for Personal Independence Payment (PIP)
-        </a>
-        <h2 class="govuk-heading-m">If you still want to apply
-        </h2>
-        <p class="govuk-body">You can still
-          <a href="other-benefits" class="govuk-link">apply for Attendance Allowance</a>
-          but based on what you've told us, you will not be entitled to it.
-        </p>
-      </div>
-    </div>
-  </div>
+{% block form %}
+  <h1 class="govuk-heading-l">You must be over State Pension age to apply for Attendance Allowance</h1>
+  <h2 class="govuk-heading-m">If you think you are eligible</h2>
+  <p class="govuk-body"><a href="birth-date" class="govuk-link">Check you have entered your correct date of birth.</a></p>
+  <h2 class="govuk-heading-m">If you are under State Pension age</h2>
+  <p class="govuk-body">You can <a href="https://www.gov.uk/pip" class="govuk-link">apply for Personal Independence Payment (PIP).</a></p>
+  <p class="govuk-body">It can help with extra living costs if you have both:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>a long-term physical or mental health condition or disability</li>
+    <li>difficulty doing certain everyday tasks or getting around</li>
+  </ul>
+  <p class="govuk-body">If you live in Scotland, you will need to <a href="https://www.mygov.scot/adult-disability-payment" class="govuk-link">apply for Adult Disability Payment (ADP).</a></p>
+{% endblock %}
+
+{% block formButton %}
 {% endblock %}
 
 {% block postForm %}

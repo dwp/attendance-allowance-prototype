@@ -16,7 +16,9 @@ router.use(`/${urls.whoIsApplyingIneligible}`, controllers.whoIsApplyingIneligib
 router.use(`/${urls.bestDescribe}`, controllers.bestDescribe);
 router.use(`/${urls.specialRulesDeclaration}`, controllers.specialRulesDeclaration);
 router.use(`/${urls.birthDate}`, controllers.birthDate);
+router.use(`/${urls.birthDateIneligible}`, controllers.birthDateIneligible);
 router.use(`/${urls.otherBenefits}`, controllers.otherBenefits);
+router.use(`/${urls.otherBenefitsIneligible}`, controllers.otherBenefitsIneligible);
 router.use(`/${urls.attendanceAllowanceIneligible}`, controllers.attendanceAllowanceIneligible);
 router.use(`/${urls.nationality}`, controllers.nationality);
 router.use(`/${urls.nationalityOther}`, controllers.nationalityOther);
