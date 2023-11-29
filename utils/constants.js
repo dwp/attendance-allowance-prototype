@@ -41,6 +41,7 @@ module.exports = {
     illnessDisabilityRemove: 'illness-disability-remove',
     illnessDisabilityManual: 'illness-disability-manual',
     illnessDisabilityDate: 'illness-disability-date',
+    illnessDisabilityDateManual: 'illness-disability-date-manual',
 
     // special rules
     specialRulesDeclaration: 'special-rules-declaration',
