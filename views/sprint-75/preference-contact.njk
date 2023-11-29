@@ -14,7 +14,7 @@
       }
     },
     hint: {
-          text: "We’ll only call if we have questions about your application."
+          text: "We will only call if we have questions about your application."
         },
     errorMessage: data.validation['preference-contact'].error,
     items: [
@@ -33,9 +33,9 @@
       },
       {
         value: "no-preference",
-        text: "I don’t mind",
+        text: "I do not mind",
         hint: {
-          text: "If you don’t give a preference we’ll call you first, and call the person that’s helping you if we cannot get hold of you."
+          text: "If you do not give a preference, we will try to call you first."
         },
         checked: true if data["preference-contact"] === "no-preference"
       }
