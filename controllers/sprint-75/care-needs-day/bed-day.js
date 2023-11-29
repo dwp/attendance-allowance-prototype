@@ -90,30 +90,31 @@ const config = {
       },
     },
     {
-      page: urls.keepEyeIntroduction,
+      page: urls.checkAnswersDay,
     },
   ],
-  validation: [ 
+  validation: [
     {
       name: 'something-else-explain-bed',
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 100,
+        maxLength: 200,
       },
       errors: {
         required: 'You must tell us what you struggle with.',
+        maxLength: 'Tell us what you struggle with must be 200 characters or less.',
       },
       condition: {
         field: 'bed-day',
-        value: 'something-else-bed', 
+        value: 'something-else-bed',
       },
-    }, 
+    },
     {
       name: 'bed-day',
       type: validation.checkboxes,
-    }
-  ]
+    },
+  ],
 };
 
 module.exports = registerController(config.name, config);

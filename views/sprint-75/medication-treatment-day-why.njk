@@ -9,45 +9,15 @@
   <span class="govuk-caption-l">Taking medication or receiving treatment during the day</span>
 
   <h1 class="govuk-heading-l">
-    Tell us more about your difficulties when you take medication or receive treatment
+    How do you manage to take your medication or get treatment?
   </h1>
-  <p class="govuk-body">
-    You told us you have difficulties with:
-  </p>
-  
-  <ul class="govuk-list govuk-list--bullet">
-    {% for item in data['medication-treatment-day'] %}
-      {% if item == 'something-else-medication' %}
-        <li>{{ data['something-else-explain-medication'] }}</li>
-      {% endif %}
-      {% if item != 'something-else-medication' %}
-        <li>
-          {{ item 
-          | replace("dressings-bandages", "changing dressings or bandages")
-          | replace("applying-cream", "applying cream") 
-          | replace("administering-medication", "administering medication")
-          | replace("administering-treatment", "administering treatment") 
-          | replace("right-medication-dosage", "taking the right medication and dosage at the right day or time") 
-          | replace("coping-side-effects", "coping with the side effects of my medication or treatment")
-          | replace("motivation-medication", "motivating myself to take medication or receive treatment") }}
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
 							
   {{ govukCheckboxes
     ({
       idPrefix: "medication-treatment-day-why",
       name: "medication-treatment-day-why",
-      fieldset: {
-        legend: {
-          text: "Can you tell us more about how you're struggling?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
       hint: {
-        text: 'Choose all that apply to you.'
+        text: 'Select all that apply.'
       },
       errorMessage: data.validation['medication-treatment-day-why'].error,
       items: [{
@@ -68,14 +38,11 @@
       {
         value: "help",
         text: "Someone has to physically help me take my medication or treatment",
-        hint: {
-          text: 'For example, this might be taking medicine, using an inhaler or having an injection'
-          },
         checked: true if data["medication-treatment-day-why"] and data["medication-treatment-day-why"].includes("help")
       },
       {
         value: "medication-treatment-day-why-something-else",
-        text: "I struggle in another way",
+        text: "Something else",
         checked: true if data["medication-treatment-day-why"] and data["medication-treatment-day-why"].includes("medication-treatment-day-why-something-else"),
         conditional: {
           html: conditionalSomethingElseMedicationTreatmentWhy
@@ -90,7 +57,7 @@
     classes: "govuk-input--width-40",
     isPageHeading: false,
     label: {
-      text: 'Tell us in what other way you struggle'
+      text: 'Tell us how you manage to take your medication or get treatment'
       },
     id: "something-else-medication-treatment-day-why-explain",
     name: "something-else-medication-treatment-day-why-explain",

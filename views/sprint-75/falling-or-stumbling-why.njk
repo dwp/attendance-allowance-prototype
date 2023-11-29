@@ -7,20 +7,16 @@
 {% block form %}
 
 <span class="govuk-caption-l">Stumbling or falling during the day</span>
+<h1 class="govuk-heading-l">
+  What causes you to stumble or fall down?
+</h1>
 
 {{ govukCheckboxes
   ({
     idPrefix: "falling-or-stumbling-why",
     name: "falling-or-stumbling-why",
-    fieldset: {
-      legend: {
-        text: "Why do you stumble or fall down?",
-        isPageHeading: false,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
     hint: {
-      text: "Choose all that apply to you."
+      text: "Select all that apply."
     },
     errorMessage: data.validation['falling-or-stumbling-why'].error,
     items: [{
@@ -50,7 +46,7 @@
     },
     {
       value: "something-else",
-      text: "I stumble or fall for another reason",
+      text: "Something else",
       checked: true if data["falling-or-stumbling-why"] and data["falling-or-stumbling-why"].includes("something-else"), 
       conditional: {
         html: conditionalSomethingElseFallingHtml
@@ -65,7 +61,7 @@
   classes: "govuk-input--width-40",
   isPageHeading: true,
   label: {
-    text: 'Tell us the reason you stumble or fall'
+    text: 'Tell us what causes you to stumble or fall down'
     },
   id: "something-else-falling-explain",
   name: "something-else-falling-explain",

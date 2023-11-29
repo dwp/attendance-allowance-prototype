@@ -5,23 +5,16 @@
 
 {% block form %}
   <span class="govuk-caption-l">Dressing or undressing yourself during the day</span>
-     <h1 class="govuk-heading-l">
-       You told us you have difficulty when you dress or undress yourself during the day
-     </h1>
+  <h1 class="govuk-heading-l">
+    What difficulty do you have when dressing or undressing?
+  </h1>
 
   {{ govukCheckboxes
     ({
       idPrefix: "dress-day",
       name: "dress-day",
-      fieldset: {
-        legend: {
-          text: "What do you struggle with?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
       hint: {
-        text: 'Choose all that apply to you.'
+        text: 'Select all that apply.'
       },
       errorMessage: data.validation['dress-day'].error,
       items: [{
@@ -41,7 +34,7 @@
       },
       {
         value: "something-else-dressing",
-        text: "I struggle with something else",
+        text: "Something else",
         checked: true if data["dress-day"] and data["dress-day"].includes("something-else-dressing"), 
         conditional: {
           html: conditionalSomethingElseDressingHtml
@@ -52,7 +45,7 @@
       },
       {
         value: "no-other-apply-dress-day",
-        text: "I do not struggle when dressing or undressing",
+        text: "I do not have difficulty dressing or undressing",
         behaviour: "exclusive",
         checked: true if data["dress-day"] and data["dress-day"].includes("no-other-apply-dress-day")
       }]
@@ -65,7 +58,7 @@
     classes: "govuk-input--width-40",
     isPageHeading: true,
     label: {
-      text: 'Tell us what you struggle with.'
+      text: 'Tell us what you find difficult when dressing or undressing'
       },
     id: "something-else-explain-dressing",
     name: "something-else-explain-dressing",

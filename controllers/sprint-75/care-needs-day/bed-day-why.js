@@ -94,7 +94,7 @@ const config = {
       },
     },
     {
-      page: urls.keepEyeIntroduction,
+      page: urls.checkAnswersDay,
     },
   ],
   validation: [
@@ -103,20 +103,21 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 100,
+        maxLength: 200,
       },
       errors: {
-        required: 'You must tell us in what other way you struggle.',
+        required: 'You must select one or more options.',
+        maxLength: 'Tell us in what other way you struggle must be 200 characters or less.',
       },
       condition: {
         field: 'bed-day-why',
-        value: 'bed-day-why-something-else', 
+        value: 'bed-day-why-something-else',
       },
-    }, 
+    },
     {
       name: 'bed-day-why',
       type: validation.checkboxes,
-    }]
+    }],
 };
 
 module.exports = registerController(config.name, config);

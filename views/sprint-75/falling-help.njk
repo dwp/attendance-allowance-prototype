@@ -6,18 +6,13 @@
 
   <span class="govuk-caption-l">Stumbling or falling during the day</span>
 
-  <h1 class="govuk-heading-l">About the times you've fallen down </h1>
+  <h1 class="govuk-heading-l">
+    Do you need help to get up after a fall?
+  </h1>
 
   {{ govukRadios({
     idPrefix: "help-falling",
     name: "help-falling",
-    fieldset: {
-      legend: {
-        text: "Do you need help to get up after a fall?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
     errorMessage: data.validation['help-falling'].error,
     items: [
       {

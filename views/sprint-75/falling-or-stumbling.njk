@@ -4,39 +4,16 @@
 
 {% block form %}
   <span class="govuk-caption-l">Stumbling or falling during the day</span>
-    <h1 class="govuk-heading-l">
-       You told us you are at risk of stumbling or falling
-    </h1>
-  <p class="govuk-body govuk-!-margin-bottom-2">
-    By stumbling we mean tripping over or losing balance but staying on your feet.
-  </p>
-  <p class="govuk-body govuk-!-margin-bottom-4">
-    By falling we mean falling down and needing to get up again.
-  </p>
-  <p class="govuk-body govuk-!-margin-bottom-2">
-    This might be the result of:
-  </p>
-  <ul class="govuk-list govuk-list--bullet">
-    <li>weak muscles</li>
-    <li>stiff joints or your knee gives way</li>
-    <li>problems with your sight</li>
-    <li>feeling faint or dizzy</li>
-    <li>blackouts or fits</li>
-  </ul>
+  <h1 class="govuk-heading-l">
+    Does your health condition or disability cause you to stumble or fall?
+  </h1>
   
   {{ govukCheckboxes
     ({
       idPrefix: "falling-or-stumbling",
       name: "falling-or-stumbling",
-      fieldset: {
-        legend: {
-          text: "Do you stumble or fall because of your illness or disability?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
       hint: {
-        text: "Choose all that apply to you."
+        text: "Select all that apply."
       },
       errorMessage: data.validation['falling-or-stumbling'].error,
       items: [{

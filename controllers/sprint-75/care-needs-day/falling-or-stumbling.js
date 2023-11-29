@@ -118,7 +118,7 @@ const config = {
       },
     },
     {
-      page: urls.keepEyeIntroduction,
+      page: urls.checkAnswersDay,
     },
   ],
   validation: {

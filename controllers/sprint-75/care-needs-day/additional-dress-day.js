@@ -66,10 +66,25 @@ const config = {
       },
     },
     {
-      page: urls.keepEyeIntroduction,
+      page: urls.checkAnswersDay,
     },
   ],
   validation: [
+    {
+      name: 'dress-frequency',
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 4,
+      },
+      errors: {
+        required: 'Enter how many times do you need to dress and undress again during the day.',
+      },
+      condition: {
+        field: 'additional-dress-day',
+        value: 'yes',
+      },
+    },
     {
       name: 'additional-dress-day',
       type: validation.radios,

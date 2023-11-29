@@ -7,7 +7,7 @@ const {
 const config = {
   name: urls.communicationDayDifficulties,
   previous: urls.communicationDay,
-  next: urls.keepEyeIntroduction,
+  next: urls.checkAnswersDay,
   validation: [
     {
       name: 'something-else-explain-communication-difficulties',

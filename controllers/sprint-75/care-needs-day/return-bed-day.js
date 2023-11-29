@@ -82,10 +82,25 @@ const config = {
       },
     },
     {
-      page: urls.keepEyeIntroduction,
+      page: urls.checkAnswersDay,
     },
   ],
   validation: [
+    {
+      name: 'return-bed-day-times',
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 4,
+      },
+      errors: {
+        required: 'Enter how many times do you need to get in and out of bed.',
+      },
+      condition: {
+        field: 'return-bed-day',
+        value: 'yes',
+      },
+    },
     {
       name: 'return-bed-day',
       type: validation.radios,

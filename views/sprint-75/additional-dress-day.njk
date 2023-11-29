@@ -6,33 +6,31 @@
 {% block form %}
   <span class="govuk-caption-l">Dressing or undressing yourself during the day</span>
 
+  <h1 class="govuk-heading-l">
+    Do you need to change your clothes during the day?
+  </h1>
+
   {{ govukRadios({
     idPrefix: "additional-dress-day",
     name: "additional-dress-day",
-    fieldset: {
-      legend: {
-        text: "Do you need to change your clothes at any point during the day?",
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
     hint: {
-        text: "This means you need to put on clean clothes, for example because of spillages or incontinence."
+        text: "For example, if you spill something or have incontinence."
     },
     errorMessage: data.validation['additional-dress-day'].error,
     items: [
-     {
-       value: "yes",
-       text: "Yes",
-       checked: true if data["additional-dress-day"] === "yes",
-       conditional: {
-               html: frequencyDayHtml
-             }
-     },
-     {
-       value: "no",
-       text: "No",
-       checked: true if data["additional-dress-day"] === "no"
-     }
+      {
+        value: "yes",
+        text: "Yes",
+        checked: true if data["additional-dress-day"] === "yes",
+        conditional: {
+          html: frequencyDayHtml
+        }
+      },
+      {
+        value: "no",
+        text: "No",
+        checked: true if data["additional-dress-day"] === "no"
+      }
     ]
   }) }}
 {% endblock %}
@@ -42,10 +40,7 @@
     classes: "govuk-input--width-4",
     isPageHeading: true,
     label: {
-      text: 'Approximately how often do you change your clothes during the day?'
-      },
-    hint: {
-      text: 'Please enter a number.'
+      text: 'On average, how many times do you change your clothes?'
     },
     id: "dress-frequency",
     name: "dress-frequency",

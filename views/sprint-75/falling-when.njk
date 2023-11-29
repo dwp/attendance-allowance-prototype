@@ -7,17 +7,13 @@
 {% block form %}
 
   <span class="govuk-caption-l">Stumbling or falling during the day</span>
+  <h1 class="govuk-heading-l">
+    Approximately, when did you last fall down?
+  </h1>
 
   {{ govukRadios({
     idPrefix: "falling-when",
     name: "falling-when",
-    fieldset: {
-      legend: {
-        text: "Approximately when did you last fall?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
     errorMessage: data.validation['falling-when'].error,
     items: [
       {

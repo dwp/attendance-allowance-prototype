@@ -4,22 +4,14 @@
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
- <span class="govuk-caption-l">Taking medication or receiving treatment during the day</span>
-
+  <span class="govuk-caption-l">Taking medication or receiving treatment during the day</span>
+  <h1 class="govuk-heading-l">
+    On average, how often do you take medication or get treatment?
+  </h1>
 
   {{ govukRadios({
     idPrefix: "medication-treatment-day-frequency",
     name: "medication-treatment-day-frequency",
-    fieldset: {
-      legend: {
-        text: "How often do you take medication or receive treatment?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-6"
-      }
-    },
-    hint: {
-      text: 'Include any times when a partner or friend might help you currently.'
-    },
     errorMessage: data.validation['medication-treatment-day-frequency'].error,
     items: [
       {

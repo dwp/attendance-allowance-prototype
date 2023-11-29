@@ -5,20 +5,16 @@
 
 {% block form %}
   <span class="govuk-caption-l">Taking medication or receiving treatment during the day</span>
-     <h1 class="govuk-heading-l">
-       You told us you have difficulty when you take medication or receive treatment
-     </h1>
+  <h1 class="govuk-heading-l">
+    What medication or treatment do you have difficulty with?
+  </h1>
 
   {{ govukCheckboxes
     ({
       idPrefix: "medication-treatment-day",
       name: "medication-treatment-day",
-      fieldset: {
-        legend: {
-          text: "What do you struggle with?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
+      hint: {
+        text: "Select all that apply."
       },
       errorMessage: data.validation['medication-treatment-day'].error,
       items: [{
@@ -34,17 +30,11 @@
       {
         value: "administering-medication",
         text: "Administering medication",
-        hint: {
-          text: "For example, having injections, putting in eyedrops or using an inhaler"
-        },
         checked: true if data["medication-treatment-day"] and data["medication-treatment-day"].includes("administering-medication")
       },
       {
         value: "administering-treatment",
         text: "Administering treatment",
-        hint: {
-          text: "For example, oxygen therapy, physiotherapy, speech therapy"
-        },
         checked: true if data["medication-treatment-day"] and data["medication-treatment-day"].includes("administering-treatment")
       },
       {
@@ -64,7 +54,7 @@
       },
       {
         value: "something-else-medication",
-        text: "I struggle with something else",
+        text: "Something else",
         checked: true if data["medication-treatment-day"] and data["medication-treatment-day"].includes("something-else-medication"), 
         conditional: {
           html: conditionalSomethingElseMedicationHtml
@@ -75,7 +65,7 @@
       },
       {
         value: "no-other-apply",
-        text: "I do not struggle when taking medication or receiving treatment",
+        text: "I do not have difficulty with medication or treatment",
         behaviour: "exclusive",
         checked: true if data["medication-treatment-day"] and data["medication-treatment-day"].includes("no-other-apply")
       }]
@@ -88,7 +78,7 @@
     classes: "govuk-input--width-40",
     isPageHeading: true,
     label: {
-      text: 'Tell us what you struggle with'
+      text: 'Tell us what medication or treatment you have difficulty with'
       },
     id: "something-else-explain-medication",
     name: "something-else-explain-medication",

@@ -7,19 +7,13 @@
 
 <span class="govuk-caption-l">Eating or drinking during the day</span>
 
+<h1 class="govuk-heading-l">
+  On average, how often do you have difficulty when eating or drinking?
+</h1>
+
   {{ govukRadios({
     idPrefix: "eat-drink-day-frequency",
     name: "eat-drink-day-frequency",
-    fieldset: {
-      legend: {
-        text: "How often do you struggle with eating or drinking?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-5"
-      }
-    },
-    hint: {
-      text: 'Include any times when a partner or friend might help you currently.'
-    },
     errorMessage: data.validation['eat-drink-day-frequency'].error,
     items: [
       {

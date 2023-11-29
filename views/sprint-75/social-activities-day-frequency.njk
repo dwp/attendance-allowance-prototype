@@ -4,18 +4,14 @@
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
- <span class="govuk-caption-l">Social activities or hobbies</span>
+  <span class="govuk-caption-l">Social activities or hobbies</span>
+  <h1 class="govuk-heading-l">
+    How often would you usually take part in social activities or hobbies?
+  </h1>
 
   {{ govukRadios({
     idPrefix: "social-activities-day-frequency",
     name: "social-activities-day-frequency",
-    fieldset: {
-      legend: {
-        text: "How often would you usually take part in social activities or hobbies?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-6"
-      }
-    },
     errorMessage: data.validation['social-activities-day-frequency'].error,
     items: [
       {

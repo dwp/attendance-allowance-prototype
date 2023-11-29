@@ -10,7 +10,7 @@ const config = {
   previous: urls.checkAnswersDetails,
   next: [
     {
-      page: urls.keepEyeIntroduction,
+      page: urls.checkAnswersDay,
       condition: {
         field: urls.dayDifficulties,
         value: ['daytime-none'],
