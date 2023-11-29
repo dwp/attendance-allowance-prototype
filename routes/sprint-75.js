@@ -11,9 +11,13 @@ router.use(`/${urls.beforeYouStart}`, controllers.beforeYouStart);
 router.use(`/${urls.helpingSomeoneIntro}`, controllers.helpingSomeoneIntro);
 
 // eligibility
-router.use(`/${urls.personClaiming}`, controllers.personClaiming);
+router.use(`/${urls.whoIsApplying}`, controllers.whoIsApplying);
+router.use(`/${urls.whoIsApplyingIneligible}`, controllers.whoIsApplyingIneligible);
+router.use(`/${urls.bestDescribe}`, controllers.bestDescribe);
+router.use(`/${urls.specialRulesDeclaration}`, controllers.specialRulesDeclaration);
 router.use(`/${urls.birthDate}`, controllers.birthDate);
 router.use(`/${urls.otherBenefits}`, controllers.otherBenefits);
+router.use(`/${urls.attendanceAllowanceIneligible}`, controllers.attendanceAllowanceIneligible);
 router.use(`/${urls.nationality}`, controllers.nationality);
 router.use(`/${urls.nationalityOther}`, controllers.nationalityOther);
 router.use(`/${urls.residenceCountry}`, controllers.residenceCountry);

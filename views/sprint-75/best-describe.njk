@@ -1,0 +1,55 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  {{ govukRadios({
+    idPrefix: "best-describe",
+    name: "best-describe",
+    fieldset: {
+      legend: {
+        text: "Which of these best describes you?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    errorMessage: data.validation['best-describe'].error,
+    items: [
+      {
+        value: "friend",
+        text: "I am a friend or family member who is helping the applicant with the application",
+        checked: true if data["best-describe"] and data["best-describe"].includes("friend")
+      },
+      {
+        value: "charity",
+        text: "I work for a charity or organisation who is helping the applicant with the application",
+        checked: true if data["best-describe"] and data["best-describe"].includes("charity")
+      },
+      {
+        value: "powerOfAttorney",
+        text: "I have Power of Attorney (Property and Finance)",
+        checked: true if data["best-describe"] and data["best-describe"].includes("powerOfAttorney")
+      },
+      {
+        value: "appointed",
+        text: "I have been appointed by DWP to deal with benefits of someone who cannot manage their own affairs",
+        checked: true if data["best-describe"] and data["best-describe"].includes("appointed")
+      },
+      {
+        value: "appointee",
+        text: "I want to be a DWP appointee",
+        checked: true if data["best-describe"] and data["best-describe"].includes("appointee")
+      },
+      {
+        value: "cab",
+        text: "I am a Corporate Acting Body or appointee for the applicant",
+        checked: true if data["best-describe"] and data["best-describe"].includes("cab")
+      },
+      {
+        value: "curator",
+        text: "I am a curator bonis or judicial factor (under Scottish law)",
+        checked: true if data["best-describe"] and data["best-describe"].includes("curator")
+      }
+    ]
+  }) }}
+{% endblock %}

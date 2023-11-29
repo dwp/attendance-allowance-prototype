@@ -7,11 +7,15 @@ const helpingSomeoneIntro = require('./start/helping-someone-intro');
 // eligibility
 const birthDate = require('./eligibility/birth-date');
 const otherBenefits = require('./eligibility/other-benefits');
+const attendanceAllowanceIneligible = require('./eligibility/attendance-allowance-ineligible');
 const nationality = require('./eligibility/nationality');
 const nationalityOther = require('./eligibility/nationality-other');
 const residenceCountry = require('./eligibility/residence-country');
 const countryOutsideUkDuration = require('./eligibility/country-outside-uk-duration');
-const personClaiming = require('./eligibility/person-claiming');
+const whoIsApplying = require('./eligibility/who-is-applying');
+const whoIsApplyingIneligible = require('./eligibility/who-is-applying-ineligible');
+const bestDescribe = require('./eligibility/best-describe');
+const specialRulesDeclaration = require('./eligibility/special-rules-declaration');
 
 // identity
 const nationalInsurance = require('./identity/national-insurance');
@@ -39,7 +43,6 @@ const renalDialysisFrequency = require('./renal-dyalisis/renal-dialysis-frequenc
 const renalDialysisHelp = require('./renal-dyalisis/renal-dialysis-help');
 
 // special rules
-const specialRulesDeclaration = require('./special-rules/special-rules-declaration');
 const specialRulesForm = require('./special-rules/special-rules-form');
 const surgeryMedicalCentre = require('./special-rules/surgery-medical-centre');
 
@@ -128,9 +131,12 @@ module.exports = {
   start,
   beforeYouStart,
   helpingSomeoneIntro,
-  personClaiming,
+  whoIsApplying,
+  whoIsApplyingIneligible,
+  bestDescribe,
   birthDate,
   otherBenefits,
+  attendanceAllowanceIneligible,
   residenceCountry,
   countryOutsideUkDuration,
   nationalInsurance,

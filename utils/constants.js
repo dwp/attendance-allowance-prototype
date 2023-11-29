@@ -7,8 +7,10 @@ module.exports = {
     helpingSomeoneIntro: 'helping-someone-intro',
 
     // eligibility
-    personClaiming: 'person-claiming',
-    personClaimingIneligible: 'person-claiming-ineligible',
+    whoIsApplying: 'who-is-applying',
+    bestDescribe: 'best-describe',
+    specialRulesDeclaration: 'special-rules-declaration',
+    whoIsApplyingIneligible: 'who-is-applying-ineligible',
     birthDate: 'birth-date',
     birthDateIneligible: 'birth-date-ineligible',
     otherBenefits: 'other-benefits',
