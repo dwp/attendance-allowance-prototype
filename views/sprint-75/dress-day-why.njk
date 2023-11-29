@@ -1,5 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
 {% extends "layouts/prototypeLayout.njk" %}
 
@@ -63,12 +63,12 @@
 {% endblock %}
 
 {% set conditionalSomethingElseDressDayWhy %}
-   {{ govukInput({
-    classes: "govuk-input--width-40",
+   {{ govukTextarea({
+    rows: "2",
     isPageHeading: false,
     label: {
       text: 'Tell us how you manage to get dressed or undressed'
-      },
+    },
     id: "something-else-dress-day-why-explain",
     name: "something-else-dress-day-why-explain",
     errorMessage: data.validation['something-else-dress-day-why-explain'].error,

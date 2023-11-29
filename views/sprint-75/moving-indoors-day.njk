@@ -1,5 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
 {% extends "layouts/prototypeLayout.njk" %}
 
@@ -64,12 +64,12 @@
 {% endblock %}
 
 {% set conditionalSomethingElseHtml %}
-   {{ govukInput({
-    classes: "govuk-input--width-40",
+   {{ govukTextarea({
+    rows: "2",
     isPageHeading: true,
     label: {
       text: 'Tell us what you have difficulty with when moving around indoors'
-      },
+    },
     id: "something-else-explain",
     name: "something-else-explain",
     errorMessage: data.validation['something-else-explain'].error,

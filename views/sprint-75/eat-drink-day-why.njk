@@ -1,5 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
 {% extends "layouts/prototypeLayout.njk" %}
 
@@ -69,12 +69,12 @@
 {% endblock %}
 
 {% set conditionalSomethingElseEatDrinkWhy %}
-   {{ govukInput({
-    classes: "govuk-input--width-40",
+   {{ govukTextarea({
+    rows: "2",
     isPageHeading: false,
     label: {
       text: 'Tell us in what other way you struggle'
-      },
+    },
     id: "something-else-eating-drinking-day-why-explain",
     name: "something-else-eating-drinking-day-why-explain",
     errorMessage: data.validation['something-else-eating-drinking-day-why-explain'].error,
