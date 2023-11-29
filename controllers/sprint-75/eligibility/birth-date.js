@@ -9,15 +9,7 @@ const config = {
   name: urls.birthDate,
   previous: [
     {
-      page: urls.helpingSomeoneIntro,
-      condition: {
-        field: urls.personClaiming,
-        value: 'helping-someone',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.personClaiming,
+      page: urls.specialRulesDeclaration,
     },
   ],
   next: [

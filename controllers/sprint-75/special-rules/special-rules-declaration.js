@@ -9,44 +9,15 @@ const config = {
   name: urls.specialRulesDeclaration,
   previous: [
     {
-      page: urls.renalDialysis,
+      page: urls.helpingSomeoneIntro,
       condition: {
-        field: urls.renalDialysis,
-        value: 'no',
+        field: urls.personClaiming,
+        value: 'helping-someone',
         match: match.value,
       },
     },
     {
-      page: urls.renalDialysisWhere,
-      condition: {
-        field: urls.renalDialysisWhere,
-        value: 'hospital',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.renalDialysisHelp,
-      condition: {
-        field: urls.renalDialysisHelp, 
-        value: 'yes', 
-        match: match.value,
-      }, 
-    },
-    {
-      page: urls.renalDialysisHelp,
-      condition: {
-        field: urls.renalDialysisHelp, 
-        value: 'no', 
-        match: match.value,
-      }, 
-    },
-    {
-      page: urls.illnessDisabilityAdded,
-      condition: {
-        field: urls.illnessDisability,
-        value: ['Kidney disease or disorder', 'Renal failure - acute', 'Acute kidney disease (AKD)', 'Chronic kidney failure / renal failure', 'Kidney transplantation / renal', 'Transplant rejection - kidney / renal'],
-        match: match.none,
-      },
+      page: urls.personClaiming,
     },
   ],
   next: [
@@ -59,7 +30,7 @@ const config = {
       },
     },
     {
-      page: urls.treatmentSurgery,
+      page: urls.birthDate,
     },
   ],
   validation: {
