@@ -1,5 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
 {% extends "layouts/prototypeLayout.njk" %}
 
@@ -53,12 +53,12 @@
 {% endblock %}
 
 {% set conditionalSomethingElseBedHtml %}
-   {{ govukInput({
-    classes: "govuk-input--width-40",
+   {{ govukTextarea({
+    rows: "2",
     isPageHeading: true,
     label: {
       text: 'Tell us what you have difficulty with getting in or out of bed'
-      },
+    },
     id: "something-else-explain-bed",
     name: "something-else-explain-bed",
     errorMessage: data.validation['something-else-explain-bed'].error,

@@ -1,5 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
 {% extends "layouts/prototypeLayout.njk" %}
 
@@ -59,12 +59,12 @@
 {% endblock %}
 
 {% set conditionalSomethingElseSocialHtml %}
-   {{ govukInput({
-    classes: "govuk-input--width-40",
+   {{ govukTextarea({
+    rows: "2",
     isPageHeading: true,
     label: {
       text: 'Tell us what difficulty you have with social activities or hobbies'
-      },
+    },
     id: "something-else-explain-social",
     name: "something-else-explain-social",
     errorMessage: data.validation['something-else-explain-social'].error,

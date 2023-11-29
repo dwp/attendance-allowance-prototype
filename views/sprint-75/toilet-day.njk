@@ -1,5 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
 {% extends "layouts/prototypeLayout.njk" %}
 
@@ -81,12 +81,12 @@
 {% endblock %}
 
 {% set conditionalSomethingElseToiletHtml %}
-   {{ govukInput({
-    classes: "govuk-input--width-40",
+   {{ govukTextarea({
+    rows: "2",
     isPageHeading: true,
     label: {
       text: 'Tell us what difficulty you have with your toilet needs'
-      },
+    },
     id: "something-else-explain-toilet",
     name: "something-else-explain-toilet",
     errorMessage: data.validation['something-else-explain-toilet'].error,
