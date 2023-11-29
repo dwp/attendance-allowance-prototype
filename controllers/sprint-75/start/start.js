@@ -5,6 +5,7 @@ const {
 
 const config = {
   name: urls.start,
+  previous: urls.root, 
   next: urls.beforeYouStart,
 };
 
