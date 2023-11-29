@@ -3,41 +3,30 @@
 
 {% extends "layouts/prototypeLayout.njk" %}
 
+{% block pageTitle %}
+  Your health condition or disability
+{% endblock %}
+
 {% block form %}
 
-  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-    <h1 class="govuk-fieldset__heading govuk-body govuk-!-margin-bottom-4">
-      Your illnesses, physical and mental disabilities
-    </h1>
-  </legend>
+  <h1 class="govuk-heading-l">
+    Your health condition or disability
+  </h1>
 
   <p class="govuk-body">
-    Tell us about the illness, physical and mental disability you have.
+    Add the name of your health condition or disability.
   </p>
-
-  <p class="govuk-body">
-    Can you tell us:
-  </p>
-
-  <ul class="govuk-list govuk-list--bullet">
-    <li>
-      the name of your illness or disability
-    </li>
-  </ul>
-
-  <div class="govuk-inset-text">
-    <span class="govuk-body govuk-!-font-weight-bold">
-      Example
-    </span>
-    <br/>
-    Alzheimer’s disease.
-  </div>
 
   <div class="govuk-!-margin-bottom-8">
     {{ govukInput({
       errorMessage: data.validation['illness-disability-manual'].error,
       id: "illness-disability-manual",
-      name:  "illness-disability-manual"
+      name:  "illness-disability-manual",
+      label: {
+        text: "Name of condition",
+        classes: "govuk-label--s",
+        isPageHeading: false
+      }
     }) }}
   </div>
 

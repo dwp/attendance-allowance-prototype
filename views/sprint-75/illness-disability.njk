@@ -19,39 +19,35 @@
   </style>
 {% endblock %}
 
+{% block pageTitle %}
+  Add the name of your health condition or disability
+{% endblock %}
+
 {% block form %}
 
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
     <h1 class="govuk-fieldset__heading govuk-body govuk-!-margin-bottom-4">
-      Your illnesses, physical and mental disabilities
+      Add the name of your health condition or disability
     </h1>
   </legend>
 
-  {% if data['illness-disability-rows'] %}
-    {{ govukSummaryList({
-      classes: "govuk-!-margin-bottom-9",
-      rows: data["illness-disability-rows"]
-    }) }}
-  {% endif %}
-
-  <h2 class="govuk-heading-m">
-    Search for illness, physical and mental disabilities
-  </h2>
-  <div class="govuk-hint">
-    Add an illness or condition that contributes to the difficulties you have during your typical day and night routine.
-  </div>
-  <div class="govuk-hint">
-    You will be able to add more later.
-  </div>
+  <p class="govuk-body">
+    Name of your health condition or disability
+  </p>
   <div id="illness-disability-container" class="govuk-!-margin-bottom-6">
   </div>
-
+  <p class="govuk-body">
+    <a href="illness-disability-manual" class="govuk-link">
+      I cannot find my health condition or disability
+    </a>
+  </p>
+  
   {% block formButton %} 
   {% endblock %}
 
   <div class="govuk-button-group">
     {{ phaseButton(data, "Add condition") }}
-    {% if data['illness-disability'] %}
+    {% if data['illness-disability'].length > 0 %}
       {{ govukButton({
         text: "Skip",
         classes: "govuk-button--secondary",
@@ -61,9 +57,7 @@
   </div>
 
   <div>
-    <a href="illness-disability-manual" class="govuk-link">
-      I can't find my illness or disability
-    </a>
+
   </div>
 
   <script>

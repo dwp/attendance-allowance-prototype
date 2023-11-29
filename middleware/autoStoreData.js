@@ -29,22 +29,24 @@ const storeData = (input, data) => {
   }
 };
 
-const buildSummaryRow = (value) => ({
-  key: {
-    text: value,
-    classes: 'govuk-summary-list__value',
+const buildLink = (href, content, value) => {
+  return `<a href='${href}' class="govuk-link">${content}<span class="govuk-visually-hidden"> ${value}</span></a>`;
+}
+
+const buildTableRow = (value) => ([
+  {
+    text: value
   },
-  value: {
-    text: '',
+  {
+    text: ''
   },
-  actions: {
-    items: [{
-      href: `illness-disability-remove?remove=${value.toLowerCase().replace(/[^a-z0-9]/gi, '')}`,
-      text: 'Remove',
-      visuallyHiddenText: value,
-    }],
+  {
+    html: buildLink('', 'Change')
   },
-});
+  {
+    html: buildLink(`illness-disability-remove?remove=${value.toLowerCase().replace(/[^a-z0-9]/gi, '')}`, 'Remove')
+  }
+]);
 
 const handleIllnessDisability = (input, data) => {
   if (!input || !data) {
@@ -53,31 +55,53 @@ const handleIllnessDisability = (input, data) => {
   if (input['illness-disability-manual']?.length > 0) {
     if (!data['illness-disability']) {
       data['illness-disability'] = [input['illness-disability-manual']];
-      data['illness-disability-rows'] = [buildSummaryRow(input['illness-disability-manual'])];
+      data['illness-disability-rows'] = [buildTableRow(input['illness-disability-manual'])];
     } else {
       data['illness-disability'].push(input['illness-disability-manual']);
-      data['illness-disability-rows'].push(buildSummaryRow(input['illness-disability-manual']));
+      data['illness-disability-rows'].push(buildTableRow(input['illness-disability-manual']));
     }
   }
   if (input['illness-disability']?.length > 0) {
     if (!data['illness-disability']) {
       data['illness-disability'] = [input['illness-disability']];
-      data['illness-disability-rows'] = [buildSummaryRow(input['illness-disability'])];
+      data['illness-disability-rows'] = [buildTableRow(input['illness-disability'])];
     } else {
       data['illness-disability'].push(input['illness-disability']);
-      data['illness-disability-rows'].push(buildSummaryRow(input['illness-disability']));
+      data['illness-disability-rows'].push(buildTableRow(input['illness-disability']));
     }
   }
 };
+
+const handleIllnessStartDate = (input, data) => {
+  if (!input || !data || !data['illness-disability-rows']) {
+    return;
+  }
+  const lastEntry = data['illness-disability-rows'].length - 1;
+  const maybe = 
+    [
+      data['illness-disability-rows'][lastEntry][0],
+      {text: input['illness-start-date']},
+      data['illness-disability-rows'][lastEntry][2],
+      data['illness-disability-rows'][lastEntry][3],
+
+    ];
+  data['illness-disability-rows'][lastEntry] = maybe;
+
+};
+
 
 module.exports = (req, res, next) => {
   if (!req.session.data) {
     req.session.data = {};
   }
   req.session.data = { ...req.session.data };
+
   if (req.body?.['illness-disability'] || req.body?.['illness-disability-manual']) {
     handleIllnessDisability(req.body, req.session.data);
   } else {
+    if (req.body?.['illness-start-date']) {
+      handleIllnessStartDate(req.body, req.session.data);
+    }
     storeData(req.body, req.session.data);
     storeData(req.query, req.session.data);
   }
