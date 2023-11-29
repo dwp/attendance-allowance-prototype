@@ -1,35 +1,26 @@
-{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
 
 {% extends "layouts/prototypeLayout.njk" %}
 
+{% block pageTitle %}
+  Tell us the approximate date when your condition or disability started
+{% endblock %}
+
 {% block form %}
 
-  {% set currentIllness = data['illness-disability'] | last if data['illness-disability'] else "" %}
-
-  {{ govukDateInput({
-    id: "illness-start-date",
-    namePrefix: "illness-start-date",
-    fieldset: {
-      legend: {
-        text: "Tell us the approximate date when your " + currentIllness + " started",
+  {{ govukInput({
+      errorMessage: data.validation['illness-start-date'].error,
+      id: "illness-start-date",
+      name: "illness-start-date",
+      label: {
+        text: "Tell us the approximate date when your condition or disability started",
         isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-    hint: {
-      text: "For example, 04 2021"
-    },
-    items: [
-      {
-        name: "month",
-        classes: "govuk-input--width-2"
+        classes: "govuk-label--l"
       },
-      {
-        name: "year",
-        classes: "govuk-input--width-4"
+      hint: {
+        text: "For example, 04/21 or 1992"
       }
-    ]
-  }) }}
+    }) }}
 
 {% endblock %}
 

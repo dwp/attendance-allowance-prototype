@@ -42,7 +42,7 @@ router.use(`/${urls.illnessDisabilityAdded}`, controllers.illnessDisabilityAdded
 router.use(`/${urls.illnessDisabilityManual}`, controllers.illnessDisabilityManual);
 router.use(`/${urls.illnessDisabilityRemove}`, (req, res) => {
   req.session.data['illness-disability'] = req.session.data['illness-disability'].filter((e) => e.toLowerCase().replace(/[^a-z0-9]/gi, '') !== req?.query?.remove);
-  req.session.data['illness-disability-rows'] = req.session.data['illness-disability-rows'].filter((e) => e?.key?.text.toLowerCase().replace(/[^a-z0-9]/gi, '') !== req?.query?.remove);
+  req.session.data['illness-disability-rows'] = req.session.data['illness-disability-rows'].filter((e) => e?.[0]?.text.toLowerCase().replace(/[^a-z0-9]/gi, '') !== req?.query?.remove);
   return res.redirect(`${urls.illnessDisability}`);
 });
 
