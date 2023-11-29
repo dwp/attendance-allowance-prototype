@@ -1,24 +1,19 @@
 {% from "./macros/check-answers-night-section.njk" import checkAnswersNightSection %}
 
-{% extends "layouts/layout.njk" %}
+{% extends "layouts/prototypeLayout.njk" %}
 
-{% block content %}
-  <div class="govuk-width-container">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds-from-desktop">
-        <h1 class="govuk-heading-xl">
-          Check your answers
-        </h1>
+{% block form %}
+ <a href="#" class="govuk-back-link">Back</a>
+ <h1 class="govuk-heading-l">Check your answers</h1>
 
-        {{ checkAnswersNightSection(data) }}
+   {{ checkAnswersNightSection(data) }}
         
-        <a href="difficulties-start-date">
-          <button class="govuk-button" data-module="govuk-button">
-            Accept and continue
-          </button>
-        </a>
-      </div>
-    </div>
+{% endblock %}
+
+{% block formButton %}
+  <a href="safe-day-night" class="govuk-button">
+    Accept and continue
+  </a>
 {% endblock %}
 
 {% block postForm %}
