@@ -1,21 +1,14 @@
-{% extends "layouts/layout.njk" %}
+{% extends "layouts/prototypeLayout.njk" %}
 {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
- {% block content %}
+ {% block form %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-l">
-        Now send your application
-      </h1>
 
       {% set html %}
         <p class="govuk-notification-banner__heading">
           You can
-          <a class="govuk-notification-banner__link" href="check-answers-full-list">access and check all of your answers</a>
-          on the full check your answers page.
+          <a class="govuk-notification-banner__link" href="check-answers-full-list">check all of your answers again</a>.
         </p>
       {% endset %}
 
@@ -25,33 +18,25 @@
 
       <h2 class="govuk-heading-m">Declaration</h2>
 
-      <p class="govuk-body">By submitting this claim, you agree that:</p>
+      <p class="govuk-body">By sending the application you agree that the information you have given is complete and correct.
+        If you deliberately give the wrong or incomplete information, or you do not report any changes, you may:</p>
 
       <ul class="govuk-list govuk-list--bullet">
-        <li>the information you have given is complete and correct as far as you know</li>
-        <li>you will tell the Department of Works and Pensions (DWP) as soon as possible if your circumstances change</li>
-        <li>you will pay back any money you are overpaid if asked</li>
+        <li>be prosecuted</li>
+        <li>need to pay a financial penalty</li>
+        <li>need to pay back any money you are overpaid if you are asked to</li>
       </ul>
 
-      <div class="govuk-warning-text">
-        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive">Warning</span>
-            You can be prosecuted or made to pay a financial penalty if you:
-          </strong>
-        <div class="govuk-!-padding-bottom-3"></div>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>give wrong or incomplete information </li>
-          <li>do not report changes as soon as possible</li>
-        </ul>
-      </div>
-      <a href="done">
-        <button data-prevent-double-click="true" class="govuk-button" data-module="govuk-button">
-          Accept and send
+     
+    
+{% endblock %}
+
+{% block formButton %}
+   
+      <button data-prevent-double-click="true" class="govuk-button" data-module="govuk-button">
+          I agree - send my application
         </button>
-      </a>
-    </div>
-  </div>
+
 {% endblock %}
 
 {% block postForm %}
