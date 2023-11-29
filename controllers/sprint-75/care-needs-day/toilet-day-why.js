@@ -5,7 +5,6 @@ const {
   registerController,
 } = require('../../../utils/controller');
 
-
 const config = {
   name: urls.toiletDayWhy,
   previous: urls.toiletDay,
@@ -51,7 +50,7 @@ const config = {
       },
     },
     {
-      page: urls.keepEyeIntroduction,
+      page: urls.checkAnswersDay,
     },
   ],
   validation: [
@@ -60,21 +59,22 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 100,
+        maxLength: 200,
       },
       errors: {
         required: 'You must tell us the reason you struggle.',
+        maxLength: 'Tell us the reason you are struggling must be 200 characters or less.',
       },
       condition: {
         field: 'toilet-day-why',
-        value: 'toilet-day-why-something-else', 
+        value: 'toilet-day-why-something-else',
       },
-    }, 
+    },
     {
       name: 'toilet-day-why',
       type: validation.checkboxes,
-    }
-  ]
+    },
+  ],
 };
 
 module.exports = registerController(config.name, config);

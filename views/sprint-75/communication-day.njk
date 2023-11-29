@@ -5,23 +5,16 @@
 
 {% block form %}
   <span class="govuk-caption-l">Communication</span>
-     <h1 class="govuk-heading-l">
-       You told us you have difficulty when you communicate with other people
-     </h1>
+  <h1 class="govuk-heading-l">
+    What difficulty do you have when communicating with others?
+  </h1>
 
   {{ govukCheckboxes
     ({
       idPrefix: "communication-day",
       name: "communication-day",
-      fieldset: {
-        legend: {
-          text: "What do you find difficult about communicating with others?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
       hint: {
-        text: "Choose all that apply to you."
+        text: "Select all that apply."
       },
       errorMessage: data.validation['communication-day'].error,
       items: [{
@@ -51,7 +44,7 @@
       },
       {
         value: "something-else-communication",
-        text: "I struggle with something else",
+        text: "Something else",
         checked: true if data["communication-day"] and data["communication-day"].includes("something-else-communication"),
         conditional: {
           html: conditionalSomethingElseCommunicationHtml
@@ -62,7 +55,7 @@
       },
       {
         value: "no-other-apply",
-        text: "I do not struggle communicating with other people",
+        text: "I do not have difficulty communicating with others",
         behaviour: "exclusive",
         checked: true if data["communication-day"] and data["communication-day"].includes("no-other-apply")
       }]
@@ -75,8 +68,8 @@
     classes: "govuk-input--width-40",
     isPageHeading: true,
     label: {
-      text: 'Tell us what you struggle with'
-      },
+      text: 'Tell us what difficulty you have when communicating with others'
+    },
     id: "something-else-explain-communication",
     name: "something-else-explain-communication",
     errorMessage: data.validation['something-else-explain-communication'].error,

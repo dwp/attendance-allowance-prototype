@@ -7,26 +7,16 @@
 {% block form %}
 <span class="govuk-caption-l">Eating or drinking during the day</span>
 
-  <h1 class="govuk-heading-l">
-    You told us you have difficulty eating or drinking during the day
-  </h1>
-  <p class="govuk-body">
-    Note that shopping for food or preparing and cooking a meal are not taken into consideration.
-  </p>
+<h1 class="govuk-heading-l">
+  What difficulty do you have when eating or drinking?
+</h1>
 
   {{ govukCheckboxes
     ({
       idPrefix: "eat-drink-day",
       name: "eat-drink-day",
-      fieldset: {
-        legend: {
-          text: "What do you struggle with?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
       hint: {
-        text: 'Choose all that apply to you.'
+        text: 'Select all that apply.'
       },
       errorMessage: data.validation['eat-drink-day'].error,
       items: [{
@@ -72,7 +62,7 @@
       },
       {
         value: "none",
-        text: "I do not struggle with eating or drinking",
+        text: "I do not have difficulty when eating or drinking",
         behaviour: "exclusive",
         checked: true if data["eat-drink-day"] and data["eat-drink-day"].includes("none")
       }]
@@ -85,7 +75,7 @@
     classes: "govuk-input--width-40",
     isPageHeading: false,
     label: {
-      text: 'Tell us what you struggle with'
+      text: 'Tell us what difficulty you have when eating or drinking'
       },
     id: "something-else-eating-drinking-day-explain",
     name: "something-else-eating-drinking-day-explain",

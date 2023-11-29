@@ -4,22 +4,17 @@
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
-   <span class="govuk-caption-l">Social activities or hobbies</span>
-     <h1 class="govuk-heading-l">
-       You told us you have difficulty when you take part in social activities or hobbies
-     </h1>
-
+  <span class="govuk-caption-l">Social activities or hobbies</span>
+  <h1 class="govuk-heading-l">
+    What difficulty do you have with social activities or hobbies?
+  </h1>
 
   {{ govukCheckboxes
     ({
       idPrefix: "social-activities-day",
       name: "social-activities-day",
-      fieldset: {
-        legend: {
-          text: "What do you find difficult with social activities or hobbies?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
+      hint: {
+        text: "Select all that apply."
       },
       errorMessage: data.validation['social-activities-day'].error,
       items: [{
@@ -44,7 +39,7 @@
       },
       {
         value: "something-else-social",
-        text: "I struggle with something else",
+        text: "Something else",
         checked: true if data["social-activities-day"] and data["social-activities-day"].includes("something-else-social"),
         conditional: {
           html: conditionalSomethingElseSocialHtml
@@ -55,7 +50,7 @@
       },
       {
         value: "no-other-apply",
-        text: "I do not struggle taking part in social activities or hobbies",
+        text: "I do not have difficulty with social activities or hobbies",
         behaviour: "exclusive",
         checked: true if data["social-activities-day"] and data["social-activities-day"].includes("no-other-apply")
       }]
@@ -68,7 +63,7 @@
     classes: "govuk-input--width-40",
     isPageHeading: true,
     label: {
-      text: 'Tell us what you struggle with'
+      text: 'Tell us what difficulty you have with social activities or hobbies'
       },
     id: "something-else-explain-social",
     name: "something-else-explain-social",

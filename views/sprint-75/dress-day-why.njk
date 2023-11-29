@@ -9,42 +9,15 @@
   <span class="govuk-caption-l">Dressing or undressing yourself during the day</span>
 
   <h1 class="govuk-heading-l">
-    Tell us more about your difficulties with dressing or undressing
+    How do you manage to get dressed or undressed?
   </h1>
-  <p class="govuk-body">
-    You told us you have difficulties with:
-  </p>
-  
-  <ul class="govuk-list govuk-list--bullet">
-    {% for item in data['dress-day'] %}
-      {% if item == 'something-else-dressing' %}
-        <li>{{ data['something-else-explain-dressing'] }}</li>
-      {% endif %}
-      {% if item != 'something-else-dressing' %}
-        <li>
-          {{ item 
-          | replace("put-on-take-off", "putting on or taking off clothes or footwear")
-          | replace("choosing-clothes", "choosing appropiate clothes") 
-          | replace("forget-want-change-clothes", "forgetting to or not wanting to change my clothes")
-          }}
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
 							
   {{ govukCheckboxes
     ({
       idPrefix: "dress-day-why",
       name: "dress-day-why",
-      fieldset: {
-        legend: {
-          text: "Can you tell us more about how you're struggling?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
       hint: {
-        text: 'Choose all that apply to you.'
+        text: 'Select all that apply.'
       },
       errorMessage: data.validation['dress-day-why'].error,
       items: [{
@@ -69,7 +42,7 @@
       },
       {
         value: "help-dress",
-        text: "Someone has to physically help me getting dressed or undressed",
+        text: "Someone has to physically help me to get dressed or undressed",
         checked: true if data["dress-day-why"] and data["dress-day-why"].includes("help-dress")
       },
       {
@@ -79,7 +52,7 @@
       },
       {
         value: "dress-day-why-something-else",
-        text: "I struggle in another way",
+        text: "Something else",
         checked: true if data["dress-day-why"] and data["dress-day-why"].includes("dress-day-why-something-else"),
         conditional: {
           html: conditionalSomethingElseDressDayWhy
@@ -94,7 +67,7 @@
     classes: "govuk-input--width-40",
     isPageHeading: false,
     label: {
-      text: 'Tell us in what other way you struggle'
+      text: 'Tell us how you manage to get dressed or undressed'
       },
     id: "something-else-dress-day-why-explain",
     name: "something-else-dress-day-why-explain",

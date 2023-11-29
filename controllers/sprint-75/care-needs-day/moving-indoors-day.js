@@ -94,7 +94,7 @@ const config = {
       },
     },
     {
-      page: urls.keepEyeIntroduction,
+      page: urls.checkAnswersDay,
     },
   ],
   validation: [
@@ -103,10 +103,11 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 100,
+        maxLength: 200,
       },
       errors: {
         required: 'You must tell us what you struggle with.',
+        maxLength: 'Tell us what you struggle with must be 200 characters or less.',
       },
       condition: {
         field: 'moving-indoors-day',

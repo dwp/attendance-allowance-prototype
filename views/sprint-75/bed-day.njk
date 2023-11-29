@@ -6,21 +6,14 @@
 {% block form %}
  <span class="govuk-caption-l">Getting in and out of bed during the day</span>
    <h1 class="govuk-heading-l">
-     You told us you have difficulty getting in or out of your bed
+    What difficulty do you have getting in and out of bed?
    </h1>
   {{ govukCheckboxes
     ({
       idPrefix: "bed-day",
       name: "bed-day",
-      fieldset: {
-        legend: {
-          text: "What do you struggle with?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
       hint: {
-        text: 'Choose all that apply to you.'
+        text: 'Select all that apply.'
       },
       errorMessage: data.validation['bed-day'].error,
       items: [{
@@ -40,7 +33,7 @@
       },
       {
         value: "something-else-bed",
-        text: "I struggle with something else",
+        text: "Something else",
         checked: true if data["bed-day"] and data["bed-day"].includes("something-else-bed"), 
         conditional: {
           html: conditionalSomethingElseBedHtml
@@ -51,7 +44,7 @@
       },
       {
         value: "none",
-        text: "I do not struggle getting in or out of bed",
+        text: "I do not have difficulty getting in or out of bed",
         behaviour: "exclusive",
         checked: true if data["bed-day"] and data["bed-day"].includes("none")
       }]
@@ -64,7 +57,7 @@
     classes: "govuk-input--width-40",
     isPageHeading: true,
     label: {
-      text: 'Tell us what you struggle with'
+      text: 'Tell us what you have difficulty with getting in or out of bed'
       },
     id: "something-else-explain-bed",
     name: "something-else-explain-bed",

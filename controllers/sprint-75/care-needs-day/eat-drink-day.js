@@ -73,7 +73,7 @@ const config = {
       page: urls.eatDrinkDayWhy,
       condition: {
         field: urls.eatDrinkDay,
-        value: ['cutting-food', 'putting-food','chewing-swallowing', 'identifying-food', 'motivation-eat', 'motivation-drink', 'eat-drink-something-else'],
+        value: ['cutting-food', 'putting-food', 'chewing-swallowing', 'identifying-food', 'motivation-eat', 'motivation-drink', 'eat-drink-something-else'],
         match: match.anyOne,
       },
     },
@@ -102,7 +102,7 @@ const config = {
       },
     },
     {
-      page: urls.keepEyeIntroduction,
+      page: urls.checkAnswersDay,
     },
   ],
   validation: [
@@ -111,20 +111,21 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 100,
+        maxLength: 200,
       },
       errors: {
         required: 'You must tell us what you struggle with',
+        maxLength: 'Tell us what you struggle with must be 200 characters or less.',
       },
       condition: {
         field: 'eat-drink-day',
-        value: 'eat-drink-something-else', 
+        value: 'eat-drink-something-else',
       },
-    }, 
+    },
     {
       name: 'eat-drink-day',
       type: validation.checkboxes,
-    }]
+    }],
 };
 
 module.exports = registerController(config.name, config);

@@ -8,49 +8,16 @@
 
 <span class="govuk-caption-l">Using the toilet or managing incontinence during the day</span>
 
-  <h1 class="govuk-heading-l">
-    Tell us more about your difficulties with using the toilet or managing incontinence
-  </h1>
-
-  <p class="govuk-body govuk-!-margin-bottom-0">
-    You told us you have difficulties with:
-  </p>
-  <p class="govuk-heading-m">
-    <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-0 govuk-!-margin-bottom-8">
-      {% for item in data['toilet-day'] %}
-        {% if item == 'toilet-something-else' %}
-          <li>{{data['something-else-explain-toilet']}}</li>
-        {% endif %}
-        {% if item != 'toilet-something-else' %}
-          <li>
-            {{ item
-            | replace("toilet-getting-to", "getting to the toilet or commode")
-            | replace("toilet-urgent", "needing the toilet urgently")
-            | replace("toilet-getting-on-off", "getting on or off the toilet or commode")
-            | replace("toilet-cleaning-myself", "cleaning myself after using the toilet")
-            | replace("toilet-emptying", "emptying and managing my stoma, catheter or similar")
-            | replace("toilet-remembering", "remembering to use the toilet")
-            | replace("managing-incontinence", "managing my incontinence")
-            | replace("toilet-not-always", "I do not always use the toilet or commode") }}
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </p>
+<h1 class="govuk-heading-l">
+  How do you manage your toilet needs?
+</h1>
 
   {{ govukCheckboxes
     ({
       idPrefix: "toilet-day-why",
       name: "toilet-day-why",
-      fieldset: {
-        legend: {
-          text: "Can you tell us more about how you're struggling?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
       hint: {
-        text: "Choose all that apply to you."
+        text: "Select all that apply."
       },
       errorMessage: data.validation['toilet-day-why'].error,
       items: [{
@@ -76,17 +43,11 @@
       {
         value: "toilet-safely",
         text: "I cannot get on or off the toilet safely",
-        hint: {
-          text: "For example, you get dizzy or are unbalanced"
-        },
         checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-safely")
       },
       {
         value: "toilet-physical-assist",
         text: "Someone has to physically assist me",
-        hint: {
-          text: "This might be to get on or off the toilet, to clean or change your stoma bag, or to change clothes after an accident"
-        },
         checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-physical-assist")
       },
       {
@@ -101,7 +62,7 @@
       },
       {
         value: "toilet-day-why-something-else",
-        text: "I struggle for another reason",
+        text: "Something else",
         checked: true if data["toilet-day-why"] and data["toilet-day-why"].includes("toilet-day-why-something-else"),
         conditional: {
           html: conditionalSomethingElseToiletWhy
@@ -116,7 +77,7 @@
     classes: "govuk-input--width-40",
     isPageHeading: false,
     label: {
-      text: 'Tell us the reason you are struggling'
+      text: 'Tell us how you manage your toilet needs'
       },
     id: "something-else-toilet-day-why-explain",
     name: "something-else-toilet-day-why-explain",

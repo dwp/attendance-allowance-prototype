@@ -6,20 +6,16 @@
 {% block form %}
 
     <span class="govuk-caption-l">Washing or bathing during the day</span>
-     <h1 class="govuk-heading-l">
-       You told us you have difficulty washing or bathing
-     </h1>
+    <h1 class="govuk-heading-l">
+      What do you find difficult when washing, having a bath or shower?  
+    </h1>
 
   {{ govukCheckboxes
     ({
       idPrefix: "wash-day",
       name: "wash-day",
-      fieldset: {
-        legend: {
-          text: "What do you struggle with?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
+      hint: {
+        text: 'Select all that apply.'
       },
       errorMessage: data.validation['wash-day'].error,
       items: [{
@@ -44,7 +40,7 @@
       },
        {
         value: "something-else-washing",
-        text: "I struggle with something else",
+        text: "Something else",
         checked: true if data["wash-day"] and data["wash-day"].includes("something-else-washing"), 
         conditional: {
           html: conditionalSomethingElseWashingHtml
@@ -55,7 +51,7 @@
       },
       {
         value: "no-other-apply",
-        text: "I do not struggle with washing or bathing",
+        text: "I do not have difficulty when washing, having a bath or shower",
         behaviour: "exclusive",
         checked: true if data["wash-day"] and data["wash-day"].includes("no-other-apply")
       }]
@@ -68,8 +64,8 @@
     classes: "govuk-input--width-40",
     isPageHeading: true,
     label: {
-      text: 'Tell us what you struggle with'
-      },
+      text: 'Tell us what you find difficult when washing or having a bath or shower'
+    },
     id: "something-else-explain-washing",
     name: "something-else-explain-washing",
     errorMessage: data.validation['something-else-explain-washing'].error,

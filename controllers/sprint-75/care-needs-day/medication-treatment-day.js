@@ -81,7 +81,7 @@ const config = {
       page: urls.medicationTreatmentDayWhy,
       condition: {
         field: urls.medicationTreatmentDay,
-        value: [, 'dressings-bandages', 'applying-cream', 'administering-medication', 'administering-treatment', 'right-medication-dosage', 'coping-side-effects', 'motivation-medication', 'something-else-medication'],
+        value: ['dressings-bandages', 'applying-cream', 'administering-medication', 'administering-treatment', 'right-medication-dosage', 'coping-side-effects', 'motivation-medication', 'something-else-medication'],
         match: match.anyOne,
       },
     },
@@ -102,7 +102,7 @@ const config = {
       },
     },
     {
-      page: urls.keepEyeIntroduction,
+      page: urls.checkAnswersDay,
     },
   ],
   validation: [
@@ -111,21 +111,22 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 100,
+        maxLength: 200,
       },
       errors: {
         required: 'You must tell us what you struggle with.',
+        maxLength: 'Tell us what you struggle with must be 200 characters or less.',
       },
       condition: {
         field: 'medication-treatment-day',
-        value: 'something-else-medication', 
+        value: 'something-else-medication',
       },
-    }, 
+    },
     {
       name: 'medication-treatment-day',
       type: validation.checkboxes,
-    }
-  ]
+    },
+  ],
 };
 
 module.exports = registerController(config.name, config);

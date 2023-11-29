@@ -66,7 +66,7 @@ const config = {
       },
     },
     {
-      page: urls.keepEyeIntroduction,
+      page: urls.checkAnswersDay,
     },
   ],
   validation: [
@@ -75,20 +75,21 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 100,
+        maxLength: 200,
       },
       errors: {
         required: 'You must tell us the reason you stumble or fall.',
+        maxLength: 'Tell us the reason you stumble or fall must be 200 characters or less.',
       },
       condition: {
         field: 'falling-or-stumbling-why',
-        value: 'something-else', 
+        value: 'something-else',
       },
-    }, 
+    },
     {
       name: 'falling-or-stumbling-why',
       type: validation.checkboxes,
-    }]
+    }],
 };
 
 module.exports = registerController(config.name, config);

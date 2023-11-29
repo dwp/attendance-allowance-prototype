@@ -7,19 +7,13 @@
 
 <span class="govuk-caption-l">Using the toilet or managing incontinence during the day</span>
 
+<h1 class="govuk-heading-l">
+  How often do you have difficulty with your toilet needs?
+</h1>
+
   {{ govukRadios({
     idPrefix: "toilet-day-frequency",
     name: "toilet-day-frequency",
-    fieldset: {
-      legend: {
-        text: "How often do you struggle with using the toilet or incontinence?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-6"
-      }
-    },
-    hint: {
-      html: bodyToiletHtml
-    }, 
     errorMessage: data.validation['toilet-day-frequency'].error,
     items: [
       {
@@ -46,12 +40,6 @@
   }) }}
 
 {% endblock %}
-
-{% set bodyToiletHtml %}
-  <p class="govuk-body">
-       Include any times when a partner or friend might help you currently.
-    </p>
-{% endset %}
 
 {% block postForm %}
     {% include './macros/assisted-digital-details.njk' %}

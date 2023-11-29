@@ -22,20 +22,21 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 100,
+        maxLength: 200,
       },
       errors: {
         required: 'You must tell us in what other way you struggle.',
+        maxLength: 'Tell us in what other way you struggle must be 200 characters or less.',
       },
       condition: {
         field: 'medication-treatment-day-why',
-        value: 'medication-treatment-day-why-something-else', 
+        value: 'medication-treatment-day-why-something-else',
       },
-    }, 
+    },
     {
       name: 'medication-treatment-day-why',
       type: validation.checkboxes,
-    }]
+    }],
 };
 
 module.exports = registerController(config.name, config);

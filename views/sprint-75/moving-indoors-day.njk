@@ -5,23 +5,16 @@
 
 {% block form %}
   <span class="govuk-caption-l">Moving around indoors during the day</span>
-    <h1 class="govuk-heading-l">
-       You told us you have difficulty when you move around indoors
-    </h1>
+  <h1 class="govuk-heading-l">
+    What do you have difficulty with when moving around indoors?
+  </h1>
   
   {{ govukCheckboxes
     ({
       idPrefix: "moving-indoors-day",
       name: "moving-indoors-day",
-      fieldset: {
-        legend: {
-          text: "What do you find difficult when moving around indoors?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
       hint: {
-        text: "Choose all that apply to you."
+        text: "Select all that apply."
       }, 
       errorMessage: data.validation['moving-indoors-day'].error,
       items: [{
@@ -51,7 +44,7 @@
       },
       {
         value: "moving-indoors-something-else",
-        text: "I struggle with something else",
+        text: "Something else",
         checked: true if data["moving-indoors-day"] and data["moving-indoors-day"].includes("moving-indoors-something-else"), 
         conditional: {
           html: conditionalSomethingElseHtml
@@ -62,7 +55,7 @@
       },
       {
         value: "no-other-apply",
-        text: "I do not struggle moving around indoors",
+        text: "I do not have difficulty moving around indoors",
         behaviour: "exclusive",
         checked: true if data["moving-indoors-day"] and data["moving-indoors-day"].includes("no-other-apply")
       }]
@@ -75,7 +68,7 @@
     classes: "govuk-input--width-40",
     isPageHeading: true,
     label: {
-      text: 'Tell us what you struggle with'
+      text: 'Tell us what you have difficulty with when moving around indoors'
       },
     id: "something-else-explain",
     name: "something-else-explain",

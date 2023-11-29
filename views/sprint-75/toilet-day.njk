@@ -7,23 +7,16 @@
 {% block form %}
   <span class="govuk-caption-l">Using the toilet or managing incontinence during the day</span> 
 
-   <h1 class="govuk-heading-l">
-     You told us you have difficulty with your toilet needs during the day
-   </h1>
+  <h1 class="govuk-heading-l">
+    What difficulty do you have with your toilet needs?
+  </h1>
 
   {{ govukCheckboxes
     ({
       idPrefix: "toilet-day",
       name: "toilet-day",
-      fieldset: {
-        legend: {
-          text: "What do you struggle with?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
       hint: {
-        text: "Choose all that apply to you."
+        text: "Select all that apply."
       },
       errorMessage: data.validation['toilet-day'].error,
       items: [{
@@ -58,23 +51,17 @@
       },
       {
         value: "managing-incontinence",
-        text: "Managing my incontinence",
-        hint: {
-          text: "For example, cleaning yourself, changing pads or changing clothes"
-        },
+        text: "I have incontinence",
         checked: true if data["toilet-day"] and data["toilet-day"].includes("managing-incontinence")
       },
       {
         value: "toilet-not-always",
         text: "I do not always use the toilet or commode",
-        hint: {
-          text: "For example, you use a catheter, stoma or bedpan instead of the toilet"
-        },
         checked: true if data["toilet-day"] and data["toilet-day"].includes("toilet-not-always")
       },
       {
         value: "toilet-something-else",
-        text: "I struggle with something else with using the toilet or managing incontinence",
+        text: "Something else",
         checked: true if data["toilet-day"] and data["toilet-day"].includes("toilet-something-else"),
         conditional: {
           html: conditionalSomethingElseToiletHtml
@@ -85,7 +72,7 @@
       },
       {
         value: "no-other-apply",
-        text: "I do not struggle using the toilet or managing my incontinence",
+        text: "I do not have difficulty with my toilet needs",
         behaviour: "exclusive",
         checked: true if data["toilet-day"] and data["toilet-day"].includes("no-other-apply")
       }]
@@ -98,7 +85,7 @@
     classes: "govuk-input--width-40",
     isPageHeading: true,
     label: {
-      text: 'Tell us what you struggle with'
+      text: 'Tell us what difficulty you have with your toilet needs'
       },
     id: "something-else-explain-toilet",
     name: "something-else-explain-toilet",

@@ -33,7 +33,7 @@ const config = {
       page: urls.washDayWhy,
       condition: {
         field: urls.washDay,
-        value: ['get-in-out-bath', 'wash-drying-myself','taking-shower', 'forgetting-lacking-motivation-wash', 'something-else-washing'],
+        value: ['get-in-out-bath', 'wash-drying-myself', 'taking-shower', 'forgetting-lacking-motivation-wash', 'something-else-washing'],
         match: match.anyOne,
       },
     },
@@ -102,30 +102,31 @@ const config = {
       },
     },
     {
-      page: urls.keepEyeIntroduction,
+      page: urls.checkAnswersDay,
     },
   ],
-  validation: [ 
+  validation: [
     {
       name: 'something-else-explain-washing',
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 100,
+        maxLength: 200,
       },
       errors: {
         required: 'You must tell us what you struggle with.',
+        maxLength: 'Tell us what you struggle with must be 200 characters or less.',
       },
       condition: {
         field: 'wash-day',
-        value: 'something-else-washing', 
+        value: 'something-else-washing',
       },
-    }, 
+    },
     {
       name: 'wash-day',
       type: validation.checkboxes,
-    }
-  ]
+    },
+  ],
 };
 
 module.exports = registerController(config.name, config);

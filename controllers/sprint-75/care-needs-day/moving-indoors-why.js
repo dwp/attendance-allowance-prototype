@@ -66,7 +66,7 @@ const config = {
       },
     },
     {
-      page: urls.keepEyeIntroduction,
+      page: urls.checkAnswersDay,
     },
   ],
   validation: [
@@ -75,21 +75,22 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 100,
+        maxLength: 200,
       },
       errors: {
-        required: 'Tell us in what other way you struggle.',
+        required: 'You must tell us in what other way you struggle.',
+        maxLength: 'Tell us in what other way you struggle must be 200 characters or less.',
       },
       condition: {
         field: 'moving-indoors-why',
-        value: 'something-else-moving-around', 
+        value: 'something-else-moving-around',
       },
-    }, 
+    },
     {
       name: 'moving-indoors-why',
       type: validation.checkboxes,
-    }
-  ]
+    },
+  ],
 };
 
 module.exports = registerController(config.name, config);

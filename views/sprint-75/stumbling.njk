@@ -6,17 +6,13 @@
 {% block form %}
 
 <span class="govuk-caption-l">Stumbling or falling during the day</span>
+<h1 class="govuk-heading-l">
+  How many times do you stumble on a weekly basis?
+</h1>
 
   {{ govukRadios({
     idPrefix: "frequency-stumbling",
     name: "frequency-stumbling",
-    fieldset: {
-      legend: {
-        text: "How many times do you stumble on a weekly basis?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
     errorMessage: data.validation['frequency-stumbling'].error,
     items: [
       {
