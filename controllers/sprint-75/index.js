@@ -45,11 +45,15 @@ const renalDialysisHelp = require('./renal-dyalisis/renal-dialysis-help');
 
 // special rules
 const specialRulesForm = require('./special-rules/special-rules-form');
-const surgeryMedicalCentre = require('./special-rules/surgery-medical-centre');
 
 // surgery or treatment
 const treatmentSurgery = require('./surgery-or-treatment/treatment-surgery');
 const treatmentSurgeryInformation = require('./surgery-or-treatment/treatment-surgery-information');
+
+// consent
+const consent = require('./consent/consent');
+const surgeryMedicalCentre = require('./consent/surgery-medical-centre');
+const evidence = require('./consent/evidence');
 
 // care needs daytime
 const dayDifficulties = require('./care-needs-day/day-difficulties');
@@ -241,4 +245,6 @@ module.exports = {
   done,
   sercoLateApplication,
   addContactDetails,
+  consent,
+  evidence,
 };

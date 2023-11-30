@@ -13,11 +13,6 @@
     }
   }) %}
 
-  <p class="govuk-hint">The Department of Works and Pensions might need to contact your doctor for more information about your condition.</p>
-
-  <p class="govuk-hint">The doctor only gives details of medical fact, they do not decide if you can get Attendance Allowance. </p>
-
-
   {{ govukInput({
     label: {
       text: 'Name of surgery or medical centre', 
@@ -33,81 +28,15 @@
 
   {{ govukInput({
     label: {
-      text: 'Surgery phone number', 
-      isPageHeading: true
-    },
-    classes: "govuk-!-width-two-thirds",
-    errorMessage: data.validation['surgery-medical-centre-phone'].error,
-    id: "surgery-medical-centre-phone",
-    name: "surgery-medical-centre-phone",
-    value: data["surgery-medical-centre-phone"],
-    autocomplete: "surgery-medical-centre-phone"
-  }) }}
-
-  {{ govukInput({
-    label: {
-      text: "Name of your doctor (optional)", 
-      isPageHeading: true
-    },
-    classes: "govuk-!-width-two-thirds",
-    id: "surgery-medical-centre-doctor",
-    name: "surgery-medical-centre-doctor",
-    value: data["surgery-medical-centre-doctor"],
-    autocomplete: "surgery-medical-centre-doctor"
-  }) }}
-
-  <h2 class="govuk-heading-m">GP surgery address</h2>
-
-  {{ govukInput({
-    label: {
-      text: "Building and street",
-      classes: "govuk-body",
-      isPageHeading: true
-    },
-    errorMessage: data.validation['surgery-medical-centre-address'].error,
-    id: "surgery-medical-centre-address",
-    name: "surgery-medical-centre-address",
-    value: data["surgery-medical-centre-address"], 
-    autocomplete: "surgery-medical-centre-address"
-  }) }}
-
-  {{ govukInput({
-    label: {
-      text: "Town or city", 
-      isPageHeading: true
-    },
-    classes: "govuk-!-width-two-thirds",
-    errorMessage: data.validation['surgery-medical-centre-town'].error,
-    id: "surgery-medical-centre-town",
-    name: "surgery-medical-centre-town",
-    value: data["surgery-medical-centre-town"], 
-    autocomplete: "surgery-medical-centre-town"
-  }) }}
-
-  {{ govukInput({
-    label: {
-      text: "County",
-      isPageHeading: true
-    },
-    classes: "govuk-!-width-two-thirds",
-    errorMessage: data.validation['surgery-medical-centre-county'].error,
-    id: "surgery-medical-centre-county",
-    name: "surgery-medical-centre-county",
-    value: data["surgery-medical-centre-county"],
-    autocomplete: "surgery-medical-centre-county"
-  }) }}
-
-  {{ govukInput({
-    label: {
       text: "Postcode", 
       isPageHeading: true
     },
     classes: "govuk-input--width-10",
-    errorMessage: data.validation['address-postcode'].error,
-    id: "address-postcode",
-    name: "address-postcode",
-    value: data["address-postcode"],
-    autocomplete: "address-postcode"
+    errorMessage: data.validation['surgery-medical-centre-postcode'].error,
+    id: "surgery-medical-centre-postcode",
+    name: "surgery-medical-centre-postcode",
+    value: data["surgery-medical-centre-postcode"],
+    autocomplete: "surgery-medical-centre-postcode"
   }) }}
 
 {% endcall %}
