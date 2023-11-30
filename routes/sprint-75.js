@@ -50,7 +50,6 @@ router.use(`/${urls.illnessDisabilityRemove}`, (req, res) => {
 // special rules
 router.use(`/${urls.specialRulesDeclaration}`, controllers.specialRulesDeclaration);
 router.use(`/${urls.specialRulesForm}`, controllers.specialRulesForm);
-router.use(`/${urls.surgeryMedicalCentre}`, controllers.surgeryMedicalCentre);
 
 // renal dyalisis
 router.use(`/${urls.renalDialysis}`, controllers.renalDialysis);
@@ -62,6 +61,11 @@ router.use(`/${urls.renalDialysisHelp}`, controllers.renalDialysisHelp);
 // surgery or treatment
 router.use(`/${urls.treatmentSurgery}`, controllers.treatmentSurgery);
 router.use(`/${urls.treatmentSurgeryInformation}`, controllers.treatmentSurgeryInformation);
+
+// consent
+router.use(`/${urls.consent}`, controllers.consent);
+router.use(`/${urls.surgeryMedicalCentre}`, controllers.surgeryMedicalCentre);
+router.use(`/${urls.evidence}`, controllers.evidence);
 
 // care needs daytime
 router.use(`/${urls.dayDifficulties}`, controllers.dayDifficulties);

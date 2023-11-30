@@ -46,7 +46,6 @@ module.exports = {
     // special rules
     specialRulesDeclaration: 'special-rules-declaration',
     specialRulesForm: 'special-rules-form',
-    surgeryMedicalCentre: 'surgery-medical-centre',
 
     // renal dyalisis
     renalDialysis: 'renal-dialysis',
@@ -58,6 +57,11 @@ module.exports = {
     // surgery or treatment
     treatmentSurgery: 'treatment-surgery',
     treatmentSurgeryInformation: 'treatment-surgery-information',
+
+    // consent
+    consent: 'consent',
+    surgeryMedicalCentre: 'surgery-medical-centre',
+    evidence: 'evidence',
 
     // care needs daytime
     dayDifficulties: 'day-difficulties',
