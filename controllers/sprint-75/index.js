@@ -89,6 +89,9 @@ const keepEyeIntroduction = require('./care-needs-day/keep-eye-introduction');
 const keepEyeChoice = require('./care-needs-day/keep-eye-choice');
 const keepEyeWhy = require('./care-needs-day/keep-eye-why');
 const keepEyeDuration = require('./care-needs-day/keep-eye-duration');
+const safeDayNight = require('./care-needs-day/safe-day-night');
+const safeDayWhy = require('./care-needs-day/safe-day-why');
+const safeDayLength = require('./care-needs-day/safe-day-length');
 
 // night time care needs
 const nightDifficulties = require('./care-needs-night/night-difficulties');
@@ -104,6 +107,8 @@ const watchOverYouIntro = require('./care-needs-night/watch-over-you-intro');
 const watchOverNight = require('./care-needs-night/watch-over-night');
 const watchOverNightWhy = require('./care-needs-night/watch-over-night-why');
 const watchOverNightFrequency = require('./care-needs-night/watch-over-night-frequency');
+const safeNightFrequency = require('./care-needs-night/safe-night-frequency');
+const safeNightLength = require('./care-needs-night/safe-night-length');
 
 // contact details
 const telephoneNumber = require('./contact-details/telephone-number');
@@ -223,6 +228,11 @@ module.exports = {
   watchOverNight,
   watchOverNightWhy,
   watchOverNightFrequency,
+  safeDayNight,
+  safeDayWhy,
+  safeDayLength,
+  safeNightFrequency,
+  safeNightLength,
   keepEyeIntroduction,
   keepEyeChoice,
   keepEyeWhy,

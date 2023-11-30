@@ -101,6 +101,9 @@ router.use(`/${urls.keepEyeIntroduction}`, controllers.keepEyeIntroduction);
 router.use(`/${urls.keepEyeChoice}`, controllers.keepEyeChoice);
 router.use(`/${urls.keepEyeWhy}`, controllers.keepEyeWhy);
 router.use(`/${urls.keepEyeDuration}`, controllers.keepEyeDuration);
+router.use(`/${urls.safeDayNight}`, controllers.safeDayNight);
+router.use(`/${urls.safeDayWhy}`, controllers.safeDayWhy);
+router.use(`/${urls.safeDayLength}`, controllers.safeDayLength);
 
 // night time care needs
 router.use(`/${urls.nightDifficulties}`, controllers.nightDifficulties);
@@ -116,6 +119,8 @@ router.use(`/${urls.watchOverYouIntro}`, controllers.watchOverYouIntro);
 router.use(`/${urls.watchOverNight}`, controllers.watchOverNight);
 router.use(`/${urls.watchOverNightWhy}`, controllers.watchOverNightWhy);
 router.use(`/${urls.watchOverNightFrequency}`, controllers.watchOverNightFrequency);
+router.use(`/${urls.safeNightFrequency}`, controllers.safeNightFrequency);
+router.use(`/${urls.safeNightLength}`, controllers.safeNightLength);
 
 // contact details
 router.use(`/${urls.telephoneNumber}`, controllers.telephoneNumber);
