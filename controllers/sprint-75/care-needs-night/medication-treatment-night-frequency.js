@@ -9,7 +9,7 @@ const config = {
   previous: urls.medicationTreatmentNight,
   next: [
     {
-      page: urls.watchOverYouIntro,
+      page: urls.safeDayNight,
     },
   ],
   validation: [

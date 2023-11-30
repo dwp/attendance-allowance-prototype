@@ -98,6 +98,9 @@ module.exports = {
     keepEyeChoice: 'keep-eye-choice',
     keepEyeWhy: 'keep-eye-why',
     keepEyeDuration: 'keep-eye-duration',
+    safeDayNight: 'safe-day-night',
+    safeDayWhy: 'safe-day-why',
+    safeDayLength: 'safe-day-length',
 
     // night time care needs
     nightDifficulties: 'night-difficulties',
@@ -113,6 +116,8 @@ module.exports = {
     watchOverNight: 'watch-over-night',
     watchOverNightWhy: 'watch-over-night-why',
     watchOverNightFrequency: 'watch-over-night-frequency',
+    safeNightFrequency: 'safe-night-frequency',
+    safeNightLength: 'safe-night-length',
 
     // contact details
     telephoneNumber: 'telephone-number',

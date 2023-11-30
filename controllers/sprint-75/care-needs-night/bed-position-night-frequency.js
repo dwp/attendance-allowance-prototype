@@ -34,7 +34,7 @@ const config = {
       },
     },
     {
-      page: urls.watchOverYouIntro,
+      page: urls.safeDayNight,
     },
   ],
   validation: [
