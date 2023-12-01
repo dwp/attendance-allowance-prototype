@@ -7,7 +7,7 @@ const {
 
 const config = {
   name: urls.treatmentSurgery,
-  previous: urls.specialRulesDeclaration,
+  previous: urls.illnessDisabilityAdded,
   next: [
     {
       page: urls.treatmentSurgeryInformation,
