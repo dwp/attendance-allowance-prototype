@@ -18,7 +18,7 @@ const config = {
       },
     },
     {
-      page: urls.specialRulesDeclaration,
+      page: urls.treatmentSurgery,
     },
   ],
   validation: {

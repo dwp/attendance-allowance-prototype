@@ -25,7 +25,7 @@ const config = {
       },
     },
     {
-      page: urls.specialRulesDeclaration,
+      page: urls.treatmentSurgery,
       condition: {
         field: urls.illnessDisability,
         value: ['Kidney disease or disorder', 'Renal failure - acute', 'Acute kidney disease (AKD)', 'Chronic kidney failure / renal failure', 'Kidney transplantation / renal', 'Transplant rejection - kidney / renal'],
