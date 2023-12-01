@@ -1,23 +1,39 @@
-stages:
-  - code-quality
-  - heroku-publish
-
 include:
-  - local: "/gitlab-ci/includes.yml"
+  - project:  'dwp/engineering/pipeline-solutions/gitlab/functions'
+    ref: 4.16.0
+    file:
+      - functions/node.yml
+  - project: 'dwp/engineering/pipeline-solutions/gitlab/fragments/heroku-site-publish'
+    ref: 1-2-0
+    file: 'ci-include-heroku-site-publish-base.yml'
 
-fragment-version-check:
-  extends: .fragment-version-check-template
+variables:
+  CREATE_TARBALL: "false"
 
-gitleaks:
-  extends: .gitleaks-template
+# Disabed for prototype project
+.node-coverage-rules:
+  rules:
+    when: never
 
-shell-check:
-  extends: .shell-check-template
+# Disabed for prototype project
+.node-sonarqube-rules:
+  rules:
+      when: never
 
-todo-check:
-  extends: .todo-check-template
+# Disabed for prototype project
+.code_quality-rules:
+  rules:
+      when: never
+
+# Disabed for prototype project
+.node-codelint-rules:
+  rules:
+      when: never
 
 heroku-site-publish:
   extends: .heroku-site-publish-template
+  stage: deploy
   variables:
     HEROKU_APP_NAME: attendance-allowance
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
