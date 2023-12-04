@@ -13,14 +13,6 @@ const config = {
       page: urls.toiletNight,
       condition: {
         field: urls.nightDifficulties,
-        value: ['nighttime-toilet'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.cleaningSoiledNight,
-      condition: {
-        field: urls.nightDifficulties,
         value: ['nighttime-cleaning-yourself'],
         match: match.anyOne,
       },
@@ -34,22 +26,31 @@ const config = {
       },
     },
     {
-      page: urls.safeDayNight,
+      page: urls.checkAnswersNight,
     },
   ],
   validation: [
     {
-      type: validation.radios,
-      name: 'night-frequency-1-bed',
+      name: 'bed-position-typically-how-long',
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 200,
+      },
       errors: {
-        required: 'You must select how many times.',
+        required: 'Enter how long it takes to get settled',
+        maxLength: 'How long it takes to get settled must be 200 characters or less',
+      },
+      condition: {
+        field: 'night-frequency-bed-position',
+        value: 'once-a-night',
       },
     },
     {
-      type: validation.textInput,
-      name: 'night-length-1-bed',
+      type: validation.radios,
+      name: 'night-frequency-bed-position',
       errors: {
-        required: 'You must tell us how long these occasions take.',
+        required: 'You must select how many times.',
       },
     },
   ],

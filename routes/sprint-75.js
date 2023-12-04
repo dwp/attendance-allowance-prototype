@@ -113,13 +113,16 @@ router.use(`/${urls.safeDayLength}`, controllers.safeDayLength);
 
 // night time care needs
 router.use(`/${urls.nightDifficulties}`, controllers.nightDifficulties);
+router.use(`/${urls.turningOverNightFrequency}`, controllers.turningOverNightFrequency);
 router.use(`/${urls.bedPositionNight}`, controllers.bedPositionNight);
 router.use(`/${urls.bedPositionNightFrequency}`, controllers.bedPositionNightFrequency);
 router.use(`/${urls.toiletNight}`, controllers.toiletNight);
+router.use(`/${urls.toiletNightWhy}`, controllers.toiletNightWhy);
 router.use(`/${urls.toiletNightFrequency}`, controllers.toiletNightFrequency);
 router.use(`/${urls.cleaningSoiledNight}`, controllers.cleaningSoiledNight);
 router.use(`/${urls.cleaningSoiledNightFrequency}`, controllers.cleaningSoiledNightFrequency);
 router.use(`/${urls.medicationTreatmentNight}`, controllers.medicationTreatmentNight);
+router.use(`/${urls.medicationTreatmentNightWhy}`, controllers.medicationTreatmentNightWhy);
 router.use(`/${urls.medicationTreatmentNightFrequency}`, controllers.medicationTreatmentNightFrequency);
 router.use(`/${urls.watchOverYouIntro}`, controllers.watchOverYouIntro);
 router.use(`/${urls.watchOverNight}`, controllers.watchOverNight);

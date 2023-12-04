@@ -9,34 +9,39 @@ const config = {
   name: urls.toiletNight,
   previous: [
     {
-      page: urls.bedPositionNight,
+      page: urls.turningOverNightFrequency,
       condition: {
         field: urls.nightDifficulties,
-        value: ['nighttime-position-bed'],
+        value: ['nighttime-turning-over'],
         match: match.anyOne,
       },
     },
     {
-      page: urls.difficultiesStartDateNight,
+      page: urls.bedPositionNight,
+      condition: {
+        field: urls.nightDifficulties,
+        value: ['nighttime-getting-settled'],
+        match: match.anyOne,
+      },
+    },
+    {
+      page: urls.nightDifficulties,
     },
   ],
   next: [
     {
-      page: urls.toiletNightFrequency,
+      page: urls.toiletNightWhy,
       condition: {
         field: urls.toiletNight,
         value: [
-          'physical',
-          'prompt',
+          'toilet-getting-to',
+          'toilet-urgent',
+          'toilet-getting-on-off',
+          'toilet-cleaning-myself',
+          'toilet-emptying',
+          'managing-incontinence',
+          'toilet-something-else',
         ],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.cleaningSoiledNight,
-      condition: {
-        field: urls.nightDifficulties,
-        value: ['nighttime-cleaning-yourself'],
         match: match.anyOne,
       },
     },
@@ -49,7 +54,7 @@ const config = {
       },
     },
     {
-      page: urls.safeDayNight,
+      page: urls.checkAnswersNight,
     },
 
   ],

@@ -1,58 +1,55 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
 
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
-  <span class="govuk-caption-l">Getting into the right position in bed during the night</span>
-  <h1 class="govuk-heading-l">How often and for how long</h1>
+  <span class="govuk-caption-l">Getting settled</span>
+  <h1 class="govuk-heading-l">On average, how many times a night do you have difficulties getting settled?</h1>
 
   {{ govukRadios({
-    id: "night-frequency-1-bed",
-    name: "night-frequency-1-bed",
-    fieldset: {
-      legend: {
-        text: "How many times a night do you have difficulties getting into a comfortable  position in bed?",
-        isPageHeading: false,
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    errorMessage: data.validation['night-frequency-1-bed'].error,
+    id: "night-frequency-bed-position",
+    name: "night-frequency-bed-position",
+    errorMessage: data.validation['night-frequency-bed-position'].error,
     items: [
       {
-        value: "1",
-        text: "1",
-        checked: true if data["night-frequency-1-bed"] === "1"
+        value: "once-a-night",
+        text: "Once a night",
+        checked: true if data["night-frequency-bed-position"] === "once-a-night",
+        conditional: {
+          html: conditionalBedPositionTypicallyHowLongHtml
+          }
       },
       {
-        value: "2",
-        text: "2",
-        checked: true if data["night-frequency-1-bed"] === "2"
+        value: "2-times-a-night",
+        text: "2 times a night",
+        checked: true if data["night-frequency-bed-position"] === "2-times-a-night"
       },
       {
-        value: "3+",
-        text: "3 or more",
-        checked: true if data["night-frequency-1-bed"] === "3+"
+        value: "3-times-a-night-or-more",
+        text: "3 times a night or more",
+        checked: true if data["night-frequency-bed-position"] === "3-times-a-night-or-more"
       }
     ]
   }) }}
 
-  {{ govukInput({
-    id: "night-length-1-bed",
-    name: "night-length-1-bed",
-    errorMessage: data.validation['night-length-1-bed'].error,
-    label: {
-      text: "Typically, how long do the occasions take when you need to move to get into a  comfortable position in bed?",
-      classes: "govuk-label--m",
-      isPageHeading: true
-    },
-    hint: {
-      text: "For example,  approximately 20 minutes or 1 hour"
-    }
-  }) }}
-
 {% endblock %}
+
+{% set conditionalBedPositionTypicallyHowLongHtml %}
+   {{ govukTextarea({
+    rows: "2",
+    isPageHeading: true,
+    label: {
+      text: 'How long does it take to get settled in bed?'
+    },
+    id: "bed-position-typically-how-long",
+    name: "bed-position-typically-how-long",
+    errorMessage: data.validation['bed-position-typically-how-long'].error,
+    value: data['bed-position-typically-how-long']
+    }) }}
+{% endset %}
 
 {% block postForm %}
     {% include './macros/assisted-digital-details.njk' %}

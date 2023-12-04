@@ -15,16 +15,9 @@ const config = {
   validation: [
     {
       type: validation.radios,
-      name: 'night-frequency-5-meds',
+      name: 'medication-night-frequency',
       errors: {
         required: 'You must select how many times.',
-      },
-    },
-    {
-      type: validation.textInput,
-      name: 'night-length-5-meds',
-      errors: {
-        required: 'You must tell us how long these occasions take.',
       },
     },
   ],

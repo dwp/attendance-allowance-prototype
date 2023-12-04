@@ -101,13 +101,16 @@ const safeDayLength = require('./care-needs-day/safe-day-length');
 
 // night time care needs
 const nightDifficulties = require('./care-needs-night/night-difficulties');
+const turningOverNightFrequency = require('./care-needs-night/turning-over-night-frequency');
 const bedPositionNight = require('./care-needs-night/bed-position-night');
 const bedPositionNightFrequency = require('./care-needs-night/bed-position-night-frequency');
 const toiletNight = require('./care-needs-night/toilet-night');
+const toiletNightWhy = require('./care-needs-night/toilet-night-why');
 const toiletNightFrequency = require('./care-needs-night/toilet-night-frequency');
 const cleaningSoiledNight = require('./care-needs-night/cleaning-soiled-night');
 const cleaningSoiledNightFrequency = require('./care-needs-night/cleaning-soiled-night-frequency');
 const medicationTreatmentNight = require('./care-needs-night/medication-treatment-night');
+const medicationTreatmentNightWhy = require('./care-needs-night/medication-treatment-night-why');
 const medicationTreatmentNightFrequency = require('./care-needs-night/medication-treatment-night-frequency');
 const watchOverYouIntro = require('./care-needs-night/watch-over-you-intro');
 const watchOverNight = require('./care-needs-night/watch-over-night');
@@ -200,13 +203,16 @@ module.exports = {
   washDayWhy,
   dressDay,
   dressDayWhy,
+  turningOverNightFrequency,
   bedPositionNight,
   bedPositionNightFrequency,
   toiletNight,
+  toiletNightWhy,
   toiletNightFrequency,
   cleaningSoiledNight,
   cleaningSoiledNightFrequency,
   medicationTreatmentNight,
+  medicationTreatmentNightWhy,
   medicationTreatmentNightFrequency,
   difficultiesStartDate,
   movingIndoorsDay,

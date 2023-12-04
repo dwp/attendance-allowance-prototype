@@ -9,26 +9,10 @@ const config = {
   name: urls.medicationTreatmentNight,
   previous: [
     {
-      page: urls.movingIndoorsNight,
+      page: urls.turningOverNightFrequency,
       condition: {
         field: urls.nightDifficulties,
-        value: ['nighttime-moving'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.cleaningSoiledNight,
-      condition: {
-        field: urls.nightDifficulties,
-        value: ['nighttime-cleaning-yourself'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.toiletNight,
-      condition: {
-        field: urls.nightDifficulties,
-        value: ['nighttime-toilet'],
+        value: ['nighttime-turning-over'],
         match: match.anyOne,
       },
     },
@@ -36,28 +20,39 @@ const config = {
       page: urls.bedPositionNight,
       condition: {
         field: urls.nightDifficulties,
-        value: ['nighttime-position-bed'],
+        value: ['nighttime-getting-settled'],
         match: match.anyOne,
       },
     },
     {
-      page: urls.difficultiesStartDateNight,
+      page: urls.toiletNight,
+      condition: {
+        field: urls.nightDifficulties,
+        value: ['nighttime-cleaning-yourself'],
+        match: match.anyOne,
+      },
+    },
+    {
+      page: urls.nightDifficulties,
     },
   ],
   next: [
     {
-      page: urls.medicationTreatmentNightFrequency,
+      page: urls.medicationTreatmentNightWhy,
       condition: {
         field: urls.medicationTreatmentNight,
         value: [
-          'physical',
-          'prompt',
+          'having-oxygen-therapy',
+          'cpap-mask',
+          'applying-cream',
+          'taking-medication',
+          'something-else-medication',
         ],
         match: match.anyOne,
       },
     },
     {
-      page: urls.safeDayNight,
+      page: urls.checkAnswersNight,
     },
   ],
   validation: {
