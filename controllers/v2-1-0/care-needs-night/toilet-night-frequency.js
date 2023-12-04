@@ -37,13 +37,6 @@ const config = {
         required: 'You must select how many times.',
       },
     },
-    {
-      type: validation.textInput,
-      name: 'night-length-2-loo',
-      errors: {
-        required: 'You must tell us how long these occasions take.',
-      },
-    },
   ],
 };
 

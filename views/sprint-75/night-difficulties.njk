@@ -7,45 +7,40 @@
   <h1 class="govuk-heading-l">
     Do you have difficulty with any of these activities during the night?
   </h1>
-  
-  <p class="govuk-body">
-    You need to tell us about the difficulties you have during your night routine. Include activities that you have help with or that you need help with, or if you need encouragement or prompting to carry out any of these activities.
-  </p>
-
-  <p class="govuk-body">
-    Please select from the following:
-  </p>
 
   {{ govukCheckboxes
     ({
+     hint: {
+        text: "Select all that apply."
+       },
       name: "night-difficulties",
       errorMessage: data.validation['night-difficulties'].error,
       items: [{
-        value: "nighttime-position-bed",
-        text: "Getting into a comfortable position in bed",
+        value: "nighttime-turning-over",
+        text: "Turning over or changing position in bed",
         hint: {
-          text: "This could mean getting comfortably settled, needing to be propped up or putting your bedclothes back on the bed if they fall off."
+          text: "This is if you have difficulty or need help turning over or changing position in bed."
         },
-        checked: true if data["night-difficulties"] and data["night-difficulties"].includes("nighttime-position-bed")
+        checked: true if data["night-difficulties"] and data["night-difficulties"].includes("nighttime-turning-over")
       },{
-        value: "nighttime-toilet",
-        text: "Getting to or using the toilet",
+        value: "nighttime-getting-settled",
+        text: "Getting settled",
         hint: {
-          text: "This can include getting to and using a commode or bedpan."
+          text: "This is if you have difficulty or need help getting propped up or putting the bed cover back on."
         },
-        checked: true if data["night-difficulties"] and data["night-difficulties"].includes("nighttime-toilet")
+        checked: true if data["night-difficulties"] and data["night-difficulties"].includes("nighttime-getting-settled")
       },{
         value: "nighttime-cleaning-yourself",
-        text: "Managing incontinence or if you’ve soiled yourself",
+        text: "Using the toilet or managing incontinence",
         hint: {
-          text: "This means difficulties changing your incontinence pads or catheter. It can also mean cleaning yourself or stripping the bed if you’ve spilt something or soiled the bedsheets for example, and need to put fresh bedding on."
+          text: "This is if you have difficulty, need help or encouragement getting to or using the toilet or commode."
         },
         checked: true if data["night-difficulties"] and data["night-difficulties"].includes("nighttime-cleaning-yourself")
       },{
         value: "nighttime-medication",
-        text: "Taking your medication or receiving treatment",
+        text: "Managing medication or treatment",
         hint: {
-          text: "This means struggling to handle your medicines and understanding how much to take and when to take them during the night. Or whether you have physical difficulties receiving treatment that you need, during the night."
+          text: "This is if you have difficulty or need help taking or remembering your medication or treatment."
         },
         checked: true if data["night-difficulties"] and data["night-difficulties"].includes("nighttime-medication")
       },
@@ -54,7 +49,7 @@
       },
       {
         value: "nighttime-none",
-        text: "None of these apply to me",
+        text: "I do not have difficulties or need help during the night",
         behaviour: "exclusive",
         checked: true if data["night-difficulties"] and data["night-difficulties"].includes("nighttime-none")
       }]
@@ -63,5 +58,5 @@
 {% endblock %}
 
 {% block postForm %}
-    {% include './macros/assisted-digital-details.njk' %}
+  {% include './macros/assisted-digital-details.njk' %}
 {% endblock %}

@@ -6,9 +6,25 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.toiletNightFrequency,
-  previous: urls.toiletNightWhy,
+  name: urls.turningOverNightFrequency,
+  previous: urls.nightDifficulties,
   next: [
+    {
+      page: urls.bedPositionNight,
+      condition: {
+        field: urls.nightDifficulties,
+        value: ['nighttime-getting-settled'],
+        match: match.anyOne,
+      },
+    },
+    {
+      page: urls.toiletNight,
+      condition: {
+        field: urls.nightDifficulties,
+        value: ['nighttime-cleaning-yourself'],
+        match: match.anyOne,
+      },
+    },
     {
       page: urls.medicationTreatmentNight,
       condition: {
@@ -23,24 +39,24 @@ const config = {
   ],
   validation: [
     {
-      name: 'toilet-typically-how-long',
+      name: 'turning-over-typically-how-long',
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 200,
       },
       errors: {
-        required: 'Enter how long it takes to manage your difficulties with toilet needs',
-        maxLength: 'Length of time it takes to manage your difficulties with your toilet needs must be 200 characters or less',
+        required: 'Enter how long it takes to turn over or change position',
+        maxLength: 'How long it takes to turn over or change position must be 200 characters or less',
       },
       condition: {
-        field: 'night-frequency-2-loo',
+        field: 'night-frequency-1-bed',
         value: 'once-a-night',
       },
     },
     {
       type: validation.radios,
-      name: 'night-frequency-2-loo',
+      name: 'night-frequency-1-bed',
       errors: {
         required: 'You must select how many times.',
       },

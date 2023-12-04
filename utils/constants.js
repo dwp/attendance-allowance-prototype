@@ -107,14 +107,17 @@ module.exports = {
     safeDayLength: 'safe-day-length',
 
     // night time care needs
+    turningOverNightFrequency: 'turning-over-night-frequency',
     nightDifficulties: 'night-difficulties',
     bedPositionNight: 'bed-position-night',
     bedPositionNightFrequency: 'bed-position-night-frequency',
     toiletNight: 'toilet-night',
+    toiletNightWhy: 'toilet-night-why',
     toiletNightFrequency: 'toilet-night-frequency',
     cleaningSoiledNight: 'cleaning-soiled-night',
     cleaningSoiledNightFrequency: 'cleaning-soiled-night-frequency',
     medicationTreatmentNight: 'medication-treatment-night',
+    medicationTreatmentNightWhy: 'medication-treatment-night-why',
     medicationTreatmentNightFrequency: 'medication-treatment-night-frequency',
     watchOverYouIntro: 'watch-over-you-intro',
     watchOverNight: 'watch-over-night',

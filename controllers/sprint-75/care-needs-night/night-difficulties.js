@@ -10,7 +10,7 @@ const config = {
   previous: urls.checkAnswersDay,
   next: [
     {
-      page: urls.safeDayNight,
+      page: urls.checkAnswersNight,
       condition: {
         field: urls.nightDifficulties,
         value: ['nighttime-none'],
@@ -18,23 +18,23 @@ const config = {
       },
     },
     {
+      page: urls.turningOverNightFrequency,
+      condition: {
+        field: urls.nightDifficulties,
+        value: ['nighttime-turning-over'],
+        match: match.anyOne,
+      },
+    },
+    {
       page: urls.bedPositionNight,
       condition: {
         field: urls.nightDifficulties,
-        value: ['nighttime-position-bed'],
+        value: ['nighttime-getting-settled'],
         match: match.anyOne,
       },
     },
     {
       page: urls.toiletNight,
-      condition: {
-        field: urls.nightDifficulties,
-        value: ['nighttime-toilet'],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.cleaningSoiledNight,
       condition: {
         field: urls.nightDifficulties,
         value: ['nighttime-cleaning-yourself'],

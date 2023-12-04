@@ -1,57 +1,89 @@
 {% from "govuk/components/details/macro.njk" import govukDetails %}
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
 
-  <span class="govuk-caption-l">Getting to or using the toilet during the night</span>
+  <span class="govuk-caption-l">Toilet needs or managing incontinence during the night</span>
   <h1 class="govuk-heading-l">
-    You told us you have difficulty getting to or using the toilet
+    What difficulty do you have with your toilet needs during the night?
   </h1>
-  <p class="govuk-body govuk-!-margin-bottom-2">This includes:</p>
-  <ul class="govuk-list govuk-list--bullet">
-    <li>physically getting to the toilet</li>
-    <li>being able to get on or off a toilet</li>
-    <li>using a commode or bedpan</li>
-  </ul>
 
   {{ govukCheckboxes
     ({
-      id: "toilet-night",
+      idPrefix: "toilet-night",
       name: "toilet-night",
-      fieldset: {
-        legend: {
-          text: "Which difficulties do you have getting to or using the toilet?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
+      hint: {
+        text: "Select all that apply."
       },
       errorMessage: data.validation['toilet-night'].error,
       items: [{
-        value: "physical",
-        text: "I have physical difficulty getting to or using the toilet",
-        checked: true if data["toilet-night"] and data["toilet-night"].includes("physical")
+        value: "toilet-getting-to",
+        text: "Getting to the toilet or commode",
+        checked: true if data["toilet-night"] and data["toilet-night"].includes("toilet-getting-to")
       },
       {
-        value: "prompt",
-        text: "I need encouragement or prompting to get to or use the toilet",
-        checked: true if data["toilet-night"] and data["toilet-night"].includes("prompt")
+        value: "toilet-urgent",
+        text: "Needing the toilet urgently",
+        checked: true if data["toilet-night"] and data["toilet-night"].includes("toilet-urgent")
+      },
+      {
+        value: "toilet-getting-on-off",
+        text: "Getting on or off the toilet or commode",
+        checked: true if data["toilet-night"] and data["toilet-night"].includes("toilet-getting-on-off")
+      },
+      {
+        value: "toilet-cleaning-myself",
+        text: "Cleaning myself after using the toilet or commode",
+        checked: true if data["toilet-night"] and data["toilet-night"].includes("toilet-cleaning-myself")
+      },
+      {
+        value: "toilet-emptying",
+        text: "Emptying and managing my stoma, catheter or similar",
+        checked: true if data["toilet-night"] and data["toilet-night"].includes("toilet-emptying")
+      },
+      {
+        value: "managing-incontinence",
+        text: "I have incontinence",
+        checked: true if data["c"] and data["toilet-night"].includes("managing-incontinence")
+      },
+      {
+        value: "toilet-something-else",
+        text: "Something else",
+        checked: true if data["toilet-night"] and data["toilet-night"].includes("toilet-something-else"),
+        conditional: {
+          html: conditionalSomethingElseToiletNightHtml
+          }
       },
       {
         divider: "or"
       },
       {
-        value: "none",
-        text: "None of these apply to me",
+        value: "no-other-apply",
+        text: "I do not have difficulty with my toilet needs during the night",
         behaviour: "exclusive",
-        checked: true if data["toilet-night"] and data["toilet-night"].includes("none")
+        checked: true if data["toilet-night"] and data["toilet-night"].includes("no-other-apply")
       }]
     })
   }}
 {% endblock %}
 
+{% set conditionalSomethingElseToiletNightHtml %}
+{{ govukTextarea({
+    rows: "2",
+    isPageHeading: true,
+    label: {
+      text: 'Tell us what difficulty you have with your toilet needs'
+    },
+    id: "something-else-explain-toilet",
+    name: "something-else-explain-toilet",
+    errorMessage: data.validation['something-else-explain-toilet'].error,
+    value: data['something-else-explain-toilet']
+    }) }}
+{% endset %}
 {% block postForm %}
-    {% include './macros/assisted-digital-details.njk' %}
+  {% include './macros/assisted-digital-details.njk' %}
 {% endblock %}
