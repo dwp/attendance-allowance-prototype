@@ -131,6 +131,18 @@ router.use(`/${urls.watchOverNightFrequency}`, controllers.watchOverNightFrequen
 router.use(`/${urls.safeNightFrequency}`, controllers.safeNightFrequency);
 router.use(`/${urls.safeNightLength}`, controllers.safeNightLength);
 
+// aids and adaptations
+router.use(`/${urls.aidsAdaptationsQuestion}`, controllers.aidsAdaptationQuestion);
+router.use(`/${urls.aidsAdaptationsReason}`, controllers.aidsAdaptationReason);
+router.use(`/${urls.aidsAdaptations}`, controllers.aidsAdaptations);
+router.use(`/${urls.aidsAdaptationsDifficulty}`, controllers.aidsAdaptationsDifficulty);
+router.use(`/${urls.aidsAdaptationsAdded}`, controllers.aidsAdaptationsAdded);
+router.use(`/${urls.aidsAdaptationsRemove}`, (req, res) => {
+  req.session.data['aids-adaptations'] = req.session.data['aids-adaptations'].filter((e) => e.toLowerCase().replace(/[^a-z0-9]/gi, '') !== req?.query?.remove);
+  req.session.data['aids-adaptations-rows'] = req.session.data['aids-adaptations-rows'].filter((e) => e?.[0]?.text.toLowerCase().replace(/[^a-z0-9]/gi, '') !== req?.query?.remove);
+  return res.redirect(`${urls.aidsAdaptationsAdded}`);
+});
+
 // contact details
 router.use(`/${urls.telephoneNumber}`, controllers.telephoneNumber);
 router.use(`/${urls.telephoneNumberOther}`, controllers.telephoneNumberOther);
