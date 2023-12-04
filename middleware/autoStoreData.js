@@ -48,6 +48,7 @@ const buildTableRow = (value) => ([
   }
 ]);
 
+// illness disability
 const handleIllnessDisability = (input, data) => {
   if (!input || !data) {
     return;
@@ -90,6 +91,36 @@ const handleIllnessStartDate = (input, data) => {
 
 };
 
+// aids-adaptations
+const handleAidsAdaptations = (input, data) => {
+  if (!input || !data) {
+    return;
+  }
+  if (!data['aids-adaptations']) {
+    data['aids-adaptations'] = [input['aids-adaptations']];
+    data['aids-adaptations-rows'] = [buildTableRow(input['aids-adaptations'])];
+  } else {
+    data['aids-adaptations'].push(input['aids-adaptations']);
+    data['aids-adaptations-rows'].push(buildTableRow(input['aids-adaptations']));
+  }
+};
+
+const handleAidsAdaptationsDifficulty = (input, data) => {
+  if (!input || !data || !data['aids-adaptations-rows']) {
+    return;
+  }
+  const lastEntry = data['aids-adaptations-rows'].length - 1;
+  const maybe = 
+    [
+      data['aids-adaptations-rows'][lastEntry][0],
+      {text: input['aids-adaptations-difficulty']},
+      data['aids-adaptations-rows'][lastEntry][2],
+      data['aids-adaptations-rows'][lastEntry][3],
+
+    ];
+  data['aids-adaptations-rows'][lastEntry] = maybe;
+
+};
 
 module.exports = (req, res, next) => {
   if (!req.session.data) {
@@ -99,9 +130,13 @@ module.exports = (req, res, next) => {
 
   if (req.body?.['illness-disability'] || req.body?.['illness-disability-manual']) {
     handleIllnessDisability(req.body, req.session.data);
+  } else if (req.body?.['aids-adaptations']) {
+    handleAidsAdaptations(req.body, req.session.data);
   } else {
     if (req.body?.['illness-start-date']) {
       handleIllnessStartDate(req.body, req.session.data);
+    } else if (req.body?.['aids-adaptations-difficulty']) {
+      handleAidsAdaptationsDifficulty(req.body, req.session.data);
     }
     storeData(req.body, req.session.data);
     storeData(req.query, req.session.data);

@@ -126,6 +126,14 @@ module.exports = {
     safeNightFrequency: 'safe-night-frequency',
     safeNightLength: 'safe-night-length',
 
+    // aids adptations
+    aidsAdaptationsQuestion: 'aids-adaptations-question',
+    aidsAdaptationsReason: 'aids-adaptations-reason',
+    aidsAdaptations: 'aids-adaptations',
+    aidsAdaptationsDifficulty: 'aids-adaptations-difficulty',
+    aidsAdaptationsAdded: 'aids-adaptations-added',
+    aidsAdaptationsRemove: 'aids-adaptations-remove',
+
     // contact details
     telephoneNumber: 'telephone-number',
     addContactDetails: 'add-contact-details',

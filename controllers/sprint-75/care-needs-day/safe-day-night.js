@@ -32,7 +32,7 @@ const config = {
       },
     },
     {
-      page: urls.checkAnswersStartDate,
+      page: urls.aidsAdaptationsQuestion,
     },
   ],
   validation: [

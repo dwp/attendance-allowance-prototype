@@ -13,7 +13,7 @@ const config = {
   ],
   next: [
     {
-      page: urls.checkAnswersStartDate,
+      page: urls.aidsAdaptationsQuestion,
     },
   ],
   validation: [

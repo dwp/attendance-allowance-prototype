@@ -119,6 +119,13 @@ const watchOverNightFrequency = require('./care-needs-night/watch-over-night-fre
 const safeNightFrequency = require('./care-needs-night/safe-night-frequency');
 const safeNightLength = require('./care-needs-night/safe-night-length');
 
+// aids and adaptations
+const aidsAdaptationQuestion = require('./aids-and-adaptations/aids-adaptations-question');
+const aidsAdaptationReason = require('./aids-and-adaptations/aids-adaptations-reason');
+const aidsAdaptations = require('./aids-and-adaptations/aids-adaptations');
+const aidsAdaptationsDifficulty = require('./aids-and-adaptations/aids-adaptations-difficulty');
+const aidsAdaptationsAdded = require('./aids-and-adaptations/aids-adaptations-added');
+
 // contact details
 const telephoneNumber = require('./contact-details/telephone-number');
 const telephoneNumberOther = require('./contact-details/telephone-number-other');
@@ -251,6 +258,11 @@ module.exports = {
   keepEyeChoice,
   keepEyeWhy,
   keepEyeDuration,
+  aidsAdaptationQuestion,
+  aidsAdaptationReason,
+  aidsAdaptations,
+  aidsAdaptationsDifficulty,
+  aidsAdaptationsAdded,
   claimSubmission,
   done,
   sercoLateApplication,
