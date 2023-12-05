@@ -3,7 +3,7 @@ const {
   match,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.fallingOrStumblingWhy,
@@ -13,7 +13,7 @@ const config = {
       page: urls.stumbling,
       condition: {
         field: urls.fallingOrStumbling,
-        value: ['risk-stumbling'],
+        value: ["risk-stumbling"],
         match: match.anyOne,
       },
     },
@@ -21,7 +21,7 @@ const config = {
       page: urls.falling,
       condition: {
         field: urls.fallingOrStumbling,
-        value: ['risk-falling'],
+        value: ["risk-falling"],
         match: match.anyOne,
       },
     },
@@ -29,7 +29,7 @@ const config = {
       page: urls.toiletDay,
       condition: {
         field: urls.dayDiffulties,
-        value: ['daytime-toilet'],
+        value: ["daytime-toilet"],
         match: match.anyOne,
       },
     },
@@ -37,7 +37,7 @@ const config = {
       page: urls.eatDrinkDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-eating'],
+        value: ["daytime-eating"],
         match: match.anyOne,
       },
     },
@@ -45,7 +45,7 @@ const config = {
       page: urls.medicationTreatmentDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-medication'],
+        value: ["daytime-medication"],
         match: match.anyOne,
       },
     },
@@ -53,7 +53,7 @@ const config = {
       page: urls.socialActivitiesDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-hobbies'],
+        value: ["daytime-hobbies"],
         match: match.anyOne,
       },
     },
@@ -61,7 +61,7 @@ const config = {
       page: urls.communicationDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-communication'],
+        value: ["daytime-communication"],
         match: match.anyOne,
       },
     },
@@ -71,25 +71,30 @@ const config = {
   ],
   validation: [
     {
-      name: 'something-else-falling-explain',
+      name: "something-else-falling-explain",
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 200,
       },
       errors: {
-        required: 'You must tell us the reason you stumble or fall.',
-        maxLength: 'Tell us the reason you stumble or fall must be 200 characters or less.',
+        required: "Enter what causes you to stumble or fall down",
+        maxLength:
+          "Enter what causes you to stumble or fall down in 200 characters or less",
       },
       condition: {
-        field: 'falling-or-stumbling-why',
-        value: 'something-else',
+        field: "falling-or-stumbling-why",
+        value: "something-else",
       },
     },
     {
-      name: 'falling-or-stumbling-why',
+      name: "falling-or-stumbling-why",
       type: validation.checkboxes,
-    }],
+      errors: {
+        required: "Select what causes you to stumble or fall down",
+      },
+    },
+  ],
 };
 
 module.exports = registerController(config.name, config);

@@ -3,7 +3,7 @@ const {
   validation,
   match,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.treatmentSurgery,
@@ -13,7 +13,7 @@ const config = {
       page: urls.treatmentSurgeryInformation,
       condition: {
         field: urls.treatmentSurgery,
-        value: 'yes',
+        value: "yes",
         match: match.value,
       },
     },
@@ -21,7 +21,7 @@ const config = {
       page: urls.checkAnswersSpecialRules,
       condition: {
         field: urls.specialRulesDeclaration,
-        value: 'yes',
+        value: "yes",
         match: match.value,
       },
     },
@@ -29,13 +29,12 @@ const config = {
       page: urls.consent,
     },
   ],
-  validation:
-{
-  type: validation.radios,
-  errors: {
-    required: 'You must enter either yes or no.',
+  validation: {
+    type: validation.radios,
+    errors: {
+      required: "Select yes if you are having treatment or waiting for surgery",
+    },
   },
-},
 };
 
 module.exports = registerController(config.name, config);

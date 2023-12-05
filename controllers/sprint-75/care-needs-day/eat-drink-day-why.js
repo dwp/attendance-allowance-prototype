@@ -2,7 +2,7 @@ const {
   urls,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.eatDrinkDayWhy,
@@ -18,25 +18,30 @@ const config = {
   ],
   validation: [
     {
-      name: 'something-else-eating-drinking-day-why-explain',
+      name: "something-else-eating-drinking-day-why-explain",
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 200,
       },
       errors: {
-        required: 'You must tell us the reason you struggle.',
-        maxLength: 'Tell us in what other way you struggle must be 200 characters or less.',
+        required: "Enter how you manage to eat or drink",
+        maxLength:
+          "Enter how you manage to eat or drink in 200 characters or less",
       },
       condition: {
-        field: 'eat-drink-day-why',
-        value: 'eat-drink-why-something-else',
+        field: "eat-drink-day-why",
+        value: "eat-drink-why-something-else",
       },
     },
     {
-      name: 'eat-drink-day-why',
+      name: "eat-drink-day-why",
       type: validation.checkboxes,
-    }],
+      errors: {
+        required: "Select how you manage to eat or drink",
+      },
+    },
+  ],
 };
 
 module.exports = registerController(config.name, config);

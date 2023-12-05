@@ -3,7 +3,7 @@ const {
   match,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.movingIndoorsDay,
@@ -12,7 +12,7 @@ const config = {
       page: urls.dressDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-dressing'],
+        value: ["daytime-dressing"],
         match: match.anyOne,
       },
     },
@@ -20,7 +20,7 @@ const config = {
       page: urls.washDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-washing'],
+        value: ["daytime-washing"],
         match: match.anyOne,
       },
     },
@@ -28,7 +28,7 @@ const config = {
       page: urls.bedDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-bed'],
+        value: ["daytime-bed"],
         match: match.anyOne,
       },
     },
@@ -41,7 +41,14 @@ const config = {
       page: urls.movingIndoorsWhy,
       condition: {
         field: urls.movingIndoorsDay,
-        value: ['walking-around', 'chair', 'wheel', 'stairs', 'reminding-motivating', 'moving-indoors-something-else'],
+        value: [
+          "walking-around",
+          "chair",
+          "wheel",
+          "stairs",
+          "reminding-motivating",
+          "moving-indoors-something-else",
+        ],
         match: match.anyOne,
       },
     },
@@ -49,7 +56,7 @@ const config = {
       page: urls.fallingOrStumbling,
       condition: {
         field: urls.dayDifficulties,
-        value: ['stumbling-falling'],
+        value: ["stumbling-falling"],
         match: match.anyOne,
       },
     },
@@ -57,7 +64,7 @@ const config = {
       page: urls.toiletDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-toilet'],
+        value: ["daytime-toilet"],
         match: match.anyOne,
       },
     },
@@ -65,7 +72,7 @@ const config = {
       page: urls.eatDrinkDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-eating'],
+        value: ["daytime-eating"],
         match: match.anyOne,
       },
     },
@@ -73,7 +80,7 @@ const config = {
       page: urls.medicationTreatmentDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-medication'],
+        value: ["daytime-medication"],
         match: match.anyOne,
       },
     },
@@ -81,7 +88,7 @@ const config = {
       page: urls.socialActivitiesDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-hobbies'],
+        value: ["daytime-hobbies"],
         match: match.anyOne,
       },
     },
@@ -89,7 +96,7 @@ const config = {
       page: urls.communicationDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-communication'],
+        value: ["daytime-communication"],
         match: match.anyOne,
       },
     },
@@ -99,25 +106,31 @@ const config = {
   ],
   validation: [
     {
-      name: 'something-else-explain',
+      name: "something-else-explain",
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 200,
       },
       errors: {
-        required: 'You must tell us what you struggle with.',
-        maxLength: 'Tell us what you struggle with must be 200 characters or less.',
+        required: "Enter what difficulty you have when moving around indoors",
+        maxLength:
+          "Enter what difficulty you have when moving around indoors in 200 characters or less",
       },
       condition: {
-        field: 'moving-indoors-day',
-        value: 'moving-indoors-something-else',
+        field: "moving-indoors-day",
+        value: "moving-indoors-something-else",
       },
     },
     {
-      name: 'moving-indoors-day',
+      name: "moving-indoors-day",
       type: validation.checkboxes,
-    }],
+      errors: {
+        required:
+          "Select what you have difficulty with when moving around indoors",
+      },
+    },
+  ],
 };
 
 module.exports = registerController(config.name, config);

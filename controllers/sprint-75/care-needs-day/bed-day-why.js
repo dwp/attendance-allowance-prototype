@@ -3,7 +3,7 @@ const {
   match,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.bedDayWhy,
@@ -17,7 +17,14 @@ const config = {
       page: urls.returnBedDay,
       condition: {
         field: urls.bedDayWhy,
-        value: ['restricted-movement', 'hold-on-to-things', 'get-in-out-bed-safely', 'encouragement', 'help-bed', 'bed-day-why-something-else'],
+        value: [
+          "restricted-movement",
+          "hold-on-to-things",
+          "get-in-out-bed-safely",
+          "encouragement",
+          "help-bed",
+          "bed-day-why-something-else",
+        ],
         match: match.anyOne,
       },
     },
@@ -25,7 +32,7 @@ const config = {
       page: urls.washDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-washing'],
+        value: ["daytime-washing"],
         match: match.anyOne,
       },
     },
@@ -33,7 +40,7 @@ const config = {
       page: urls.dressDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-dressing'],
+        value: ["daytime-dressing"],
         match: match.anyOne,
       },
     },
@@ -41,7 +48,7 @@ const config = {
       page: urls.movingIndoorsDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-moving'],
+        value: ["daytime-moving"],
         match: match.anyOne,
       },
     },
@@ -49,7 +56,7 @@ const config = {
       page: urls.fallingOrStumbling,
       condition: {
         field: urls.dayDifficulties,
-        value: ['stumbling-falling'],
+        value: ["stumbling-falling"],
         match: match.anyOne,
       },
     },
@@ -57,7 +64,7 @@ const config = {
       page: urls.toiletDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-toilet'],
+        value: ["daytime-toilet"],
         match: match.anyOne,
       },
     },
@@ -65,7 +72,7 @@ const config = {
       page: urls.eatDrinkDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-eating'],
+        value: ["daytime-eating"],
         match: match.anyOne,
       },
     },
@@ -73,7 +80,7 @@ const config = {
       page: urls.medicationTreatmentDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-medication'],
+        value: ["daytime-medication"],
         match: match.anyOne,
       },
     },
@@ -81,7 +88,7 @@ const config = {
       page: urls.socialActivitiesDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-hobbies'],
+        value: ["daytime-hobbies"],
         match: match.anyOne,
       },
     },
@@ -89,7 +96,7 @@ const config = {
       page: urls.communicationDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-communication'],
+        value: ["daytime-communication"],
         match: match.anyOne,
       },
     },
@@ -99,25 +106,30 @@ const config = {
   ],
   validation: [
     {
-      name: 'something-else-bed-day-why-explain',
+      name: "something-else-bed-day-why-explain",
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 200,
       },
       errors: {
-        required: 'You must select one or more options.',
-        maxLength: 'Tell us in what other way you struggle must be 200 characters or less.',
+        required: "Enter how you manage to get in and out of bed",
+        maxLength:
+          "Enter how you manage to get in and out of bed in 200 characters or less",
       },
       condition: {
-        field: 'bed-day-why',
-        value: 'bed-day-why-something-else',
+        field: "bed-day-why",
+        value: "bed-day-why-something-else",
       },
     },
     {
-      name: 'bed-day-why',
+      name: "bed-day-why",
       type: validation.checkboxes,
-    }],
+      errors: {
+        required: "Select how you manage to get in and out of bed",
+      },
+    },
+  ],
 };
 
 module.exports = registerController(config.name, config);

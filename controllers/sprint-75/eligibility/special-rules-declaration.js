@@ -3,7 +3,7 @@ const {
   validation,
   match,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.specialRulesDeclaration,
@@ -12,7 +12,7 @@ const config = {
       page: urls.bestDescribe,
       condition: {
         field: urls.bestDescribe,
-        value: 'friend',
+        value: "friend",
         match: match.value,
       },
     },
@@ -20,7 +20,7 @@ const config = {
       page: urls.bestDescribe,
       condition: {
         field: urls.bestDescribe,
-        value: 'charity',
+        value: "charity",
         match: match.value,
       },
     },
@@ -33,7 +33,7 @@ const config = {
       page: urls.whoIsApplyingIneligible,
       condition: {
         field: urls.specialRulesDeclaration,
-        value: 'yes',
+        value: "yes",
         match: match.value,
       },
     },
@@ -44,7 +44,8 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: 'You must enter either yes or no.',
+      required:
+        "Select yes if your doctor has said you might have less than 12 months to live",
     },
   },
 };

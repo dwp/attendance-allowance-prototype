@@ -3,7 +3,7 @@ const {
   match,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.fallingOrStumbling,
@@ -12,7 +12,7 @@ const config = {
       page: urls.movingIndoorsStairs,
       condition: {
         field: urls.movingIndoorsDay,
-        value: ['stairs'],
+        value: ["stairs"],
         match: match.anyOne,
       },
     },
@@ -20,7 +20,7 @@ const config = {
       page: urls.movingIndoorsWhy,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-moving'],
+        value: ["daytime-moving"],
         match: match.anyOne,
       },
     },
@@ -28,7 +28,7 @@ const config = {
       page: urls.dressDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-dressing'],
+        value: ["daytime-dressing"],
         match: match.anyOne,
       },
     },
@@ -36,7 +36,7 @@ const config = {
       page: urls.washDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-washing'],
+        value: ["daytime-washing"],
         match: match.anyOne,
       },
     },
@@ -44,7 +44,7 @@ const config = {
       page: urls.bedDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-bed'],
+        value: ["daytime-bed"],
         match: match.anyOne,
       },
     },
@@ -73,7 +73,7 @@ const config = {
       page: urls.fallingOrStumblingWhy,
       condition: {
         field: urls.fallingOrStumbling,
-        value: ['risk-falling', 'risk-stumbling'],
+        value: ["risk-falling", "risk-stumbling"],
         match: match.anyOne,
       },
     },
@@ -81,7 +81,7 @@ const config = {
       page: urls.toiletDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-toilet'],
+        value: ["daytime-toilet"],
         match: match.anyOne,
       },
     },
@@ -89,7 +89,7 @@ const config = {
       page: urls.eatDrinkDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-eating'],
+        value: ["daytime-eating"],
         match: match.anyOne,
       },
     },
@@ -97,7 +97,7 @@ const config = {
       page: urls.medicationTreatmentDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-medication'],
+        value: ["daytime-medication"],
         match: match.anyOne,
       },
     },
@@ -105,7 +105,7 @@ const config = {
       page: urls.socialActivitiesDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-hobbies'],
+        value: ["daytime-hobbies"],
         match: match.anyOne,
       },
     },
@@ -113,7 +113,7 @@ const config = {
       page: urls.communicationDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-communication'],
+        value: ["daytime-communication"],
         match: match.anyOne,
       },
     },
@@ -123,6 +123,9 @@ const config = {
   ],
   validation: {
     type: validation.checkboxes,
+    errors: {
+      required: "Select yes if you stumble or fall",
+    },
   },
 };
 

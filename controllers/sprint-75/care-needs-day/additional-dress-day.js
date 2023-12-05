@@ -3,7 +3,7 @@ const {
   validation,
   match,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.additionalDressDay,
@@ -13,7 +13,7 @@ const config = {
       page: urls.movingIndoorsDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-moving'],
+        value: ["daytime-moving"],
         match: match.anyOne,
       },
     },
@@ -21,7 +21,7 @@ const config = {
       page: urls.fallingOrStumbling,
       condition: {
         field: urls.dayDifficulties,
-        value: ['stumbling-falling'],
+        value: ["stumbling-falling"],
         match: match.anyOne,
       },
     },
@@ -29,7 +29,7 @@ const config = {
       page: urls.toiletDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-toilet'],
+        value: ["daytime-toilet"],
         match: match.anyOne,
       },
     },
@@ -37,7 +37,7 @@ const config = {
       page: urls.eatDrinkDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-eating'],
+        value: ["daytime-eating"],
         match: match.anyOne,
       },
     },
@@ -45,7 +45,7 @@ const config = {
       page: urls.medicationTreatmentDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-medication'],
+        value: ["daytime-medication"],
         match: match.anyOne,
       },
     },
@@ -53,7 +53,7 @@ const config = {
       page: urls.socialActivitiesDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-hobbies'],
+        value: ["daytime-hobbies"],
         match: match.anyOne,
       },
     },
@@ -61,7 +61,7 @@ const config = {
       page: urls.communicationDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-communication'],
+        value: ["daytime-communication"],
         match: match.anyOne,
       },
     },
@@ -71,23 +71,30 @@ const config = {
   ],
   validation: [
     {
-      name: 'dress-frequency',
+      name: "dress-frequency",
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 4,
       },
       errors: {
-        required: 'Enter how many times do you need to dress and undress again during the day.',
+        required:
+          "Enter the average number of times you change your clothes during the day",
+        maxLength:
+          "Enter the average number of times you change your clothes during the day in 4 characters or less",
       },
       condition: {
-        field: 'additional-dress-day',
-        value: 'yes',
+        field: "additional-dress-day",
+        value: "yes",
       },
     },
     {
-      name: 'additional-dress-day',
+      name: "additional-dress-day",
       type: validation.radios,
+      errors: {
+        required:
+          "Select yes if you need to change your clothes during the day",
+      },
     },
   ],
 };

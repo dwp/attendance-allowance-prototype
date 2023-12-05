@@ -3,7 +3,7 @@ const {
   match,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.toiletDay,
@@ -12,7 +12,7 @@ const config = {
       page: urls.falling,
       condition: {
         field: urls.fallingOrStumbling,
-        value: ['risk-falling'],
+        value: ["risk-falling"],
         match: match.anyOne,
       },
     },
@@ -20,7 +20,7 @@ const config = {
       page: urls.stumbling,
       condition: {
         field: urls.fallingOrStumbling,
-        value: ['risk-stumbling'],
+        value: ["risk-stumbling"],
         match: match.anyOne,
       },
     },
@@ -28,7 +28,7 @@ const config = {
       page: urls.fallingOrStumbling,
       condition: {
         field: urls.dayDifficulties,
-        value: ['stumbling-falling'],
+        value: ["stumbling-falling"],
         match: match.anyOne,
       },
     },
@@ -36,7 +36,7 @@ const config = {
       page: urls.movingIndoorsStairs,
       condition: {
         field: urls.movingIndoorsDay,
-        value: ['stairs'],
+        value: ["stairs"],
         match: match.anyOne,
       },
     },
@@ -44,7 +44,7 @@ const config = {
       page: urls.movingIndoorsWhy,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-moving'],
+        value: ["daytime-moving"],
         match: match.anyOne,
       },
     },
@@ -52,7 +52,7 @@ const config = {
       page: urls.dressDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-dressing'],
+        value: ["daytime-dressing"],
         match: match.anyOne,
       },
     },
@@ -60,7 +60,7 @@ const config = {
       page: urls.washDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-washing'],
+        value: ["daytime-washing"],
         match: match.anyOne,
       },
     },
@@ -68,7 +68,7 @@ const config = {
       page: urls.bedDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-bed'],
+        value: ["daytime-bed"],
         match: match.anyOne,
       },
     },
@@ -81,7 +81,17 @@ const config = {
       page: urls.toiletDayWhy,
       condition: {
         field: urls.toiletDay,
-        value: ['toilet-getting-to', 'toilet-urgent', 'toilet-getting-on-off', 'toilet-cleaning-myself', 'toilet-emptying', 'toilet-remembering', 'managing-incontinence', 'toilet-not-always', 'toilet-something-else'],
+        value: [
+          "toilet-getting-to",
+          "toilet-urgent",
+          "toilet-getting-on-off",
+          "toilet-cleaning-myself",
+          "toilet-emptying",
+          "toilet-remembering",
+          "managing-incontinence",
+          "toilet-not-always",
+          "toilet-something-else",
+        ],
         match: match.anyOne,
       },
     },
@@ -89,7 +99,7 @@ const config = {
       page: urls.eatDrinkDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-eating'],
+        value: ["daytime-eating"],
         match: match.anyOne,
       },
     },
@@ -97,7 +107,7 @@ const config = {
       page: urls.medicationTreatmentDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-medication'],
+        value: ["daytime-medication"],
         match: match.anyOne,
       },
     },
@@ -105,7 +115,7 @@ const config = {
       page: urls.socialActivitiesDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-hobbies'],
+        value: ["daytime-hobbies"],
         match: match.anyOne,
       },
     },
@@ -113,7 +123,7 @@ const config = {
       page: urls.communicationDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-communication'],
+        value: ["daytime-communication"],
         match: match.anyOne,
       },
     },
@@ -123,24 +133,28 @@ const config = {
   ],
   validation: [
     {
-      name: 'something-else-explain-toilet',
+      name: "something-else-explain-toilet",
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 200,
       },
       errors: {
-        required: 'You must tell us what you struggle with',
-        maxLength: 'Tell us what you struggle with must be 200 characters or less.',
+        required: "Enter what difficulty you have with your toilet needs",
+        maxLength:
+          "Enter what difficulty you have with your toilet needs in 200 characters or less",
       },
       condition: {
-        field: 'toilet-day',
-        value: 'toilet-something-else',
+        field: "toilet-day",
+        value: "toilet-something-else",
       },
     },
     {
-      name: 'toilet-day',
+      name: "toilet-day",
       type: validation.checkboxes,
+      errors: {
+        required: "Select what difficulty you have with your toilet needs",
+      },
     },
   ],
 };

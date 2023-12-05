@@ -1,9 +1,9 @@
 const {
   urls,
   validation,
-  match, 
+  match,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.careHomeHospital,
@@ -12,11 +12,11 @@ const config = {
     {
       page: urls.sercoCareHomeHospital,
       condition: {
-        field: urls.careHomeHospital, 
-        value: 'no',
-        match: match.value, 
+        field: urls.careHomeHospital,
+        value: "no",
+        match: match.value,
       },
-    }, 
+    },
     {
       page: urls.illnessDisability,
     },
@@ -24,7 +24,7 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: 'You must select an option.',
+      required: "Select yes if you are currently in a care home or hospital",
     },
   },
 };

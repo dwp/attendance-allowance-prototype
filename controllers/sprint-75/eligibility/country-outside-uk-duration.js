@@ -3,7 +3,7 @@ const {
   validation,
   match,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.countryOutsideUKDuration,
@@ -13,7 +13,7 @@ const config = {
       page: urls.countryOutsideUKDurationInelgible,
       condition: {
         field: urls.countryOutsideUKDuration,
-        value: 'yes',
+        value: "yes",
         match: match.value,
       },
     },
@@ -24,7 +24,8 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: 'You must select an option.',
+      required:
+        "Select yes if you have been outside the UK more than 12 months in the last 3 years",
     },
   },
 };
