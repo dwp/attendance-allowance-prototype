@@ -32,12 +32,12 @@
     items: [
       {
         value: "yes",
-        text: "Yes",
+        text: "Yes, information about my health can be shared with DWP or the healthcare professionals that work for them.",
         checked: true if data["consent"] and data["consent"].includes("yes")
       },
       {
         value: "no",
-        text: "No",
+        text: "No, information about my health cannot be shared with DWP or the healthcare professionals that work for them.",
         checked: true if data["consent"] and data["consent"].includes("no")
       }]
   }) }}
