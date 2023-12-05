@@ -3,7 +3,7 @@ const {
   validation,
   match,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.bedPositionNightFrequency,
@@ -13,7 +13,7 @@ const config = {
       page: urls.toiletNight,
       condition: {
         field: urls.nightDifficulties,
-        value: ['nighttime-cleaning-yourself'],
+        value: ["nighttime-cleaning-yourself"],
         match: match.anyOne,
       },
     },
@@ -21,7 +21,7 @@ const config = {
       page: urls.medicationTreatmentNight,
       condition: {
         field: urls.nightDifficulties,
-        value: ['nighttime-medication'],
+        value: ["nighttime-medication"],
         match: match.anyOne,
       },
     },
@@ -31,26 +31,28 @@ const config = {
   ],
   validation: [
     {
-      name: 'bed-position-typically-how-long',
+      name: "bed-position-typically-how-long",
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 200,
       },
       errors: {
-        required: 'Enter how long it takes to get settled',
-        maxLength: 'How long it takes to get settled must be 200 characters or less',
+        required: "Enter how long it takes to get settled in bed",
+        maxLength:
+          "Enter how long it takes to get settled in bed in 200 characters or less",
       },
       condition: {
-        field: 'night-frequency-bed-position',
-        value: 'once-a-night',
+        field: "night-frequency-bed-position",
+        value: "once-a-night",
       },
     },
     {
       type: validation.radios,
-      name: 'night-frequency-bed-position',
+      name: "night-frequency-bed-position",
       errors: {
-        required: 'You must select how many times.',
+        required:
+          "Select how many times a night you have difficulties getting settled",
       },
     },
   ],

@@ -3,7 +3,7 @@ const {
   match,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.toiletNightWhy,
@@ -13,7 +13,16 @@ const config = {
       page: urls.toiletNightFrequency,
       condition: {
         field: urls.toiletNightWhy,
-        value: ['lean-on-sink-radiator', 'toilet-raised', 'toilet-several-attempts', 'toilet-accident', 'toilet-safely', 'toilet-physical-assist', 'unable-to-manage', 'toilet-night-why-something-else'],
+        value: [
+          "lean-on-sink-radiator",
+          "toilet-raised",
+          "toilet-several-attempts",
+          "toilet-accident",
+          "toilet-safely",
+          "toilet-physical-assist",
+          "unable-to-manage",
+          "toilet-night-why-something-else",
+        ],
         match: match.anyOne,
       },
     },
@@ -21,7 +30,7 @@ const config = {
       page: urls.medicationTreatmentNight,
       condition: {
         field: urls.nightDifficulties,
-        value: ['nighttime-medication'],
+        value: ["nighttime-medication"],
         match: match.anyOne,
       },
     },
@@ -31,24 +40,28 @@ const config = {
   ],
   validation: [
     {
-      name: 'something-else-toilet-night-why-explain',
+      name: "something-else-toilet-night-why-explain",
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 200,
       },
       errors: {
-        required: 'You must tell us the reason you struggle.',
-        maxLength: 'Tell us the reason you are struggling must be 200 characters or less.',
+        required: "You must tell us the reason you struggle.",
+        maxLength:
+          "Tell us the reason you are struggling must be 200 characters or less.",
       },
       condition: {
-        field: 'toilet-night-why',
-        value: 'toilet-night-why-something-else',
+        field: "toilet-night-why",
+        value: "toilet-night-why-something-else",
       },
     },
     {
-      name: 'toilet-night-why',
+      name: "toilet-night-why",
       type: validation.checkboxes,
+      errors: {
+        required: "Select how you manage your toilet needs during the night",
+      },
     },
   ],
 };

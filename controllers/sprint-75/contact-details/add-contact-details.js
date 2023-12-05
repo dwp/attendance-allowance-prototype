@@ -1,9 +1,9 @@
 const {
   urls,
-  match, 
+  match,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.addContactDetails,
@@ -13,7 +13,7 @@ const config = {
       page: urls.telephoneNumberOther,
       condition: {
         field: urls.addContactDetails,
-        value: 'yes',
+        value: "yes",
         match: match.value,
       },
     },
@@ -23,28 +23,33 @@ const config = {
   ],
   validation: [
     {
-      name: 'add-contact-details',
+      name: "add-contact-details",
       type: validation.radios,
     },
     {
-      name: 'add-contact-details-name',
+      name: "add-contact-details-name",
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 100,
       },
       errors: {
-        required: 'Enter their full name.',
-        maxLength: 'Your answer must be 100 characters or less.',
+        required: "Enter the full name of the other contact",
+        maxLength:
+          "Enter the full name of the other contact in 100 characters or less",
       },
       condition: {
-        field: 'add-contact-details',
-        value: 'yes',
+        field: "add-contact-details",
+        value: "yes",
       },
     },
     {
       type: validation.radios,
-      name: 'add-contact-details',
+      name: "add-contact-details",
+      errors: {
+        required:
+          "Select yes if you want to add contact details for someone else",
+      },
     },
   ],
 };

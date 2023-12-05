@@ -3,7 +3,7 @@ const {
   validation,
   match,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.aidsAdaptationsQuestion,
@@ -12,7 +12,7 @@ const config = {
       page: urls.aidsAdaptationsReason,
       condition: {
         field: urls.aidsAdaptationsQuestion,
-        value: 'no',
+        value: "no",
         match: match.value,
       },
     },
@@ -22,10 +22,14 @@ const config = {
   ],
   validation: [
     {
-      name: 'aids-adaptations-question',
+      name: "aids-adaptations-question",
       type: validation.radios,
-    }
-  ]
+      errors: {
+        required:
+          "Select yes if you have any home adaptations, specialist equipment or aids",
+      },
+    },
+  ],
 };
 
 module.exports = registerController(config.name, config);
