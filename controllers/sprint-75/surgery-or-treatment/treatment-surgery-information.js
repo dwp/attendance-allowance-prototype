@@ -18,7 +18,7 @@ const config = {
       },
     },
     {
-      page: urls.checkAnswersDetails,
+      page: urls.consent,
     },
   ],
 

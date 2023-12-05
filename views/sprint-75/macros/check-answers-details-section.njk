@@ -135,15 +135,30 @@
           Who is claiming
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['person-claiming'] 
+          {{ data['who-is-applying'] 
           | replace("myself", "I’m applying for myself")
           | replace("helping-someone", "I'm helping someone else with their application") 
           }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          {{ changeLink('person-claiming') }}
+          {{ changeLink('who-is-applying') }}
         </dd>
       </div>
+      {% if data['special-rules-declaration'] === 'no' %}
+        <div class="govuk-summary-list__row special-rules-declaration">
+          <dt class="govuk-summary-list__key">
+            Special rules
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['special-rules-declaration'] 
+              | replace("no", "Does not apply to me") 
+              | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('special-rules-declaration') }}
+          </dd>
+        </div>
+      {% endif %}
       <div class="govuk-summary-list__row other-benefits">
         <dt class="govuk-summary-list__key">
           Other benefits
@@ -247,39 +262,34 @@
       Your health information
     </h2>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-      <div class="govuk-summary-list__row illness-disability">
-        <dt class="govuk-summary-list__key">
-          Your illnesses or conditions
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <ul class="govuk-list">
-            {% for illness in data['illness-disability'] | makeArray %}
-              <li>
-                {{ illness 
-                  | replace("Chest disease (COPD, emphysema, Asthma)", "Chest disease") }}
-              </li>
-            {% endfor %}
-          </ul>
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          {{ changeLink('illness-disability') }}
-        </dd>
-      </div>
-     {% if data['other-illness'] != null %}
-      <div class="govuk-summary-list__row illness-detail">
-        <dt class="govuk-summary-list__key">
-          Other illnesses, physical or mental disabilities
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['other-illness'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          {{ changeLink('illness-disability') }}
-        </dd>
-      </div>
-     {% endif %}
-     
-      
+      <dl class="govuk-summary-list row no-border">
+					<div class="govuk-summary-list__row no-border">
+						<dt class="govuk-summary-list__key govuk-heading-s">Your conditions or disabilities</dt>
+						<dt class="govuk-summary-list__actions">
+							{{ changeLink('illness-disability-added') }}						
+						</dt>
+					</div>
+				</dl>
+				<dl class="govuk-summary-list row no-border">
+					<div class="govuk-summary-list__row no-border govuk-summary-list__row--no-actions">
+						<dt class="govuk-summary-list__key ">{{ data['illness-disability'] }}</dt>
+						<dt class="govuk-summary-list__value "></dt>
+					</div>
+					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions govuk-summary-list__row--no-actions">
+						<dt class="govuk-summary-list__key govuk-!-font-weight-regular">Start date</dt>
+						<dt class="govuk-summary-list__value ">{{ data['illness-start-date'] }}</dt>
+					</div>
+				</dl>
+        
+        
+    </dl>
+  </section>
+
+  <section class="consent">
+    <h2 class="govuk-heading-m">
+      Other health information
+    </h2>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       {% if data['renal-dialysis'] == 'yes' %}
         <div class="govuk-summary-list__row renal-dialysis">
           <dt class="govuk-summary-list__key">
@@ -352,22 +362,6 @@
           </dd>
         </div>
       {% endif %}
-      
-      {% if data['special-rules-declaration'] === 'no' %}
-        <div class="govuk-summary-list__row special-rules-declaration">
-          <dt class="govuk-summary-list__key">
-            Special rules
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['special-rules-declaration'] 
-              | replace("no", "Does not apply to me") 
-              | capitalize }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {{ changeLink('special-rules-declaration') }}
-          </dd>
-        </div>
-      {% endif %}
 
       <div class="govuk-summary-list__row treatment-surgery">
         <dt class="govuk-summary-list__key">
@@ -396,5 +390,41 @@
         </div>
       {% endif %}
     </dl>
+  </section>
+
+  <section class="consent">
+    <h2 class="govuk-heading-m">
+      Consent
+    </h2>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row consent">
+        <dt class="govuk-summary-list__key">
+          Sharing information about your health condition or disability
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['consent'] 
+          | replace("yes", "Yes, information about my health can be shared with DWP or the healthcare professionals that work for them.") 
+          | replace("no", "No, information about my health cannot be shared with DWP or the healthcare professionals that work for them.") }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {{ changeLink('consent') }}
+        </dd>
+      </div>
+      {% if data['surgery-medical-centre-name'] %}
+        <div class="govuk-summary-list__row surgery-medical-centre-name">
+          <dt class="govuk-summary-list__key">
+            Your doctor's surgery or medical centre
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['surgery-medical-centre-name'] }} <br/>
+            {% if data['surgery-medical-centre-postcode'] %}
+              {{ data['surgery-medical-centre-postcode'] }} <br/>
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          {{ changeLink('surgery-medical-centre') }}
+        </dd>
+        </div>
+      {% endif %}  
   </section>
 {% endmacro %}
