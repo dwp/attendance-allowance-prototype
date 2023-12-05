@@ -17,7 +17,7 @@ const config = {
         maxLength: 100,
       },
       errors: {
-        required: "Tell us the other way you manage.",
+        required: "Tell us the other way you manage",
       },
       condition: {
         field: "communication-day-difficulties",

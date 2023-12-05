@@ -40,7 +40,7 @@ const config = {
       type: validation.checkboxes,
       errors: {
         required:
-          "Select how you manage to manage to take your medication or get treatment",
+          "Select how you manage to take your medication or get treatment",
       },
     },
   ],

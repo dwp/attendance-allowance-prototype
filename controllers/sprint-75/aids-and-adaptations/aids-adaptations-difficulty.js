@@ -21,7 +21,7 @@ const config = {
     type: validation.radios,
     errors: {
       required:
-        "Select yes  if you find this adaptation, equipment or aid difficult to use",
+        "Select yes if you find this adaptation, equipment or aid difficult to use",
     },
   },
 };
