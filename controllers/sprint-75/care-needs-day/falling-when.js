@@ -3,7 +3,7 @@ const {
   match,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.fallingWhen,
@@ -12,7 +12,7 @@ const config = {
       page: urls.stumbling,
       condition: {
         field: urls.fallingOrStumbling,
-        value: ['risk-stumbling'],
+        value: ["risk-stumbling"],
         match: match.anyOne,
       },
     },
@@ -20,17 +20,18 @@ const config = {
       page: urls.fallingOrStumbling,
       condition: {
         field: urls.fallingOrStumblingWhy,
-        value: ['risk-falling'],
+        value: ["risk-falling"],
         match: match.anyOne,
       },
-    }],
+    },
+  ],
   next: urls.falling,
   validation: [
     {
-      name: 'falling-when',
+      name: "falling-when",
       type: validation.radios,
       errors: {
-        required: 'Select when you last fell.',
+        required: "Select when you last fell down",
       },
     },
   ],

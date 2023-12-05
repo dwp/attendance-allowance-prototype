@@ -3,7 +3,7 @@ const {
   validation,
   match,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.medicationTreatmentDayFrequency,
@@ -13,7 +13,7 @@ const config = {
       page: urls.socialActivitiesDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-hobbies'],
+        value: ["daytime-hobbies"],
         match: match.anyOne,
       },
     },
@@ -21,7 +21,7 @@ const config = {
       page: urls.communicationDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-communication'],
+        value: ["daytime-communication"],
         match: match.anyOne,
       },
     },
@@ -31,6 +31,9 @@ const config = {
   ],
   validation: {
     type: validation.radios,
+    errors: {
+      required: "Select how often you take medication or get treatment",
+    },
   },
 };
 

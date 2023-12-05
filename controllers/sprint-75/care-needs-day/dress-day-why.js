@@ -2,7 +2,7 @@ const {
   urls,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.dressDayWhy,
@@ -18,25 +18,30 @@ const config = {
   ],
   validation: [
     {
-      name: 'something-else-dress-day-why-explain',
+      name: "something-else-dress-day-why-explain",
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 200,
       },
       errors: {
-        required: 'You must tell us in what other way you struggle.',
-        maxLength: 'Tell us in what other way you struggle must be 200 characters or less.',
+        required: "Enter how you manage to get dressed or undressed",
+        maxLength:
+          "Enter how you manage to get dressed or undressed in 200 characters or less",
       },
       condition: {
-        field: 'dress-day-why',
-        value: 'dress-day-why-something-else',
+        field: "dress-day-why",
+        value: "dress-day-why-something-else",
       },
     },
     {
-      name: 'dress-day-why',
+      name: "dress-day-why",
       type: validation.checkboxes,
-    }],
+      errors: {
+        required: "Select how you manage to get dressed or undressed",
+      },
+    },
+  ],
 };
 
 module.exports = registerController(config.name, config);

@@ -3,7 +3,7 @@ const {
   match,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.returnBedDay,
@@ -13,7 +13,7 @@ const config = {
       page: urls.washDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-washing'],
+        value: ["daytime-washing"],
         match: match.anyOne,
       },
     },
@@ -21,7 +21,7 @@ const config = {
       page: urls.dressDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-dressing'],
+        value: ["daytime-dressing"],
         match: match.anyOne,
       },
     },
@@ -29,7 +29,7 @@ const config = {
       page: urls.movingIndoorsDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-moving'],
+        value: ["daytime-moving"],
         match: match.anyOne,
       },
     },
@@ -37,7 +37,7 @@ const config = {
       page: urls.fallingOrStumbling,
       condition: {
         field: urls.dayDifficulties,
-        value: ['stumbling-falling'],
+        value: ["stumbling-falling"],
         match: match.anyOne,
       },
     },
@@ -45,7 +45,7 @@ const config = {
       page: urls.toiletDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-toilet'],
+        value: ["daytime-toilet"],
         match: match.anyOne,
       },
     },
@@ -53,7 +53,7 @@ const config = {
       page: urls.eatDrinkDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-eating'],
+        value: ["daytime-eating"],
         match: match.anyOne,
       },
     },
@@ -61,7 +61,7 @@ const config = {
       page: urls.medicationTreatmentDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-medication'],
+        value: ["daytime-medication"],
         match: match.anyOne,
       },
     },
@@ -69,7 +69,7 @@ const config = {
       page: urls.socialActivitiesDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-hobbies'],
+        value: ["daytime-hobbies"],
         match: match.anyOne,
       },
     },
@@ -77,7 +77,7 @@ const config = {
       page: urls.communicationDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-communication'],
+        value: ["daytime-communication"],
         match: match.anyOne,
       },
     },
@@ -87,23 +87,29 @@ const config = {
   ],
   validation: [
     {
-      name: 'return-bed-day-times',
+      name: "return-bed-day-times",
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 4,
       },
       errors: {
-        required: 'Enter how many times do you need to get in and out of bed.',
+        required:
+          "Enter the average number of times you need to go back to bed",
+        maxLength:
+          "Enter the average number of times you need to go back to bed in 4 characters or less",
       },
       condition: {
-        field: 'return-bed-day',
-        value: 'yes',
+        field: "return-bed-day",
+        value: "yes",
       },
     },
     {
-      name: 'return-bed-day',
+      name: "return-bed-day",
       type: validation.radios,
+      errors: {
+        required: "Select if you need to go back to bed during the day",
+      },
     },
   ],
 };

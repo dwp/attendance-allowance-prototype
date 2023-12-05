@@ -3,7 +3,7 @@ const {
   match,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.washDay,
@@ -12,7 +12,7 @@ const config = {
       page: urls.returnBedDay,
       condition: {
         field: urls.bedDay,
-        value: ['physical', 'motivation'],
+        value: ["physical", "motivation"],
         match: match.anyOne,
       },
     },
@@ -20,7 +20,7 @@ const config = {
       page: urls.bedDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-bed'],
+        value: ["daytime-bed"],
         match: match.anyOne,
       },
     },
@@ -33,7 +33,13 @@ const config = {
       page: urls.washDayWhy,
       condition: {
         field: urls.washDay,
-        value: ['get-in-out-bath', 'wash-drying-myself', 'taking-shower', 'forgetting-lacking-motivation-wash', 'something-else-washing'],
+        value: [
+          "get-in-out-bath",
+          "wash-drying-myself",
+          "taking-shower",
+          "forgetting-lacking-motivation-wash",
+          "something-else-washing",
+        ],
         match: match.anyOne,
       },
     },
@@ -41,7 +47,7 @@ const config = {
       page: urls.dressDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-dressing'],
+        value: ["daytime-dressing"],
         match: match.anyOne,
       },
     },
@@ -49,7 +55,7 @@ const config = {
       page: urls.movingIndoorsDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-moving'],
+        value: ["daytime-moving"],
         match: match.anyOne,
       },
     },
@@ -57,7 +63,7 @@ const config = {
       page: urls.fallingOrStumbling,
       condition: {
         field: urls.dayDifficulties,
-        value: ['stumbling-falling'],
+        value: ["stumbling-falling"],
         match: match.anyOne,
       },
     },
@@ -65,7 +71,7 @@ const config = {
       page: urls.toiletDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-toilet'],
+        value: ["daytime-toilet"],
         match: match.anyOne,
       },
     },
@@ -73,7 +79,7 @@ const config = {
       page: urls.eatDrinkDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-eating'],
+        value: ["daytime-eating"],
         match: match.anyOne,
       },
     },
@@ -81,7 +87,7 @@ const config = {
       page: urls.medicationTreatmentDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-medication'],
+        value: ["daytime-medication"],
         match: match.anyOne,
       },
     },
@@ -89,7 +95,7 @@ const config = {
       page: urls.socialActivitiesDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-hobbies'],
+        value: ["daytime-hobbies"],
         match: match.anyOne,
       },
     },
@@ -97,7 +103,7 @@ const config = {
       page: urls.communicationDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-communication'],
+        value: ["daytime-communication"],
         match: match.anyOne,
       },
     },
@@ -107,24 +113,30 @@ const config = {
   ],
   validation: [
     {
-      name: 'something-else-explain-washing',
+      name: "something-else-explain-washing",
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 200,
       },
       errors: {
-        required: 'You must tell us what you struggle with.',
-        maxLength: 'Tell us what you struggle with must be 200 characters or less.',
+        required:
+          "Enter what you find difficult when washing, having a bath or shower",
+        maxLength:
+          "Enter what you find difficult when washing, having a bath or shower in 200 characters or less",
       },
       condition: {
-        field: 'wash-day',
-        value: 'something-else-washing',
+        field: "wash-day",
+        value: "something-else-washing",
       },
     },
     {
-      name: 'wash-day',
+      name: "wash-day",
       type: validation.checkboxes,
+      errors: {
+        required:
+          "Select what you find difficult when washing, having a bath or shower",
+      },
     },
   ],
 };

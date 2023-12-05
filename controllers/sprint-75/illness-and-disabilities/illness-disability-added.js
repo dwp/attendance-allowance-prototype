@@ -3,7 +3,7 @@ const {
   validation,
   match,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.illnessDisabilityAdded,
@@ -12,7 +12,7 @@ const config = {
       page: urls.illnessDisability,
       condition: {
         field: urls.illnessDisabilityAdded,
-        value: 'yes',
+        value: "yes",
         match: match.value,
       },
     },
@@ -20,7 +20,14 @@ const config = {
       page: urls.renalDialysis,
       condition: {
         field: urls.illnessDisability,
-        value: ['Kidney disease or disorder', 'Renal failure - acute', 'Acute kidney disease (AKD)', 'Chronic kidney failure / renal failure', 'Kidney transplantation / renal', 'Transplant rejection - kidney / renal'],
+        value: [
+          "Kidney disease or disorder",
+          "Renal failure - acute",
+          "Acute kidney disease (AKD)",
+          "Chronic kidney failure / renal failure",
+          "Kidney transplantation / renal",
+          "Transplant rejection - kidney / renal",
+        ],
         match: match.anyOne,
       },
     },
@@ -28,7 +35,14 @@ const config = {
       page: urls.treatmentSurgery,
       condition: {
         field: urls.illnessDisability,
-        value: ['Kidney disease or disorder', 'Renal failure - acute', 'Acute kidney disease (AKD)', 'Chronic kidney failure / renal failure', 'Kidney transplantation / renal', 'Transplant rejection - kidney / renal'],
+        value: [
+          "Kidney disease or disorder",
+          "Renal failure - acute",
+          "Acute kidney disease (AKD)",
+          "Chronic kidney failure / renal failure",
+          "Kidney transplantation / renal",
+          "Transplant rejection - kidney / renal",
+        ],
         match: match.none,
       },
     },
@@ -37,7 +51,7 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: 'You must select an option.',
+      required: "Select yes if you have another condition or disability",
     },
   },
 };

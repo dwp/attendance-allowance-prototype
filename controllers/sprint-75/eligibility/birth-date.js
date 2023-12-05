@@ -3,7 +3,7 @@ const {
   validation,
   match,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.birthDate,
@@ -16,7 +16,7 @@ const config = {
     {
       page: urls.birthDateIneligible,
       condition: {
-        field: 'birth-date-year',
+        field: "birth-date-year",
         value: 1955,
         match: match.greaterThan,
       },

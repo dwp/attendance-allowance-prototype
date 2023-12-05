@@ -3,7 +3,7 @@ const {
   validation,
   match,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.additinalWashDay,
@@ -13,7 +13,7 @@ const config = {
       page: urls.dressDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-dressing'],
+        value: ["daytime-dressing"],
         match: match.anyOne,
       },
     },
@@ -21,7 +21,7 @@ const config = {
       page: urls.movingIndoorsDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-moving'],
+        value: ["daytime-moving"],
         match: match.anyOne,
       },
     },
@@ -29,7 +29,7 @@ const config = {
       page: urls.fallingOrStumbling,
       condition: {
         field: urls.dayDifficulties,
-        value: ['stumbling-falling'],
+        value: ["stumbling-falling"],
         match: match.anyOne,
       },
     },
@@ -37,7 +37,7 @@ const config = {
       page: urls.toiletDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-toilet'],
+        value: ["daytime-toilet"],
         match: match.anyOne,
       },
     },
@@ -45,7 +45,7 @@ const config = {
       page: urls.eatDrinkDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-eating'],
+        value: ["daytime-eating"],
         match: match.anyOne,
       },
     },
@@ -53,7 +53,7 @@ const config = {
       page: urls.medicationTreatmentDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-medication'],
+        value: ["daytime-medication"],
         match: match.anyOne,
       },
     },
@@ -61,7 +61,7 @@ const config = {
       page: urls.socialActivitiesDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-hobbies'],
+        value: ["daytime-hobbies"],
         match: match.anyOne,
       },
     },
@@ -69,7 +69,7 @@ const config = {
       page: urls.communicationDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-communication'],
+        value: ["daytime-communication"],
         match: match.anyOne,
       },
     },
@@ -79,8 +79,12 @@ const config = {
   ],
   validation: [
     {
-      name: 'additional-wash-day',
+      name: "additional-wash-day",
       type: validation.radios,
+      errors: {
+        required:
+          "Select yes if you need to wash, have a bath or shower again during the day",
+      },
     },
   ],
 };

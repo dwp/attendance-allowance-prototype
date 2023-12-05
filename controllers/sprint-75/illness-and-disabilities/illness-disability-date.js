@@ -3,7 +3,7 @@ const {
   validation,
   registerController,
   match,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.illnessDisabilityDate,
@@ -11,15 +11,16 @@ const config = {
   previous: urls.illnessDisability,
   validation: [
     {
-      name: 'illness-start-date',
+      name: "illness-start-date",
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 50,
       },
       errors: {
-        required: 'Enter the approximate date when your condition or disability started.',
-        maxLength: 'The approximate date must be 50 characters or less.',
+        required:
+          "Enter the approximate date when your condition or disability started",
+        maxLength: "The approximate date must be 50 characters or less",
       },
     },
   ],

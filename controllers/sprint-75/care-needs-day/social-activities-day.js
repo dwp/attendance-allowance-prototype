@@ -3,7 +3,7 @@ const {
   match,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.socialActivitiesDay,
@@ -12,7 +12,7 @@ const config = {
       page: urls.medicationTreatmentDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-medication'],
+        value: ["daytime-medication"],
         match: match.anyOne,
       },
     },
@@ -20,7 +20,7 @@ const config = {
       page: urls.eatDrinkDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-eating'],
+        value: ["daytime-eating"],
         match: match.anyOne,
       },
     },
@@ -28,7 +28,7 @@ const config = {
       page: urls.toiletDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-toilet'],
+        value: ["daytime-toilet"],
         match: match.anyOne,
       },
     },
@@ -36,7 +36,7 @@ const config = {
       page: urls.fallingOrStumbling,
       condition: {
         field: urls.dayDifficulties,
-        value: ['stumbling-falling'],
+        value: ["stumbling-falling"],
         match: match.anyOne,
       },
     },
@@ -44,7 +44,7 @@ const config = {
       page: urls.movingIndoorsStairs,
       condition: {
         field: urls.movingIndoorsDay,
-        value: ['stairs'],
+        value: ["stairs"],
         match: match.anyOne,
       },
     },
@@ -52,7 +52,7 @@ const config = {
       page: urls.movingIndoorsWhy,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-moving'],
+        value: ["daytime-moving"],
         match: match.anyOne,
       },
     },
@@ -60,7 +60,7 @@ const config = {
       page: urls.dressDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-dressing'],
+        value: ["daytime-dressing"],
         match: match.anyOne,
       },
     },
@@ -68,7 +68,7 @@ const config = {
       page: urls.washDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-washing'],
+        value: ["daytime-washing"],
         match: match.anyOne,
       },
     },
@@ -76,7 +76,7 @@ const config = {
       page: urls.bedDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-bed'],
+        value: ["daytime-bed"],
         match: match.anyOne,
       },
     },
@@ -89,7 +89,13 @@ const config = {
       page: urls.socialActivitiesDayFrequency,
       condition: {
         field: urls.socialActivitiesDay,
-        value: ['social-physical', 'social-motivation', 'social-no-help', 'social-no', 'something-else-social'],
+        value: [
+          "social-physical",
+          "social-motivation",
+          "social-no-help",
+          "social-no",
+          "something-else-social",
+        ],
         match: match.anyOne,
       },
     },
@@ -97,7 +103,7 @@ const config = {
       page: urls.socialActivitiesDayFrequency,
       condition: {
         field: urls.socialActivitiesDay,
-        value: ['social-physical'],
+        value: ["social-physical"],
         match: match.all,
       },
     },
@@ -105,7 +111,7 @@ const config = {
       page: urls.socialActivitiesDayFrequency,
       condition: {
         field: urls.socialActivitiesDay,
-        value: ['social-motivation'],
+        value: ["social-motivation"],
         match: match.all,
       },
     },
@@ -113,7 +119,7 @@ const config = {
       page: urls.communicationDay,
       condition: {
         field: urls.dayDifficulties,
-        value: 'daytime-communication',
+        value: "daytime-communication",
         match: match.value,
       },
     },
@@ -123,24 +129,30 @@ const config = {
   ],
   validation: [
     {
-      name: 'something-else-explain-social',
+      name: "something-else-explain-social",
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 200,
       },
       errors: {
-        required: 'You must tell us what you struggle with.',
-        maxLength: 'Tell us what you struggle with must be 200 characters or less.',
+        required:
+          "Enter what difficulty you have with social activities or hobbies",
+        maxLength:
+          "Enter what difficulty you have with social activities or hobbies in 200 characters or less",
       },
       condition: {
-        field: 'social-activities-day',
-        value: 'something-else-social',
+        field: "social-activities-day",
+        value: "something-else-social",
       },
     },
     {
-      name: 'social-activities-day',
+      name: "social-activities-day",
       type: validation.checkboxes,
+      errors: {
+        required:
+          "Select what difficulty you have with social activities or hobbies",
+      },
     },
   ],
 };

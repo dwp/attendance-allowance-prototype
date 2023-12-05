@@ -3,7 +3,7 @@ const {
   validation,
   match,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.nationality,
@@ -13,7 +13,7 @@ const config = {
       page: urls.nationalityOther,
       condition: {
         field: urls.nationality,
-        value: 'other',
+        value: "other",
         match: match.value,
       },
     },
@@ -24,7 +24,8 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: 'Select if you are British or Irish, or a citizen of another country.',
+      required:
+        "Select if you are British, Irish or a citizen of another country",
     },
   },
 };

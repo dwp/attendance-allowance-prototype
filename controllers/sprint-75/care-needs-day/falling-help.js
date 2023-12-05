@@ -3,7 +3,7 @@ const {
   match,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.fallingHelp,
@@ -13,7 +13,7 @@ const config = {
       page: urls.toiletDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-toilet'],
+        value: ["daytime-toilet"],
         match: match.anyOne,
       },
     },
@@ -21,7 +21,7 @@ const config = {
       page: urls.eatDrinkDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-eating'],
+        value: ["daytime-eating"],
         match: match.anyOne,
       },
     },
@@ -29,7 +29,7 @@ const config = {
       page: urls.medicationTreatmentDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-medication'],
+        value: ["daytime-medication"],
         match: match.anyOne,
       },
     },
@@ -37,7 +37,7 @@ const config = {
       page: urls.socialActivitiesDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-hobbies'],
+        value: ["daytime-hobbies"],
         match: match.anyOne,
       },
     },
@@ -45,7 +45,7 @@ const config = {
       page: urls.communicationDay,
       condition: {
         field: urls.dayDifficulties,
-        value: ['daytime-communication'],
+        value: ["daytime-communication"],
         match: match.anyOne,
       },
     },
@@ -55,17 +55,17 @@ const config = {
   ],
   validation: [
     {
-      name: 'help-falling',
+      name: "help-falling",
       type: validation.radios,
       errors: {
-        required: 'You must select an option. We need to know whether you need help after you fall.',
+        required: "Select yes if you need help to get up after a fall",
       },
     },
     {
-      name: 'falls-clinic',
+      name: "falls-clinic",
       type: validation.radios,
       errors: {
-        required: 'You must select an option. We need to know whether you have been referred to a Falls Clinic.',
+        required: "Select yes if you have been referred to a falls clinic",
       },
     },
   ],

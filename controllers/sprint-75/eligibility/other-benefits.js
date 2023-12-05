@@ -3,7 +3,7 @@ const {
   validation,
   match,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.otherBenefits,
@@ -13,7 +13,7 @@ const config = {
       page: urls.attendanceAllowanceIneligible,
       condition: {
         field: urls.otherBenefits,
-        value: ['attendance-allowance'],
+        value: ["attendance-allowance"],
         match: match.anyOne,
       },
     },
@@ -22,9 +22,9 @@ const config = {
       condition: {
         field: urls.otherBenefits,
         value: [
-          'disability-living-allowance',
-          'personal-independence-payment',
-          'adult-disability-payment',
+          "disability-living-allowance",
+          "personal-independence-payment",
+          "adult-disability-payment",
         ],
         match: match.anyOne,
       },
@@ -36,7 +36,7 @@ const config = {
   validation: {
     type: validation.checkboxes,
     errors: {
-      required: 'You must complete this section - select one or more of the options.',
+      required: "Select which benefit you get",
     },
   },
 };

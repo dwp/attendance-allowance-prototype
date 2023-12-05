@@ -2,7 +2,7 @@ const {
   urls,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.homeAddressPostcode,
@@ -15,9 +15,9 @@ const config = {
       maxLength: 9,
     },
     errors: {
-      required: 'Enter a postcode.',
-      minLength: 'Enter a real postcode.',
-      maxLength: 'Enter a real postcode.',
+      required: "Enter a postcode",
+      minLength: "Enter a postcode in the correct format",
+      maxLength: "Enter a postcode in the correct format",
     },
   },
 };
