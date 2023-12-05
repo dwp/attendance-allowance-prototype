@@ -3,7 +3,7 @@ const {
   match,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.nightDifficulties,
@@ -13,7 +13,7 @@ const config = {
       page: urls.checkAnswersNight,
       condition: {
         field: urls.nightDifficulties,
-        value: ['nighttime-none'],
+        value: ["nighttime-none"],
         match: match.anyOne,
       },
     },
@@ -21,7 +21,7 @@ const config = {
       page: urls.turningOverNightFrequency,
       condition: {
         field: urls.nightDifficulties,
-        value: ['nighttime-turning-over'],
+        value: ["nighttime-turning-over"],
         match: match.anyOne,
       },
     },
@@ -29,7 +29,7 @@ const config = {
       page: urls.bedPositionNight,
       condition: {
         field: urls.nightDifficulties,
-        value: ['nighttime-getting-settled'],
+        value: ["nighttime-getting-settled"],
         match: match.anyOne,
       },
     },
@@ -37,7 +37,7 @@ const config = {
       page: urls.toiletNight,
       condition: {
         field: urls.nightDifficulties,
-        value: ['nighttime-cleaning-yourself'],
+        value: ["nighttime-cleaning-yourself"],
         match: match.anyOne,
       },
     },
@@ -45,13 +45,17 @@ const config = {
       page: urls.medicationTreatmentNight,
       condition: {
         field: urls.nightDifficulties,
-        value: ['nighttime-medication'],
+        value: ["nighttime-medication"],
         match: match.anyOne,
       },
     },
   ],
   validation: {
     type: validation.checkboxes,
+    errors: {
+      required:
+        "Select what you have difficulties or need help with during the night",
+    },
   },
 };
 

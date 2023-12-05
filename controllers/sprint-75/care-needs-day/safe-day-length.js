@@ -3,7 +3,7 @@ const {
   match,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.safeDayLength,
@@ -13,8 +13,8 @@ const config = {
       page: urls.safeNightFrequency,
       condition: {
         page: urls.safeDayNight,
-        field: 'safe-day-night',
-        value: ['night'],
+        field: "safe-day-night",
+        value: ["night"],
         match: match.anyOne,
       },
     },
@@ -24,6 +24,9 @@ const config = {
   ],
   validation: {
     type: validation.radios,
+    errors: {
+      required: "Select how long you can be safely left alone during the day",
+    },
   },
 };
 

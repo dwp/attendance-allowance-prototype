@@ -3,7 +3,7 @@ const {
   match,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.emailConfirm,
@@ -11,37 +11,39 @@ const config = {
   next: urls.checkAnswersContactDetails,
   validation: [
     {
-      name: 'email-confirm',
+      name: "email-confirm",
       type: validation.radios,
     },
     {
-      name: 'contact-by-email',
+      name: "contact-by-email",
       type: validation.textInput,
       options: {
         minLength: 3,
         maxLength: 320,
       },
       errors: {
-        required: 'Enter an email address.',
-        minLength: 'Enter a valid email address.',
+        required: "Enter an email address",
+        minLength:
+          "Enter an email address in the correct format, like name@example.com",
       },
       condition: {
-        field: 'email-confirm',
-        value: 'yes',
+        field: "email-confirm",
+        value: "yes",
       },
     },
     {
-      name: 'contact-by-email-confirm',
+      name: "contact-by-email-confirm",
       type: validation.match,
       options: {
-        matchTo: 'contact-by-email',
+        matchTo: "contact-by-email",
       },
       errors: {
-        required: 'Enter a valid email address.',
+        required:
+          "Select yes if you want an email to confirm we have received your application",
       },
       condition: {
-        field: 'email-confirm',
-        value: 'yes',
+        field: "email-confirm",
+        value: "yes",
       },
     },
   ],

@@ -1,9 +1,9 @@
 const {
   urls,
   validation,
-  match, 
+  match,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.alternativeFormats,
@@ -12,7 +12,7 @@ const config = {
       page: urls.addContactDetails,
       condition: {
         field: urls.addContactDetails,
-        value: 'no',
+        value: "no",
         match: match.value,
       },
     },
@@ -20,6 +20,10 @@ const config = {
   next: urls.emailConfirm,
   validation: {
     type: validation.checkboxes,
+    errors: {
+      required:
+        "Select yes if you need us to use a different format when we contact you",
+    },
   },
 };
 

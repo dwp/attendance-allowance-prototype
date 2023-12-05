@@ -3,7 +3,7 @@ const {
   validation,
   match,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.bedPositionNight,
@@ -12,7 +12,7 @@ const config = {
       page: urls.turningOverNightFrequency,
       condition: {
         field: urls.nightDifficulties,
-        value: ['nighttime-turning-over'],
+        value: ["nighttime-turning-over"],
         match: match.anyOne,
       },
     },
@@ -25,7 +25,7 @@ const config = {
       page: urls.bedPositionNightFrequency,
       condition: {
         field: urls.bedPositionNight,
-        value: ['bed-covers', 'propped-up', 'something-else-bed'],
+        value: ["bed-covers", "propped-up", "something-else-bed"],
         match: match.anyOne,
       },
     },
@@ -33,7 +33,7 @@ const config = {
       page: urls.toiletNight,
       condition: {
         field: urls.nightDifficulties,
-        value: ['nighttime-cleaning-yourself'],
+        value: ["nighttime-cleaning-yourself"],
         match: match.anyOne,
       },
     },
@@ -41,7 +41,7 @@ const config = {
       page: urls.medicationTreatmentNight,
       condition: {
         field: urls.nightDifficulties,
-        value: ['nighttime-medication'],
+        value: ["nighttime-medication"],
         match: match.anyOne,
       },
     },
@@ -51,24 +51,29 @@ const config = {
   ],
   validation: [
     {
-      name: 'something-else-explain-bed-night',
+      name: "something-else-explain-bed-night",
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 200,
       },
       errors: {
-        required: 'Enter what difficulty you have in getting settled in bed',
-        maxLength: 'Tell us what you struggle with must be 200 characters or less.',
+        required: "Enter what difficulty you have getting settled in bed",
+        maxLength:
+          "Enter what difficulty you have getting settled in bed in 200 characters or less",
       },
       condition: {
-        field: 'bed-position-night',
-        value: 'something-else-bed',
+        field: "bed-position-night",
+        value: "something-else-bed",
       },
     },
     {
-      name: 'bed-position-night',
+      name: "bed-position-night",
       type: validation.checkboxes,
+      errors: {
+        required:
+          "Select what difficulty you have getting settled in bed during the night",
+      },
     },
   ],
 };

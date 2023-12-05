@@ -3,7 +3,7 @@ const {
   match,
   validation,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.safeDayNight,
@@ -17,8 +17,8 @@ const config = {
       page: urls.safeDayWhy,
       condition: {
         page: urls.safeDayNight,
-        field: 'safe-day-night',
-        value: ['day'],
+        field: "safe-day-night",
+        value: ["day"],
         match: match.anyOne,
       },
     },
@@ -26,8 +26,8 @@ const config = {
       page: urls.safeNightFrequency,
       condition: {
         page: urls.safeDayNight,
-        field: 'safe-day-night',
-        value: ['night'],
+        field: "safe-day-night",
+        value: ["night"],
         match: match.anyOne,
       },
     },
@@ -37,8 +37,12 @@ const config = {
   ],
   validation: [
     {
-      name: 'safe-day-night',
+      name: "safe-day-night",
       type: validation.checkboxes,
+      errors: {
+        required:
+          "Select yes if you need someone with you to make sure you are safe at home",
+      },
     },
   ],
 };
