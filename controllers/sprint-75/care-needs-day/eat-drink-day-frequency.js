@@ -40,7 +40,7 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: "Select  how often you have difficulty when eating or drinking",
+      required: "Select how often you have difficulty when eating or drinking",
     },
   },
 };

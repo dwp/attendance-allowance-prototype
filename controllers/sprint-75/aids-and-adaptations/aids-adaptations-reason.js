@@ -39,7 +39,8 @@ const config = {
       name: "aids-adaptations-reason",
       type: validation.radios,
       errors: {
-        required: "Select why you do not use any adaptions, equipment or aids",
+        required:
+          "Select why you do not use any adaptations, equipment or aids",
       },
     },
   ],
