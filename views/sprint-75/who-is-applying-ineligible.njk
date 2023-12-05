@@ -5,7 +5,7 @@
 {% block form %}
 <div class="govuk-form-group">
     <h1 class="govuk-heading-l">Based on your answers, you need to apply using the paper form</h1>
-    <p class="govuk-body">You will need to use the <a class="govuk-link govuk-link--no-underline" href="https://www.gov.uk/government/publications/attendance-allowance-claim-form">paper claim form</a> if you're applying for Attendance Allowance:
+    <p class="govuk-body">You will need to use the <a class="govuk-link govuk-link" href="https://www.gov.uk/government/publications/attendance-allowance-claim-form">paper claim form</a> if you're applying for Attendance Allowance:
     </p>
     <ul class="govuk-list govuk-list--bullet">
         <li>on behalf of someone else for example, you have lasting power of attorney in place for property and finance</li>
@@ -16,4 +16,8 @@
 {% endblock %}     
 
 {% block formButton %}
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
 {% endblock %}
