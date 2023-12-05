@@ -14,7 +14,7 @@
       idPrefix: "safe-day-why",
       name: "safe-day-why",
       hint: {
-        text: "Select all that apply to you."
+        text: "Select all that apply"
       },
       errorMessage: data.validation['safe-day-why'].error,
       items: [
@@ -45,7 +45,7 @@
         },
         {
           value: "falling",
-          text: "I am at risk of hurting myself, for example by falling",
+          text: "I am at risk of hurting myself, for example, by falling",
           checked: true if data["safe-day-why"] and data["safe-day-why"].includes("falling")
         },
         {
@@ -55,7 +55,7 @@
         },
         {
           value: "something-else",
-          text: "Other",
+          text: "Something else",
           checked: true if data["safe-day-why"] and data["safe-day-why"].includes("something-else"),
           conditional: {
             html: conditionalSomethingElseHtml
@@ -66,7 +66,7 @@
         },
         {
           value: "none",
-          text: "None of these apply to me",
+          text: "I do not need someone to help me stay safe at home",
           behaviour: "exclusive",
           checked: true if data["safe-day-night"] and data["safe-day-night"].includes("none")
         }
