@@ -7,7 +7,7 @@
  {% set otherReasonHtml %}
   {{ govukTextarea({
     label: {
-        text: "Explain why you do not use any adaptations, equipment or aids",
+        text: "Tell us why you do not use any adaptations, equiptment or aids",
         classes: "govuk-label",
         isPageHeading: false
     },
@@ -53,7 +53,7 @@
     },
     {
       value: "other",
-      text: "Other",
+      text: "Something else",
       checked: true if data["aids-adaptations-reason"] === "other",
         conditional: {
           html: otherReasonHtml
