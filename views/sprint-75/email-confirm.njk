@@ -17,21 +17,8 @@
     label: {
       text: "Email address"
     }
-
   }) }}
-  {{ govukInput({
-    id: "contact-by-email-confirm",
-    name: "contact-by-email-confirm",
-    errorMessage: data.validation['contact-by-email-confirm'].error,
-    type: "email",
-    autocomplete: "yes",
-    spellcheck: false,
-    value: data['contact-by-email-confirm'],
-    classes: "govuk-input",
-    label: {
-      text: "Confirm email address"
-    }
-  }) }}
+  
 {% endset -%}
 
  {{ govukRadios({

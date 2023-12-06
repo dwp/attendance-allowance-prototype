@@ -13,6 +13,10 @@ const config = {
     {
       name: "email-confirm",
       type: validation.radios,
+      errors: {
+        required:
+          "Select yes if you want an email to confirm we have received your application",
+      },
     },
     {
       name: "contact-by-email",
@@ -25,21 +29,6 @@ const config = {
         required: "Enter an email address",
         minLength:
           "Enter an email address in the correct format, like name@example.com",
-      },
-      condition: {
-        field: "email-confirm",
-        value: "yes",
-      },
-    },
-    {
-      name: "contact-by-email-confirm",
-      type: validation.match,
-      options: {
-        matchTo: "contact-by-email",
-      },
-      errors: {
-        required:
-          "Select yes if you want an email to confirm we have received your application",
       },
       condition: {
         field: "email-confirm",
