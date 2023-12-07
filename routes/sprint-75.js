@@ -149,6 +149,7 @@ router.use(`/${urls.telephoneNumberOther}`, controllers.telephoneNumberOther);
 router.use(`/${urls.addContactDetails}`, controllers.addContactDetails);
 router.use(`/${urls.preferenceContact}`, controllers.preferenceContact);
 router.use(`/${urls.alternativeFormats}`, controllers.alternativeFormats);
+router.use(`/${urls.emailSubmit}`, controllers.emailSubmit);
 router.use(`/${urls.emailConfirm}`, controllers.emailConfirm);
 
 // claim submission

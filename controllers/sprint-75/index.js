@@ -132,6 +132,7 @@ const telephoneNumberOther = require('./contact-details/telephone-number-other')
 const addContactDetails = require('./contact-details/add-contact-details');
 const preferenceContact = require('./contact-details/preference-contact');
 const alternativeFormats = require('./contact-details/alternative-formats');
+const emailSubmit = require('./contact-details/email-submit');
 const emailConfirm = require('./contact-details/email-confirm');
 
 // claim submission
@@ -181,6 +182,7 @@ module.exports = {
   preferenceContact,
   dayDifficulties,
   nightDifficulties,
+  emailSubmit,
   emailConfirm,
   alternativeFormats,
   homeAddressSelect,

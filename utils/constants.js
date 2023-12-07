@@ -140,6 +140,7 @@ module.exports = {
     telephoneNumberOther: 'telephone-number-other',
     preferenceContact: 'preference-contact',
     alternativeFormats: 'alternative-formats',
+    emailSubmit: 'email-submit',
     emailConfirm: 'email-confirm',
 
     // check your answers
