@@ -11,7 +11,7 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: 'You must select an option.',
+      required: 'Select who we should contact first if we have questions',
     },
   },
 };

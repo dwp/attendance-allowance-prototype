@@ -27,6 +27,9 @@ const config = {
   ],
   validation: {
     type: validation.dateInput,
+    errors: {
+      required: 'Enter your date of birth',
+    },
   },
 };
 

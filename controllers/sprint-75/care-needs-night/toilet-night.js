@@ -57,14 +57,32 @@ const config = {
       page: urls.checkAnswersNight,
     },
   ],
-  validation: {
-    name: "toilet-night",
-    type: validation.checkboxes,
-    errors: {
-      required:
-        "Select what difficulty you have with your toilet needs during the night",
+  validation: [
+    {
+      name: "something-else-explain-toilet",
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 200,
+      },
+      errors: {
+        required: "Enter what difficulty you have with your toilet needs at night",
+        maxLength:
+          "Enter what difficulty you have with your toilet needs during the night in 200 characters or less",
+      },
+      condition: {
+        field: "toilet-night",
+        value: "toilet-night-something-else",
+      },
     },
-  },
+    {
+      name: "toilet-night",
+      type: validation.checkboxes,
+      errors: {
+        required: "Select what difficulty you have with your toilet needs during the night",
+      },
+    },
+  ],
 };
 
 module.exports = registerController(config.name, config);
