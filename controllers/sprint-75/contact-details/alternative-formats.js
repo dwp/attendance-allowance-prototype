@@ -8,7 +8,7 @@ const {
 const config = {
   name: urls.alternativeFormats,
   previous: urls.addContactDetails,
-  next: urls.emailConfirm,
+  next: urls.emailSubmit,
   validation: {
     type: validation.checkboxes,
     errors: {
