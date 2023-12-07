@@ -51,9 +51,9 @@
         checked: true if data["c"] and data["toilet-night"].includes("managing-incontinence")
       },
       {
-        value: "toilet-something-else",
+        value: "toilet-night-something-else",
         text: "Something else",
-        checked: true if data["toilet-night"] and data["toilet-night"].includes("toilet-something-else"),
+        checked: true if data["toilet-night"] and data["toilet-night"].includes("toilet-night-something-else"),
         conditional: {
           html: conditionalSomethingElseToiletNightHtml
           }

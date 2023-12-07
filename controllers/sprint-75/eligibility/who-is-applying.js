@@ -24,7 +24,7 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: 'Select who is applying.',
+      required: 'Select who is applying',
     },
   },
 };

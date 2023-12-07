@@ -113,9 +113,9 @@ const config = {
         maxLength: 200,
       },
       errors: {
-        required: "Enter how you manage to get in and out of bed",
+        required: "Enter how you manage to get in or out of bed",
         maxLength:
-          "Enter how you manage to get in and out of bed in 200 characters or less",
+          "Enter how you manage to get in or out of bed in 200 characters or less",
       },
       condition: {
         field: "bed-day-why",
@@ -126,7 +126,7 @@ const config = {
       name: "bed-day-why",
       type: validation.checkboxes,
       errors: {
-        required: "Select how you manage to get in and out of bed",
+        required: "Select how you manage to get in or out of bed ",
       },
     },
   ],

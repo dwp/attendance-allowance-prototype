@@ -31,9 +31,9 @@ const config = {
       },
       errors: {
         required:
-          "Enter how long it takes to manage your difficulties with toilet needs",
+          "Enter how many times a night you have difficulty with your toilet needs during the night",
         maxLength:
-          "Length of time it takes to manage your difficulties with your toilet needs must be 200 characters or less",
+          "Enter how many times a night you have difficulty with your toilet needs during the night in 200 characters or less",
       },
       condition: {
         field: "night-frequency-2-loo",

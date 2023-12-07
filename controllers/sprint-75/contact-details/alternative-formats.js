@@ -13,7 +13,7 @@ const config = {
     type: validation.checkboxes,
     errors: {
       required:
-        "Select yes if you need us to use a different format when we contact you",
+        "Select which different format we should use when we contact you",
     },
   },
 };

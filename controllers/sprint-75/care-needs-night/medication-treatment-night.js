@@ -55,10 +55,32 @@ const config = {
       page: urls.checkAnswersNight,
     },
   ],
-  validation: {
-    name: 'medication-treatment-night',
-    type: validation.checkboxes,
-  },
+  validation: [
+    {
+      name: "something-else-explain-medication-night",
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 200,
+      },
+      errors: {
+        required: "Enter what medication or treatment you have difficulty taking during the night",
+        maxLength:
+          "Enter what medication or treatment you have difficulty taking during the night in 200 characters or less",
+      },
+      condition: {
+        field: "medication-treatment-night",
+        value: "something-else-medication",
+      },
+    },
+    {
+      name: "medication-treatment-night",
+      type: validation.checkboxes,
+      errors: {
+        required: "Select what medication or treatment you have difficulty taking during the night",
+      },
+    },
+  ],
 };
 
 module.exports = registerController(config.name, config);

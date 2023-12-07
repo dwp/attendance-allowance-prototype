@@ -20,7 +20,7 @@ const {
     validation: {
       type: validation.textInput,
       errors: {
-        required: 'You must enter the name of your adaptation, equipment or aid.',
+        required: 'Enter the name of your adapation, equipment or aid',
       },
     },
   };
