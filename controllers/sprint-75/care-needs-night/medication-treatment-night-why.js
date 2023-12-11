@@ -36,6 +36,9 @@ const config = {
     {
       name: 'medication-treatment-night-why',
       type: validation.checkboxes,
+      errors: {
+        required: "Select how you manage taking medication or getting treatment during the night",
+      },
     }],
 };
 

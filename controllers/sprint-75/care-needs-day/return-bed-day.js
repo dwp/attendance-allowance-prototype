@@ -108,7 +108,7 @@ const config = {
       name: "return-bed-day",
       type: validation.radios,
       errors: {
-        required: "Select if you need to go back to bed during the day",
+        required: "Select yes if you need to go back to bed during the day",
       },
     },
   ],

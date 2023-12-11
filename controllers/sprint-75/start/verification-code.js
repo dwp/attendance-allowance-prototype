@@ -16,9 +16,9 @@ const config = {
       maxLength: 6,
     },
     errors: {
-      required: 'You need to enter a verification code.',
-      minLength: 'The code you entered is too short; An example code looks like this, ‘WQ4D79’.',
-      maxLength: 'The code you entered is too long; An example code looks like this, ‘WQ4D79’.',
+      required: 'You need to enter a verification code',
+      minLength: 'The code you entered is too short; An example code looks like this, ‘WQ4D79’',
+      maxLength: 'The code you entered is too long; An example code looks like this, ‘WQ4D79’',
     },
   },
 };
