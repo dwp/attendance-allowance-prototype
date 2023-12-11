@@ -28,7 +28,7 @@ const config = {
         required:
           "Enter why you need someone to help you stay safe at home",
         maxLength:
-          "Enter why you need someone to help you stay safe at home in 200 characters or more",
+          "Enter why you need someone to help you stay safe at home in 200 characters or less",
       },
       condition: {
         field: "safe-day-why",

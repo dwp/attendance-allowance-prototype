@@ -66,7 +66,7 @@ const config = {
         maxLength: 200,
       },
       errors: {
-        required: "Enter what difficulty you have with your toilet needs at night",
+        required: "Enter what difficulty you have with your toilet needs during the night",
         maxLength:
           "Enter what difficulty you have with your toilet needs during the night in 200 characters or less",
       },

@@ -51,7 +51,7 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: "Select yes if you have another condition or disability",
+      required: "Select yes if you have another health condition or disability",
     },
   },
 };

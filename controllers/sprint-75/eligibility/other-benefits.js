@@ -36,7 +36,7 @@ const config = {
   validation: {
     type: validation.checkboxes,
     errors: {
-      required: "Select which benefit you get",
+      required: "Select if you get any benefits",
     },
   },
 };

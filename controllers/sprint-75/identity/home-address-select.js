@@ -10,6 +10,9 @@ const config = {
   previous: urls.homeAddressPostcode,
   validation: {
     type: validation.select,
+    errors: {
+      required: "Select your home address",
+    },
   },
 };
 

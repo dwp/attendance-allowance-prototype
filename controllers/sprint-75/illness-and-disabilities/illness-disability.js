@@ -24,7 +24,7 @@ const config = {
   validation: {
     type: validation.textInput,
     errors: {
-      required: 'Enter the name of your health condition or disability.',
+      required: 'Enter the name of your health condition or disability',
     },
   },
 };
