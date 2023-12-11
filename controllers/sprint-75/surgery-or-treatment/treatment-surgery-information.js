@@ -25,7 +25,7 @@ const config = {
   validation: {
     type: validation.textInput,
     errors: {
-      required: 'We need to know what other treatments you receive or whether you are waiting for surgery.',
+      required: 'We need to know what other treatments you receive or whether you are waiting for surgery',
     },
   },
 };

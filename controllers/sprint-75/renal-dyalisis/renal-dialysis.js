@@ -36,7 +36,7 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: 'You must enter either yes or no.',
+      required: 'Select yes if you are undergoing renal dialysis',
     },
   },
 };
