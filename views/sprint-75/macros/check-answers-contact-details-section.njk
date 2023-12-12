@@ -79,14 +79,15 @@
 				Alternative Formats
 				</dt>
 				<dd class="govuk-summary-list__value">
-				<ul class="govuk-list">
-					{% for format in data['alternative-formats'] %}
-					<li>
-						{{ rewordFormat(format) }}
-					</li>
-					{% endfor %}
-				</ul>
-				</dd>
+					{{ data['alternative-formats'] 
+					| replace("large-print", "Large print") 
+					| replace("cd-cassette", "CD or cassette tape")
+					| replace("braille", "Braille")
+					| replace("textphone", "Textphone")
+					| replace("typetalk", "TypeTalk")
+					| replace("none", "None")
+					}}
+					</dd>
 				<dd class="govuk-summary-list__actions">
 				{{ changeLink('alternative-formats') }}
 				</dd>
