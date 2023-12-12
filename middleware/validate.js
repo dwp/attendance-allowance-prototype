@@ -49,14 +49,15 @@ module.exports = (config, isArray) => (req, res, next) => {
     const dayValid = validator.validate(req.session.data[`${config.name}-day`], 'day');
     const monthValid = validator.validate(req.session.data[`${config.name}-month`], 'month');
     const yearValid = validator.validate(req.session.data[`${config.name}-year`], 'year');
-    if (isArray) {
-      if (!dayValid.valid) {
-        res.locals.validation.push({ ...dayValid, name: `${config.name}-day` });
-      } else if (!monthValid.valid) {
-        res.locals.validation.push({ ...monthValid, name: `${config.name}-month` });
-      } else if (!yearValid.valid) {
-        res.locals.validation.push({ ...yearValid, name: `${config.name}-year` });
-      }
+
+    if (!dayValid.valid && !dayValid.valid && !dayValid.valid) {
+      res.locals.validation = {
+        error: {
+          href: `#${validator.options.name}`,
+          text: validator.errors.required,
+        },
+        valid: false
+      };
     } else if (!dayValid.valid) {
       res.locals.validation = dayValid;
     } else if (!monthValid.valid) {
