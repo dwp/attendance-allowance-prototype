@@ -16,6 +16,14 @@ const {
         },
       },
       {
+        page: urls.specialRulesDeclaration,
+        condition: {
+          field: urls.specialRulesDeclaration,
+          value: "yes",
+          match: match.value,
+        },
+      },
+      {
         page: urls.whoIsApplying,
       },
     ],
