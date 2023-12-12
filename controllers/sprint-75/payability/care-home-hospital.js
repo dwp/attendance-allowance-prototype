@@ -8,19 +8,7 @@ const {
 const config = {
   name: urls.careHomeHospital,
   previous: urls.homeAddressSelect,
-  next: [
-    {
-      page: urls.sercoCareHomeHospital,
-      condition: {
-        field: urls.careHomeHospital,
-        value: "no",
-        match: match.value,
-      },
-    },
-    {
-      page: urls.illnessDisability,
-    },
-  ],
+  next: urls.illnessDisability,
   validation: {
     type: validation.radios,
     errors: {

@@ -37,12 +37,13 @@ const config = {
       name: 'home-address-manual-postcode',
       type: validation.textInput,
       options: {
-        minLength: 1,
+        minLength: 6,
         maxLength: 8,
       },
       errors: {
         required: 'Enter a postcode',
-        maxLength: 'Enter a postcode in the correct format',
+        minLength: "Enter a postcode in the correct format",
+        maxLength: 'Postcode must be 8 characters or less',
       },
     },
     
