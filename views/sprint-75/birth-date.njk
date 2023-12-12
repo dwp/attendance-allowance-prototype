@@ -3,6 +3,12 @@
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
+
+  {% set allErrors  = ' govuk-input--error ' if data.validation['birth-date'].error.href === '#birth-date' %}
+  {% set dayError   = ' govuk-input--error ' if data.validation['birth-date'].error.href === '#birth-date-day' %}
+  {% set monthError = ' govuk-input--error ' if data.validation['birth-date'].error.href === '#birth-date-month' %}
+  {% set yearError  = ' govuk-input--error ' if data.validation['birth-date'].error.href === '#birth-date-year' %}
+
   {{ govukDateInput({
     id: "birth-date",
     namePrefix: "birth-date",
@@ -19,17 +25,17 @@
     errorMessage: data.validation['birth-date'].error,
     items: [
       {
-        classes: 'govuk-input--width-2',
+        classes: 'govuk-input--width-2' + allErrors + dayError,
         name: 'day',
         value: data['birth-date-day']
       },
       {
-        classes: 'govuk-input--width-2',
+        classes: 'govuk-input--width-2' + allErrors + monthError,
         name: 'month',
         value: data['birth-date-month']
       },
       {
-        classes: 'govuk-input--width-4',
+        classes: 'govuk-input--width-4' + allErrors + yearError,
         name: 'year',
         value: data['birth-date-year']
       }

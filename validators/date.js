@@ -27,7 +27,7 @@ class DateValidator {
     if (this.options.required && !value) {
       this.valid = false;
       this.error = {
-        href: `#${this.options.name}`,
+        href: `#${this.options.name}-${field}`,
       };
       if (field === "day") {
         this.error.text = this.errors.requiredDay;
@@ -53,7 +53,7 @@ class DateValidator {
       }
       if (this.valid === false) {
         this.error = {
-          href: `#${this.options.name}`,
+          href: `#${this.options.name}-${field}`,
           text: this.errorText,
         };
       }
