@@ -10,13 +10,13 @@ const config = {
   validation: {
     type: validation.textInput,
     options: {
-      minLength: 5,
-      maxLength: 9,
+      minLength: 6,
+      maxLength: 8,
     },
     errors: {
       required: 'Enter a postcode',
-      minLength: 'Enter a real postcode',
-      maxLength: 'Enter a real postcode',
+      minLength: 'Enter a postcode in the correct format',
+      maxLength: 'Postcode must be 8 characters or less',
     },
   },
 };

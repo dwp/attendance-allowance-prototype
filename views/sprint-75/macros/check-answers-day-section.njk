@@ -15,7 +15,7 @@
                         {% for item in data['day-difficulties'] %}
                             <li>
                                 {{ item
-								| replace("daytime-bed", "Getting in and out of bed")
+								| replace("daytime-bed", "Getting in or out of bed")
 								| replace("daytime-washing", "Washing or bathing")
 								| replace("daytime-dressing", "Dressing or undressing yourself")
 								| replace("daytime-moving", "Moving around indoors")
@@ -39,12 +39,12 @@
     {% if data["day-difficulties"] and data["day-difficulties"].includes("daytime-bed") %}
         <section class="Getting in and out of bed">
             <h2 class="govuk-heading-m">
-                Getting in and out of bed
+                Getting in or out of bed
             </h2>
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row bed-day">
                     <dt class="govuk-summary-list__key">
-                        What difficulty do you have getting in and out of bed?
+                        What difficulty do you have getting in or out of bed?
                     </dt>
                     <dd class="govuk-summary-list__value">
                         <ul class="govuk-list">
