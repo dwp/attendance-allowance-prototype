@@ -1,0 +1,24 @@
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  <h1 class="govuk-heading-l">Enter your nationality</h1>
+
+  {{ govukInput({
+    label: {
+      text: "Enter your nationality in English"
+    },
+    classes: "govuk-input--width-10",
+    errorMessage: data.validation['nationality-other'].error,
+    id: "nationality-other",
+    name: "nationality-other",
+    value: data["nationality-other"]
+  }) }}
+ 
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

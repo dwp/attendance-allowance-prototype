@@ -1,0 +1,430 @@
+{% from "./change-link.njk" import changeLink %}
+{% from "./reword-date.njk" import rewordDate %}
+{% from "./reword-benefit.njk" import rewordBenefit %}
+
+{% macro checkAnswersDetailsSection(data) %}
+  <section class="Your details">
+    <h2 class="govuk-heading-m">
+      Your details
+    </h2>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row first-name">
+        <dt class="govuk-summary-list__key">
+          First name
+        </dt>
+        <dd class="govuk-summary-list__value">
+        {{ data['first-name'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {{ changeLink('full-name') }}
+        </dd>
+      </div>
+      {% if data['middle-name'] %}
+        <div class="govuk-summary-list__row middle-name">
+          <dt class="govuk-summary-list__key">
+            Middle name
+          </dt>
+          <dd class="govuk-summary-list__value">
+          {{ data['middle-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('full-name') }}
+          </dd>
+        </div>
+      {% endif %}  
+      <div class="govuk-summary-list__row last-name">
+        <dt class="govuk-summary-list__key">
+          Last name
+        </dt>
+        <dd class="govuk-summary-list__value">
+        {{ data['last-name'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {{ changeLink('full-name') }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row birth-date">
+        <dt class="govuk-summary-list__key">
+          Date of birth
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ rewordDate(data['birth-date-day'], data['birth-date-month'], data['birth-date-year']) }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {{ changeLink('birth-date') }}
+        </dd>
+      </div>
+
+      {% if data['home-address-select'] %}
+        <div class="govuk-summary-list__row address">
+          <dt class="govuk-summary-list__key">
+            Home address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['home-address-select'] | replace(",", "<br>") | safe }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('home-address-select') }}
+          </dd>
+        </div>
+      {% elseif data['home-address-manual-line-one'] %}
+        <div class="govuk-summary-list__row address">
+          <dt class="govuk-summary-list__key">
+            Home address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['home-address-manual-line-one'] }} <br/>
+            {% if data['home-address-manual-line-two'] %}
+              {{ data['home-address-manual-line-two'] }} <br/>
+            {% endif %}
+            {{ data['home-address-manual-town'] }} <br/>
+            {% if data['home-address-manual-county'] %}
+              {{ data['home-address-manual-county'] }}<br/>
+            {% endif %}
+            {{ data['home-address-manual-postcode'] }} <br/>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('home-address-manual') }}
+          </dd>
+        </div>
+      {% elseif data['home-address-international-line-one'] %}
+        <div class="govuk-summary-list__row international-address">
+          <dt class="govuk-summary-list__key">
+            Home address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['home-address-international-line-one'] }} <br/>
+            {% if data['home-address-international-line-two'] %}
+              {{ data['home-address-international-line-two'] }} <br/>
+            {% endif %}
+            {{ data['home-address-international-town'] }} <br/>
+            {% if data['home-address-international-postcode'] %}
+              {{ data['home-address-international-postcode'] }} <br/>
+            {% endif %}
+            {{ data['home-address-international-country'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('home-address-international') }}
+          </dd>
+        </div>
+      {% endif %}
+
+      {% if data['national-insurance'] %}
+        <div class="govuk-summary-list__row national-insurance-number">
+          <dt class="govuk-summary-list__key">
+            Your NI number
+          </dt>
+          <dd class="govuk-summary-list__value">
+              {{ data['national-insurance'].replaceAll(' ','').toUpperCase() }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('national-insurance') }}
+          </dd>
+        </div>
+      {% endif %}
+    </dl>
+  </section>
+
+  <section class="Your claim information">
+    <h2 class="govuk-heading-m">
+      Your claim information
+    </h2>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row person-claiming-new">
+        <dt class="govuk-summary-list__key">
+          Who is claiming
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['who-is-applying'] 
+          | replace("myself", "I’m applying for myself")
+          | replace("helping-someone", "I'm helping someone else with their application") 
+          }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {{ changeLink('who-is-applying') }}
+        </dd>
+      </div>
+      {% if data['special-rules-declaration'] === 'no' %}
+        <div class="govuk-summary-list__row special-rules-declaration">
+          <dt class="govuk-summary-list__key">
+            Special rules
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['special-rules-declaration'] 
+              | replace("no", "Does not apply to me") 
+              | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('special-rules-declaration') }}
+          </dd>
+        </div>
+      {% endif %}
+      <div class="govuk-summary-list__row other-benefits">
+        <dt class="govuk-summary-list__key">
+          Other benefits
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <ul class="govuk-list">
+            {% for benefits in data['other-benefits'] %}
+              <li>
+                {{ rewordBenefit(benefits) }}
+              </li>
+            {% endfor %}
+          </ul>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {{ changeLink('other-benefits') }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row nationality">
+        <dt class="govuk-summary-list__key">
+          Nationality
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['nationality'] 
+          | replace("british", "British")
+          | replace("irish", "Irish")
+          | replace("other", "Citizen of another country") }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {{ changeLink('nationality') }}
+        </dd>
+      </div>
+      {% if data['nationality'] == 'other' %}
+        <div class="govuk-summary-list__row nationality-details">
+          <dt class="govuk-summary-list__key">
+            Nationality details
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['nationality-other'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('nationality-other') }}
+          </dd>
+        </div>
+      {% endif %}
+      <div class="govuk-summary-list__row residence-country">
+        <dt class="govuk-summary-list__key">
+          Where you live
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['residence-country'] 
+          | replace("england", "England")
+          | replace("scotland", "Scotland")
+          | replace("wales", "Wales")
+          | replace("northern-ireland", "Northern Ireland")
+          | replace("abroad", "Outside the UK") }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {{ changeLink('residence-country') }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row lived-outside-uk-more-than-12m-in-last-3-years">
+        <dt class="govuk-summary-list__key">
+          Been outside of the UK more than 12 months in the last 3 years
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['country-outside-uk-duration'] | capitalize }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {{ changeLink('country-outside-uk-duration') }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row care-home-hospital">
+        <dt class="govuk-summary-list__key">
+          Currently in a care home or hospital
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['care-home-hospital'] | capitalize }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {{ changeLink('care-home-hospital') }}
+        </dd>
+      </div>
+      {% if data['care-home-hospital'] == 'no' %}
+        <div class="govuk-summary-list__row care-home-hospital">
+          <dt class="govuk-summary-list__key">
+            Stayed in a care home or hospital at any point since [token date]
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['serco-care-home-hospital'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('serco-care-home-hospital') }}
+          </dd>
+        </div>
+      {% endif %}
+    </dl>
+  </section>
+
+  <section class="Your health information">
+    <h2 class="govuk-heading-m">
+      Your health information
+    </h2>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <dl class="govuk-summary-list row no-border">
+					<div class="govuk-summary-list__row no-border">
+						<dt class="govuk-summary-list__key govuk-heading-s">Your conditions or disabilities</dt>
+						<dt class="govuk-summary-list__actions">
+							{{ changeLink('illness-disability-added') }}						
+						</dt>
+					</div>
+				</dl>
+				<dl class="govuk-summary-list row no-border">
+					<div class="govuk-summary-list__row no-border govuk-summary-list__row--no-actions">
+						<dt class="govuk-summary-list__key ">{{ data['illness-disability'] }}</dt>
+						<dt class="govuk-summary-list__value "></dt>
+					</div>
+					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions govuk-summary-list__row--no-actions">
+						<dt class="govuk-summary-list__key govuk-!-font-weight-regular">Start date</dt>
+						<dt class="govuk-summary-list__value ">{{ data['illness-start-date'] }}</dt>
+					</div>
+				</dl>
+        
+        
+    </dl>
+  </section>
+
+  <section class="consent">
+    <h2 class="govuk-heading-m">
+      Other health information
+    </h2>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      {% if data['renal-dialysis'] == 'yes' %}
+        <div class="govuk-summary-list__row renal-dialysis">
+          <dt class="govuk-summary-list__key">
+            Renal dialysis treatment
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['renal-dialysis'] | replace("yes", "Yes") | replace("no", "No")| capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('renal-dialysis') }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row renal-dialysis">
+          <dt class="govuk-summary-list__key">
+            Where you have your dialysis
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['renal-dialysis-where'] 
+            | replace("home", "I’m receiving my treatment at home") 
+            | replace("hospital", "I’m receiving my treatment at a hospital or health centre")
+            | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('renal-dialysis-where') }}
+          </dd>
+        </div>
+      {% endif %}
+      {% if data['renal-dialysis-where'] == 'home' %}
+        <div class="govuk-summary-list__row renal-dialysis">
+          <dt class="govuk-summary-list__key">
+            When you have your dialysis
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['renal-dialysis-when'] 
+            | replace("day", "I receive my treatment during the day") 
+            | replace("night", "I receive my treatment during the night")
+            | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('renal-dialysis-when') }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row renal-dialysis">
+          <dt class="govuk-summary-list__key">
+            Days a week you have dialysis
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['renal-dialysis-frequency'] 
+            | replace("one", "1 day a week") 
+            | replace("two", "2 days a week")
+            | replace("three-or-more", "3 or more than three days a week")
+            | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('renal-dialysis-frequency') }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row renal-dialysis">
+          <dt class="govuk-summary-list__key">
+            Help from someone else during your dialysis
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['renal-dialysis-help']
+            | replace("yes", "Yes, I do need help") 
+            | replace("no", "No, I don't need help") 
+            }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('renal-dialysis-help') }}
+          </dd>
+        </div>
+      {% endif %}
+
+      <div class="govuk-summary-list__row treatment-surgery">
+        <dt class="govuk-summary-list__key">
+          Other surgeries or treatments
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['treatment-surgery'] 
+          | replace("yes", "Yes") 
+          | replace("no", "No") }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {{ changeLink('treatment-surgery') }}
+        </dd>
+      </div>
+      {% if data['treatment-surgery'] == 'yes' %}
+        <div class="govuk-summary-list__row treatment">
+          <dt class="govuk-summary-list__key">
+            About your surgery or treatment
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['treatment-surgery-information'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('treatment-surgery-information') }}
+          </dd>
+        </div>
+      {% endif %}
+    </dl>
+  </section>
+
+  <section class="consent">
+    <h2 class="govuk-heading-m">
+      Consent
+    </h2>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row consent">
+        <dt class="govuk-summary-list__key">
+          Sharing information about your health condition or disability
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['consent'] 
+          | replace("yes", "Yes, information about my health can be shared with DWP or the healthcare professionals that work for them.") 
+          | replace("no", "No, information about my health cannot be shared with DWP or the healthcare professionals that work for them.") }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          {{ changeLink('consent') }}
+        </dd>
+      </div>
+      {% if data['surgery-medical-centre-name'] %}
+        <div class="govuk-summary-list__row surgery-medical-centre-name">
+          <dt class="govuk-summary-list__key">
+            Your doctor's surgery or medical centre
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['surgery-medical-centre-name'] }} <br/>
+            {% if data['surgery-medical-centre-postcode'] %}
+              {{ data['surgery-medical-centre-postcode'] }} <br/>
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          {{ changeLink('surgery-medical-centre') }}
+        </dd>
+        </div>
+      {% endif %}  
+  </section>
+{% endmacro %}

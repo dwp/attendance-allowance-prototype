@@ -1,0 +1,48 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  {{ govukRadios({
+    idPrefix: "preference-contact",
+    name: "preference-contact",
+    fieldset: {
+      legend: {
+        text: "Who should we contact first if we have questions?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+          text: "We will only call if we have questions about your application."
+        },
+    errorMessage: data.validation['preference-contact'].error,
+    items: [
+      {
+        value: "prefer-claimant",
+        text: "Call me first",
+        checked: true if data["preference-contact"] === "prefer-claimant"
+      },
+      {
+        value: "prefer-person-helping",
+        text: "Call the person who’s helping me first",
+        checked: true if data["preference-contact"] === "prefer-person-helping"
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "no-preference",
+        text: "I do not mind",
+        hint: {
+          text: "If you do not give a preference, we will try to call you first."
+        },
+        checked: true if data["preference-contact"] === "no-preference"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
