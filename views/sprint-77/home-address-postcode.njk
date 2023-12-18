@@ -1,0 +1,43 @@
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <h1 class="govuk-fieldset__heading">
+      What is your home address?
+    </h1>
+  </legend>
+  <p class="govuk-body">We will only use this to send you letters about your Attendance Allowance claim.</p>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="postcode">
+      Postcode
+    </label>
+
+    {{ govukInput({
+      id: "home-address-postcode",
+      name: "home-address-postcode",
+      value: data['home-address-postcode'],
+      classes: 'govuk-input--width-10',
+      errorMessage: data.validation['home-address-postcode'].error
+    }) }}
+  </div>
+{% endblock %}
+
+{% block formButton %}
+  {{ phaseButton(data, "Find address") }}
+{% endblock %}
+
+{% block postForm %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">
+        <a href="home-address-international" class="govuk-link">
+          My home address is outside of the UK
+        </a>
+      </p>
+    </div>
+  </div>
+  {% include './macros/assisted-digital-details.njk' %}
+
+{% endblock %}

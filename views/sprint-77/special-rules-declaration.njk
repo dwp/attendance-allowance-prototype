@@ -1,0 +1,48 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+  {% set specialRulesBody %}
+    <p class="govuk-body govuk-hint govuk-!-margin-bottom-4"> 
+      You could have also been told by a consultant or a specialist nurse.
+    </p>
+    <p class="govuk-body govuk-hint"> 
+      You may get benefits at a higher rate and start getting payments quicker than usual. This is sometimes called ‘special rules’.
+    </p>
+  {% endset %}
+
+  {{ govukRadios({
+    idPrefix: "special-rules-declaration",
+    name: "special-rules-declaration",
+    classes: "govuk-!-margin-bottom-4",
+    fieldset: {
+      legend: {
+        text: "Has your doctor said you might have less than 12 months to live due to your condition?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    errorMessage: data.validation['special-rules-declaration'].error,
+    hint: {
+      html: specialRulesBody
+    },
+    items: [
+      {
+        value: "yes",
+        text: "Yes",
+        checked: true if data["special-rules-declaration"] === "yes"
+      },
+      {
+        value: "no",
+        text: "No",
+        checked: true if data["special-rules-declaration"] === "no"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

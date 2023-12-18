@@ -1,0 +1,15 @@
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+  <h1 class="govuk-heading-l">We may contact you if we need any supporting information about your health condition or disability</h1>
+
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
+
+{% block formButton %}
+  {{ phaseButton(data, "Continue") }}
+{% endblock %}

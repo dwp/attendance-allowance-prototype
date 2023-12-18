@@ -1,0 +1,35 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  {{ govukRadios({
+    idPrefix: "aids-adaptations-difficulty",
+    name: "aids-adaptations-difficulty",
+    fieldset: {
+      legend: {
+        text: "Do you find this adaptation, equipment or aid difficult to use?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    errorMessage: data.validation['aids-adaptations-difficulty'].error,
+    items: [
+      {
+        value: "yes",
+        text: "Yes",
+        checked: true if data["aids-adaptations-difficulty"] === "yes"
+      },
+      {
+        value: "no",
+        text: "No",
+        checked: true if data["aids-adaptations-difficulty"] === "no"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

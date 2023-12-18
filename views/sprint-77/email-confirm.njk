@@ -1,0 +1,43 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+{% set emailConfirmBody %}
+    {{ data['contact-by-email'] | capitalize }}
+{% endset %}
+
+{{ govukRadios({
+  idPrefix: "email-confirm",
+  name: "email-confirm",
+  fieldset: {
+    legend: {
+      text: "Is this email address correct?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  
+  errorMessage: data.validation['email-confirm'].error,
+  hint: {
+      html: emailConfirmBody,
+      classes: "govuk-!-font-size-27"
+    },
+  items: [
+    {
+      value: "yes",
+      text: "Yes, use this email for the confirmation email",
+      checked: true if data["email-confirm"] and data["email-confirm"].includes("yes")
+    },
+    {
+      value: "no",
+      text: "No, I need to change it",
+      checked: true if data["email-confirm"] and data["email-confirm"].includes("no")    }
+  ]
+ }) }}
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
