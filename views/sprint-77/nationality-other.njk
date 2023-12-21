@@ -4,12 +4,9 @@
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
-  <h1 class="govuk-heading-l">Enter your nationality</h1>
+  <h1 class="govuk-heading-l">Enter your nationality in English</h1>
 
   {{ govukInput({
-    label: {
-      text: "Enter your nationality in English"
-    },
     classes: "govuk-input--width-10",
     errorMessage: data.validation['nationality-other'].error,
     id: "nationality-other",
