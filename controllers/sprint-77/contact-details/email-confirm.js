@@ -1,32 +1,39 @@
 const {
   urls,
   validation,
-  match,
   registerController,
 } = require('../../../utils/controller');
 
 const config = {
   name: urls.emailConfirm,
   previous: urls.emailSubmit,
-  next: [
+  next: urls.checkAnswersContactDetails,
+  validation: [
     {
-      page: urls.emailSubmit,
-      condition: {
-        field: urls.emailConfirm,
-        value: 'no',
-        match: match.value,
+      name: 'contact-by-email',
+      type: validation.textInput,
+      options: {
+        minLength: 3,
+        maxLength: 254,
+      },
+      errors: {
+        required: 'Enter an email address in the correct format, like name@example.com',
+        maxLength: 'Enter an email address using 254 characters or less',
       },
     },
     {
-      page: urls.checkAnswersContactDetails,
+      name: 'contact-by-email-confirm',
+      type: validation.match,
+      options: {
+        matchTo: 'contact-by-email',
+      },
+      errors: {
+        required: 'Enter your email address again to confirm it is correct',
+        mustMatch: 'Enter a matching email address',
+      },
     },
   ],
-  validation: {
-    type: validation.radios,
-    errors: {
-      required: 'Select yes if this email is correct',
-    },
-  },
 };
 
 module.exports = registerController(config.name, config);
+

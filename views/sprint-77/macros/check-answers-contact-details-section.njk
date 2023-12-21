@@ -98,14 +98,14 @@
 					Would you like an email confirmation
 				</dt>
 				<dd class="govuk-summary-list__value">
-					{{ data['email-confirm'] | capitalize }}
+					{{ data['email-submit'] | capitalize }}
 				</dd>
 				<dd class="govuk-summary-list__actions">
-					{{ changeLink('email-confirm') }}
+					{{ changeLink('email-submit') }}
 				</dd>
 			</div>
 
-			{% if data['email-confirm']== "yes" %}
+			{% if data['email-submit']== "yes" %}
 				<div class="govuk-summary-list__row email-confirm">
 					<dt class="govuk-summary-list__key">
 						Email address

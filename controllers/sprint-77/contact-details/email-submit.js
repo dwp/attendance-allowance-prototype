@@ -27,24 +27,7 @@ const config = {
       type: validation.radios,
       errors: {
         required:
-          "Select yes if we should send you an email to confirm you have submitted your application",
-      },
-    },
-    {
-      name: "contact-by-email",
-      type: validation.textInput,
-      options: {
-        minLength: 3,
-        maxLength: 320,
-      },
-      errors: {
-        required: "Enter an email address",
-        minLength:
-          "Enter an email address in the correct format, like name@example.com",
-      },
-      condition: {
-        field: "email-submit",
-        value: "yes",
+          "Select yes if we should send you an email to confirm you have submitted an application",
       },
     },
   ],
