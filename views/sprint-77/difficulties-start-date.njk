@@ -5,11 +5,10 @@
 
 {% block form %}
 
-  <h1 class="govuk-heading-l govuk-!-margin-bottom-2">You told us about the difficulties you experience</h1>
-
-  <p class="govuk-body">Tell us how long you’ve had these difficulties. If you are given Attendance Allowance it will help us process what you're entitled to.</p>
-
-  <p class="govuk-body">You can get Attendance Allowance if you have had difficulties for 6 months or more.</p>
+{% set allErrors  = ' govuk-input--error ' if data.validation['difficulties-start-date'].error.href === '#difficulties-start-date' %}
+  {% set dayError   = ' govuk-input--error ' if data.validation['difficulties-start-date'].error.href === '#difficulties-start-date-day' %}
+  {% set monthError = ' govuk-input--error ' if data.validation['difficulties-start-date'].error.href === '#difficulties-start-date-month' %}
+  {% set yearError  = ' govuk-input--error ' if data.validation['difficulties-start-date'].error.href === '#difficulties-start-date-year' %}
 
 {% set startDateHtml %}
     {{ govukDateInput({
@@ -18,27 +17,27 @@
       classes: "govuk-!-margin-bottom-2",
       fieldset: {
         legend: {
-          classes: "govuk-hint",
-          text: "Tell us when they started below. If you do not know the exact date give an approximate date."
+          classes: "govuk-body",
+          text: "Approximate start date"
         }
       },
       hint: {
-        text: "For example, 23 04 2021."
+        text: "For example, 23 04 2021"
       },
       errorMessage: data.validation['difficulties-start-date'].error,
       items: [
         {
-          classes: 'govuk-input--width-2',
+          classes: 'govuk-input--width-2' + allErrors + dayError,
           name: 'day',
           value: data['difficulties-start-date-day']
         },
         {
-          classes: 'govuk-input--width-2',
+          classes: 'govuk-input--width-2' + allErrors + monthError,
           name: 'month',
           value: data['difficulties-start-date-month']
         },
         {
-          classes: 'govuk-input--width-4',
+          classes: 'govuk-input--width-4' + allErrors + yearError,
           name: 'year',
           value: data['difficulties-start-date-year']
         }
@@ -53,7 +52,7 @@
       legend: {
         text: "How long have you had these difficulties?",
         isPageHeading: true,
-        classes: "govuk-fieldset__legend--m"
+        classes: "govuk-fieldset__legend--l"
       }
     },
     errorMessage: data.validation['start-date'].error,

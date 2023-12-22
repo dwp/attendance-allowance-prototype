@@ -14,7 +14,7 @@ const config = {
       type: validation.radios,
       errors: {
         required:
-          "Select yes if your difficulties started more than 6 months ago",
+          "Select how long you have had these difficulties",
       },
     },
     {
@@ -23,6 +23,16 @@ const config = {
       condition: {
         field: "start-date",
         value: "less-than-six-months",
+      },
+      errors: {
+        required: 'Enter a date',
+        requiredDay: 'Date must include a day',
+        requiredMonth: 'Date must include a month',
+        requiredYear: 'Date must include a year',
+        validDay: 'Enter a real date',
+        validMonth: 'Enter a real date',
+        validYear: 'Enter a real date',
+        invalidDate: 'Date must be a real date',
       },
     },
   ],
