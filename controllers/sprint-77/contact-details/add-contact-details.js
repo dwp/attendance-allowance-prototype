@@ -18,7 +18,7 @@ const config = {
       },
     },
     {
-      page: urls.alternativeFormats,
+      page: urls.welshLanguageSpeak,
     },
   ],
   validation: [

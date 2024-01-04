@@ -7,7 +7,7 @@ const {
 const config = {
   name: urls.preferenceContact,
   previous: urls.telephoneNumberOther,
-  next: urls.alternativeFormats,
+  next: urls.welshLanguageSpeak,
   validation: {
     type: validation.radios,
     errors: {

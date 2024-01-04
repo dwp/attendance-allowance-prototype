@@ -131,6 +131,8 @@ const telephoneNumber = require('./contact-details/telephone-number');
 const telephoneNumberOther = require('./contact-details/telephone-number-other');
 const addContactDetails = require('./contact-details/add-contact-details');
 const preferenceContact = require('./contact-details/preference-contact');
+const welshLanguageSpeak = require('./contact-details/welsh-language-speak');
+const welshLanguageWrite = require('./contact-details/welsh-language-write');
 const alternativeFormats = require('./contact-details/alternative-formats');
 const emailSubmit = require('./contact-details/email-submit');
 const emailConfirm = require('./contact-details/email-confirm');
@@ -271,4 +273,6 @@ module.exports = {
   addContactDetails,
   consent,
   evidence,
+  welshLanguageSpeak,
+  welshLanguageWrite,
 };
