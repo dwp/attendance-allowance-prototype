@@ -1,18 +1,19 @@
 const {
   urls,
   validation,
+  match,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
-  name: urls.alternativeFormats,
-  previous: urls.welshLanguageWrite,
-  next: urls.emailSubmit,
+  name: urls.welshLanguageWrite,
+  previous: urls.welshLanguageSpeak,
+  next: urls.alternativeFormats,
   validation: {
     type: validation.radios,
     errors: {
       required:
-        "Select which different format we should use when we contact you",
+        "Select what language you want us to write to you in",
     },
   },
 };

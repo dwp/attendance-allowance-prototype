@@ -139,6 +139,8 @@ module.exports = {
     addContactDetails: 'add-contact-details',
     telephoneNumberOther: 'telephone-number-other',
     preferenceContact: 'preference-contact',
+    welshLanguageSpeak: 'welsh-language-speak',
+    welshLanguageWrite: 'welsh-language-write',
     alternativeFormats: 'alternative-formats',
     emailSubmit: 'email-submit',
     emailConfirm: 'email-confirm',
