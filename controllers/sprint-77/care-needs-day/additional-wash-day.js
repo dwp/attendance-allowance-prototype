@@ -79,11 +79,29 @@ const config = {
   ],
   validation: [
     {
+      name: "wash-frequency",
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 4,
+      },
+      errors: {
+        required:
+          "Enter how many times you need to wash yourself again during the day",
+        maxLength:
+          "Enter how many times you need to wash yourself again during the day in 4 characters or less",
+      },
+      condition: {
+        field: "additional-wash-day",
+        value: "yes",
+      },
+    },
+    {
       name: "additional-wash-day",
       type: validation.radios,
       errors: {
         required:
-          "Select yes if you need to wash, have a bath or shower again during the day",
+          "Select yes if you need to wash yourself again during the day",
       },
     },
   ],

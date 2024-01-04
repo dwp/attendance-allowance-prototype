@@ -19,7 +19,7 @@ const config = {
     {
       page: urls.fallingOrStumbling,
       condition: {
-        field: urls.fallingOrStumblingWhy,
+        field: urls.fallingOrStumbling,
         value: ["risk-falling"],
         match: match.anyOne,
       },

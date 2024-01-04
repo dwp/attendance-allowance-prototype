@@ -23,6 +23,7 @@ const config = {
           "get-in-out-bed-safely",
           "encouragement",
           "help-bed",
+          "sleep-chair",
           "bed-day-why-something-else",
         ],
         match: match.anyOne,

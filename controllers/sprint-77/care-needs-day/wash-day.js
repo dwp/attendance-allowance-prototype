@@ -7,27 +7,7 @@ const {
 
 const config = {
   name: urls.washDay,
-  previous: [
-    {
-      page: urls.returnBedDay,
-      condition: {
-        field: urls.bedDay,
-        value: ["physical", "motivation"],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.bedDay,
-      condition: {
-        field: urls.dayDifficulties,
-        value: ["daytime-bed"],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.dayDifficulties,
-    },
-  ],
+  previous: urls.dayDifficulties,
   next: [
     {
       page: urls.washDayWhy,
