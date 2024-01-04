@@ -5,7 +5,7 @@
 {% block form %}
   <span class="govuk-caption-l">Stumbling or falling during the day</span>
   <h1 class="govuk-heading-l">
-    Does your health condition or disability cause you to stumble or fall?
+    Does your health condition or disability cause you to stumble or fall down?
   </h1>
   
   {{ govukCheckboxes
@@ -31,7 +31,7 @@
       },
       {
         value: "no-other-apply",
-        text: "No, I do not stumble or fall",
+        text: "No, I do not stumble or fall down",
         behaviour: "exclusive",
         checked: true if data["falling-or-stumbling"] and data["falling-or-stumbling"].includes("no-other-apply")
       }]
