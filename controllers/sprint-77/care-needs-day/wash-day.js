@@ -7,7 +7,19 @@ const {
 
 const config = {
   name: urls.washDay,
-  previous: urls.dayDifficulties,
+  previous: [
+    {
+      page: urls.bedDay,
+      condition: {
+        field: urls.dayDifficulties,
+        value: ["daytime-bed"],
+        match: match.anyOne,
+      },
+    },
+    {
+      page: urls.dayDifficulties,
+    },
+  ],
   next: [
     {
       page: urls.washDayWhy,
