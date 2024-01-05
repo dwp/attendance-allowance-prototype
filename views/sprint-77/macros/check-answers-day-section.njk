@@ -175,7 +175,7 @@
                 {% if data['something-else-explain-washing'] %}
                     <div class="govuk-summary-list__row toilet-day">
                         <dt class="govuk-summary-list__key">
-                            Tell us what you find difficult when washing or having a bath or shower
+                            Tell us what you find difficult when washing, having a bath or shower
                         </dt>
                         <dd class="govuk-summary-list__value">
                             {{ data['something-else-explain-washing'] | capitalize }}
@@ -225,7 +225,7 @@
                     {% endif %}
                     <div class="govuk-summary-list__row ">
                         <dt class="govuk-summary-list__key">
-                            Do you need to wash or bathe yourself again during the day?
+                            Do you need to wash yourself again during the day?
                         </dt>
                         <dd class="govuk-summary-list__value">
                             {{ data['additional-wash-day'] | capitalize }}
@@ -237,7 +237,7 @@
                     {% if data['additional-wash-day'] == "yes" %}
                         <div class="govuk-summary-list__row day-frequency">
                             <dt class="govuk-summary-list__key">
-                                Approximately, how many times do you need to wash or bathe?
+                                On a typical day how many times do you need to wash yourself?
                             </dt>
                             <dd class="govuk-summary-list__value">
                                 {{ data['wash-frequency'] }}
@@ -491,7 +491,7 @@
                     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                         <div class="govuk-summary-list__row falling-or-stumbling">
                             <dt class="govuk-summary-list__key">
-                                Does your health condition or disability cause you to stumble or fall?
+                                Does your health condition or disability cause you to stumble or fall down?
                             </dt>
                             <dd class="govuk-summary-list__value">
                                 <ul class="govuk-list">
@@ -570,7 +570,7 @@
                             {% if data['falling-when'] %}
                                 <div class="govuk-summary-list__row falling-when">
                                     <dt class="govuk-summary-list__key">
-                                        Approximately, when did you last fall?
+                                        Approximately, when did you last fall down?
                                     </dt>
                                     <dd class="govuk-summary-list__value">
                                         {{ data['falling-when']
@@ -585,7 +585,7 @@
                                 </div>
                                 <div class="govuk-summary-list__row frequency-falling">
                                     <dt class="govuk-summary-list__key">
-                                        In the last 12 months, roughly how many times did you fall?
+                                        Approximately, how many times did you fall down in the last 12 months?
                                     </dt>
                                     <dd class="govuk-summary-list__value">
                                         {{ data['frequency-falling'] }}
@@ -629,7 +629,7 @@
                     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                         <div class="govuk-summary-list__row toilet-day">
                             <dt class="govuk-summary-list__key">
-                                What difficulties do you have with your toilet needs?
+                                What difficulty do you have with your toilet needs?
                             </dt>
                             <dd class="govuk-summary-list__value">
                                 <ul class="govuk-list">
@@ -775,7 +775,7 @@
                             {% endif %}
                             <div class="govuk-summary-list__row eat-drink-day-why">
                                 <dt class="govuk-summary-list__key">
-                                    Can you tell us more about how you're struggling?
+                                   How do you manage to eat or drink?
                                 </dt>
                                 <dd class="govuk-summary-list__value">
                                     <ul class="govuk-list">
@@ -801,7 +801,7 @@
                             {% if data['something-else-eating-drinking-day-why-explain'] %}
                                 <div class="govuk-summary-list__row toilet-day">
                                     <dt class="govuk-summary-list__key">
-                                        What else do you struggle with?
+                                        Tell us how you manage to eat or drink
                                     </dt>
                                     <dd class="govuk-summary-list__value">
                                         {{ data['something-else-eating-drinking-day-why-explain'] | capitalize }}
@@ -978,7 +978,7 @@
                         {% if data['social-activities-day-frequency'] %}
                             <div class="govuk-summary-list__row social-activities-day-frequency">
                                 <dt class="govuk-summary-list__key">
-                                    How often you usually take part in social activities or hobbies
+                                    How often you usually take part in social activities or hobbies?
                                 </dt>
                                 <dd class="govuk-summary-list__value">
                                     {{ data['social-activities-day-frequency']
