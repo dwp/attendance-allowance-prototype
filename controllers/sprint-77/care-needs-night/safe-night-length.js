@@ -25,8 +25,8 @@ const config = {
         maxLength: 200,
       },
       errors: {
-        required: 'You need to enter how long is someone awake in the night to keep you safe',
-        maxLength: 'Tell us in 200 characters of less, approximately how long someone is awake in the night to keep you safe',
+        required: 'Enter how long someone is awake in the night to keep you safe',
+        maxLength: 'Enter how long someone is awake in the night to keep you safe in 200 characters or less',
       },
     },
   ],
