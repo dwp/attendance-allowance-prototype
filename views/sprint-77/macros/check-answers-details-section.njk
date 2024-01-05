@@ -112,7 +112,7 @@
       {% if data['national-insurance'] %}
         <div class="govuk-summary-list__row national-insurance-number">
           <dt class="govuk-summary-list__key">
-            Your NI number
+            National Insurance number
           </dt>
           <dd class="govuk-summary-list__value">
               {{ data['national-insurance'].replaceAll(' ','').toUpperCase() }}
@@ -132,7 +132,7 @@
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row person-claiming-new">
         <dt class="govuk-summary-list__key">
-          Who is claiming
+          Who is applying?
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['who-is-applying'] 
@@ -178,7 +178,7 @@
       </div>
       <div class="govuk-summary-list__row nationality">
         <dt class="govuk-summary-list__key">
-          Nationality
+          What is your nationality?
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['nationality'] 
@@ -205,7 +205,7 @@
       {% endif %}
       <div class="govuk-summary-list__row residence-country">
         <dt class="govuk-summary-list__key">
-          Where you live
+          Where do you live?
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['residence-country'] 
@@ -221,7 +221,7 @@
       </div>
       <div class="govuk-summary-list__row lived-outside-uk-more-than-12m-in-last-3-years">
         <dt class="govuk-summary-list__key">
-          Been outside of the UK more than 12 months in the last 3 years
+          Have you been outside of the UK more than 12 months in the last 3 years?
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['country-outside-uk-duration'] | capitalize }}
@@ -232,7 +232,7 @@
       </div>
       <div class="govuk-summary-list__row care-home-hospital">
         <dt class="govuk-summary-list__key">
-          Currently in a care home or hospital
+          Are you currently in a care home or hospital?
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['care-home-hospital'] | capitalize }}
@@ -244,7 +244,7 @@
       {% if data['care-home-hospital'] == 'no' %}
         <div class="govuk-summary-list__row care-home-hospital">
           <dt class="govuk-summary-list__key">
-            Stayed in a care home or hospital at any point since [token date]
+            Have you stayed in a care home or hospital at any point since [token date]?
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['serco-care-home-hospital'] | capitalize }}
@@ -264,7 +264,7 @@
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <dl class="govuk-summary-list row no-border">
 					<div class="govuk-summary-list__row no-border">
-						<dt class="govuk-summary-list__key govuk-heading-s">Your conditions or disabilities</dt>
+						<dt class="govuk-summary-list__key govuk-heading-s">Your health conditions or disabilities</dt>
 						<dt class="govuk-summary-list__actions">
 							{{ changeLink('illness-disability-added') }}						
 						</dt>
@@ -293,7 +293,7 @@
       {% if data['renal-dialysis'] == 'yes' %}
         <div class="govuk-summary-list__row renal-dialysis">
           <dt class="govuk-summary-list__key">
-            Renal dialysis treatment
+            Are you undergoing renal dialysis?
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['renal-dialysis'] | replace("yes", "Yes") | replace("no", "No")| capitalize }}
@@ -304,7 +304,7 @@
         </div>
         <div class="govuk-summary-list__row renal-dialysis">
           <dt class="govuk-summary-list__key">
-            Where you have your dialysis
+            Where do you have your dialysis?
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['renal-dialysis-where'] 
@@ -320,7 +320,7 @@
       {% if data['renal-dialysis-where'] == 'home' %}
         <div class="govuk-summary-list__row renal-dialysis">
           <dt class="govuk-summary-list__key">
-            When you have your dialysis
+            When do you have your dialysis?
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['renal-dialysis-when'] 
@@ -334,7 +334,7 @@
         </div>
         <div class="govuk-summary-list__row renal-dialysis">
           <dt class="govuk-summary-list__key">
-            Days a week you have dialysis
+            How many days a week do you have dialysis?
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['renal-dialysis-frequency'] 
@@ -349,7 +349,7 @@
         </div>
         <div class="govuk-summary-list__row renal-dialysis">
           <dt class="govuk-summary-list__key">
-            Help from someone else during your dialysis
+            Do you require help from someone else during your dialysis?
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['renal-dialysis-help']
@@ -365,7 +365,7 @@
 
       <div class="govuk-summary-list__row treatment-surgery">
         <dt class="govuk-summary-list__key">
-          Other surgeries or treatments
+          Are you having any other treatment or waiting for surgery?
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['treatment-surgery'] 
@@ -379,7 +379,7 @@
       {% if data['treatment-surgery'] == 'yes' %}
         <div class="govuk-summary-list__row treatment">
           <dt class="govuk-summary-list__key">
-            About your surgery or treatment
+            About your treatment or surgery
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['treatment-surgery-information'] }}
@@ -413,7 +413,7 @@
       {% if data['surgery-medical-centre-name'] %}
         <div class="govuk-summary-list__row surgery-medical-centre-name">
           <dt class="govuk-summary-list__key">
-            Your doctor's surgery or medical centre
+            What is the name of your GP surgery or medical centre?
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['surgery-medical-centre-name'] }} <br/>
