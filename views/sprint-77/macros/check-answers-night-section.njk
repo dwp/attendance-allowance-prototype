@@ -69,7 +69,7 @@
 		</section>
 	{% endif %}
 	{% if data["night-difficulties"] and data["night-difficulties"].includes("nighttime-getting-settled") %}
-		<section class="Getting settled in bed">
+		<section class="Getting settled">
 			<h2 class="govuk-heading-m">
 				Getting settled in bed
 			</h2>
@@ -99,7 +99,7 @@
 					{% if data['something-else-explain-bed-night'] %}
 						<div class="govuk-summary-list__row bed-position-night">
 							<dt class="govuk-summary-list__key">
-											Tell us what difficulty you have in getting settled in bed
+											Tell us what difficulty you have getting settled in bed
 									</dt>
 							<dd class="govuk-summary-list__value">
 								{{ data['something-else-explain-bed-night'] | capitalize }}
@@ -111,7 +111,7 @@
 					{% endif %}
 					<div class="govuk-summary-list__row night-frequency-bed-position">
 						<dt class="govuk-summary-list__key">
-							How many times a night do you have difficulties getting to or using the toilet?  
+							On average, how many times a night do you have difficulties getting settled?
 						</dt>
 						<dd class="govuk-summary-list__value">
 							{{ data['night-frequency-bed-position'] 
@@ -143,7 +143,7 @@
 	{% if data["night-difficulties"] and data["night-difficulties"].includes("nighttime-cleaning-yourself") %}
 		<section class="Toilet needs">
 			<h2 class="govuk-heading-m">
-				Toilet needs
+				Toilet needs or managing incontinence
 			</h2>
 			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 				<div class="govuk-summary-list__row toilet-night">
@@ -161,7 +161,7 @@
 									| replace("toilet-cleaning-myself", "Cleaning myself after using the toilet or commode")
 									| replace("toilet-emptying", "Emptying and managing my stoma, catheter or similar") 
 									| replace("managing-incontinence", "I have incontinence")
-									| replace("toilet-something-else", "Something else")
+									| replace("toilet-night-something-else", "Something else")
 									| replace("no-other-apply","I do not have difficulty getting settled in bed during the night") }}
 								</li>
 							{% endfor %}
@@ -259,12 +259,12 @@
 	{% if data["night-difficulties"] and data["night-difficulties"].includes("nighttime-medication") %}
 		<section class="Medication or treatment during the night">
 			<h2 class="govuk-heading-m">
-				Medication or treatment during the night
+				Medication or treatment
 			</h2>
 			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 				<div class="govuk-summary-list__row medication-treatment-night">
 					<dt class="govuk-summary-list__key">
-					If you need to take medication or receive treatment during the night, which difficulties do you have? 
+					What medication or treatment do you have difficulty taking during the night?
 				</dt>
 					<dd class="govuk-summary-list__value">
 						<ul class="govuk-list">
