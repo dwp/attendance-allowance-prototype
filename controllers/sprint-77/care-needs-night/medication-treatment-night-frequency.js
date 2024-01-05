@@ -21,8 +21,8 @@ const config = {
         maxLength: 200,
       },
       errors: {
-        required: 'Enter how long it takes to have medication or get treatment',
-        maxLength: 'Length of time it takes to have medication or treatment must be 200 characters or less',
+        required: 'Enter how long it takes you to take medication or get treatment',
+        maxLength: 'Enter how long it takes you to take medication or get treatment in 200 characters or less',
       },
       condition: {
         field: 'medication-treatment-night-frequency',

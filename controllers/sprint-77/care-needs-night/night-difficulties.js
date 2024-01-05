@@ -54,7 +54,7 @@ const config = {
     type: validation.checkboxes,
     errors: {
       required:
-        "Select what you have difficulties or need help with during the night",
+        "Select what you have difficulty or need help with during the night",
     },
   },
 };
