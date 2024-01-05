@@ -38,17 +38,11 @@
       {
         value: "safety",
         text: "I cannot eat or drink safely",
-        hint: {
-          text: 'For example, you might choke, or eat or drink when it is too hot'
-          },
         checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("safety")
       },
       {
         value: "confused",
         text: "I get confused when eating",
-        hint: {
-          text: 'For example, you eat out of date or inappropriate food'
-          },
         checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("confused")
       },
       {

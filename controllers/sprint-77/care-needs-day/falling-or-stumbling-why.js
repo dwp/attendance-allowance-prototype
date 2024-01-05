@@ -18,7 +18,7 @@ const config = {
       },
     },
     {
-      page: urls.falling,
+      page: urls.fallingWhen,
       condition: {
         field: urls.fallingOrStumbling,
         value: ["risk-falling"],
