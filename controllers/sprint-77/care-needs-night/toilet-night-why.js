@@ -47,9 +47,9 @@ const config = {
         maxLength: 200,
       },
       errors: {
-        required: "You must tell us the reason you struggle.",
+        required: "Enter how you manage your toilet needs during the night",
         maxLength:
-          "Tell us the reason you are struggling must be 200 characters or less.",
+          "Enter how you manage your toilet needs during the night in 200 characters or less",
       },
       condition: {
         field: "toilet-night-why",
