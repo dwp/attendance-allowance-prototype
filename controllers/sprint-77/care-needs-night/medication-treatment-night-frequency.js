@@ -33,7 +33,7 @@ const config = {
       type: validation.radios,
       name: 'medication-treatment-night-frequency',
       errors: {
-        required: 'You must select how many times',
+        required: 'Select how many times you have difficulty taking medication or getting treatment',
       },
     },
   ],

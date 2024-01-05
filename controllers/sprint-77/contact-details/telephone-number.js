@@ -30,9 +30,9 @@ const config = {
         maxLength: 15,
       },
       errors: {
-        required: "Enter a UK telephone number, like 01632 960 001 or 07700 900 982",
-        minLength: "Enter a UK telephone number, like 01632 960 001 or 07700 900 982",
-        maxLength: "Enter a UK telephone number, like 01632 960 001 or 07700 900 982",
+        required: 'Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192',
+        minLength: 'Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192',
+        maxLength: 'Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192',
       },
     },
   ],
