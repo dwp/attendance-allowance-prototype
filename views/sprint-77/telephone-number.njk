@@ -15,7 +15,10 @@
   
   {{ govukInput({
     label: {
-      text: "UK telephone number"
+      text: "Telephone number"
+    },
+    hint: {
+      text: "For international numbers include the country code."
     },
     classes: "govuk-input--width-30",
     errorMessage: data.validation['main-contact-number'].error,
