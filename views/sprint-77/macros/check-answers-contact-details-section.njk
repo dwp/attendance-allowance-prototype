@@ -36,7 +36,7 @@
       {% if data['add-contact-details'] == 'yes' %}
         <div class="govuk-summary-list__row add-contact-details">
           <dt class="govuk-summary-list__key">
-            Their name
+            Their full name
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['add-contact-details-name'] | capitalize }}
@@ -105,7 +105,7 @@
 
 			<div class="govuk-summary-list__row formats">
 				<dt class="govuk-summary-list__key">
-				Alternative Formats
+					Do you need us to use a different format when we contact you?
 				</dt>
 				<dd class="govuk-summary-list__value">
 					{{ data['alternative-formats'] 
@@ -124,7 +124,7 @@
 
 			<div class="govuk-summary-list__row email-confirm">
 				<dt class="govuk-summary-list__key">
-					Would you like an email confirmation
+					Should we send an email confirmation?
 				</dt>
 				<dd class="govuk-summary-list__value">
 					{{ data['email-submit'] | capitalize }}
