@@ -140,21 +140,19 @@
 			{% if data['aids-adaptations-question'] == "yes" %}
 
 				<dl class="govuk-summary-list row no-border">
-					<div class="govuk-summary-list__row no-border">
 						<dt class="govuk-summary-list__key govuk-heading-m">Your adaptations, equipment or aids</dt>
+				</dl>
+				<dl class="govuk-summary-list row no-border">
+					<div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+						<dt class="govuk-summary-list__key">{{ data['aids-adaptations'] }}</dt>
+						<dt class="govuk-summary-list__value"></dt>
 						<dt class="govuk-summary-list__actions">
 							{{ changeLink('aids-adaptations-added') }}						
 						</dt>
 					</div>
-				</dl>
-				<dl class="govuk-summary-list row no-border">
-					<div class="govuk-summary-list__row no-border govuk-summary-list__row--no-actions">
-						<dt class="govuk-summary-list__key ">{{ data['aids-adaptations'] }}</dt>
-						<dt class="govuk-summary-list__value "></dt>
-					</div>
-					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions govuk-summary-list__row--no-actions">
+					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
 						<dt class="govuk-summary-list__key govuk-!-font-weight-regular">Difficulty using</dt>
-						<dt class="govuk-summary-list__value ">{{ data['aids-adaptations-difficulty'] }}</dt>
+						<dt class="govuk-summary-list__value">{{ data['aids-adaptations-difficulty'] }}</dt>
 					</div>
 				</dl>
 			{% endif %}
