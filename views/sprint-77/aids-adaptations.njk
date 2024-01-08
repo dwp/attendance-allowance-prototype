@@ -1,5 +1,7 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "../macros/phase-button.njk" import phaseButton %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% extends "layouts/prototypeLayout.njk" %}
 
@@ -19,6 +21,20 @@
     errorMessage: data.validation['aids-adaptations'].error,
     classes: "govuk-input--width-20"
     }) }}
+
+{% block formButton %} 
+{% endblock %}
+
+  <div class="govuk-button-group">
+    {{ phaseButton(data, "Add adaptation") }}
+    {% if data['aids-adaptations'].length > 0 %}
+      {{ govukButton({
+        text: "Skip",
+        classes: "govuk-button--secondary",
+        href: "aids-adaptations-added"
+      }) }}
+    {% endif %}
+  </div>
 
 {% endblock %}
 

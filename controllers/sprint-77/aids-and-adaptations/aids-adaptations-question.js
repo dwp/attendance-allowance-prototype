@@ -7,25 +7,17 @@ const {
 
 const config = {
   name: urls.aidsAdaptationsQuestion,
-  previous: [
+  next: [
     {
-      page: urls.safeNightLength,
+      page: urls.aidsAdaptationsReason,
       condition: {
-        field: urls.safeDayNight,
-        value: ["day"],
-        match: match.anyOne,
+        field: urls.aidsAdaptationsQuestion,
+        value: "no",
+        match: match.value,
       },
     },
     {
-      page: urls.safeNightLength,
-      condition: {
-        field: urls.safeDayNight,
-        value: ["night"],
-        match: match.anyOne,
-      },
-    },
-    {
-      page: urls.safeDayNight,
+      page: urls.aidsAdaptations,
     },
   ],
   previous: [

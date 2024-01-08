@@ -263,19 +263,18 @@
     </h2>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <dl class="govuk-summary-list row no-border">
-					<div class="govuk-summary-list__row no-border">
-						<dt class="govuk-summary-list__key govuk-heading-s">Your health conditions or disabilities</dt>
+						<dt class="govuk-summary-list__key govuk-heading-s no-border">Your health conditions or disabilities</dt>
 						<dt class="govuk-summary-list__actions">
 							{{ changeLink('illness-disability-added') }}						
 						</dt>
-					</div>
 				</dl>
 				<dl class="govuk-summary-list row no-border">
-					<div class="govuk-summary-list__row no-border govuk-summary-list__row--no-actions">
+					<div class="govuk-summary-list__row govuk-summary-list__row--no-border">
 						<dt class="govuk-summary-list__key ">{{ data['illness-disability'] }}</dt>
 						<dt class="govuk-summary-list__value "></dt>
+            <dt class="govuk-summary-list__actions"></dt>
 					</div>
-					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions govuk-summary-list__row--no-actions">
+					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
 						<dt class="govuk-summary-list__key govuk-!-font-weight-regular">Start date</dt>
 						<dt class="govuk-summary-list__value ">{{ data['illness-start-date'] }}</dt>
 					</div>

@@ -1,6 +1,7 @@
 const {
   urls,
   validation,
+  match,
   registerController,
 } = require("../../../utils/controller");
 
@@ -14,6 +15,21 @@ const config = {
   next: [
     {
       page: urls.safeDayLength,
+      condition: {
+        page: urls.safeDayNight,
+        field: "safe-day-night",
+        value: ["day"],
+        match: match.anyOne,
+      },
+    },
+    {
+      page: urls.safeNightFrequency,
+      condition: {
+        page: urls.safeDayNight,
+        field: "safe-day-night",
+        value: ["night"],
+        match: match.anyOne,
+      },
     },
   ],
   validation: [
