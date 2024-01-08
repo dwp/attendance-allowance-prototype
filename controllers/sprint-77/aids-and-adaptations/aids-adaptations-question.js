@@ -28,6 +28,32 @@ const config = {
       page: urls.safeDayNight,
     },
   ],
+  previous: [
+    {
+      page: urls.aidsAdaptationsReason,
+      page: urls.safeNightLength,
+      condition: {
+        field: urls.aidsAdaptationsQuestion,
+        value: "no",
+        match: match.value,
+        field: urls.safeDayNight,
+        value: ["day"],
+        match: match.anyOne,
+      },
+    },
+    {
+      page: urls.aidsAdaptations,
+      page: urls.safeNightLength,
+      condition: {
+        field: urls.safeDayNight,
+        value: ["night"],
+        match: match.anyOne,
+      },
+    },
+    {
+      page: urls.safeDayNight,
+    },
+  ],
   validation: [
     {
       name: "aids-adaptations-question",
