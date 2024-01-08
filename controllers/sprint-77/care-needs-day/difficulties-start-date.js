@@ -6,7 +6,7 @@ const {
 
 const config = {
   name: urls.difficultiesStartDate,
-  previous: urls.checkAnswersNight,
+  previous: urls.aidsAdaptationsAdded,
   next: urls.checkAnswersStartDate,
   validation: [
     {

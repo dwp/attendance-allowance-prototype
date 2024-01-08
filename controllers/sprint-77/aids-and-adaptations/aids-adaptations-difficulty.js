@@ -9,7 +9,7 @@ const config = {
   name: urls.aidsAdaptationsDifficulty,
   previous: [
     {
-      page: urls.aidsAdaptationsQuestion,
+      page: urls.aidsAdaptations,
     },
   ],
   next: [

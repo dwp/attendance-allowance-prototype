@@ -23,7 +23,7 @@ const config = {
       },
     },
     {
-      page: urls.safeNightFrequency,
+      page: urls.safeDayWhy,
       condition: {
         page: urls.safeDayNight,
         field: "safe-day-night",

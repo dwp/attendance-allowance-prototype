@@ -18,7 +18,7 @@ const config = {
       },
     },
     {
-      page: urls.safeDayNight,
+      page: urls.safeDayWhy,
     },
   ],
   next: [
@@ -28,6 +28,9 @@ const config = {
   ],
   validation: {
     type: validation.radios,
+    errors: {
+      required: "Enter how many times someone is awake in the night to keep you safe",
+    },
   },
 };
 
