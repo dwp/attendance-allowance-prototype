@@ -25,8 +25,8 @@ const config = {
         maxLength: 200,
       },
       errors: {
-        required: 'Enter how you manage taking your medication or treatment during the night',
-        maxLength: 'Enter how you manage taking your medication or treatment during the night in 200 characters or less',
+        required: 'Enter how you manage taking medication or getting treatment during the night',
+        maxLength: 'Enter how you manage taking medication or getting treatment during the night in 200 characters or less',
       },
       condition: {
         field: 'medication-treatment-night-why',

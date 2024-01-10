@@ -17,8 +17,8 @@ const config = {
         maxLength: 4,
       },
       errors: {
-        required:
-          "Enter the approximate number of times you fell down in the last 12 months",
+        required: "Enter the approximate number of times you fell down in the last 12 months",
+        maxLength: "Enter the approximate number of times you fell down in 4 characters or less",
       },
     },
   ],

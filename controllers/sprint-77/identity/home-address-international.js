@@ -17,8 +17,8 @@ const config = {
         maxLength: 500,
       },
       errors: {
-        required: 'Enter the first line of your address where you currently live.',
-        maxLength: 'Address must be 500 characters or fewer.',
+        required: 'Enter the first line of your address',
+        maxLength: 'Enter the first line of your address in 200 characters or less',
       },
     },
     {
@@ -29,8 +29,8 @@ const config = {
         maxLength: 200,
       },
       errors: {
-        required: 'You must enter a town or city where you currently live.',
-        maxLength: 'Town or city must be 200 characters or fewer.',
+        required: 'Enter a town or city',
+        maxLength: 'Enter a town or city in 200 characters or less',
       },
     },
     {
@@ -41,8 +41,8 @@ const config = {
         maxLength: 200,
       },
       errors: {
-        required: 'Enter the country where you currently live.',
-        maxLength: 'Country must be 200 characters or fewer.',
+        required: 'Enter a country',
+        maxLength: 'Enter a country in 200 characters or less',
       },
     },
     
