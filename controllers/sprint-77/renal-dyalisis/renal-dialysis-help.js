@@ -11,7 +11,7 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: 'You must enter either yes or no.',
+      required: 'Select yes if you require help from someone else during dialysis',
     },
   },
 };

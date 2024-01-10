@@ -11,7 +11,7 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: 'You must select one of the values.',
+      required: 'Select how many days a week you have dialysis',
     },
   },
 };

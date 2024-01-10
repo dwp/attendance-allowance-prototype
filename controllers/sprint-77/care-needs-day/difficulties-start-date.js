@@ -32,7 +32,7 @@ const config = {
         validDay: 'Enter a real date',
         validMonth: 'Enter a real date',
         validYear: 'Enter a real date',
-        invalidDate: 'Date must be a real date',
+        invalidDate: 'Enter a real date',
       },
     },
   ],

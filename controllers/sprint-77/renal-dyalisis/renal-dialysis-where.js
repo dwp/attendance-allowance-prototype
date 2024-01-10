@@ -24,7 +24,7 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: 'We need to know where you receive your treatment.',
+      required: 'Select where you have your dialysis',
     },
   },
 };

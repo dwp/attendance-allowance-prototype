@@ -11,7 +11,7 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: 'We need to know when you receive your treatment.',
+      required: 'Select when you have your dialysis',
     },
   },
 };

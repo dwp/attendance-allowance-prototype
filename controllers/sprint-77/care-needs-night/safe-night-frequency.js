@@ -29,9 +29,10 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: "Enter how many times someone is awake in the night to keep you safe",
+      required: "Select how many times someone is awake in the night to keep you safe",
     },
   },
+  
 };
 
 module.exports = registerController(config.name, config);
