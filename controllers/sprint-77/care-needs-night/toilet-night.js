@@ -9,18 +9,18 @@ const config = {
   name: urls.toiletNight,
   previous: [
     {
-      page: urls.turningOverNightFrequency,
-      condition: {
-        field: urls.nightDifficulties,
-        value: ["nighttime-turning-over"],
-        match: match.anyOne,
-      },
-    },
-    {
       page: urls.bedPositionNight,
       condition: {
         field: urls.nightDifficulties,
         value: ["nighttime-getting-settled"],
+        match: match.anyOne,
+      },
+    },
+    {
+      page: urls.turningOverNightFrequency,
+      condition: {
+        field: urls.nightDifficulties,
+        value: ["nighttime-turning-over"],
         match: match.anyOne,
       },
     },
