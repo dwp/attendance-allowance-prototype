@@ -1,0 +1,57 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  {{ govukRadios({
+    idPrefix: "alternative-formats",
+    name: "alternative-formats",
+    fieldset: {
+      legend: {
+        text: "Do you need us to use a different format when we contact you?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    errorMessage: data.validation['alternative-formats'].error,
+    items: [
+      {
+        value: "large-print",
+        text: "Large print",
+        checked: true if data["alternative-formats"] === "large-print"
+      },
+      {
+        value: "cd-cassette",
+        text: "CD or cassette tape",
+        checked: true if data["alternative-formats"] === "cd-cassette"
+      },
+      {
+        value: "braille",
+        text: "Braille",
+        checked: true if data["alternative-formats"] === "braille"
+      },
+      {
+        value: "textphone",
+        text: "Textphone",
+        checked: true if data["alternative-formats"] === "textphone"
+      },
+      {
+        value: "relay-uk",
+        text: "Relay UK",
+        checked: true if data["alternative-formats"] === "relay-uk"
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "none",
+        text: "None, these do not apply to me",
+        checked: true if data["alternative-formats"] === "none"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
