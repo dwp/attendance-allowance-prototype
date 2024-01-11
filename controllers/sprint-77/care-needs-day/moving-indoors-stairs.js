@@ -67,10 +67,11 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 100,
+        maxLength: 200,
       },
       errors: {
-        required: 'You must tell us the other reason why you need to use stairs.',
+        required: 'Enter why you need to go up or down the stairs during the day',
+        maxLength: 'Enter why you need to go up or down the stairs during the day in 200 characters or less'
       },
       condition: {
         field: 'moving-indoors-stairs',
@@ -80,6 +81,10 @@ const config = {
     {
       name: 'moving-indoors-stairs',
       type: validation.checkboxes,
+      errors: {
+        required:
+          "Select why you need to go up or down the stairs during the day",
+      },
     },
   ],
 };
