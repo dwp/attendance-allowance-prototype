@@ -1,0 +1,19 @@
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+    <div class="govuk-form-group">
+        <h1 class="govuk-heading-l">You told us you already get Attendance Allowance</h1>
+        <p class="govuk-body">If you want to renew your claim you can <a class="govuk-link" href="nationality">continue and use the online service.</a></p>
+        <p class="govuk-body">Alternatively, you can use the paper form.</p>
+        <p class="govuk-body">If you want to report a change in circumstances, you must contact the <a class="govuk-link" href="https://www.gov.uk/attendance-allowance/report-change-in-circumstances">Attendance Allowance helpline.</a></p>
+    </div>
+{% endblock %}     
+
+{% block formButton %}
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

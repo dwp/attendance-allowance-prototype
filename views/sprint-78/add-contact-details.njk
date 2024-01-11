@@ -1,0 +1,51 @@
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+  <h1 class="govuk-heading-l">Do you want to add contact details for someone else?</h1>
+
+  {% set addContactHtml %}
+    <p class="govuk-body">By adding their name you agree that DWP can contact them about your Attendance Allowance application:</p>
+    <p class="govuk-body">Their full name</p>
+    
+    {{ govukInput({
+      id: "add-contact-details-name",
+      name: "add-contact-details-name",
+      errorMessage: data.validation['add-contact-details-name'].error,
+      value: data['add-contact-details-name'],
+      classes: "govuk-input--width-20"
+    }) }}
+  {% endset %}
+
+  {{ govukRadios({
+    idPrefix: "add-contact-details",
+    name: "add-contact-details",
+    hint: {
+      text: "We will only phone them if we have questions about your application."
+    },
+    errorMessage: data.validation['add-contact-details'].error,
+    items: [
+      {
+        value: "yes",
+        text: "Yes",
+        checked: true if data["add-contact-details"] === "yes",
+        conditional: {
+          html: addContactHtml
+        }
+      },
+      {
+        value: "no",
+        text: "No",
+        checked: true if data["add-contact-details"] === "no"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
