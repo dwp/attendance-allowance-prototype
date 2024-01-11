@@ -6,21 +6,14 @@
 {% block form %}
 
   <span class="govuk-caption-l">Moving around indoors during the day</span>
-  <h1 class="govuk-heading-l govuk-!-margin-bottom-5"> You told us you have difficulties with going up or down stairs</h1>
+  <h1 class="govuk-heading-l govuk-!-margin-bottom-5">Why do you need to go up or down the stairs during the day?</h1>
 
  {{ govukCheckboxes
     ({
       idPrefix: "moving-indoors-stairs",
       name: "moving-indoors-stairs",
-      fieldset: {
-        legend: {
-          text: "Why do you need to go up or down the stairs during the day?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
       hint: {
-        text: "Choose all that apply to you."
+        text: "Select all that apply."
       },
       errorMessage: data.validation['moving-indoors-stairs'].error,
       items: [
@@ -46,7 +39,7 @@
         },
         {
           value: "something-else-stairs",
-          text: "I need to use stairs for another reason",
+          text: "Something else",
           checked: true if data["moving-indoors-stairs"] and data["moving-indoors-stairs"].includes("something-else-stairs"),
           conditional: {
             html: conditionalSomethingElseStairsHtml
@@ -63,7 +56,7 @@
     classes: "govuk-input--width-40",
     isPageHeading: true,
     label: {
-      text: 'Tell us the other reason you need to use stairs'
+      text: 'Tell us why you need to go up or down the stairs during the day'
       },
     id: "something-else-explain-stairs",
     name: "something-else-explain-stairs",
