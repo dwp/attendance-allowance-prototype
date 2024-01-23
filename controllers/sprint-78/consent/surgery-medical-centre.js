@@ -27,12 +27,11 @@ const config = {
       name: "surgery-medical-centre-postcode",
       type: validation.textInput,
       options: {
-        minLength: 6,
-        maxLength: 8,
+        regEx: /^([A-Za-z][A-Ha-hK-Yk-y]?[0-9][A-Za-z0-9]? ?[0-9][A-Za-z]{2}|[Gg][Ii][Rr] ?0[Aa]{2})$/
       },
       errors: {
         required: "Enter a postcode",
-        minLength: "Enter a postcode in the correct format",
+        regEx: 'Enter a postcode in the correct format',
         maxLength: "Postcode must be 8 characters or less",
       },
     },

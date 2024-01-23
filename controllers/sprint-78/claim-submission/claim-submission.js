@@ -5,7 +5,6 @@ const {
 
 const config = {
   name: urls.claimSubmission,
-  previous: urls.checkAnswersContactDetails,
   next: urls.done,
 };
 
