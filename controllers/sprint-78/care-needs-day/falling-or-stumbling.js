@@ -17,7 +17,7 @@ const config = {
       },
     },
     {
-      page: urls.movingIndoorsWhy,
+      page: urls.movingIndoorsDay,
       condition: {
         field: urls.dayDifficulties,
         value: ["daytime-moving"],

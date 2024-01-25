@@ -9,7 +9,7 @@ const config = {
   name: urls.toiletDay,
   previous: [
     {
-      page: urls.falling,
+      page: urls.fallingOrStumbling,
       condition: {
         field: urls.fallingOrStumbling,
         value: ["risk-falling"],
@@ -17,7 +17,7 @@ const config = {
       },
     },
     {
-      page: urls.stumbling,
+      page: urls.fallingOrStumbling,
       condition: {
         field: urls.fallingOrStumbling,
         value: ["risk-stumbling"],

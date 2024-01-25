@@ -9,10 +9,10 @@ const config = {
   name: urls.medicationTreatmentNight,
   previous: [
     {
-      page: urls.turningOverNightFrequency,
+      page: urls.toiletNight,
       condition: {
         field: urls.nightDifficulties,
-        value: ['nighttime-turning-over'],
+        value: ['nighttime-cleaning-yourself'],
         match: match.anyOne,
       },
     },
@@ -25,10 +25,10 @@ const config = {
       },
     },
     {
-      page: urls.toiletNight,
+      page: urls.turningOverNightFrequency,
       condition: {
         field: urls.nightDifficulties,
-        value: ['nighttime-cleaning-yourself'],
+        value: ['nighttime-turning-over'],
         match: match.anyOne,
       },
     },
