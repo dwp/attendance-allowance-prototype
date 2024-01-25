@@ -32,7 +32,6 @@ const config = {
       errors: {
         required: "Enter a postcode",
         regEx: 'Enter a postcode in the correct format',
-        maxLength: "Postcode must be 8 characters or less",
       },
     },
   ],

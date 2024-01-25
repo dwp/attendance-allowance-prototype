@@ -14,11 +14,11 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 500,
+        maxLength: 50,
       },
       errors: {
         required: 'Enter the first line of your address',
-        maxLength: 'Enter the first line of your address in 500 characters or less',
+        maxLength: 'Enter the first line of your address in 50 characters or less',
       },
     },
     {
@@ -26,11 +26,11 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 200,
+        maxLength: 50,
       },
       errors: {
         required: 'Enter a town or city',
-        maxLength: 'Enter a town or city in 200 characters or less',
+        maxLength: 'Enter a town or city in 50 characters or less',
       },
     },
     {
@@ -42,7 +42,6 @@ const config = {
       errors: {
         required: "Enter a postcode",
         regEx: 'Enter a postcode in the correct format',
-        maxLength: 'Postcode must be 8 characters or less',
       },
     },
     
