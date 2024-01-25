@@ -1,0 +1,9 @@
+{% macro rewordFormat(format) %}
+  {{ format
+    | replace("format-audio", "Audio" ) 
+    | replace("format-braille", "Braille" ) 
+    | replace("format-large", "Large print" ) 
+    | replace("format-textphone", "Textphone" )
+    | replace("format-typetalk", "TypeTalk" )
+    | replace("format-none", "None" ) }}
+{% endmacro %}
