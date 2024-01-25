@@ -1,0 +1,50 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+  {% set specialRulesBody %}
+    <p class="govuk-body govuk-hint"> 
+      A DS1500 is a report that gives the Department of Work and Pensions evidence about your illness. 
+    </p>
+  {% endset %}
+
+  {{ govukRadios({
+    idPrefix: "special-rules-form",
+    name: "special-rules-form",
+    classes: "govuk-!-margin-bottom-3",
+    fieldset: {
+      legend: {
+        text: "Has your doctor, consultant or specialist nurse completed a DS1500 report?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-4"
+      }
+    },
+    errorMessage: data.validation['special-rules-form'].error,
+    hint: {
+      html: specialRulesBody
+    },
+    items: [
+      {
+        value: "yes",
+        text: "Yes",
+        checked: true if data["special-rules-form"] === "yes"
+      },
+      {
+        value: "no",
+        text: "No",
+        checked: true if data["special-rules-form"] === "no"
+      },
+      {
+        value: "not-sure",
+        text: "I'm not sure",
+        checked: true if data["special-rules-form"] === "not-sure"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
