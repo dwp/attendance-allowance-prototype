@@ -9,7 +9,7 @@ const config = {
   name: urls.specialRulesDeclaration,
   previous: [
     {
-      page: urls.bestDescribe,
+      page: urls.helpingSomeoneIntro,
       condition: {
         field: urls.bestDescribe,
         value: "friend",
@@ -17,7 +17,7 @@ const config = {
       },
     },
     {
-      page: urls.bestDescribe,
+      page: urls.helpingSomeoneIntro,
       condition: {
         field: urls.bestDescribe,
         value: "charity",
