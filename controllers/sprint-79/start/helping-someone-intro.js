@@ -6,8 +6,8 @@ const beforeYouStart = require('./before-you-start');
 
 const config = {
   name: urls.helpingSomeoneIntro,
-  previous: urls.personClaiming, 
-  next: urls.birthDate,
+  previous: urls.bestDescribe, 
+  next: urls.specialRulesDeclaration,
 };
 
 module.exports = registerController(config.name, config);
