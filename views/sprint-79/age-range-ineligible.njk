@@ -1,0 +1,22 @@
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "layouts/prototypeLayout.njk" %}
+
+{% block form %}
+        <h1 class="govuk-heading-l">We are not taking online applications from people in your age group</h1>
+        <p class="govuk-body">You can still apply for Attendance Allowance by either:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>printing and submitting the Attendance Allowance claim form</li>
+          <li>contacting the helpline to request a claim form</li>
+        </ul>
+        <p class="govuk-body">Find out more about <a href="https://www.gov.uk/attendance-allowance/how-to-claim" class="govuk-link">how to claim Attendance Allowance</a>.</p>
+
+{% endblock %}
+
+{% block formButton %}
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

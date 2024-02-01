@@ -19,6 +19,12 @@ const whoIsApplyingIneligible = require('./eligibility/who-is-applying-ineligibl
 const bestDescribe = require('./eligibility/best-describe');
 const specialRulesDeclaration = require('./eligibility/special-rules-declaration');
 
+// age scaling
+const ageRange = require('./age-scaling/age-range');
+const ageRangeCheck = require('./age-scaling/age-range-check');
+const ageRangeLimit = require('./age-scaling/age-range-limit');
+const ageRangeIneligible = require('./age-scaling/age-range-ineligible');
+
 // identity
 const nationalInsurance = require('./identity/national-insurance');
 const fullName = require('./identity/full-name');
@@ -161,6 +167,10 @@ module.exports = {
   bestDescribe,
   birthDate,
   birthDateIneligible,
+  ageRange,
+  ageRangeCheck,
+  ageRangeLimit,
+  ageRangeIneligible,
   otherBenefits,
   otherBenefitsIneligible,
   attendanceAllowanceIneligible,
