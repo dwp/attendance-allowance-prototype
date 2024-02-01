@@ -32,7 +32,7 @@
       },
       {
         value: "appointed",
-        text: "I have been appointed by DWP to deal with benefits of someone who cannot manage their own affairs",
+        text: "I have been appointed by DWP to deal with benefits of someone who cannot manage their own affairs" if locale != 'NI' else "I am an appointee, appointed by the DfC",
         checked: true if data["best-describe"] and data["best-describe"].includes("appointed")
       },
       {
