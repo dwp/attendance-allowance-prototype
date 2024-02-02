@@ -6,6 +6,13 @@ module.exports = {
     beforeYouStart: 'before-you-start',
     helpingSomeoneIntro: 'helping-someone-intro',
 
+    // gov
+    overview: 'overview',
+    whatYoullGet: 'what-youll-get',
+    eligibility: 'eligibility',
+    howToClaim: 'how-to-claim',
+    reportChangeInCircumstances: 'report-change-in-circumstances',
+
     // eligibility
     whoIsApplying: 'who-is-applying',
     bestDescribe: 'best-describe',
