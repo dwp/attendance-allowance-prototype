@@ -4,6 +4,13 @@ const start = require('./start/start');
 const beforeYouStart = require('./start/before-you-start');
 const helpingSomeoneIntro = require('./start/helping-someone-intro');
 
+// govuk
+const overview = require('./govuk/overview');
+const whatYoullGet = require('./govuk/what-youll-get');
+const eligibility = require('./govuk/eligibility');
+const howToClaim = require('./govuk/how-to-claim');
+const reportChangeInCircumstances = require('./govuk/report-change-in-circumstances');
+
 // eligibility
 const birthDate = require('./eligibility/birth-date');
 const birthDateIneligible = require('./eligibility/birth-date-ineligible');
@@ -156,6 +163,11 @@ module.exports = {
   start,
   beforeYouStart,
   helpingSomeoneIntro,
+  overview,
+  whatYoullGet,
+  eligibility,
+  howToClaim,
+  reportChangeInCircumstances,
   whoIsApplying,
   whoIsApplyingIneligible,
   bestDescribe,
