@@ -12,10 +12,18 @@ const config = {
     {
       page: urls.ageRangeIneligible,
       condition: {
-        field: "birth-date-year",
-        value: 1953,
+        field: "age-range-check-year",
+        value: 1958,
         match: match.greaterThan,
       },
+    },
+      {
+        page: urls.ageRangeIneligible,
+        condition: {
+          field: "age-range-check-year",
+          value: 1953,
+          match: match.lessThan,
+        },
     },
     {
       page: urls.beforeYouStart,
@@ -24,7 +32,7 @@ const config = {
   validation: {
     type: validation.dateInput,
     errors: {
-      required: "Enter the applicant's date of birth",
+      required: 'Enter your date of birth',
       requiredDay: 'Date of birth must include a day',
       requiredMonth: 'Date of birth must include a month',
       requiredYear: 'Date of birth must include a year',

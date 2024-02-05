@@ -5,53 +5,40 @@
 
 {% block form %}
 
-{% set html %}
-  <h3 class="govuk-notification-banner__heading">This service is still being developed</h3>
-   <p class="govuk-body">A limited number of people can access the service each week based on their age.</p>
-{% endset %}
-
-{{ govukNotificationBanner({
-  html: html
-}) }}
-
-<h1 class="govuk-heading-l">This service is still being developed</h1>
-  
-<p class="govuk-body">A limited number of people can access the service each week based on their age.</p>
-
-  {% set allErrors  = ' govuk-input--error ' if data.validation['birth-date'].error.href === '#birth-date' %}
-  {% set dayError   = ' govuk-input--error ' if data.validation['birth-date'].error.href === '#birth-date-day' %}
-  {% set monthError = ' govuk-input--error ' if data.validation['birth-date'].error.href === '#birth-date-month' %}
-  {% set yearError  = ' govuk-input--error ' if data.validation['birth-date'].error.href === '#birth-date-year' %}
+  {% set allErrors  = ' govuk-input--error ' if data.validation['age-range-check'].error.href === '#age-range-check' %}
+  {% set dayError   = ' govuk-input--error ' if data.validation['age-range-check'].error.href === '#age-range-check-day' %}
+  {% set monthError = ' govuk-input--error ' if data.validation['age-range-check'].error.href === '#age-range-check-month' %}
+  {% set yearError  = ' govuk-input--error ' if data.validation['age-range-check'].error.href === '#age-range-check-year' %}
 
   {{ govukDateInput({
-    id: "birth-date",
-    namePrefix: "birth-date",
+    id: "age-range-check",
+    namePrefix: "age-range-check",
     fieldset: {
       legend: {
-        text: "What is the applicant's date of birth?",
+        text: "What is your date of birth?",
         isPageHeading: true,
-        classes: "govuk-!-font-weight-bold"
+        classes: "govuk-fieldset__legend--l"
       }
     },
     hint: {
       text: "For example, 27 3 1948."
     },
-    errorMessage: data.validation['birth-date'].error,
+    errorMessage: data.validation['age-range-check'].error,
     items: [
       {
         classes: 'govuk-input--width-2' + allErrors + dayError,
         name: 'day',
-        value: data['birth-date-day']
+        value: data['age-range-check-day']
       },
       {
         classes: 'govuk-input--width-2' + allErrors + monthError,
         name: 'month',
-        value: data['birth-date-month']
+        value: data['age-range-check-month']
       },
       {
         classes: 'govuk-input--width-4' + allErrors + yearError,
         name: 'year',
-        value: data['birth-date-year']
+        value: data['age-range-check-year']
       }
     ]
   }) }}
