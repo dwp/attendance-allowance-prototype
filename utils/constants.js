@@ -30,6 +30,12 @@ module.exports = {
     countryOutsideUKDurationInelgible: 'country-outside-uk-duration-ineligible',
     attendanceAllowanceIneligible: 'attendance-allowance-ineligible',
 
+    // age scaling
+    ageRange: 'age-range',
+    ageRangeCheck: 'age-range-check',
+    ageRangeLimit: 'age-range-limit',
+    ageRangeIneligible: 'age-range-ineligible',
+
     // identity
     nationalInsurance: 'national-insurance',
     fullName: 'full-name',
