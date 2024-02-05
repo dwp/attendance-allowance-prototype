@@ -32,22 +32,22 @@
       },
       {
         value: "appointed",
-        text: "I have been appointed by DWP to deal with benefits of someone who cannot manage their own affairs",
+        text: "I have been appointed by DWP to deal with benefits of someone who cannot manage their own affairs" if locale != 'NI' else "I am an appointee, appointed by the DfC",
         checked: true if data["best-describe"] and data["best-describe"].includes("appointed")
       },
       {
         value: "appointee",
-        text: "I want to be a DWP appointee",
+        text: "I want to be a DWP appointee" if locale != 'NI' else "I want to be appointee",
         checked: true if data["best-describe"] and data["best-describe"].includes("appointee")
       },
       {
         value: "cab",
-        text: "I am a Corporate Acting Body or appointee for the applicant",
+        text: "I am a Corporate Acting Body or appointee for the applicant" if locale != 'NI' else "I am a Corporate Acting Body or Corporate Appointee",
         checked: true if data["best-describe"] and data["best-describe"].includes("cab")
       },
       {
         value: "curator",
-        text: "I am a curator bonis or judicial factor (under Scottish law)",
+        text: "I am a curator bonis or judicial factor (under Scottish law)" if locale != 'NI' else "I am a Controller, appointed by the Depart of Justice",
         checked: true if data["best-describe"] and data["best-describe"].includes("curator")
       }
     ]
