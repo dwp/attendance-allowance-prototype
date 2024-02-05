@@ -27,9 +27,3 @@ you may need to add
 `export NODE_EXTRA_CA_CERTS="/etc/ssl/certs/zscaler.pem `
 to your `.zshrc` or bash equivalent in case of cert issues
 TEST
-
-### Locale GB / NI
-GB is set as default journey
-- Use ?locale=NI at the end of url to switch to Northern Ireland variants
-- This is then stored in your session. You can set it back by using ?locale=GB
-- Or delete your session cookie by closing the window, quitting the browser, or clearing cache

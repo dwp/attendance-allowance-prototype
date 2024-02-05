@@ -10,7 +10,7 @@ const {
     previous: urls.whoIsApplying,
     next: [
       {
-        page: urls.helpingSomeoneIntro,
+        page: urls.specialRulesDeclaration,
         condition: {
           field: urls.bestDescribe,
           value: 'friend',
@@ -18,7 +18,7 @@ const {
         },
       },
       {
-        page: urls.helpingSomeoneIntro,
+        page: urls.specialRulesDeclaration,
         condition: {
           field: urls.bestDescribe,
           value: 'charity',

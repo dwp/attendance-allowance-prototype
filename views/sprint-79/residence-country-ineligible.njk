@@ -1,24 +1,15 @@
-
-{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
-
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
-  
       <a class="govuk-back-link" href="residence-country">Back</a>
-      
-      <h1 class="govuk-heading-l">Based on your answers, you may not be eligible to receive Attendance Allowance</h1>
-      
-      {% if locale == 'NI' %}
-        <p class="govuk-body">There are some circumstances under which you may still be able to <a class="govuk-link" href="https://www.nidirect.gov.uk/publications/attendance-allowance-claim-form-and-guidance-notes">claim benefits if you live, move or travel abroad</a>.</p>
-        {% else %}
-      <p class="govuk-body">There are some circumstances under which you may still be able to <a class="govuk-link" href="https://www.gov.uk/government/publications/attendance-allowance-claim-form">claim benefits if you live, move or travel abroad</a>.</p>
-      {% endif %}
-      
-      <h2 class="govuk-heading-m">If you still want to apply</h2>
-      
-      <p class="govuk-body">You can <a href="national-insurance" class="govuk-link">apply for Attendance Allowance</a> but you may not be entitled to it.</p>
-        
+        <h1 class="govuk-heading-l">Based on your answers, you may not be eligible to receive
+          Attendance Allowance</h1>
+        <p class="govuk-body">There are some circumstances under which you may still be able to <a
+             class="govuk-link" href="https://www.gov.uk/claim-benefits-abroad/disability-benefits">claim benefits if you
+          live, move or travel abroad</a>.</p>
+        <h2 class="govuk-heading-m">If you still want to apply</h2>
+        <p class="govuk-body">You can <a href="country-outside-uk-duration" class="govuk-link">apply for Attendance Allowance</a>
+          but you may not be entitled to it.</p>
 {% endblock %}
 
 {% block formButton %}
@@ -27,4 +18,3 @@
 {% block postForm %}
     {% include './macros/assisted-digital-details.njk' %}
 {% endblock %}
-       

@@ -10,13 +10,6 @@ router.use(`/${urls.start}`, controllers.start);
 router.use(`/${urls.beforeYouStart}`, controllers.beforeYouStart);
 router.use(`/${urls.helpingSomeoneIntro}`, controllers.helpingSomeoneIntro);
 
-// govuk
-router.use(urls.root, controllers.overview);
-router.use(urls.root, controllers.whatYoullGet);
-router.use(urls.root, controllers.eligibility);
-router.use(urls.root, controllers.howToClaim);
-router.use(urls.root, controllers.reportChangeInCircumstances);
-
 // eligibility
 router.use(`/${urls.whoIsApplying}`, controllers.whoIsApplying);
 router.use(`/${urls.whoIsApplyingIneligible}`, controllers.whoIsApplyingIneligible);
