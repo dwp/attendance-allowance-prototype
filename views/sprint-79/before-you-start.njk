@@ -1,9 +1,12 @@
-
-{% from "govuk/components/button/macro.njk" import govukButton %}
-
 {% extends "layouts/prototypeLayout.njk" %}
 
 {% block form %}
+  {% if locale == 'NI' %}
+    <a href="https://attendance-allowance.herokuapp.com" class="govuk-back-link">Back</a>
+    {% else %}
+    <a href="how-to-claim" class="govuk-back-link">Back</a>
+  {% endif %}
+  
 
   <h1 class="govuk-heading-l">Information you will need to apply online</h1>
   <p class="govuk-body">You will need certain information about yourself or the person you are applying for.</p>
