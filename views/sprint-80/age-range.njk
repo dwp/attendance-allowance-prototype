@@ -1,0 +1,15 @@
+{% extends "v5-layouts/prototypeLayout.njk" %}
+
+
+{% block form %}
+
+<h1 class="govuk-heading-l">We are currently taking a limited number of online applications </h1>
+  
+<p class="govuk-body">This is a new service and access is determined your age.</p>
+<p class="govuk-body">If you are helping someone else, answer the questions as if you are them.</p>
+
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
