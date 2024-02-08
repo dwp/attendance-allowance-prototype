@@ -1,0 +1,25 @@
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "v5-layouts/prototypeLayout.njk" %}
+
+
+{% block form %}
+        <h1 class="govuk-heading-l">Sorry, the service is unavailable</h1>
+        <p class="govuk-body">We are not taking online applications from people in your age group.</p>
+
+        <h2 class="govuk-heading-m">Apply by post</h2>
+        <p class="govuk-body">If you print and post the form, your claim will start on the date the DWP receives it.</p>
+        <p class="govuk-body">If you call the helpline to request a form, your claim will start on the date of your call.</p>
+        
+        <div class="govuk-inset-text">
+          <p>Find out more about <a href="https://www.gov.uk/attendance-allowance/how-to-claim" class="govuk-link">how to claim Attendance Allowance</a>.</p>
+        </div>
+
+{% endblock %}
+
+{% block formButton %}
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
