@@ -1,0 +1,50 @@
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% extends "v5-layouts/prototypeLayout.njk" %}
+
+
+{% block form %}
+
+  {% set allErrors  = ' govuk-input--error ' if data.validation['age-range-check'].error.href === '#age-range-check' %}
+  {% set dayError   = ' govuk-input--error ' if data.validation['age-range-check'].error.href === '#age-range-check-day' %}
+  {% set monthError = ' govuk-input--error ' if data.validation['age-range-check'].error.href === '#age-range-check-month' %}
+  {% set yearError  = ' govuk-input--error ' if data.validation['age-range-check'].error.href === '#age-range-check-year' %}
+
+  {{ govukDateInput({
+    id: "age-range-check",
+    namePrefix: "age-range-check",
+    fieldset: {
+      legend: {
+        text: "What is your date of birth?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: "For example, 27 3 1948."
+    },
+    errorMessage: data.validation['age-range-check'].error,
+    items: [
+      {
+        classes: 'govuk-input--width-2' + allErrors + dayError,
+        name: 'day',
+        value: data['age-range-check-day']
+      },
+      {
+        classes: 'govuk-input--width-2' + allErrors + monthError,
+        name: 'month',
+        value: data['age-range-check-month']
+      },
+      {
+        classes: 'govuk-input--width-4' + allErrors + yearError,
+        name: 'year',
+        value: data['age-range-check-year']
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

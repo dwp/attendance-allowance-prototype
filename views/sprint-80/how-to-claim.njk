@@ -1,0 +1,151 @@
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "../macros/v5-components/pagination/macro.njk" import govukPagination %}
+
+{% extends "v5-layouts/layout.njk" %}
+
+{% block content %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Benefits",
+        href: "#"
+      },
+      {
+        text: "Benefits and financial support if you're disabled or have a health condition",
+        href: "#"
+      }
+    ]
+  }) }}
+  
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">Attendance Allowance</h1>
+
+          <ul class="govuk-list govuk-body-s">
+            <li class="govuk-!-margin-bottom-2">Contents</li>
+            <li class="govuk-!-margin-bottom-2">&#8212;  <a href="overview" class="govuk-link">Overview</a></li>
+            <li class="govuk-!-margin-bottom-2">&#8212;  <a href="what-youll-get" class="govuk-link">What you'll get</a></li>
+            <li class="govuk-!-margin-bottom-2">&#8212;  <a href="eligibility" class="govuk-link">Eligibility</a></li>
+            <li class="govuk-!-margin-bottom-2">&#8212;  How to claim</li>
+            <li class="govuk-!-margin-bottom-2">&#8212;  <a href="report-change-in-circumstances" class="govuk-link">Report a change in circumstances</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+          <h2 class="govuk-heading-l">How to claim</h2>
+
+          <p class="govuk-body">You can apply for Attendance Allowance online or by post.</p>
+
+          <h3 class="govuk-heading-m govuk-!-static-padding-top-5">Apply online</h3>
+
+          <a href="before-you-start" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+            Start now
+            <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+          </svg></a>
+
+          <h3 class="govuk-heading-m govuk-!-static-padding-top-5">Apply by post</h3>
+
+          <p class="govuk-body">You can claim by either:</p>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>printing and submitting the  <a href="what-youll-get" class="#">Attendance Allowance claim form</a></li>
+            <li>contacting the helpline to request a claim form</li>
+          </ul>
+
+          <div class="govuk-inset-text">
+            There is a different process for <a href="#" class="govuk-link">Attendance Allowance in Northern Ireland</a>.
+          </div>
+
+          <p class="govuk-body">Send the completed form to:</p>
+
+          <div class="govuk-inset-text">
+            Freepost DWP Attendance Allowance
+          </div>
+
+          <p class="govuk-body">You do not need a postcode or a stamp. The form comes with notes telling you how to fill it in.</p>
+
+          <h3 class="govuk-heading-m">Attendance Allowance helpline</h3>
+          <p class="govuk-body govuk-!-margin-bottom-1">Telephone: 0800 731 0122</p>
+          <p class="govuk-body govuk-!-margin-bottom-1">Textphone: 0800 731 0317</p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href="#" class="govuk-link">Relay UK</a> (if you cannot hear or speak on the phone): 18001 then 0800 731 0122</p>
+          <p class="govuk-body govuk-!-margin-bottom-1">British Sign Language (BSL) <a href="#" class="govuk-link">video relay service</a> 
+          if you’re on a computer - find out how to <a href="#" class="govuk-link">use the service on mobile or tablet</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1">Monday to Friday, 8am to 6pm</p>
+          <p class="govuk-body "><a href="#" class="govuk-link">Find out about call charges</a></p>
+
+          <h3 class="govuk-heading-m">When you’ll be paid</h3>
+
+          <p class="govuk-body">If you’re awarded Attendance Allowance, it can be paid from the start of your claim. It cannot be backdated.</p>
+
+          <p class="govuk-body">If you print and post the form, your claim will start on the date the Department for Work and Pensions (DWP) receives it.</p>
+
+          <p class="govuk-body">If you call the helpline to request a form, your claim will start on the date of your call (if you return the form within 6 weeks).</p>
+
+          <p class="govuk-body">After you’ve applied, you’ll get a text or letter within 3 weeks that explains how long it’ll take to get a decision. 
+          Once the decision has been made, you’ll get a letter explaining the outcome. If you’ve been awarded Attendance Allowance, 
+          this will tell you when you’ll get your first payment.</p>
+
+          <h3 class="govuk-heading-m">If you might have 12 months or less to live</h3>
+
+          <p class="govuk-body">You can get Attendance Allowance more quickly if a medical professional has said you might have 
+          12 months or less to live. This is sometimes called ‘special rules’.</p>
+
+          <p class="govuk-body">You must complete an <a href="what-youll-get" class="#">Attendance Allowance claim form</a>. 
+          You should also ask a doctor or medical professional for form SR1 - they’ll either 
+          fill it in and give the form to you or send it directly to the Department for Work and Pensions (DWP).</p>
+
+          <p class="govuk-body">You can do this on behalf of someone else without their permission. The letter about the money awarded will not mention ‘special rules’.</p>
+
+          <h3 class="govuk-heading-m">If you disagree with a decision</h3>
+
+          <p class="govuk-body">You can <a href="what-youll-get" class="#">challenge a decision</a> about your claim. 
+          This is called asking for mandatory reconsideration.</p>
+
+          <h3 class="govuk-heading-m">Complaints</h3>
+
+          <p class="govuk-body">You can <a href="what-youll-get" class="#">complain to DWP</a> if you’re unhappy with the service you’ve received.</p>
+        
+          {{ govukPagination({
+            previous: {
+              labelText: "Eligibility",
+              href: "eligibility"
+            },
+            next: {
+              labelText: "Report a change in circumstances",
+              href: "report-change-in-circumstances"
+            }
+          }) }}
+          
+          <p class="govuk-body"><a href="#" class="govuk-link">View a printable version of the whole guide</a></p> 
+       </div>
+
+        <div class="govuk-grid-column-one-third">
+          <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          <h3 class="govuk-heading-s">Related content</h3>
+          <p class="govuk-body-s govuk-!-margin-bottom-3"><a href="#" class="govuk-link">Financial help if you're disabled</a></p>
+          <p class="govuk-body-s govuk-!-margin-bottom-3"><a href="#" class="govuk-link">How and when your benefits are paid</a></p>
+          <p class="govuk-body-s govuk-!-margin-bottom-3"><a href="#" class="govuk-link">Carer's Allowance</a></p>
+          <p class="govuk-body-s govuk-!-margin-bottom-3"><a href="#" class="govuk-link">Personal Independence Payment (PIP)</a></p>
+          <p class="govuk-body-s govuk-!-margin-bottom-3"><a href="#" class="govuk-link">Pension Credit</a></p>
+          <p class="govuk-body-s govuk-!-margin-bottom-3"><a href="#" class="govuk-link">Show 2 more</a></p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}
+
+{% block formButton %}
+{% endblock %}
