@@ -7,39 +7,40 @@ const {
 
 const config = {
   name: urls.ageRangeCheck,
-  previous: urls.start,
+  previous: urls.howToClaim,
   next: [
     {
-      page: urls.ageRangeIneligible,
+      page: urls.ageRangeUnderStatePension,
       condition: {
-        field: "age-range-check-year",
-        value: 1958,
-        match: match.greaterThan,
+        field: urls.ageRangeCheck,
+        value: '65-under',
+        match: match.value,
       },
     },
-      {
-        page: urls.ageRangeIneligible,
-        condition: {
-          field: "age-range-check-year",
-          value: 1953,
-          match: match.lessThan,
-        },
+    {
+      page: urls.whoIsApplying,
+      condition: {
+        field: urls.ageRangeCheck,
+        value: '66-69',
+        match: match.value,
+      },
     },
     {
-      page: urls.beforeYouStart,
+      page: urls.whoIsApplying,
+      condition: {
+        field: urls.ageRangeCheck,
+        value: '70-74',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.ageRangeIneligible
     },
   ],
   validation: {
-    type: validation.dateInput,
+    type: validation.radios,
     errors: {
-      required: 'Enter your date of birth',
-      requiredDay: 'Date of birth must include a day',
-      requiredMonth: 'Date of birth must include a month',
-      requiredYear: 'Date of birth must include a year',
-      validDay: 'Enter a real date of birth',
-      validMonth: 'Enter a real date of birth',
-      validYear: 'Enter a real date of birth',
-      invalidDate: 'Date of birth must be a real date',
+      required: 'Select how old the person who wants to claim is',
     },
   },
 };

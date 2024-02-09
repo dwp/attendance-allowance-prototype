@@ -1,27 +1,9 @@
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
-{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "../macros/v5-components/pagination/macro.njk" import govukPagination %}
 
 {% extends "v5-layouts/layout.njk" %}
 
 {% block content %}
-
-  {{ govukBreadcrumbs({
-    items: [
-      {
-        text: "Home",
-        href: "#"
-      },
-      {
-        text: "Benefits",
-        href: "#"
-      },
-      {
-        text: "Benefits and financial support if you're disabled or have a health condition",
-        href: "#"
-      }
-    ]
-  }) }}
 
   <div class="govuk-width-container">
     <main class="govuk-main-wrapper">

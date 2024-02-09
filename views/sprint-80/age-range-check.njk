@@ -1,45 +1,58 @@
-{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
-{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
 
 {% block form %}
-
-  {% set allErrors  = ' govuk-input--error ' if data.validation['age-range-check'].error.href === '#age-range-check' %}
-  {% set dayError   = ' govuk-input--error ' if data.validation['age-range-check'].error.href === '#age-range-check-day' %}
-  {% set monthError = ' govuk-input--error ' if data.validation['age-range-check'].error.href === '#age-range-check-month' %}
-  {% set yearError  = ' govuk-input--error ' if data.validation['age-range-check'].error.href === '#age-range-check-year' %}
-
-  {{ govukDateInput({
-    id: "age-range-check",
-    namePrefix: "age-range-check",
+  {{ govukRadios({
+    idPrefix: "age-range-check",
+    name: "age-range-check",
     fieldset: {
       legend: {
-        text: "What is your date of birth?",
+        text: "How old is the person who wants to claim Attendance Allowance?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"
       }
     },
     hint: {
-      text: "For example, 27 3 1948."
+      text: "This service is still being developed and not everyone can apply online yet."
     },
     errorMessage: data.validation['age-range-check'].error,
     items: [
       {
-        classes: 'govuk-input--width-2' + allErrors + dayError,
-        name: 'day',
-        value: data['age-range-check-day']
+        value: "65-under",
+        text: "65 and under",
+        checked: true if data["age-range-check"] === "65-under"
       },
       {
-        classes: 'govuk-input--width-2' + allErrors + monthError,
-        name: 'month',
-        value: data['age-range-check-month']
+        value: "66-69",
+        text: "66-69",
+        checked: true if data["age-range-check"] === "66-69"
       },
       {
-        classes: 'govuk-input--width-4' + allErrors + yearError,
-        name: 'year',
-        value: data['age-range-check-year']
+        value: "70-74",
+        text: "70-74",
+        checked: true if data["age-range-check"] === "70-74"
+      },
+      {
+        value: "75-79",
+        text: "75-79",
+        checked: true if data["age-range-check"] === "75-79"
+      },
+      {
+        value: "80-84",
+        text: "80-84",
+        checked: true if data["age-range-check"] === "80-84"
+      },
+      {
+        value: "85-89",
+        text: "85-89",
+        checked: true if data["age-range-check"] === "85-89"
+      },
+      {
+        value: "90-over",
+        text: "90-over",
+        checked: true if data["age-range-check"] === "90-over"
       }
     ]
   }) }}

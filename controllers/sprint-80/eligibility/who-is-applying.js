@@ -7,7 +7,7 @@ const {
 
 const config = {
   name: urls.whoIsApplying,
-  previous: urls.beforeYouStart,
+  previous: urls.ageRangeCheck,
   next: [
     {
       page: urls.specialRulesDeclaration,
