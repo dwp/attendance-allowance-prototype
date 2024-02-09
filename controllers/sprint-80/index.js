@@ -31,6 +31,7 @@ const ageRange = require('./age-scaling/age-range');
 const ageRangeCheck = require('./age-scaling/age-range-check');
 const ageRangeLimit = require('./age-scaling/age-range-limit');
 const ageRangeIneligible = require('./age-scaling/age-range-ineligible');
+const ageRangeUnderStatePension = require('./age-scaling/age-range-under-state-pension');
 
 // identity
 const nationalInsurance = require('./identity/national-insurance');
@@ -183,6 +184,7 @@ module.exports = {
   ageRangeCheck,
   ageRangeLimit,
   ageRangeIneligible,
+  ageRangeUnderStatePension,
   otherBenefits,
   otherBenefitsIneligible,
   attendanceAllowanceIneligible,

@@ -37,6 +37,7 @@ router.use(`/${urls.ageRange}`, controllers.ageRange);
 router.use(`/${urls.ageRangeCheck}`, controllers.ageRangeCheck);
 router.use(`/${urls.ageRangeLimit}`, controllers.ageRangeLimit);
 router.use(`/${urls.ageRangeIneligible}`, controllers.ageRangeIneligible);
+router.use(`/${urls.ageRangeUnderStatePension}`, controllers.ageRangeUnderStatePension);
 
 // identity
 router.use(`/${urls.nationalInsurance}`, controllers.nationalInsurance);
