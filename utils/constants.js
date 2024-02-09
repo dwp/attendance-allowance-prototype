@@ -35,6 +35,7 @@ module.exports = {
     ageRangeCheck: 'age-range-check',
     ageRangeLimit: 'age-range-limit',
     ageRangeIneligible: 'age-range-ineligible',
+    ageRangeUnderStatePension: 'age-range-under-state-pension',
 
     // identity
     nationalInsurance: 'national-insurance',
