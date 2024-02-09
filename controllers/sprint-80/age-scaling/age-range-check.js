@@ -7,7 +7,6 @@ const {
 
 const config = {
   name: urls.ageRangeCheck,
-  previous: urls.howToClaim,
   next: [
     {
       page: urls.ageRangeUnderStatePension,

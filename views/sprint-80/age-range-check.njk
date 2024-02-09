@@ -1,9 +1,16 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
-
 {% block form %}
+
+  {% if locale == 'NI' %}
+    <a href="https://attendance-allowance.herokuapp.com" class="govuk-back-link">Back</a>
+    {% else %}
+    <a href="how-to-claim" class="govuk-back-link">Back</a> 
+  {% endif %}
+
   {{ govukRadios({
     idPrefix: "age-range-check",
     name: "age-range-check",
