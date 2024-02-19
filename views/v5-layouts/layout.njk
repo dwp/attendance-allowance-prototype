@@ -3,8 +3,8 @@
 {% extends "./template.njk" %}
 
 {% block head %}
-  <link rel="stylesheet" type="text/css" href="/govuk-frontend-5.0.0.min.css" />
-  <script type="module" src="/govuk-frontend-5.0.0.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/govuk-frontend-5.1.0.min.css" />
+  <script type="module" src="/govuk-frontend-5.1.0.min.js"></script>
 
 {% endblock %}
 
@@ -17,7 +17,8 @@
     homepageUrl: "/",
     serviceName: "Apply for Attendance Allowance",
     serviceUrl: "/",
-    containerClasses: "govuk-width-container"
+    containerClasses: "govuk-width-container",
+    useTudorCrown: true
   }) }}
 {% endblock %}
 
@@ -58,7 +59,7 @@
 {% block bodyEnd %}
   {% block scripts %}
      <script type='module'>
-      import { initAll } from '/govuk-frontend-5.0.0.min.js'
+      import { initAll } from '/govuk-frontend-5.1.0.min.js'
 
       initAll()
     </script>
