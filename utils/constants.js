@@ -173,6 +173,9 @@ module.exports = {
     checkAnswersFullList: 'check-answers-full-list',
     done: 'done',
 
+    // accessiblity
+    accessibilityStatement: 'accessibility-statement',
+
   },
   validation: {
     checkboxes: 'checkboxes',
