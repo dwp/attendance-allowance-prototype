@@ -182,4 +182,7 @@ router.use(`/${urls.checkAnswersContactDetails}`, controllers.checkAnswersContac
 router.use(`/${urls.checkAnswersFullList}`, controllers.checkAnswersFullList);
 router.use(`/${urls.checkAnswersSpecialRules}`, controllers.checkAnswersSpecialRules);
 
+// accessiblity
+router.use(`/${urls.accessibilityStatement}`, controllers.accessibilityStatement);
+
 module.exports = router;

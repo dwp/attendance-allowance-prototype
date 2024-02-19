@@ -165,6 +165,9 @@ const checkAnswersContactDetails = require('./check-your-answers/check-answers-c
 const checkAnswersFullList = require('./check-your-answers/check-answers-full-list');
 const checkAnswersSpecialRules = require('./check-your-answers/check-answers-special-rules');
 
+// accessiblity
+const accessibilityStatement = require('./accessibility/accessibility-statement');
+
 module.exports = {
   verificationCode,
   start,
@@ -299,4 +302,5 @@ module.exports = {
   evidence,
   welshLanguageSpeak,
   welshLanguageWrite,
+  accessibilityStatement,
 };
