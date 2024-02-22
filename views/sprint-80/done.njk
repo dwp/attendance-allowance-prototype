@@ -1,5 +1,5 @@
 {% extends "v5-layouts/prototypeLayout.njk" %}
-
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% block form %}
   
@@ -39,6 +39,13 @@
   <p class="govuk-body">They can only apply for it after you start to get Attendance Allowance.</p>
   
   <p class="govuk-body"><a href="/survey" class="govuk-link">Tell us what you think of this service</a> (opens in a new tab)</p>
+
+  {{ govukButton({
+  text: "Email test",
+  href: "/sprint-80/email-test",
+  isStartButton: false
+}) }}
+
 {% endblock %}
 
 {% block formButton %}
@@ -48,3 +55,4 @@
 {% block postForm %}
     {% include './macros/assisted-digital-details.njk' %}
 {% endblock %}
+
