@@ -1,4 +1,5 @@
 {% extends "v5-layouts/layout.njk" %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
 
 {% block content %}
   <div class="govuk-grid-row">
@@ -9,6 +10,47 @@
       </h1>
 
       {# [Version listings] (do not delete this comment it is used in automation) #}
+
+      {# [ur-02-2024-start] (do not delete this comment it is used in automation) #}
+      <div class="app-most-recent govuk-!-padding-bottom-7">
+        <div>
+          <span class="govuk-tag govuk-tag--turquoise">testing</span>
+        </div>
+        <br/>
+        <h2 class="govuk-heading-m">E2E Testing - Feb 2024</h2>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Cloned off Sprint 80</li>
+          <li>Age scaling configured to kickout other than '90 and over'</li>
+          <li>Welsh language preferences removed</li>
+          <li>Email confirmation test added to /done</li>
+        </ul>
+
+        {% set details %}
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='ur-02-2024/how-to-claim' class="govuk-link">How to claim</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='ur-02-2024/age-range-check' class="govuk-link">Age scaling</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='ur-02-2024/illness-disability' class="govuk-link">Health conditions</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='ur-02-2024/treatment-surgery' class="govuk-link">Treatment or surgery</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='ur-02-2024/consent' class="govuk-link">Consent</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='ur-02-2024/day-difficulties' class="govuk-link">Day care</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='ur-02-2024/night-difficulties' class="govuk-link">Night care</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='ur-02-2024/safe-day-night' class="govuk-link">Supervision</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='ur-02-2024/aids-adaptations-question' class="govuk-link">Aids and adaptations</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='ur-02-2024/difficulties-start-date' class="govuk-link">Difficulties start date</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='ur-02-2024/telephone-number' class="govuk-link">Contact preferences</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='ur-02-2024/claim-submission' class="govuk-link">Claim submission</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='ur-02-2024/done' class="govuk-link">Application complete</a></p>
+          
+        {% endset %}
+
+        {{ govukDetails({
+            summaryText: "Key sections in journey",
+            html: details
+          }) }}
+
+        <a href="ur-02-2024/overview" class="govuk-button govuk-button--start">Start</a>
+        <p class="govuk-body govuk-!-font-size-16">Date created - Mon Feb 26 2024</p>
+      </div>
+      {# [ur-02-2024-end] (do not delete this comment it is used in automation) #}
 
       {# [sprint-80-start] (do not delete this comment it is used in automation) #}
       <div class="app-most-recent govuk-!-padding-bottom-7">
@@ -22,6 +64,7 @@
           <li>Added age scaling solution</li>
           <li>Added accessibility statement to footer</li>
         </ul>
+
         <a href="sprint-80/overview?locale=GB" class="govuk-button govuk-button--start">Start GB</a>
         <a href="sprint-80/age-range-check?locale=NI" class="govuk-button govuk-button--start">Start NI</a>
         <p class="govuk-body govuk-!-font-size-16">Date created - Thu Feb 08 2024</p>
