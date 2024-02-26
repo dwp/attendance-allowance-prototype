@@ -36,22 +36,7 @@
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
 
 {% if useAutoStoreData %}
-  {% block footer %}
-    {{ govukFooter({
-      meta: {
-        items: [
-          {
-            href: "/survey",
-            text: "Survey",
-          },
-          {
-            href: "/sprint-80/accessibility-statement",
-            text: "Accessibility Statement"
-          }
-        ]
-      }
-    }) }}
-  {% endblock %}
+ 
 {% endif %}
 
 {% block bodyEnd %}
