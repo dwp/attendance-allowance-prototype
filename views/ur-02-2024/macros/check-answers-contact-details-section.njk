@@ -75,36 +75,6 @@
 
 			<div class="govuk-summary-list__row formats">
 				<dt class="govuk-summary-list__key">
-				What language do you want us to speak to you in?
-				</dt>
-				<dd class="govuk-summary-list__value">
-					{{ data['welsh-language-speak'] 
-					| replace("english", "English") 
-					| replace("welsh", "Welsh")
-					}}
-					</dd>
-				<dd class="govuk-summary-list__actions">
-				{{ changeLink('welsh-language-speak') }}
-				</dd>
-			</div>
-
-			<div class="govuk-summary-list__row formats">
-				<dt class="govuk-summary-list__key">
-				What language do you want us to write to you in?
-				</dt>
-				<dd class="govuk-summary-list__value">
-					{{ data['welsh-language-write'] 
-					| replace("english", "English") 
-					| replace("welsh", "Welsh")
-					}}
-					</dd>
-				<dd class="govuk-summary-list__actions">
-				{{ changeLink('welsh-language-write') }}
-				</dd>
-			</div>
-
-			<div class="govuk-summary-list__row formats">
-				<dt class="govuk-summary-list__key">
 					Do you need us to use a different format when we contact you?
 				</dt>
 				<dd class="govuk-summary-list__value">
