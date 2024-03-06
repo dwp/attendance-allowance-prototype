@@ -7,7 +7,7 @@ const {
 
 const config = {
   name: urls.specialRulesDeclaration,
-  previous: urls.birthDate,
+  previous: urls.birthDate, 
   next: [
     {
       page: urls.whoIsApplyingIneligible,
