@@ -8,15 +8,22 @@
 
 
 {% block pageTitle %}
-   You have added a condition or disability
+   You have added a health condition or disability
 {% endblock %}
+
 
 {% block form %}
 
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-    <h1 class="govuk-fieldset__heading govuk-body govuk-!-margin-bottom-4">
-      You have added a health condition or disability
-    </h1>
+    {% if data['illness-disability-rows'].length > 1 %}
+      <h1 class="govuk-fieldset__heading govuk-body govuk-!-margin-bottom-4">
+        You have added {{ data['illness-disability-rows'].length }} health conditions and disabilities
+      </h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading govuk-body govuk-!-margin-bottom-4">
+        You have added {{ data['illness-disability-rows'].length }} health condition or disability
+      </h1>
+    {% endif %}
   </legend>
   
     {{ govukTable({
@@ -36,6 +43,12 @@
       ],
       rows:data["illness-disability-rows"] 
     }) }}
+
+  {% set healthConditionsLimit %}
+    <p class="govuk-body"> 
+      You can add up to 20.
+    </p>
+  {% endset %}
   
   {{ govukRadios({
     idPrefix: "illness-disability-added",
@@ -46,6 +59,9 @@
         isPageHeading: true,
         classes: "govuk-fieldset__legend--m"
       }
+    },
+    hint: {
+    html: healthConditionsLimit
     },
     errorMessage: data.validation['illness-disability-added'].error,
     items: [
