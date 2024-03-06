@@ -8,14 +8,6 @@ const {
     name: urls.whoIsApplyingIneligible,
     previous: [
       {
-        page: urls.bestDescribe,
-        condition: {
-          field: urls.whoIsApplying,
-          value: 'someone-else',
-          match: match.value,
-        },
-      },
-      {
         page: urls.specialRulesDeclaration,
         condition: {
           field: urls.specialRulesDeclaration,
@@ -24,7 +16,44 @@ const {
         },
       },
       {
-        page: urls.whoIsApplying,
+        page: urls.bestDescribe,
+        condition: {
+          field: urls.bestDescribe,
+          value: 'powerOfAttorney',
+          match: match.value,
+        },
+      },
+      {
+        page: urls.bestDescribe,
+        condition: {
+          field: urls.bestDescribe,
+          value: 'appointed',
+          match: match.value,
+        },
+      },
+      {
+        page: urls.bestDescribe,
+        condition: {
+          field: urls.bestDescribe,
+          value: 'appointee',
+          match: match.value,
+        },
+      },
+      {
+        page: urls.bestDescribe,
+        condition: {
+          field: urls.bestDescribe,
+          value: 'cab',
+          match: match.value,
+        },
+      },
+      {
+        page: urls.bestDescribe,
+        condition: {
+          field: urls.bestDescribe,
+          value: 'curator',
+          match: match.value,
+        },
       },
     ],
   };
