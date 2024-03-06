@@ -8,14 +8,6 @@ const config = {
   name: urls.whoIsApplyingIneligible,
   previous: [
     {
-      page: urls.specialRulesDeclaration,
-      condition: {
-        field: urls.specialRulesDeclaration,
-        value: "yes",
-        match: match.value,
-      },
-    },
-    {
       page: urls.bestDescribe,
       condition: {
         field: urls.bestDescribe,
@@ -52,6 +44,14 @@ const config = {
       condition: {
         field: urls.bestDescribe,
         value: 'curator',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.specialRulesDeclaration,
+      condition: {
+        field: urls.specialRulesDeclaration,
+        value: "yes",
         match: match.value,
       },
     },
