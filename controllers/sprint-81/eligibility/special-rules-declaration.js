@@ -7,27 +7,7 @@ const {
 
 const config = {
   name: urls.specialRulesDeclaration,
-  previous: [
-    {
-      page: urls.helpingSomeoneIntro,
-      condition: {
-        field: urls.bestDescribe,
-        value: "friend",
-        match: match.value,
-      },
-    },
-    {
-      page: urls.helpingSomeoneIntro,
-      condition: {
-        field: urls.bestDescribe,
-        value: "charity",
-        match: match.value,
-      },
-    },
-    {
-      page: urls.whoIsApplying,
-    },
-  ],
+  previous: urls.birthDate,
   next: [
     {
       page: urls.whoIsApplyingIneligible,
@@ -38,7 +18,7 @@ const config = {
       },
     },
     {
-      page: urls.birthDate,
+      page: urls.otherBenefits,
     },
   ],
   validation: {
