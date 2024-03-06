@@ -9,7 +9,23 @@ const config = {
   name: urls.birthDate,
   previous: [
     {
-      page: urls.specialRulesDeclaration,
+      page: urls.helpingSomeoneIntro,
+      condition: {
+        field: urls.bestDescribe,
+        value: "friend",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.helpingSomeoneIntro,
+      condition: {
+        field: urls.bestDescribe,
+        value: "charity",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.whoIsApplying,
     },
   ],
   next: [
@@ -22,7 +38,7 @@ const config = {
       },
     },
     {
-      page: urls.otherBenefits,
+      page: urls.specialRulesDeclaration,
     },
   ],
   validation: {

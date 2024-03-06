@@ -10,7 +10,7 @@ const config = {
   previous: urls.ageRangeCheck,
   next: [
     {
-      page: urls.specialRulesDeclaration,
+      page: urls.birthDate,
       condition: {
         field: urls.whoIsApplying,
         value: 'myself',
