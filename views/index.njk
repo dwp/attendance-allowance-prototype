@@ -11,10 +11,51 @@
 
       {# [Version listings] (do not delete this comment it is used in automation) #}
 
+      {# [sprint-81-start] (do not delete this comment it is used in automation) #}
+      <div class="app-most-recent govuk-!-padding-bottom-7">
+        <div>
+          <span class="govuk-tag govuk-tag--turquoise">sprint-81</span>
+        </div>
+        <br/>
+        <h2 class="govuk-heading-m">Sprint 81</h2>
+        <ul class="govuk-list govuk-list--bullet">
+        </ul>
+
+       {% set details %}
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-81/how-to-claim' class="govuk-link">How to claim</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-81/age-range-check' class="govuk-link">Age scaling</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-81/special-rules-declaration' class="govuk-link">Eligibility</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-81/national-insurance' class="govuk-link">Identity</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-81/illness-disability' class="govuk-link">Health conditions</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-81/treatment-surgery' class="govuk-link">Treatment or surgery</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-81/consent' class="govuk-link">Consent</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-81/day-difficulties' class="govuk-link">Day care</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-81/night-difficulties' class="govuk-link">Night care</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-81/safe-day-night' class="govuk-link">Supervision</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-81/aids-adaptations-question' class="govuk-link">Aids and adaptations</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-81/difficulties-start-date' class="govuk-link">Difficulties start date</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-81/telephone-number' class="govuk-link">Contact preferences</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-81/claim-submission' class="govuk-link">Claim submission</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-81/done' class="govuk-link">Application complete</a></p>
+          
+        {% endset %}
+
+        {{ govukDetails({
+            summaryText: "Key sections in journey",
+            html: details
+          }) }}
+
+        <a href="sprint-81/overview?locale=GB" class="govuk-button govuk-button--start">Start GB</a>
+        <a href="sprint-81/age-range-check?locale=NI" class="govuk-button govuk-button--start">Start NI</a>
+        <p class="govuk-body govuk-!-font-size-16">Date created - Wed Mar 06 2024</p>
+      </div>
+      {# [sprint-81-end] (do not delete this comment it is used in automation) #}
+
       {# [ur-02-2024-start] (do not delete this comment it is used in automation) #}
       <div class="app-most-recent govuk-!-padding-bottom-7">
         <div>
           <span class="govuk-tag govuk-tag--turquoise">testing</span>
+          <span class="govuk-tag govuk-tag--blue">FROZEN</span>
         </div>
         <br/>
         <h2 class="govuk-heading-m">E2E Testing - Feb 2024</h2>
@@ -56,6 +97,7 @@
       <div class="app-most-recent govuk-!-padding-bottom-7">
         <div>
           <span class="govuk-tag govuk-tag--turquoise">sprint-80</span>
+          <span class="govuk-tag govuk-tag--blue">FROZEN</span>
         </div>
         <br/>
         <h2 class="govuk-heading-m">Sprint 80</h2>
