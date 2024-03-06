@@ -6,21 +6,19 @@
 
 {% block form %}
 
-  <h1 class="govuk-heading-l">You told us you are helping someone to apply</h1>
-  <p class="govuk-body">You can help someone apply if:</p>
- 
-  <ul class="govuk-list govuk-list--bullet">
-    <li>the applicant is giving you the answers</li>
-    <li>the applicant can be contacted about their claim</li>
-  </ul>
+  <h1 class="govuk-heading-l">You should answer all questions as if you are the person who wants to claim Attendance Allowance</h1>
+  
+  <p class="govuk-body">The questions in this application relate to the person you are helping to apply. Do not enter your own details.</p>
 
-  {% if locale == 'NI' %}
-    <p class="govuk-body">If not, you should <a href="https://www.nidirect.gov.uk/articles/becoming-appointee-social-security-benefits" target="_blank" class="govuk-link">apply to become their appointee</a>.</p>
+  <div class="govuk-inset-text">
+    <p>If the person you are helping has a power of attorney or a DWP appointee, you will need to use the
+    {% if locale == 'NI' %}
+    <a href="https://www.nidirect.gov.uk/publications/attendance-allowance-claim-form-and-guidance-notes" target="_blank" class="govuk-link">paper claim form</a>.
     {% else %}
-    <p class="govuk-body">If not, you should <a href="https://www.gov.uk/become-appointee-for-someone-claiming-benefits" target="_blank" class="govuk-link">apply to become their appointee</a>.</p>
-  {% endif %}
-
-  <p class="govuk-body">You should answer the questions as if you are the applicant.</p>
+    <a href="https://www.gov.uk/government/publications/attendance-allowance-claim-form" target="_blank" class="govuk-link">paper claim form</a>. 
+    {% endif %}
+    You should check this if you are unsure.</p>
+  </div>
 
 {% endblock %}
 
