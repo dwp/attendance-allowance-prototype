@@ -7,7 +7,7 @@ const {
 
 const config = {
   name: urls.whoIsApplying,
-  previous: urls.ageRangeCheck,
+  previous: urls.howToClaim,
   next: [
     {
       page: urls.birthDate,

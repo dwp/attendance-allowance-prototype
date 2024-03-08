@@ -11,6 +11,9 @@ const eligibility = require('./govuk/eligibility');
 const howToClaim = require('./govuk/how-to-claim');
 const reportChangeInCircumstances = require('./govuk/report-change-in-circumstances');
 
+// scaling
+const limitReached = require('./scaling/limit-reached');
+
 // eligibility
 const birthDate = require('./eligibility/birth-date');
 const birthDateIneligible = require('./eligibility/birth-date-ineligible');
@@ -25,13 +28,6 @@ const whoIsApplying = require('./eligibility/who-is-applying');
 const whoIsApplyingIneligible = require('./eligibility/who-is-applying-ineligible');
 const bestDescribe = require('./eligibility/best-describe');
 const specialRulesDeclaration = require('./eligibility/special-rules-declaration');
-
-// age scaling
-const ageRange = require('./age-scaling/age-range');
-const ageRangeCheck = require('./age-scaling/age-range-check');
-const ageRangeLimit = require('./age-scaling/age-range-limit');
-const ageRangeIneligible = require('./age-scaling/age-range-ineligible');
-const ageRangeUnderStatePension = require('./age-scaling/age-range-under-state-pension');
 
 // identity
 const nationalInsurance = require('./identity/national-insurance');
@@ -178,16 +174,12 @@ module.exports = {
   eligibility,
   howToClaim,
   reportChangeInCircumstances,
+  limitReached,
   whoIsApplying,
   whoIsApplyingIneligible,
   bestDescribe,
   birthDate,
   birthDateIneligible,
-  ageRange,
-  ageRangeCheck,
-  ageRangeLimit,
-  ageRangeIneligible,
-  ageRangeUnderStatePension,
   otherBenefits,
   otherBenefitsIneligible,
   attendanceAllowanceIneligible,
