@@ -94,12 +94,10 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['home-address-international-line-one'] }} <br/>
-            {% if data['home-address-international-line-two'] %}
-              {{ data['home-address-international-line-two'] }} <br/>
-            {% endif %}
-            {{ data['home-address-international-town'] }} <br/>
-            {% if data['home-address-international-postcode'] %}
-              {{ data['home-address-international-postcode'] }} <br/>
+            {{ data['home-address-international-line-two'] }} <br/>
+            {{ data['home-address-international-line-three'] }} <br/>
+            {% if data['home-address-international-line-four'] %}
+              {{ data['home-address-international-line-four'] }} <br/>
             {% endif %}
             {{ data['home-address-international-country'] }}
           </dd>
