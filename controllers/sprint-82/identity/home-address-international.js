@@ -22,15 +22,27 @@ const config = {
       },
     },
     {
-      name: 'home-address-international-town',
+      name: 'home-address-international-line-two',
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 50,
       },
       errors: {
-        required: 'Enter a town or city',
-        maxLength: 'Enter a town or city in 50 characters or less',
+        required: 'Enter the second line of your address',
+        maxLength: 'Enter the second line of your address in 50 characters or less',
+      },
+    },
+    {
+      name: 'home-address-international-line-three',
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 50,
+      },
+      errors: {
+        required: 'Enter the third line of your address',
+        maxLength: 'Enter the third line of your address in 50 characters or less',
       },
     },
     {
@@ -45,7 +57,6 @@ const config = {
         maxLength: 'Enter a country in 50 characters or less',
       },
     },
-    
   ],
 };
 

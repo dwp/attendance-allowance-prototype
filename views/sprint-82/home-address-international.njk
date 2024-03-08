@@ -33,10 +33,11 @@
 
   {{ govukInput({
     label: {
-      text: "Address line 2 (optional)",
+      text: "Address line 2",
       classes: "govuk-body",
       isPageHeading: true
     },
+    errorMessage: data.validation['home-address-international-line-two'].error,
     id: "home-address-international-line-two",
     name: "home-address-international-line-two",
     value: data["home-address-international-line-two"], 
@@ -45,27 +46,27 @@
 
   {{ govukInput({
     label: {
-      text: "Town or city", 
+      text: "Address line 3",
+      classes: "govuk-body",
       isPageHeading: true
     },
-    classes: "govuk-!-width-two-thirds",
-    errorMessage: data.validation['home-address-international-town'].error,
-    id: "home-address-international-town",
-    name: "home-address-international-town",
-    value: data["home-address-international-town"], 
-    autocomplete: "home-address-international-town"
+    errorMessage: data.validation['home-address-international-line-three'].error,
+    id: "home-address-international-line-three",
+    name: "home-address-international-line-three",
+    value: data["home-address-international-line-three"], 
+    autocomplete: "home-address-international-line-three"
   }) }}
 
-  {{ govukInput({
+   {{ govukInput({
     label: {
-      text: "Postcode (optional)", 
+      text: "Address line 4 (optional)",
+      classes: "govuk-body",
       isPageHeading: true
     },
-    classes: "govuk-input--width-10",
-    id: "home-address-international-postcode",
-    name: "home-address-international-postcode",
-    value: data["home-address-international-postcode"],
-    autocomplete: "home-address-international-postcode"
+    id: "home-address-international-line-four",
+    name: "home-address-international-line-four",
+    value: data["home-address-international-line-four"], 
+    autocomplete: "home-address-international-line-four"
   }) }}
 
   {{ govukInput({
