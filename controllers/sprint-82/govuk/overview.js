@@ -4,9 +4,7 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.start,
-  previous: urls.root, 
-  next: urls.beforeYouStart,
+  name: urls.overview,
 };
 
 module.exports = registerController(config.name, config);
