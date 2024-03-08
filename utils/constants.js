@@ -13,6 +13,9 @@ module.exports = {
     howToClaim: 'how-to-claim',
     reportChangeInCircumstances: 'report-change-in-circumstances',
 
+    // scaling
+    limitReached: 'limit-reached',
+
     // eligibility
     whoIsApplying: 'who-is-applying',
     bestDescribe: 'best-describe',
@@ -29,13 +32,6 @@ module.exports = {
     countryOutsideUKDuration: 'country-outside-uk-duration',
     countryOutsideUKDurationInelgible: 'country-outside-uk-duration-ineligible',
     attendanceAllowanceIneligible: 'attendance-allowance-ineligible',
-
-    // age scaling
-    ageRange: 'age-range',
-    ageRangeCheck: 'age-range-check',
-    ageRangeLimit: 'age-range-limit',
-    ageRangeIneligible: 'age-range-ineligible',
-    ageRangeUnderStatePension: 'age-range-under-state-pension',
 
     // identity
     nationalInsurance: 'national-insurance',

@@ -4,8 +4,8 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.ageRangeIneligible,
-  previous: urls.ageRangeCheck, 
+  name: urls.limitReached,
+  previous: urls.howToClaim, 
 };
 
 module.exports = registerController(config.name, config);

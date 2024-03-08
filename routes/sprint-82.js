@@ -17,6 +17,9 @@ router.use(urls.root, controllers.eligibility);
 router.use(urls.root, controllers.howToClaim);
 router.use(urls.root, controllers.reportChangeInCircumstances);
 
+// govuk
+router.use(urls.root, controllers.limitReached);
+
 // eligibility
 router.use(`/${urls.whoIsApplying}`, controllers.whoIsApplying);
 router.use(`/${urls.whoIsApplyingIneligible}`, controllers.whoIsApplyingIneligible);
@@ -31,13 +34,6 @@ router.use(`/${urls.nationality}`, controllers.nationality);
 router.use(`/${urls.nationalityOther}`, controllers.nationalityOther);
 router.use(`/${urls.residenceCountry}`, controllers.residenceCountry);
 router.use(`/${urls.countryOutsideUKDuration}`, controllers.countryOutsideUkDuration);
-
-// age scaling
-router.use(`/${urls.ageRange}`, controllers.ageRange);
-router.use(`/${urls.ageRangeCheck}`, controllers.ageRangeCheck);
-router.use(`/${urls.ageRangeLimit}`, controllers.ageRangeLimit);
-router.use(`/${urls.ageRangeIneligible}`, controllers.ageRangeIneligible);
-router.use(`/${urls.ageRangeUnderStatePension}`, controllers.ageRangeUnderStatePension);
 
 // identity
 router.use(`/${urls.nationalInsurance}`, controllers.nationalInsurance);
