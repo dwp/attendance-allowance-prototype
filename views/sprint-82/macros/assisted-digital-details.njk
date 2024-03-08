@@ -1,0 +1,15 @@
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{% set details %}
+  <p class="govuk-body">
+    <a href='mailto:digital.aasupport@dwp.gov.uk' class="govuk-link">
+      digital.aasupport@dwp.gov.uk
+    </a>
+    <br/> We aim to respond within 2 working days
+  </p>
+{% endset %}
+
+{{ govukDetails({
+    summaryText: "Get help with your application",
+    html: details
+  }) }}
