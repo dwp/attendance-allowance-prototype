@@ -5,7 +5,7 @@ const {
 
 const config = {
   name: urls.limitReached,
-  previous: urls.howToClaim, 
+  previous: urls.howToClaim,
 };
 
 module.exports = registerController(config.name, config);
