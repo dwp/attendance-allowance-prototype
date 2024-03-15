@@ -9,10 +9,10 @@ const config = {
   previous: urls.welshLanguageWrite,
   next: urls.emailSubmit,
   validation: {
-    type: validation.radios,
+    type: validation.checkboxes,
     errors: {
       required:
-        "Select which different format we should use when we contact you",
+        "Select whether we should use a different format when we contact you",
     },
   },
 };
