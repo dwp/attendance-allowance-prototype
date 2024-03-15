@@ -105,18 +105,17 @@
 
 			<div class="govuk-summary-list__row formats">
 				<dt class="govuk-summary-list__key">
-					Do you need us to use a different format when we contact you?
+				Do you need us to use a different format when we contact you?
 				</dt>
 				<dd class="govuk-summary-list__value">
-					{{ data['alternative-formats'] 
-					| replace("large-print", "Large print") 
-					| replace("cd-cassette", "CD or cassette tape")
-					| replace("braille", "Braille")
-					| replace("textphone", "Textphone")
-					| replace("relay-uk", "Relay UK")
-					| replace("none", "None")
-					}}
-					</dd>
+				<ul class="govuk-list">
+					{% for format in data['alternative-formats'] %}
+					<li>
+						{{ rewordFormat(format) }}
+					</li>
+					{% endfor %}
+				</ul>
+				</dd>
 				<dd class="govuk-summary-list__actions">
 				{{ changeLink('alternative-formats') }}
 				</dd>
