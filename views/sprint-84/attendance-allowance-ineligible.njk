@@ -4,11 +4,12 @@
 
 
 {% block form %}
-    <h1 class="govuk-heading-l">You told us you already get Attendance Allowance</h1>
+    <h1 class="govuk-heading-l">Based on your answers, you need to apply using the paper form</h1>
         
-    <p class="govuk-body">If you want to renew your claim you can <a class="govuk-link" href="nationality">continue and use the online service.</a></p>
-        
-    <p class="govuk-body">Alternatively, you can use the paper form.</p>
+    <p class="govuk-body">
+        You will need to use the  <a class="govuk-link" href="https://www.gov.uk/government/publications/attendance-allowance-claim-form">paper claim form</a>
+        if you already get Attendance Allowance and want to renew your claim.
+    </p>
        
     {% if locale == 'NI' %}
         <p class="govuk-body">If you want to report a change in circumstances, you must contact the <a class="govuk-link" href="https://www.nidirect.gov.uk/articles/attendance-allowance#toc-9">Attendance Allowance helpline.</a></p>
