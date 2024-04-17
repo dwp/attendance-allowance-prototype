@@ -14,9 +14,15 @@
 {% block form %}
 
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-    <h1 class="govuk-fieldset__heading govuk-body govuk-!-margin-bottom-4">
-      You have added an adaptation, equipment or aid
-    </h1>
+   {% if data['aids-adaptations-rows'].length > 1 %}
+      <h1 class="govuk-fieldset__heading govuk-body govuk-!-margin-bottom-4">
+          You have added {{ data['aids-adaptations-rows'].length }} adaptations, equipment or aids
+        </h1>
+      {% else %}
+        <h1 class="govuk-fieldset__heading govuk-body govuk-!-margin-bottom-4">
+          You have added {{ data['aids-adaptations-rows'].length }} adaptation, equipment or aid
+        </h1>
+      {% endif %}
   </legend>
   
     {{ govukTable({
@@ -36,6 +42,12 @@
       ],
       rows:data["aids-adaptations-rows"] 
     }) }}
+
+  {% set aidsAdaptationsLimit %}
+    <p class="govuk-body"> 
+      You can add up to 20.
+    </p>
+  {% endset %}
   
   {{ govukRadios({
     idPrefix: "aids-adaptations-added",
@@ -46,6 +58,9 @@
         isPageHeading: false,
         classes: "govuk-fieldset__legend--m"
       }
+    },
+    hint: {
+    html: aidsAdaptationsLimit
     },
     errorMessage: data.validation['aids-adaptations-added'].error,
     items: [
