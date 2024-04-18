@@ -35,6 +35,7 @@ module.exports = {
     nationality: 'nationality',
     nationalityOther: 'nationality-other',
     residenceCountry: 'residence-country',
+    residenceCountryNorthernIreland: 'residence-country-northern-ireland',
     residenceCountryIneligible: 'residence-country-ineligible',
     countryOutsideUKDuration: 'country-outside-uk-duration',
     countryOutsideUKDurationInelgible: 'country-outside-uk-duration-ineligible',
