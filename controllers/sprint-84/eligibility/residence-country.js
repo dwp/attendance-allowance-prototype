@@ -22,17 +22,26 @@ const config = {
   ],
   next: [
     {
-      page: urls.residenceCountryIneligible,
+      page: urls.residenceCountryNorthernIreland,
       condition: {
         field: urls.residenceCountry,
-        value: "abroad",
+        value: 'northern-ireland',
         match: match.value,
       },
     },
     {
-      page: urls.countryOutsideUKDuration,
+      page: urls.residenceCountryIneligible,
+      condition: {
+        field: urls.residenceCountry,
+        value: 'abroad',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.countryOutsideUKDuration
     },
   ],
+
   validation: {
     type: validation.radios,
     errors: {
