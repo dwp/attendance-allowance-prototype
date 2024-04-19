@@ -1,0 +1,26 @@
+{% extends "v5-layouts/prototypeLayout.njk" %}
+
+
+{% block form %}
+
+  <h1 class="govuk-heading-l">We may contact you if we need any supporting medical evidence about your health condition or disability</h1>
+  <p class="govuk-body">This is to help us assess your claim for Attendance Allowance.</p>
+  <p class="govuk-body">This could be:</p>
+  
+  <ul class="govuk-list govuk-list--bullet">
+    <li>medical reports or letters</li>
+    <li>current prescription lists</li>
+    <li>patient summary letter</li>
+  </ul>
+
+  <p class="govuk-body">We will let you know what we need if we contact you.</p>
+
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
+
+{% block formButton %}
+  {{ phaseButton(data, "Continue") }}
+{% endblock %}
