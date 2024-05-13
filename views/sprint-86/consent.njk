@@ -5,43 +5,52 @@
 
 {% block form %}
 
-  <h1 class="govuk-heading-l">Sharing information about your health condition or disability</h1>
-  
-  <p class="govuk-body">We may want to contact your GP, or the people or organisations involved with you, for information about your claim.
-  This may include medical information. If you do not give your consent, we may be unable to make sure you qualify for Attendance Allowance.</p>
-  
-  <p class="govuk-body">We, or any healthcare professional working for an organisation approved by the Secretary of State,
-  may ask any person or organisation to give them or us any information, including medical information, which we need to deal with: </p>
- 
-  <ul class="govuk-list govuk-list--bullet">
-    <li>this claim for Attendance Allowance, or </li>
-    <li>any appeal or other request to consider a decision about this claim.</li>
-  </ul>
+  {% set consentBody %}
+    <p class="govuk-body govuk-!-static-padding-top-1"> 
+      The Department for Work and Pensions (DWP) may need more information about your health condition 
+      or disability to assess and make a decision on your claim.
+    </p>
+  {% endset %}
 
   {{ govukRadios({
-    idPrefix: "consent",
-    name: "consent",
-    fieldset: {
-      legend: {
-        text: "Do you give your consent for the DWP to contact your GP or other relevant healthcare professionals,
-   to get more information about your health condition?",
-        isPageHeading: false,
-        classes: "govuk-!-font-weight-bold"
-      }
-    },
-    errorMessage: data.validation['consent'].error,
-    items: [
-      {
-        value: "yes",
-        text: "Yes, information about my health can be shared with DWP or the healthcare professionals that work for them.",
-        checked: true if data["consent"] and data["consent"].includes("yes")
+      idPrefix: "consent",
+      name: "consent",
+      fieldset: {
+        legend: {
+          text: "Do you give consent for your GP or other healthcare professionals to share relevant information about your health conditions with DWP?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
       },
-      {
-        value: "no",
-        text: "No, information about my health cannot be shared with DWP or the healthcare professionals that work for them.",
-        checked: true if data["consent"] and data["consent"].includes("no")
-      }]
+      errorMessage: data.validation['consent'].error,
+      hint: {
+        html: consentBody
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes, information about my health can be shared",
+          checked: true if data["consent"] and data["consent"].includes("yes")
+        },
+        {
+          value: "no",
+          text: "No, information about my health cannot be shared",
+          checked: true if data["consent"] and data["consent"].includes("no")
+        }
+    ]
   }) }}
+
+
+  <h2 class="govuk-heading-m govuk-!-static-padding-top-7">How DWP uses this information</h2>
+  
+  <p class="govuk-body">DWP uses this information to:</p>
+ 
+  <ul class="govuk-list govuk-list--bullet">
+    <li>assess your claim</li>
+    <li>make a decision on your claim, or any future disputes or appeals</li>
+  </ul>
+
+  <p class="govuk-body">If you do not give your consent, DWP will make a decision using only the information you provide.</p>
 
 {% endblock %}
 
