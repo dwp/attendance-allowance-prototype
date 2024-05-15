@@ -37,7 +37,7 @@ const {
     validation: {
       type: validation.radios,
       errors: {
-        required: 'Select yes, if you agree that information about your health can be shared with DWP or the healthcare professionals that work for them',
+        required: 'Select yes if you give consent for your GP or other healthcare professionals to share information about your health conditions with DWP',
       },
     },
   };
