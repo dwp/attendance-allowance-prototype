@@ -1,0 +1,22 @@
+{% from "./macros/check-answers-contact-details-section.njk" import checkAnswersContactDetailsSection %}
+
+{% extends "v5-layouts/prototypeLayout.njk" %}
+
+
+{% block form %}
+  <a href="email-submit" class="govuk-back-link">Back</a>
+  <h1 class="govuk-heading-l">Check your answers</h1>
+        
+        {{ checkAnswersContactDetailsSection(data) }}
+
+{% endblock %}
+
+{% block formButton %}
+  <a href="claim-submission" class="govuk-button">
+    Accept and continue
+  </a>
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
