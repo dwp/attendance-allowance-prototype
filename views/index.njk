@@ -11,22 +11,69 @@
 
       {# [Version listings] (do not delete this comment it is used in automation) #}
 
+      {# [sprint-89-start] (do not delete this comment it is used in automation) #}
+      <div class="app-most-recent govuk-!-padding-bottom-7">
+        <div>
+          <span class="govuk-tag govuk-tag--turquoise">sprint-89</span>
+        </div>
+        <br/>
+        <h2 class="govuk-heading-m">Sprint 89</h2>
+        <ul class="govuk-list govuk-list--bullet">
+        </ul>
+
+        {% set details %}
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/how-to-claim' class="govuk-link">How to claim</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/limit-reached' class="govuk-link">Scaling limit</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/verification-code' class="govuk-link">Verification codes</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/who-is-applying' class="govuk-link">Who is applying</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/birth-date' class="govuk-link">Eligibility</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/national-insurance' class="govuk-link">Identity</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/illness-disability' class="govuk-link">Health conditions</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/treatment-surgery' class="govuk-link">Treatment or surgery</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/consent' class="govuk-link">Consent</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/day-difficulties' class="govuk-link">Day care</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/night-difficulties' class="govuk-link">Night care</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/safe-day-night' class="govuk-link">Supervision</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/aids-adaptations-question' class="govuk-link">Aids and adaptations</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/difficulties-start-date' class="govuk-link">Difficulties start date</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/telephone-number' class="govuk-link">Contact preferences</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/claim-submission' class="govuk-link">Claim submission</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/done' class="govuk-link">Application complete</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/404' class="govuk-link">404 - Page not found</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/500' class="govuk-link">500 - Problem with the service</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-89/503' class="govuk-link">503 - Service unavailable</a></p>
+          
+        {% endset %}
+
+        {{ govukDetails({
+            summaryText: "Key sections in journey",
+            html: details
+          }) }}
+
+        <a href="sprint-89/overview?locale=GB" class="govuk-button govuk-button--start">Start GB</a>
+        <a href="sprint-89/who-is-applying?locale=NI" class="govuk-button govuk-button--start">Start NI</a>
+        <p class="govuk-body govuk-!-font-size-16">Date created - Mon Jun 17 2024</p>
+      </div>
+      {# [sprint-89-end] (do not delete this comment it is used in automation) #}
+
       {# [sprint-88-start] (do not delete this comment it is used in automation) #}
       <div class="app-most-recent govuk-!-padding-bottom-7">
         <div>
           <span class="govuk-tag govuk-tag--turquoise">sprint-88</span>
+          <span class="govuk-tag govuk-tag--blue">FROZEN</span>
         </div>
         <br/>
         <h2 class="govuk-heading-m">Sprint 88</h2>
         <ul class="govuk-list govuk-list--bullet">
            <li>Added NI variant for Privacy in footer links</li>
            <li>Updated /verification-code entry</li>
+           <li>Updated Northern Ireland kickout</li>
         </ul>
 
         {% set details %}
           <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-88/how-to-claim' class="govuk-link">How to claim</a></p>
-          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-88/verification-code' class="govuk-link">Verification code</a></p>
           <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-88/limit-reached' class="govuk-link">Scaling limit</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-88/verification-code' class="govuk-link">Verification code</a></p>
           <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-88/who-is-applying' class="govuk-link">Who is applying</a></p>
           <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-88/birth-date' class="govuk-link">Eligibility</a></p>
           <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-88/national-insurance' class="govuk-link">Identity</a></p>
@@ -70,10 +117,10 @@
         </ul>
 
         {% set details %}
-          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-86/how-to-claim' class="govuk-link">How to claim</a></p>
-          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-86/limit-reached' class="govuk-link">Scaling limit</a></p>
-          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-86/who-is-applying' class="govuk-link">Who is applying</a></p>
-          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-86/birth-date' class="govuk-link">Eligibility</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-87/how-to-claim' class="govuk-link">How to claim</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-87/limit-reached' class="govuk-link">Scaling limit</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-87/who-is-applying' class="govuk-link">Who is applying</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-87/birth-date' class="govuk-link">Eligibility</a></p>
           <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-87/national-insurance' class="govuk-link">Identity</a></p>
           <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-87/illness-disability' class="govuk-link">Health conditions</a></p>
           <p class="govuk-body govuk-!-margin-bottom-1"><a href='sprint-87/treatment-surgery' class="govuk-link">Treatment or surgery</a></p>
