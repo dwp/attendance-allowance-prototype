@@ -9,25 +9,43 @@
     name: "care-home-hospital",
     fieldset: {
       legend: {
-        text: "Are you currently in a care home or hospital?",
+        text: "Are you currently staying in any of these places?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"
       }
     },
-    hint: {
-      text: "This includes similar places, such as a nursing home or hospice."
-    },
     errorMessage: data.validation['care-home-hospital'].error,
     items: [
       {
-        value: "yes",
-        text: "Yes",
-        checked: true if data["care-home-hospital"] === "yes"
+        value: "hospital",
+        text: "Hospital",
+        checked: true if data["care-home-hospital"] === "hospital"
       },
       {
-        value: "no",
-        text: "No",
-        checked: true if data["care-home-hospital"] === "no"
+        value: "care-nursing-home",
+        text: "Care or nursing home",
+        checked: true if data["care-home-hospital"] === "care-nursing-home"
+      },
+      {
+        value: "hospice",
+        text: "Hospice",
+        checked: true if data["care-home-hospital"] === "hospice"
+      },
+      {
+        value: "other-accommodation",
+        text: "Other",
+        hint: {
+          text: "This could include sheltered housing, respite care or other accommodation."
+        },
+        checked: true if data["care-home-hospital"] === "other"
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "no-care-home-hospital",
+        text: "No, none of these",
+        checked: true if data["care-home-hospital"] === "no-care-home-hospital"
       }
     ]
   }) }}
