@@ -39,6 +39,13 @@ const homeAddressInternational = require('./identity/home-address-international'
 
 // payability
 const careHomeHospital = require('./payability/care-home-hospital');
+const hospitalAddress = require('./payability/hospital-address');
+const careHomeAddress = require('./payability/care-home-address');
+const hospiceAddress = require('./payability/hospice-address');
+const otherAccommodationAddress = require('./payability/other-accommodation-address');
+const careHomeFunding = require('./payability/care-home-funding');
+const careHomeFundingWho = require('./payability/care-home-funding-who');
+const accommodationAddressOutsideUK = require('./payability/accommodation-address-outside-uk');
 const sercoCareHomeHospital = require('./payability/serco-care-home-hospital');
 
 // illness and disabilities
@@ -192,6 +199,13 @@ module.exports = {
   homeAddressInternational,
   treatmentSurgery,
   careHomeHospital,
+  hospitalAddress,
+  careHomeAddress,
+  hospiceAddress,
+  otherAccommodationAddress,
+  careHomeFunding,
+  careHomeFundingWho,
+  accommodationAddressOutsideUK,
   sercoCareHomeHospital,
   illnessDisability,
   illnessDisabilityDate,

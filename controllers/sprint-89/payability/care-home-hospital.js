@@ -18,9 +18,9 @@ const config = {
       },
     },
     {
-      page: urls.illnessDisability,
+      page: urls.careHomeAddress,
       condition: {
-        field: urls.careHomeAddress,
+        field: urls.careHomeHospital,
         value: "care-nursing-home",
         match: match.value,
       },
@@ -45,7 +45,7 @@ const config = {
       page: urls.illnessDisability,
       condition: {
         field: urls.careHomeHospital,
-        value: "no-care-home-hospital",
+        value: "none",
         match: match.value,
       },
     },

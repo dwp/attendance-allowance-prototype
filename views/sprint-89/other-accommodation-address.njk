@@ -20,11 +20,11 @@
       isPageHeading: true
     },
     classes: "govuk-!-width-two-thirds",
-    errorMessage: data.validation['care-home-address'].error,
-    id: "care-home-name",
-    name: "care-home-name",
-    value: data["care-home-name"],
-    autocomplete: "care-home-name"
+    errorMessage: data.validation['other-accommodation-name'].error,
+    id: "other-accommodation-name",
+    name: "other-accommodation-name",
+    value: data["other-accommodation-name"],
+    autocomplete: "other-accommodation-name"
   }) }}
 
   {{ govukInput({
@@ -33,11 +33,11 @@
       isPageHeading: true
     },
     classes: "govuk-input--width-10",
-    errorMessage: data.validation['care-home-postcode'].error,
-    id: "care-home-postcode",
-    name: "care-home-postcode",
-    value: data["care-home-postcode"],
-    autocomplete: "care-home-postcode"
+    errorMessage: data.validation['other-accommodation-postcode'].error,
+    id: "cother-accommodation-postcode",
+    name: "other-accommodation-postcode",
+    value: data["other-accommodation-postcode"],
+    autocomplete: "other-accommodation-postcode"
   }) }}
 
 {% endcall %}
