@@ -51,6 +51,13 @@ module.exports = {
 
     // payability
     careHomeHospital: 'care-home-hospital',
+    hospitalAddress: 'hospital-address',
+    careHomeAddress: 'care-home-address',
+    hospiceAddress: 'hospice-address',
+    otherAccommodationAddress: 'other-accommodation-address',
+    careHomeFunding: 'care-home-funding',
+    careHomeFundingWho: 'care-home-funding-who',
+    accommodationAddressOutsideUk: 'accommodation-address-outside-uk',
     sercoCareHomeHospital: 'serco-care-home-hospital',
 
     // illness and disabilities
