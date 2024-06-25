@@ -8,11 +8,52 @@ const {
 const config = {
   name: urls.careHomeHospital,
   previous: urls.homeAddressSelect,
-  next: urls.illnessDisability,
+  next: [
+    {
+      page: urls.hospitalAddress,
+      condition: {
+        field: urls.careHomeHospital,
+        value: "hospital",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.careHomeAddress,
+      condition: {
+        field: urls.careHomeHospital,
+        value: "care-nursing-home",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.hospiceAddress,
+      condition: {
+        field: urls.careHomeHospital,
+        value: "hospice",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.otherAccommodationAddress,
+      condition: {
+        field: urls.careHomeHospital,
+        value: "other-accommodation",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.illnessDisability,
+      condition: {
+        field: urls.careHomeHospital,
+        value: "none",
+        match: match.value,
+      },
+    },
+  ],
   validation: {
     type: validation.radios,
     errors: {
-      required: "Select yes if you are currently in a care home or hospital",
+      required: "Select if you are staying in a hospital, care or nursing home, hospice, other, or none of these",
     },
   },
 };
