@@ -48,7 +48,45 @@ const config = {
       page: urls.careHomeHospital,
     },
   ],
-  next: urls.careHomeFunding,
+
+  next: [
+    {
+      page: urls.illnessDisability,
+      condition: {
+        page: urls.careHomeHospital,
+        field: "care-home-hospital",
+        value: "hospital",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.careHomeFunding,
+      condition: {
+        page: urls.careHomeHospital,
+        field: "care-home-hospital",
+        value: "care-nursing-home",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.illnessDisability,
+      condition: {
+        page: urls.careHomeHospital,
+        field: "care-home-hospital",
+        value: "hospice",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.illnessDisability,
+      condition: {
+        page: urls.careHomeHospital,
+        field: "care-home-hospital",
+        value: "other-accommodation",
+        match: match.value,
+      },
+    },
+  ],
   validation: [
     {
       name: "accommodation-outside-uk-name",

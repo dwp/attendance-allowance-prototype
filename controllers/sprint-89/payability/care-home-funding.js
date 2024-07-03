@@ -10,25 +10,15 @@ const config = {
   previous: urls.careHomeAddress,
   next: [
     {
-      page: urls.illnessDisability,
-      condition: {
-        field: urls.careHomeFunding,
-        value: [
-          "yes-self-funded",
-          "yes-selling-home",
-          "assessment",
-          "i-do-not-know",
-        ],
-        match: match.value,
-      },
-    },
-    {
       page: urls.careHomeFundingWho,
       condition: {
         field: urls.careHomeFunding,
         value: "no-get-funding",
         match: match.value,
       },
+    },
+    {
+      page: urls.illnessDisability,
     },
   ],
   validation: {
