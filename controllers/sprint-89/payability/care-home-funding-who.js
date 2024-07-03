@@ -11,7 +11,7 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: "Select who you get funding from or if you do not know",
+      required: "Select who you get funding from",
     },
   },
 };

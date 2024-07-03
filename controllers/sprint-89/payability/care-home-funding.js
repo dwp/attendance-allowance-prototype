@@ -34,7 +34,7 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: "Select if you are self funded, selling your home or assets, waiting for an assessment, get funding, or you do not know",
+      required: "Select if you pay for the full cost of your care or nursing home",
     },
   },
 };

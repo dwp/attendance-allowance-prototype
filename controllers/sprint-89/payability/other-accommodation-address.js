@@ -17,9 +17,9 @@ const config = {
         maxLength: 500,
       },
       errors: {
-        required: "Enter the name of the place you are staying",
+        required: "Enter the name of the place where you are staying",
         maxLength:
-          "Name of the place you are staying must be 500 characters or less",
+          "Enter the name of the place where you are staying in 500 characters or less",
       },
     },
 

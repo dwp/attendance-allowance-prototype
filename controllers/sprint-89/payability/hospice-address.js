@@ -19,7 +19,7 @@ const config = {
       errors: {
         required: "Enter the name of the hospice",
         maxLength:
-          "Name of hospice must be 500 characters or less",
+          "Enter the name of the hospice in 500 characters or less",
       },
     },
 

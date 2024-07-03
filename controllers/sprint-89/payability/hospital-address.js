@@ -19,7 +19,7 @@ const config = {
       errors: {
         required: "Enter the name of the hospital",
         maxLength:
-          "Name of hospital must be 500 characters or less",
+          "Enter the name of the hospital in 500 characters or less",
       },
     },
 
