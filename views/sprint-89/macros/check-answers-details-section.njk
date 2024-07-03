@@ -244,102 +244,83 @@
           {{ changeLink('care-home-hospital') }}
         </dd>
       </div>
-      {% if data['care-home-hospital']== "hospital" %}
-				<div class="govuk-summary-list__row hospital-address">
-					<dt class="govuk-summary-list__key">
-						Name of hospital
-					</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['hospital-name'] }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						{{ changeLink('hospital-address') }}
-					</dd>
-				</div>
+
+      {% if data['hospital-name'] %}
         <div class="govuk-summary-list__row hospital-address">
-					<dt class="govuk-summary-list__key">
-						Postcode
-					</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['hospital-postcode'] }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						{{ changeLink('hospital-address') }}
-					</dd>
-				</div>
-			{% endif %}
-      {% if data['care-home-hospital']== "care-nursing-home" %}
-				<div class="govuk-summary-list__row care-home-address">
-					<dt class="govuk-summary-list__key">
-						Name of care or nursing home
-					</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['care-home-name'] }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						{{ changeLink('care-home-address') }}
-					</dd>
-				</div>
+          <dt class="govuk-summary-list__key">
+            Name of hospital
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['hospital-name'] }} <br/>
+            {{ data['hospital-postcode'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          {{ changeLink('hospital-address') }}
+          </dd>
+        </div>
+      {% endif %}
+
+       {% if data['care-home-name'] %}
         <div class="govuk-summary-list__row care-home-address">
-					<dt class="govuk-summary-list__key">
-						Postcode
-					</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['care-home-postcode'] }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						{{ changeLink('care-home-address') }}
-					</dd>
-				</div>
-			{% endif %}
-      {% if data['care-home-hospital']== "hospice" %}
-				<div class="govuk-summary-list__row hospice-address">
-					<dt class="govuk-summary-list__key">
-						Name of hospice
-					</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['hospice-name'] }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						{{ changeLink('hospice-address') }}
-					</dd>
-				</div>
+          <dt class="govuk-summary-list__key">
+            Name of care or nursing home
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['care-home-name'] }} <br/>
+            {{ data['care-home-postcode'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          {{ changeLink('care-home-address') }}
+          </dd>
+        </div>
+      {% endif %}
+
+      {% if data['hospice-name'] %}
         <div class="govuk-summary-list__row hospice-address">
-					<dt class="govuk-summary-list__key">
-						Postcode
-					</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['hospice-postcode'] }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						{{ changeLink('hospice-address') }}
-					</dd>
-				</div>
-			{% endif %}
-      {% if data['care-home-hospital']== "other-accommodation" %}
-				<div class="govuk-summary-list__row other-accommodation-address">
-					<dt class="govuk-summary-list__key">
-						Name of the place you are staying
-					</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['other-accommodation-name'] }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						{{ changeLink('other-accommodation-address') }}
-					</dd>
-				</div>
+          <dt class="govuk-summary-list__key">
+            Name of hospice
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['hospice-name'] }} <br/>
+            {{ data['hospice-postcode'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          {{ changeLink('hospice-address') }}
+          </dd>
+        </div>
+      {% endif %}  
+      
+      {% if data['other-accommodation-name'] %}
         <div class="govuk-summary-list__row other-accommodation-address">
-					<dt class="govuk-summary-list__key">
-						Postcode
-					</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['other-accommodaiton-postcode'] }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						{{ changeLink('other-accommodation-address') }}
-					</dd>
-				</div>
-			{% endif %}
+          <dt class="govuk-summary-list__key">
+            Name of the place where you are staying
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['other-accommodation-name'] }} <br/>
+            {{ data['other-accommodation-postcode'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          {{ changeLink('other-accommodation-address') }}
+          </dd>
+        </div>
+      {% endif %} 
+
+      {% if data['accommodation-outside-uk-name'] %}
+        <div class="govuk-summary-list__row accommodation-address-outside-uk">
+          <dt class="govuk-summary-list__key">
+            Name of the place where you are staying
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['accommodation-outside-uk-name'] }} <br/>
+            {{ data['accommodation-outside-uk-town-city'] }} <br/>
+            {{ data['accommodation-outside-uk-country'] }} 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          {{ changeLink('accommodation-address-outside-uk') }}
+          </dd>
+        </div>
+      {% endif %} 
+
       {% if data['care-home-hospital']== "care-nursing-home" %}
 				<div class="govuk-summary-list__row care-home-funding">
           <dt class="govuk-summary-list__key">
@@ -369,7 +350,7 @@
               | replace("health-authority", "Health authority")
               | replace("health-social-care-trust", "Health and Social Care Trust")
               | replace("charity", "Charity")
-              | replace("other", "Other organisation")
+              | replace("other-organisation", "Other organisation")
               | replace("i-do-not-know", "I do not know") }}
           </dd>
           <dd class="govuk-summary-list__actions">
@@ -377,6 +358,19 @@
         </dd>
        </div>
 			{% endif %}
+      {% if data['other-organisation-who'] %}
+        <div class="govuk-summary-list__row care-home-funding-who">
+            <dt class="govuk-summary-list__key">
+                Tell us who you get funding from
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ data['other-organisation-who'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+                {{ changeLink('bed-day') }}
+            </dd>
+        </div>
+    {% endif %}
     </dl>
   </section>
 
