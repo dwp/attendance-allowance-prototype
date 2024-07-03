@@ -53,7 +53,7 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: "Select if you are staying in a hospital, care or nursing home, hospice, other, or none of these",
+      required: "Select if you are staying in any of these places",
     },
   },
 };

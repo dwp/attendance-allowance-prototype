@@ -19,7 +19,7 @@ const config = {
       errors: {
         required: "Enter the name of the care or nursing home",
         maxLength:
-          "Name of care or nursing home must be 500 characters or less",
+          "Enter the name of the care or nursing home in 500 characters or less",
       },
     },
 
