@@ -383,12 +383,12 @@
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row consent">
         <dt class="govuk-summary-list__key">
-          Sharing information about your health condition or disability
+          Do you give consent for your GP or other healthcare professionals to share relevant information about your health conditions with DWP?
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['consent'] 
-          | replace("yes", "Yes, information about my health can be shared with DWP or the healthcare professionals that work for them.") 
-          | replace("no", "No, information about my health cannot be shared with DWP or the healthcare professionals that work for them.") }}
+          | replace("yes", "Yes, information about my health can be shared") 
+          | replace("no", "No, information about my health cannot be shared") }}
         </dd>
         <dd class="govuk-summary-list__actions">
           {{ changeLink('consent') }}
