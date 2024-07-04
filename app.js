@@ -45,6 +45,7 @@ app.use(autoStoreDataMiddleware);
 app.use(locale());
 
 // [Journey routes] (do not edit this comment, it is used in automation)
+app.use('/sprint-90/', setVersionMiddleware('/sprint-90/'), require('./routes/sprint-90'));
 app.use('/sprint-89/', setVersionMiddleware('/sprint-89/'), require('./routes/sprint-89'));
 app.use('/sprint-88/', setVersionMiddleware('/sprint-88/'), require('./routes/sprint-88'));
 app.use('/sprint-87/', setVersionMiddleware('/sprint-87/'), require('./routes/sprint-87'));
