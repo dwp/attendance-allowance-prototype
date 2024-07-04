@@ -22,7 +22,7 @@ const config = {
       },
     },
     {
-      name: 'home-address-international-line-two',
+      name: 'home-address-international-line-three',
       type: validation.textInput,
       options: {
         minLength: 1,
