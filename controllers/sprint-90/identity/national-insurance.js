@@ -6,7 +6,7 @@ const {
 
 const config = {
   name: urls.nationalInsurance,
-  previous: urls.countryOutsideUKDuration,
+  previous: urls.countryOutsideUKWorking,
   next: urls.fullName,
   validation: {
     type: validation.textInput,
