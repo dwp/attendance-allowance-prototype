@@ -18,7 +18,7 @@ const config = {
       },
     },
     {
-      page: urls.nationalInsurance,
+      page: urls.countryOutsideUKBenefits,
     },
   ],
   validation: {

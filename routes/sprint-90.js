@@ -34,6 +34,8 @@ router.use(`/${urls.nationality}`, controllers.nationality);
 router.use(`/${urls.nationalityOther}`, controllers.nationalityOther);
 router.use(`/${urls.residenceCountry}`, controllers.residenceCountry);
 router.use(`/${urls.countryOutsideUKDuration}`, controllers.countryOutsideUkDuration);
+router.use(`/${urls.countryOutsideUKBenefits}`, controllers.countryOutsideUkBenefits);
+router.use(`/${urls.countryOutsideUKWorking}`, controllers.countryOutsideUkWorking);
 
 // identity
 router.use(`/${urls.nationalInsurance}`, controllers.nationalInsurance);
