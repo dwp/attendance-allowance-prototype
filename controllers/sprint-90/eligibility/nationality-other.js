@@ -7,7 +7,7 @@ const {
 const config = {
   name: urls.nationalityOther,
   previous: urls.nationality,
-  next: urls.residenceCountry,
+  next: urls.nationalitySwissEea,
   validation: {
     type: validation.textInput,
     options: {

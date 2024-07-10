@@ -9,7 +9,7 @@ const config = {
   name: urls.residenceCountry,
   previous: [
     {
-      page: urls.nationalityOther,
+      page: urls.nationalitySwissEea,
       condition: {
         field: urls.nationality,
         value: "other",
