@@ -201,6 +201,22 @@
           </dd>
         </div>
       {% endif %}
+      {% if data['nationality'] == 'other' %}
+        <div class="govuk-summary-list__row nationality-swiss-eea">
+          <dt class="govuk-summary-list__key">
+            If you are a Swiss or a European Economic Area (EEA) national, were you living in the United Kingdom (UK) before 1 January 2021?
+          </dt>
+          <dd class="govuk-summary-list__value">
+          {{ data['nationality-swiss-eea']
+          | replace("yes", "Yes")
+          | replace("no", "No")
+          | replace("unsure", "I do not know") }}
+        </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('nationality-swiss-eea') }}
+          </dd>
+        </div>
+      {% endif %}
       <div class="govuk-summary-list__row residence-country">
         <dt class="govuk-summary-list__key">
           Where do you live?
