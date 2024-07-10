@@ -1,13 +1,26 @@
 const {
   urls,
   validation,
+  match,
   registerController,
 } = require("../../../utils/controller");
 
 const config = {
   name: urls.careHomeFundingWho,
   previous: urls.careHomeFunding,
-  next: urls.illnessDisability,
+  next: [
+    {
+      page: urls.careHomeFundingTrusts,
+      condition: {
+        field: urls.careHomeFundingWho,
+        value: "health-social-care-trust",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.illnessDisability,
+    },
+  ],
   validation: [
     {
       name: "other-organisation-who",

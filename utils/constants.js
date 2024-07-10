@@ -60,6 +60,7 @@ module.exports = {
     otherAccommodationAddress: 'other-accommodation-address',
     careHomeFunding: 'care-home-funding',
     careHomeFundingWho: 'care-home-funding-who',
+    careHomeFundingTrusts: 'care-home-funding-trusts',
     accommodationAddressOutsideUk: 'accommodation-address-outside-uk',
     sercoCareHomeHospital: 'serco-care-home-hospital',
 
