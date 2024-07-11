@@ -53,7 +53,7 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: "Select if you are staying in any of these places",
+      required: "Select if you are staying in any of these places at the moment",
     },
   },
 };

@@ -9,7 +9,7 @@
     name: "care-home-hospital",
     fieldset: {
       legend: {
-        text: "Are you currently staying in any of these places?",
+        text: "Are you staying in any of these places at the moment?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"
       }
@@ -34,9 +34,6 @@
       {
         value: "similar-place",
         text: "Similar place",
-        hint: {
-          text: "This could include sheltered housing, respite care or other accommodation."
-        },
         checked: true if data["care-home-hospital"] === "similar-place"
       },
       {
