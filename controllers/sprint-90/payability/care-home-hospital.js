@@ -34,10 +34,10 @@ const config = {
       },
     },
     {
-      page: urls.otherAccommodationAddress,
+      page: urls.similarPlaceAddress,
       condition: {
         field: urls.careHomeHospital,
-        value: "other-accommodation",
+        value: "similar-place",
         match: match.value,
       },
     },
