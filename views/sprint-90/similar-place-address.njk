@@ -16,15 +16,15 @@
 
   {{ govukInput({
     label: {
-      text: 'Name of the place you are staying', 
+      text: 'Name of the place where you are staying', 
       isPageHeading: true
     },
     classes: "govuk-!-width-two-thirds",
-    errorMessage: data.validation['other-accommodation-name'].error,
-    id: "other-accommodation-name",
-    name: "other-accommodation-name",
-    value: data["other-accommodation-name"],
-    autocomplete: "other-accommodation-name"
+    errorMessage: data.validation['similar-place-name'].error,
+    id: "similar-place-name",
+    name: "similar-place-name",
+    value: data["similar-place-name"],
+    autocomplete: "similar-place-name"
   }) }}
 
   {{ govukInput({
@@ -33,11 +33,11 @@
       isPageHeading: true
     },
     classes: "govuk-input--width-10",
-    errorMessage: data.validation['other-accommodation-postcode'].error,
-    id: "cother-accommodation-postcode",
-    name: "other-accommodation-postcode",
-    value: data["other-accommodation-postcode"],
-    autocomplete: "other-accommodation-postcode"
+    errorMessage: data.validation['similar-place-postcode'].error,
+    id: "similar-place-postcode",
+    name: "similar-place-postcode",
+    value: data["similar-place-postcode"],
+    autocomplete: "similar-place-postcode"
   }) }}
 
 {% endcall %}

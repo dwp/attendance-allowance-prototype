@@ -51,7 +51,7 @@ router.use(`/${urls.careHomeHospital}`, controllers.careHomeHospital);
 router.use(`/${urls.hospitalAddress}`, controllers.hospitalAddress);
 router.use(`/${urls.careHomeAddress}`, controllers.careHomeAddress);
 router.use(`/${urls.hospiceAddress}`, controllers.hospiceAddress);
-router.use(`/${urls.otherAccommodationAddress}`, controllers.otherAccommodationAddress);
+router.use(`/${urls.similarPlaceAddress}`, controllers.similarPlaceAddress);
 router.use(`/${urls.careHomeFunding}`, controllers.careHomeFunding);
 router.use(`/${urls.careHomeFundingWho}`, controllers.careHomeFundingWho);
 router.use(`/${urls.careHomeFundingTrusts}`, controllers.careHomeFundingTrusts);

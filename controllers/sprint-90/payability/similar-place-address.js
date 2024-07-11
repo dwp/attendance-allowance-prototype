@@ -5,12 +5,12 @@ const {
 } = require("../../../utils/controller");
 
 const config = {
-  name: urls.otherAccommodationAddress,
+  name: urls.similarPlaceAddress,
   previous: urls.careHomeHospital,
   next: urls.illnessDisability,
   validation: [
     {
-      name: "other-accommodation-name",
+      name: "similar-place-name",
       type: validation.textInput,
       options: {
         minLength: 1,
@@ -24,7 +24,7 @@ const config = {
     },
 
     {
-      name: "other-accommodation-postcode",
+      name: "similar-place-postcode",
       type: validation.textInput,
       options: {
         regEx: /^([A-Za-z][A-Ha-hK-Yk-y]?[0-9][A-Za-z0-9]? ?[0-9][A-Za-z]{2}|[Gg][Ii][Rr] ?0[Aa]{2})$/
