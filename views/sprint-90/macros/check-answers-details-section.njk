@@ -281,7 +281,7 @@
           | replace("hospital", "Hospital")
           | replace("care-nursing-home", "Care or nursing home")
           | replace("hospice", "Hospice")
-          | replace("other-accommodation", "Other")
+          | replace("similar-place", "Similar place")
           | replace("none", "No, none of these") }}
         </dd>
         <dd class="govuk-summary-list__actions">
@@ -334,17 +334,17 @@
         </div>
       {% endif %}  
       
-      {% if data['other-accommodation-name'] %}
-        <div class="govuk-summary-list__row other-accommodation-address">
+      {% if data['similar-place-name'] %}
+        <div class="govuk-summary-list__row similar-place-address">
           <dt class="govuk-summary-list__key">
             What is the name of the place where you are staying?
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['other-accommodation-name'] }} <br/>
-            {{ data['other-accommodation-postcode'] }}
+            {{ data['similar-place-name'] }} <br/>
+            {{ data['similar-place-postcode'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
-          {{ changeLink('other-accommodation-address') }}
+          {{ changeLink('similar-place-address') }}
           </dd>
         </div>
       {% endif %} 
@@ -372,7 +372,7 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['care-home-funding']
-              | replace("yes-self-funded", "Yes, I am self funded")
+              | replace("yes-full-cost", "Yes, I pay the full cost")
               | replace("yes-selling-home", "Yes, I am selling my home or assets")
               | replace("assessment", "I am waiting for an assessment")
               | replace("no-get-funding", "No, I get funding")
@@ -383,6 +383,7 @@
         </dd>
        </div>
 			{% endif %}
+
       {% if data['care-home-funding']== "no-get-funding" %}
 				<div class="govuk-summary-list__row care-home-funding-who">
           <dt class="govuk-summary-list__key">
@@ -402,6 +403,7 @@
         </dd>
        </div>
 			{% endif %}
+
       {% if data['other-organisation-who'] %}
         <div class="govuk-summary-list__row care-home-funding-who">
             <dt class="govuk-summary-list__key">
@@ -411,10 +413,32 @@
                 {{ data['other-organisation-who'] | capitalize }}
             </dd>
             <dd class="govuk-summary-list__actions">
-                {{ changeLink('bed-day') }}
+                {{ changeLink('care-home-funding-who') }}
             </dd>
         </div>
-    {% endif %}
+      {% endif %}
+
+      {% if data['care-home-funding-who']== "health-social-care-trust"%}
+				<div class="govuk-summary-list__row care-home-funding-trusts">
+          <dt class="govuk-summary-list__key">
+            Which Health and Social Care Trust do you get funding from?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['care-home-funding-trusts']
+              | replace("belfast-hscni", "Belfast Health and Social Care Trust")
+              | replace("northern-hscni", "Northern Health and Social Care Trust")
+              | replace("northern-ireland-ambulance", "Northern Ireland Ambulance Service HSC Trust")
+              | replace("southern-eastern-hscni", "Southern Eastern Health and Social Care Trust")
+              | replace("southern-hscni", "Southern Health and Social Care Trust")
+              | replace("western-hscni", "Western Health and Social Care Trust")
+              | replace("i-do-not-know", "I do not know") }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+           {{ changeLink('care-home-funding-trusts') }}
+        </dd>
+       </div>
+			{% endif %}
+
     </dl>
   </section>
 

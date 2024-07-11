@@ -57,7 +57,7 @@ module.exports = {
     hospitalAddress: 'hospital-address',
     careHomeAddress: 'care-home-address',
     hospiceAddress: 'hospice-address',
-    otherAccommodationAddress: 'other-accommodation-address',
+    similarPlaceAddress: 'similar-place-address',
     careHomeFunding: 'care-home-funding',
     careHomeFundingWho: 'care-home-funding-who',
     careHomeFundingTrusts: 'care-home-funding-trusts',
