@@ -1,0 +1,49 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "v5-layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+  {% set NationalitySwissEeaBody %}
+    <p class="govuk-body"> 
+      <a href="https://www.gov.uk/eu-eea" class="govuk-link">List of EEA countries</a>
+    </p>
+  {% endset %}
+
+  {{ govukRadios({
+    idPrefix: "nationality-swiss-eea",
+    name: "nationality-swiss-eea",
+    fieldset: {
+      legend: {
+        text: "If you are a Swiss or a European Economic Area (EEA) national, were you living in the United Kingdom (UK) before 1 January 2021?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    errorMessage: data.validation['nationality-swiss-eea'].error,
+    hint: {
+      html: NationalitySwissEeaBody
+    },
+    items: [
+      {
+        value: "yes",
+        text: "Yes",
+        checked: true if data["nationality-swiss-eea"] === "yes"
+      },
+      {
+        value: "no",
+        text: "No",
+        checked: true if data["nationality-swiss-eea"] === "no"
+      },
+      {
+        value: "unsure",
+        text: "I do not know",
+        checked: true if data["nationality-swiss-eea"] === "unsure"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
