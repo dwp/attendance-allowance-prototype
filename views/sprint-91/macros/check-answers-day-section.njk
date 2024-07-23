@@ -237,7 +237,7 @@
                     {% if data['additional-wash-day'] == "yes" %}
                         <div class="govuk-summary-list__row day-frequency">
                             <dt class="govuk-summary-list__key">
-                                On a typical day how many times do you need to wash yourself?
+                                On a typical day, how many times do you need to wash yourself?
                             </dt>
                             <dd class="govuk-summary-list__value">
                                 {{ data['wash-frequency'] }}
@@ -848,8 +848,8 @@
                                             {{ item
                                             | replace("dressings-bandages", "Changing dressings or bandages")
                                             | replace("applying-cream", "Applying cream")
-                                            | replace("administering-medication", "Administering medication")
-                                            | replace("administering-treatment", "Administering treatment")
+                                            | replace("taking-medication", "Taking medication")
+                                            | replace("having-treatment", "Having treatment")
                                             | replace("right-medication-dosage", "Taking the right medication and dosage at the right day or time")
                                             | replace("coping-side-effects", "Coping with the side effects of my medication or treatment")
                                             | replace("motivation-medication", "Motivating myself to take medication or receive treatment")
