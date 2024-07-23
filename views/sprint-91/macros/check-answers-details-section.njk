@@ -142,6 +142,22 @@
           {{ changeLink('who-is-applying') }}
         </dd>
       </div>
+      {% if data['who-is-applying'] === 'helping-someone' %}
+        <div class="govuk-summary-list__row best-describe">
+          <dt class="govuk-summary-list__key">
+            Which of these best describes you?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['best-describe'] 
+            | replace("friend", "I am a friend or family member who is helping the applicant with the application")
+            | replace("charity", "I work for a charity or organisation who is helping the applicant with the application") 
+            }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('best-describe') }}
+          </dd>
+        </div>
+      {% endif %}
       {% if data['special-rules-declaration'] === 'no' %}
         <div class="govuk-summary-list__row special-rules-declaration">
           <dt class="govuk-summary-list__key">
