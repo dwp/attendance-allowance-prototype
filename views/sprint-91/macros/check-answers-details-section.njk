@@ -198,7 +198,7 @@
           {{ data['nationality'] 
           | replace("british", "British")
           | replace("irish", "Irish")
-          | replace("other", "Citizen of another country") }}
+          | replace("other", "Other nationality") }}
         </dd>
         <dd class="govuk-summary-list__actions">
           {{ changeLink('nationality') }}
@@ -218,18 +218,18 @@
         </div>
       {% endif %}
       {% if data['nationality'] == 'other' %}
-        <div class="govuk-summary-list__row nationality-swiss-eea">
+        <div class="govuk-summary-list__row living-in-uk">
           <dt class="govuk-summary-list__key">
-            If you are a Swiss or a European Economic Area (EEA) national, were you living in the United Kingdom (UK) before 1 January 2021?
+            Were you living in the UK before 1 January 2021?
           </dt>
           <dd class="govuk-summary-list__value">
-          {{ data['nationality-swiss-eea']
+          {{ data['living-in-uk']
           | replace("yes", "Yes")
           | replace("no", "No")
           | replace("unsure", "I do not know") }}
         </dd>
           <dd class="govuk-summary-list__actions">
-            {{ changeLink('nationality-swiss-eea') }}
+            {{ changeLink('living-in-uk') }}
           </dd>
         </div>
       {% endif %}
@@ -262,7 +262,7 @@
       </div>
       <div class="govuk-summary-list__row getting-pension-or-benefits-from-eea-state">
         <dt class="govuk-summary-list__key">
-          Are you, your wife, husband or civil partner getting any pension or benefits from a European Economic Area (EEA) state or Switzerland?
+          Are you, your wife, husband or civil partner getting any pension or benefits from a EEA state or Switzerland?
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['country-outside-uk-benefits']
