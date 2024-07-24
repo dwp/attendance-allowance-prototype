@@ -217,22 +217,7 @@
           </dd>
         </div>
       {% endif %}
-      {% if data['nationality'] == 'other' %}
-        <div class="govuk-summary-list__row living-in-uk">
-          <dt class="govuk-summary-list__key">
-            Were you living in the UK before 1 January 2021?
-          </dt>
-          <dd class="govuk-summary-list__value">
-          {{ data['living-in-uk']
-          | replace("yes", "Yes")
-          | replace("no", "No")
-          | replace("unsure", "I do not know") }}
-        </dd>
-          <dd class="govuk-summary-list__actions">
-            {{ changeLink('living-in-uk') }}
-          </dd>
-        </div>
-      {% endif %}
+      
       <div class="govuk-summary-list__row residence-country">
         <dt class="govuk-summary-list__key">
           Where do you live?
@@ -249,6 +234,24 @@
           {{ changeLink('residence-country') }}
         </dd>
       </div>
+
+      {% if data['nationality'] == 'other' %}
+        <div class="govuk-summary-list__row living-in-uk">
+          <dt class="govuk-summary-list__key">
+            Were you living in the UK before 1 January 2021?
+          </dt>
+          <dd class="govuk-summary-list__value">
+          {{ data['living-in-uk']
+          | replace("yes", "Yes")
+          | replace("no", "No")
+          | replace("unsure", "I do not know") }}
+        </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('living-in-uk') }}
+          </dd>
+        </div>
+      {% endif %}
+
       <div class="govuk-summary-list__row lived-outside-uk-more-than-12m-in-last-3-years">
         <dt class="govuk-summary-list__key">
           Have you been outside of the UK more than 12 months in the last 3 years?
