@@ -7,7 +7,19 @@ const {
 
 const config = {
   name: urls.countryOutsideUKDuration,
-  previous: urls.livingInUk,
+  previous: [
+    {
+      page: urls.livingInUk,
+      condition: {
+        field: urls.nationality,
+        value: "other",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.residenceCountry,
+    },
+  ],
   next: [
     {
       page: urls.countryOutsideUKDurationInelgible,

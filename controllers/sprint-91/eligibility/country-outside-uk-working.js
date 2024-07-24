@@ -13,7 +13,7 @@ const config = {
     type: validation.radios,
     errors: {
       required:
-        "Select yes if you, your wife, husband or civil partner are working in or paying insurance to an EEA state or Switzerland",
+        "Select if you, your wife, husband or civil partner are working in or paying insurance to an EEA state or Switzerland",
     },
   },
 };

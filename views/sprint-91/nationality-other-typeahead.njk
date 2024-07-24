@@ -32,7 +32,21 @@
     </h1>
   </legend>
 
-  <div id="nationality-container" class="govuk-!-margin-bottom-6 govuk-!-width-one-half">
+  <div id="nationality-container" class="govuk-!-margin-bottom-6">
+  </div>
+  
+  {% block formButton %} 
+  {% endblock %}
+
+ <div class="govuk-button-group">
+    {{ phaseButton(data, "Continue") }}
+    {% if data['illness-disability'].length > 0 %}
+      {{ govukButton({
+        text: "Skip",
+        classes: "govuk-button--secondary",
+        href: "renal-dialysis" if 'Kidney disease or disorder' in data['illness-disability'] or 'Renal failure - acute' in data['illness-disability'] or 'Acute kidney disease (AKD)' in data['illness-disability'] or 'Chronic kidney failure / renal failure' in data['illness-disability'] or 'Kidney transplantation / renal' in data['illness-disability'] or 'Transplant rejection - kidney / renal' in data['illness-disability'] else "illness-disability-added"
+      }) }}
+    {% endif %}
   </div>
   
   <script>

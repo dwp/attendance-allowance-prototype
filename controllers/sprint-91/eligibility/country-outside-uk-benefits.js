@@ -13,7 +13,7 @@ const config = {
     type: validation.radios,
     errors: {
       required:
-        "Select yes if you, your wife, husband or civil partner getting any pension or benefits from a European Economic Area (EEA) state or Switzerland?",
+        "Select if you, your wife, husband or civil partner are getting any pension or benefits from an EEA state or Switzerland",
     },
   },
 };
