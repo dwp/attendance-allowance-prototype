@@ -34,7 +34,7 @@ module.exports = {
     otherBenefitsIneligible: 'other-benefits-ineligible',
     nationality: 'nationality',
     nationalityOther: 'nationality-other',
-    nationalitySwissEea: 'nationality-swiss-eea',
+    livingInUk: 'living-in-uk',
     residenceCountry: 'residence-country',
     residenceCountryNorthernIreland: 'residence-country-northern-ireland',
     residenceCountryIneligible: 'residence-country-ineligible',

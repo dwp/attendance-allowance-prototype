@@ -9,7 +9,7 @@ const config = {
   name: urls.residenceCountry,
   previous: [
     {
-      page: urls.nationalitySwissEea,
+      page: urls.nationalityOther,
       condition: {
         field: urls.nationality,
         value: "other",
@@ -22,14 +22,6 @@ const config = {
   ],
   next: [
     {
-      page: urls.residenceCountryNorthernIreland,
-      condition: {
-        field: urls.residenceCountry,
-        value: 'northern-ireland',
-        match: match.value,
-      },
-    },
-    {
       page: urls.residenceCountryIneligible,
       condition: {
         field: urls.residenceCountry,
@@ -38,7 +30,7 @@ const config = {
       },
     },
     {
-      page: urls.countryOutsideUKDuration
+      page: urls.livingInUk
     },
   ],
 

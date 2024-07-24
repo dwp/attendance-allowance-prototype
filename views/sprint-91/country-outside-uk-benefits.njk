@@ -3,6 +3,13 @@
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
 {% block form %}
+
+  {% set LivingInUkBody %}
+    <p class="govuk-body"> 
+      <a href="https://www.gov.uk/eu-eea" class="govuk-link" target=”_blank”>See a list of EEA states (opens in a new tab)</a>
+    </p>
+  {% endset %}
+
   {{ govukRadios({
     idPrefix: "country-outside-uk-benefits",
     name: "country-outside-uk-benefits",
@@ -15,6 +22,9 @@
       }
     },
     errorMessage: data.validation['country-outside-uk-benefits'].error,
+    hint: {
+      html: LivingInUkBody
+    },
     items: [
       {
         value: "yes",

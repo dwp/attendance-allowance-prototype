@@ -22,7 +22,7 @@ const otherBenefitsIneligible = require('./eligibility/other-benefits-ineligible
 const attendanceAllowanceIneligible = require('./eligibility/attendance-allowance-ineligible');
 const nationality = require('./eligibility/nationality');
 const nationalityOther = require('./eligibility/nationality-other');
-const nationalitySwissEea = require('./eligibility/nationality-swiss-eea');
+const livingInUk = require('./eligibility/living-in-uk');
 const residenceCountry = require('./eligibility/residence-country');
 const countryOutsideUkDuration = require('./eligibility/country-outside-uk-duration');
 const countryOutsideUkBenefits = require('./eligibility/country-outside-uk-benefits');
@@ -198,7 +198,7 @@ module.exports = {
   countryOutsideUkDuration,
   countryOutsideUkBenefits,
   countryOutsideUkWorking,
-  nationalitySwissEea,
+  livingInUk,
   nationalInsurance,
   fullName,
   homeAddressPostCode,
