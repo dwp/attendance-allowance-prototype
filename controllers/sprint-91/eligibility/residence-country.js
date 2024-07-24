@@ -30,7 +30,15 @@ const config = {
       },
     },
     {
-      page: urls.livingInUk
+      page: urls.livingInUk,
+      condition: {
+        field: urls.nationality,
+        value: 'other',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.countryOutsideUKDuration
     },
   ],
 
