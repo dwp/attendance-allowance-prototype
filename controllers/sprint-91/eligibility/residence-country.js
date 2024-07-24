@@ -22,6 +22,14 @@ const config = {
   ],
   next: [
     {
+      page: urls.residenceCountryIneligible,
+      condition: {
+        field: urls.residenceCountry,
+        value: 'abroad',
+        match: match.value,
+      },
+    },
+    {
       page: urls.livingInUk,
       condition: {
         field: urls.nationalityOther,
@@ -101,16 +109,7 @@ const config = {
         match: match.none,
       },
     },
-    {
-      page: urls.residenceCountryIneligible,
-      condition: {
-        field: urls.residenceCountry,
-        value: 'abroad',
-        match: match.value,
-      },
-    },
   ],
-
   validation: {
     type: validation.radios,
     errors: {

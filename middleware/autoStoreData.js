@@ -74,6 +74,24 @@ const handleIllnessDisability = (input, data) => {
   }
 };
 
+
+// Nationality other
+const handleNationalityOther = (input, data) => {
+  if (!input || !data) {
+    return;
+  }
+  if (input['nationality-other']?.length > 0) {
+    if (!data['nationality-other']) {
+      data['nationality-other'] = [input['nationality-other']];
+      data['nationality-other-rows'] = [buildTableRow(input['nationality-other'])];
+    } else {
+      data['nationality-other'].push(input['nationality-other']);
+      data['nationality-other-rows'].push(buildTableRow(input['nationality-other']));
+    }
+  }
+};
+
+
 const handleIllnessStartDate = (input, data) => {
   if (!input || !data || !data['illness-disability-rows']) {
     return;
@@ -132,7 +150,9 @@ module.exports = (req, res, next) => {
     handleIllnessDisability(req.body, req.session.data);
   } else if (req.body?.['aids-adaptations']) {
     handleAidsAdaptations(req.body, req.session.data);
-  } else {
+  } else if (req.body?.['nationality-other']) {
+    handleNationalityOther(req.body, req.session.data);
+  }  else {
     if (req.body?.['illness-start-date']) {
       handleIllnessStartDate(req.body, req.session.data);
     } else if (req.body?.['aids-adaptations-difficulty']) {
