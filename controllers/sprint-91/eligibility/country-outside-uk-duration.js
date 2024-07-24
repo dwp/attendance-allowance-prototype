@@ -7,7 +7,7 @@ const {
 
 const config = {
   name: urls.countryOutsideUKDuration,
-  previous: urls.residenceCountry,
+  previous: urls.livingInUk,
   next: [
     {
       page: urls.countryOutsideUKDurationInelgible,

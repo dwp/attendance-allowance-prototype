@@ -32,7 +32,7 @@ router.use(`/${urls.otherBenefitsIneligible}`, controllers.otherBenefitsIneligib
 router.use(`/${urls.attendanceAllowanceIneligible}`, controllers.attendanceAllowanceIneligible);
 router.use(`/${urls.nationality}`, controllers.nationality);
 router.use(`/${urls.nationalityOther}`, controllers.nationalityOther);
-router.use(`/${urls.nationalitySwissEea}`, controllers.nationalitySwissEea);
+router.use(`/${urls.livingInUk}`, controllers.livingInUk);
 router.use(`/${urls.residenceCountry}`, controllers.residenceCountry);
 router.use(`/${urls.countryOutsideUKDuration}`, controllers.countryOutsideUkDuration);
 router.use(`/${urls.countryOutsideUKBenefits}`, controllers.countryOutsideUkBenefits);
