@@ -13,7 +13,7 @@ const config = {
     type: validation.radios,
     errors: {
       required:
-        "Select yes if you were you living in the United Kingdom before 1 January 2021",
+        "Select if you were living in the UK before 1 January 2021",
     },
   },
 };

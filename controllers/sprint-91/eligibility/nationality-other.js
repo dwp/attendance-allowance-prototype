@@ -16,7 +16,7 @@ const config = {
     },
     errors: {
       required: 'Enter your nationality',
-      maxLength: 'Nationality must be 100 characters or fewer',
+      maxLength: 'Enter your nationality in 100 characters or less',
     },
   },
 };
