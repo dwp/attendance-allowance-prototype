@@ -25,7 +25,7 @@ const config = {
     type: validation.radios,
     errors: {
       required:
-        "Select if you are British, Irish or a citizen of another country",
+        "Select if you are British, Irish or another nationality",
     },
   },
 };
