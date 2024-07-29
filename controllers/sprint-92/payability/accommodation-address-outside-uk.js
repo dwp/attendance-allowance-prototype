@@ -93,12 +93,12 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 500,
+        maxLength: 150,
       },
       errors: {
         required: "Enter the name of the place where you are staying",
         maxLength:
-          "Enter the name of the place where you are staying in 500 characters or less",
+          "Enter the name of the place where you are staying in 150 characters or less",
       },
     },
 
