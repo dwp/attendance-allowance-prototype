@@ -14,12 +14,12 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 500,
+        maxLength: 150,
       },
       errors: {
         required: "Enter the name of the care or nursing home",
         maxLength:
-          "Enter the name of the care or nursing home in 500 characters or less",
+          "Enter the name of the care or nursing home in 150 characters or less",
       },
     },
 
