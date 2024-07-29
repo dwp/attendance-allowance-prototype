@@ -1,6 +1,6 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
@@ -38,8 +38,9 @@
 {% endblock %}
 
 {% set conditionalToiletTypicallyHowLongHtml %}
-{{ govukTextarea({
-    rows: "2",
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
     isPageHeading: true,
     label: {
       text: 'How long does it take to manage your difficulties with your toilet needs?'
@@ -48,7 +49,8 @@
     name: "toilet-typically-how-long",
     errorMessage: data.validation['toilet-typically-how-long'].error,
     value: data['toilet-typically-how-long']
-    }) }}
+    })
+  }}
 {% endset %}
 
 {% block postForm %}

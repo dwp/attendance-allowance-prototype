@@ -1,5 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
@@ -54,8 +54,9 @@
 {% endblock %}
 
 {% set conditionalSomethingElseWashWhy %}
-   {{ govukTextarea({
-    rows: "2",
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
     isPageHeading: false,
     label: {
       text: 'Tell us how you manage to wash, have a bath or shower'
@@ -64,7 +65,8 @@
     name: "something-else-wash-day-why-explain",
     errorMessage: data.validation['something-else-wash-day-why-explain'].error,
     value: data['something-else-wash-day-why-explain']
-    }) }}
+    })
+  }}
 {% endset %}
 
 {% block postForm %}

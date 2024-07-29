@@ -1,5 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
@@ -60,8 +60,9 @@
 {% endblock %}
 
 {% set conditionalSomethingElseSocialHtml %}
-   {{ govukTextarea({
-    rows: "2",
+   {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
     isPageHeading: true,
     label: {
       text: 'Tell us what difficulty you have with social activities or hobbies'
@@ -70,7 +71,8 @@
     name: "something-else-explain-social",
     errorMessage: data.validation['something-else-explain-social'].error,
     value: data['something-else-explain-social']
-    }) }}
+    })
+  }}
 {% endset %}
 
 {% block postForm %}

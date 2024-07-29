@@ -1,5 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
@@ -75,8 +75,9 @@
 {% endblock %}
 
 {% set conditionalSomethingElseMedicationHtml %}
-   {{ govukTextarea({
-    rows: "2",
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
     isPageHeading: true,
     label: {
       text: 'Tell us what medication or treatment you have difficulty with'
@@ -85,7 +86,8 @@
     name: "something-else-explain-medication",
     errorMessage: data.validation['something-else-explain-medication'].error,
     value: data['something-else-explain-medication']
-    }) }}
+    })
+  }}
 {% endset %}
 
 {% block postForm %}
