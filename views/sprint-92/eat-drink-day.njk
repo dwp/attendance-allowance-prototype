@@ -1,5 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
@@ -72,8 +72,9 @@
 {% endblock %}
 
 {% set conditionalSomethingElseEatDrink %}
-   {{ govukTextarea({
-    rows: "2",
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
     isPageHeading: false,
     label: {
       text: 'Tell us what difficulty you have when eating or drinking'
@@ -82,7 +83,8 @@
     name: "something-else-eating-drinking-day-explain",
     errorMessage: data.validation['something-else-eating-drinking-day-explain'].error,
     value: data['something-else-eating-drinking-day-explain']
-    }) }}
+    })
+  }}
 {% endset %}
 
 {% block postForm %}

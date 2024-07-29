@@ -1,5 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
@@ -58,17 +58,19 @@
 {% endblock %}
 
 {% set conditionalSomethingElseFallingHtml %}
-  {{ govukTextarea({
-  rows: "2",
-  isPageHeading: true,
-  label: {
-    text: 'Tell us what causes you to stumble or fall down'
-  },
-  id: "something-else-falling-explain",
-  name: "something-else-falling-explain",
-  errorMessage: data.validation['something-else-falling-explain'].error,
-  value: data['something-else-falling-explain']
-  }) }}
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
+    isPageHeading: true,
+    label: {
+      text: 'Tell us what causes you to stumble or fall down'
+    },
+    id: "something-else-falling-explain",
+    name: "something-else-falling-explain",
+    errorMessage: data.validation['something-else-falling-explain'].error,
+    value: data['something-else-falling-explain']
+    })
+  }}
 {% endset %}
 
 {% block postForm %}

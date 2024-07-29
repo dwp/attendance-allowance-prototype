@@ -1,5 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
@@ -53,8 +53,9 @@
 {% endblock %}
 
 {% set conditionalSomethingElseMedicationTreatmentNightWhy %}
-{{ govukTextarea({
-    rows: "2",
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
     isPageHeading: false,
     label: {
       text: 'Tell us how you manage taking your medication or getting treatment during the night'
@@ -63,7 +64,8 @@
     name: "something-else-medication-treatment-night-why-explain",
     errorMessage: data.validation['something-else-medication-treatment-night-why-explain'].error,
     value: data['something-else-medication-treatment-night-why-explain']
-    }) }}
+    })
+  }}
 {% endset %}
 
 {% block postForm %}

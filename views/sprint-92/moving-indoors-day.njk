@@ -1,5 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
@@ -65,8 +65,9 @@
 {% endblock %}
 
 {% set conditionalSomethingElseHtml %}
-   {{ govukTextarea({
-    rows: "2",
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
     isPageHeading: true,
     label: {
       text: 'Tell us what you have difficulty with when moving around indoors'
@@ -75,7 +76,8 @@
     name: "something-else-explain",
     errorMessage: data.validation['something-else-explain'].error,
     value: data['something-else-explain']
-    }) }}
+    })
+  }}
 {% endset %}
 
 {% block postForm %}

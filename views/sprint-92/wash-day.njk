@@ -1,5 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
@@ -61,8 +61,9 @@
 {% endblock %}
 
 {% set conditionalSomethingElseWashingHtml %}
-   {{ govukTextarea({
-    rows: "2",
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
     isPageHeading: true,
     label: {
       text: 'Tell us what you find difficult when washing, having a bath or shower'
@@ -71,7 +72,8 @@
     name: "something-else-explain-washing",
     errorMessage: data.validation['something-else-explain-washing'].error,
     value: data['something-else-explain-washing']
-    }) }}
+    })
+  }}
 {% endset %}
 
 {% block postForm %}

@@ -64,7 +64,7 @@
 {% endblock %}
 
 {% set conditionalSomethingElseBedDayWhy %}
-   {{ govukCharacterCount({
+  {{ govukCharacterCount({
     rows: "4",
     maxlength: 200,
     isPageHeading: false,
@@ -75,7 +75,8 @@
     name: "something-else-bed-day-why-explain",
     errorMessage: data.validation['something-else-bed-day-why-explain'].error,
     value: data['something-else-bed-day-why-explain']
-    }) }}
+    })
+  }}
 {% endset %}
 
 {% block postForm %}

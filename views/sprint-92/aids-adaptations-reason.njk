@@ -1,12 +1,14 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
 
 {% block form %}
  {% set otherReasonHtml %}
-  {{ govukTextarea({
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
     label: {
         text: "Tell us why you do not use any adaptations, equipment or aids",
         classes: "govuk-label",
@@ -15,9 +17,9 @@
     name: "aids-adaptations-reason-other",
     id: "aids-adaptations-reason-other",
     value: data['aids-adaptations-reason-other'],
-    rows: "2", 
     errorMessage: data.validation['aids-adaptations-reason-other'].error
-  })}}
+    })
+  }}
 {% endset -%}
 
  {{ govukRadios({

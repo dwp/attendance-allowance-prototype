@@ -1,7 +1,7 @@
 {% from "govuk/components/details/macro.njk" import govukDetails %}
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
@@ -63,8 +63,9 @@
   }}
 {% endblock %}
 {% set conditionalSomethingElseMedicationNightHtml %}
-   {{ govukTextarea({
-    rows: "2",
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
     isPageHeading: true,
     label: {
       text: 'Tell us what medication or treatment you have difficulty with during the night'
@@ -73,7 +74,8 @@
     name: "something-else-explain-medication-night",
     errorMessage: data.validation['something-else-explain-medication-night'].error,
     value: data['something-else-explain-medication-night']
-    }) }}
+    })
+  }}
 {% endset %}
 
 {% block postForm %}
