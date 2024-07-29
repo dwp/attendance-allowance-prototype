@@ -14,12 +14,12 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 500,
+        maxLength: 150,
       },
       errors: {
         required: "Enter the name of your GP surgery or medical centre",
         maxLength:
-          "Name of GP surgery or medical centre must be 500 characters or less",
+          "Name of GP surgery or medical centre must be 150 characters or less",
       },
     },
 
