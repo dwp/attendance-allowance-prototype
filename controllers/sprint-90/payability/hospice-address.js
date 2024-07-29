@@ -14,12 +14,12 @@ const config = {
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 500,
+        maxLength: 150,
       },
       errors: {
         required: "Enter the name of the hospice",
         maxLength:
-          "Enter the name of the hospice in 500 characters or less",
+          "Enter the name of the hospice in 150 characters or less",
       },
     },
 
