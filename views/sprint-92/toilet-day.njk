@@ -1,5 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
@@ -82,8 +82,9 @@
 {% endblock %}
 
 {% set conditionalSomethingElseToiletHtml %}
-   {{ govukTextarea({
-    rows: "2",
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
     isPageHeading: true,
     label: {
       text: 'Tell us what difficulty you have with your toilet needs'
@@ -92,7 +93,8 @@
     name: "something-else-explain-toilet",
     errorMessage: data.validation['something-else-explain-toilet'].error,
     value: data['something-else-explain-toilet']
-    }) }}
+    })
+  }}
 {% endset %}
 
 {% block postForm %}

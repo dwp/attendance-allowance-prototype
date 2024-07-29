@@ -1,6 +1,6 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
@@ -38,17 +38,18 @@
 {% endblock %}
 
 {% set conditionalTurningOverTypicallyHowLongHtml %}
-  {{ govukTextarea({
-      rows: "2",
-      isPageHeading: true,
-      label: {
-        text: 'How long does it take to turn over or change position?'
-      },
-      id: "turning-over-typically-how-long",
-      name: "turning-over-typically-how-long",
-      errorMessage: data.validation['turning-over-typically-how-long'].error,
-      value: data['turning-over-typically-how-long']
-      }) 
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
+    isPageHeading: true,
+    label: {
+      text: 'How long does it take to turn over or change position?'
+    },
+    id: "turning-over-typically-how-long",
+    name: "turning-over-typically-how-long",
+    errorMessage: data.validation['turning-over-typically-how-long'].error,
+    value: data['turning-over-typically-how-long']
+    }) 
   }}
 {% endset %}
 

@@ -54,7 +54,7 @@
 {% endblock %}
 
 {% set conditionalSomethingElseBedHtml %}
-   {{ govukCharacterCount({
+  {{ govukCharacterCount({
     rows: "4",
     maxlength: 200,
     isPageHeading: true,
@@ -65,7 +65,8 @@
     name: "something-else-explain-bed",
     errorMessage: data.validation['something-else-explain-bed'].error,
     value: data['something-else-explain-bed']
-    }) }}
+    })
+  }}
 {% endset %}
 
 {% block postForm %}

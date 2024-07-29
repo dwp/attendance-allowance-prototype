@@ -1,5 +1,5 @@
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
@@ -65,8 +65,9 @@
 {% endblock %}
 
 {% set conditionalSomethingElseCommunicationHtml %}
-   {{ govukTextarea({
-    rows: "2",
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
     isPageHeading: true,
     label: {
       text: 'Tell us what difficulty you have when communicating with others'
@@ -75,7 +76,8 @@
     name: "something-else-explain-communication",
     errorMessage: data.validation['something-else-explain-communication'].error,
     value: data['something-else-explain-communication']
-    }) }}
+    })
+  }}
 {% endset %}
 
 {% block postForm %}
