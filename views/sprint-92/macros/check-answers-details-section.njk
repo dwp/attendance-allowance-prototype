@@ -498,7 +498,7 @@
     </dl>
   </section>
 
-  <section class="consent">
+  <section class="other-health-information">
     <h2 class="govuk-heading-m">
       Other health information
     </h2>
@@ -637,6 +637,21 @@
           <dd class="govuk-summary-list__actions">
           {{ changeLink('surgery-medical-centre') }}
         </dd>
+        </div>
+      {% endif %} 
+      {% if data['surgery-medical-centre-outside-uk-name'] %}
+        <div class="govuk-summary-list__row surgery-medical-centre-outside-uk">
+          <dt class="govuk-summary-list__key">
+            Enter the name of your GP surgery or medical centre outside of the UK
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['surgery-medical-centre-outside-uk-name'] }} <br/>
+            {{ data['surgery-medical-centre-outside-uk-town-city'] }} <br/>
+            {{ data['surgery-medical-centre-outside-uk-country'] }} 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          {{ changeLink('surgery-medical-centre-outside-uk') }}
+          </dd>
         </div>
       {% endif %}  
   </section>

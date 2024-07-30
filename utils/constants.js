@@ -90,6 +90,7 @@ module.exports = {
     // consent
     consent: 'consent',
     surgeryMedicalCentre: 'surgery-medical-centre',
+    surgeryMedicalCentreOutsideUk: 'surgery-medical-centre-outside-uk',
     evidence: 'evidence',
 
     // care needs daytime
