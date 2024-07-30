@@ -76,6 +76,7 @@ const treatmentSurgeryInformation = require('./surgery-or-treatment/treatment-su
 // consent
 const consent = require('./consent/consent');
 const surgeryMedicalCentre = require('./consent/surgery-medical-centre');
+const surgeryMedicalCentreOutsideUk = require('./consent/surgery-medical-centre-outside-uk');
 const evidence = require('./consent/evidence');
 
 // care needs daytime
@@ -220,6 +221,10 @@ module.exports = {
   illnessDisabilityDateManual,
   illnessDisabilityAdded,
   illnessDisabilityManual,
+  consent,
+  surgeryMedicalCentre,
+  surgeryMedicalCentreOutsideUk,
+  evidence,
   telephoneNumber,
   telephoneNumberOther,
   preferenceContact,
@@ -239,7 +244,6 @@ module.exports = {
   nationalityOther,
   specialRulesDeclaration,
   specialRulesForm,
-  surgeryMedicalCentre,
   renalDialysis,
   renalDialysisWhere,
   renalDialysisWhen,
@@ -312,8 +316,6 @@ module.exports = {
   done,
   sercoLateApplication,
   addContactDetails,
-  consent,
-  evidence,
   welshLanguageSpeak,
   welshLanguageWrite,
   accessibilityStatement,
