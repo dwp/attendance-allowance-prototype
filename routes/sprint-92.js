@@ -88,6 +88,7 @@ router.use(`/${urls.treatmentSurgeryInformation}`, controllers.treatmentSurgeryI
 // consent
 router.use(`/${urls.consent}`, controllers.consent);
 router.use(`/${urls.surgeryMedicalCentre}`, controllers.surgeryMedicalCentre);
+router.use(`/${urls.surgeryMedicalCentreOutsideUk}`, controllers.surgeryMedicalCentreOutsideUk);
 router.use(`/${urls.evidence}`, controllers.evidence);
 
 // care needs daytime
