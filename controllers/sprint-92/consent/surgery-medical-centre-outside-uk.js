@@ -19,7 +19,7 @@ const config = {
       errors: {
         required: "Enter the name of your GP surgery or medical centre",
         maxLength:
-          "Name of GP surgery or medical centre must be 150 characters or less",
+          "Enter the name of your GP surgery or medical centre in 150 characters or less",
       },
     },
 
