@@ -30,6 +30,14 @@ const config = {
       },
     },
     {
+      page: urls.residenceCountryNorthernIreland,
+      condition: {
+        field: urls.residenceCountry,
+        value: 'northern-ireland',
+        match: match.value,
+      },
+    },
+    {
       page: urls.countryOutsideUKDuration,
       condition: {
          field: urls.nationality,
