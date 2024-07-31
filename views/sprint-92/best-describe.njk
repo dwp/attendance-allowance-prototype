@@ -38,7 +38,7 @@
       },
       {
         value: "appointee",
-        text: "I want to be a DWP appointee" if locale != 'NI' else "I want to be appointee",
+        text: "I want to be a DWP appointee" if locale != 'NI' else "I want to be an appointee",
         checked: true if data["best-describe"] and data["best-describe"].includes("appointee")
       },
       {
@@ -48,7 +48,7 @@
       },
       {
         value: "curator",
-        text: "I am a curator bonis or judicial factor (under Scottish law)" if locale != 'NI' else "I am a Controller, appointed by the Depart of Justice",
+        text: "I am a curator bonis or judicial factor (under Scottish law)" if locale != 'NI' else "I am a Controller, appointed by the Department of Justice",
         checked: true if data["best-describe"] and data["best-describe"].includes("curator")
       }
     ]
