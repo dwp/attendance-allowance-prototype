@@ -9,6 +9,14 @@ const config = {
   name: urls.birthDate,
   previous: [
     {
+      page: urls.whoIsApplying,
+      condition: {
+        field: urls.whoIsApplying,
+        value: "myself",
+        match: match.value,
+      },
+    },
+    {
       page: urls.helpingSomeoneIntro,
       condition: {
         field: urls.bestDescribe,
@@ -25,7 +33,7 @@ const config = {
       },
     },
     {
-      page: urls.whoIsApplying,
+      page: urls.effectiveDate,
     },
   ],
   next: [
