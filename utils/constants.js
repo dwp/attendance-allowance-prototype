@@ -15,13 +15,14 @@ module.exports = {
 
     // scaling
     limitReached: 'limit-reached',
-
-    // scaling
     ageRangeCheck: 'age-range-check',
     ageRangeIneligible: 'age-range-ineligible',
     ageRangeLimit: 'age-range-limit',
     ageRangeUnderStatePension: 'age-range-under-state-pension',
     ageRange: 'age-range',
+
+    // visiting service
+    effectiveDate: 'effective-date',
 
     // eligibility
     whoIsApplying: 'who-is-applying',
