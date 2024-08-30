@@ -128,20 +128,37 @@
       Your claim information
     </h2>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-      <div class="govuk-summary-list__row person-claiming-new">
-        <dt class="govuk-summary-list__key">
-          Who is applying?
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['who-is-applying'] 
-          | replace("myself", "I am applying for myself")
-          | replace("helping-someone", "I am applying for someone else") 
-          }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          {{ changeLink('who-is-applying') }}
-        </dd>
-      </div>
+      
+      {% if data['effective-date-day'] %}
+        <div class="govuk-summary-list__row effective-date">
+          <dt class="govuk-summary-list__key">
+            When did the customer contact DWP?
+          </dt>
+          <dd class="govuk-summary-list__value">
+          {{ rewordDate(data['effective-date-day'], data['effective-date-month'], data['effective-date-year']) }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('effective-date') }}
+          </dd>
+        </div>
+      {% endif %}
+      
+      {% if data['who-is-applying'] %}
+        <div class="govuk-summary-list__row person-claiming-new">
+          <dt class="govuk-summary-list__key">
+            Who is applying?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['who-is-applying'] 
+            | replace("myself", "I am applying for myself")
+            | replace("helping-someone", "I am applying for someone else") 
+            }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('who-is-applying') }}
+          </dd>
+        </div>
+      {% endif %}
       {% if data['who-is-applying'] === 'helping-someone' %}
         <div class="govuk-summary-list__row best-describe">
           <dt class="govuk-summary-list__key">

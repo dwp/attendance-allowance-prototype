@@ -14,6 +14,9 @@ const reportChangeInCircumstances = require('./govuk/report-change-in-circumstan
 // scaling
 const limitReached = require('./scaling/limit-reached');
 
+// visiting service
+const effectiveDate = require('./visiting-service/effective-date');
+
 // eligibility
 const birthDate = require('./eligibility/birth-date');
 const birthDateIneligible = require('./eligibility/birth-date-ineligible');
@@ -187,6 +190,7 @@ module.exports = {
   howToClaim,
   reportChangeInCircumstances,
   limitReached,
+  effectiveDate,
   whoIsApplying,
   whoIsApplyingIneligible,
   bestDescribe,

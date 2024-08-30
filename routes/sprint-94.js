@@ -20,6 +20,9 @@ router.use(urls.root, controllers.reportChangeInCircumstances);
 // govuk
 router.use(urls.root, controllers.limitReached);
 
+// visiting service
+router.use(`/${urls.effectiveDate}`, controllers.effectiveDate);
+
 // eligibility
 router.use(`/${urls.whoIsApplying}`, controllers.whoIsApplying);
 router.use(`/${urls.whoIsApplyingIneligible}`, controllers.whoIsApplyingIneligible);
