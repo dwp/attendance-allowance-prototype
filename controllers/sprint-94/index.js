@@ -17,11 +17,19 @@ const limitReached = require('./scaling/limit-reached');
 // visiting service
 const effectiveDate = require('./visiting-service/effective-date');
 
+// claim type
+const claimType = require('./claim-type/claim-type');
+const claimTypeChangeinCircumstances = require('./claim-type/claim-type-change-in-circumstances');
+const claimTypeRenewal = require('./claim-type/claim-type-renewal');
+
 // eligibility
 const birthDate = require('./eligibility/birth-date');
 const birthDateIneligible = require('./eligibility/birth-date-ineligible');
 const otherBenefits = require('./eligibility/other-benefits');
 const otherBenefitsIneligible = require('./eligibility/other-benefits-ineligible');
+const pipIneligible = require('./eligibility/pip-ineligible');
+const dlaIneligible = require('./eligibility/dla-ineligible');
+const adpIneligible = require('./eligibility/adp-ineligible');
 const attendanceAllowanceIneligible = require('./eligibility/attendance-allowance-ineligible');
 const nationality = require('./eligibility/nationality');
 const nationalityOther = require('./eligibility/nationality-other');
@@ -178,6 +186,7 @@ const checkAnswersSpecialRules = require('./check-your-answers/check-answers-spe
 
 // accessiblity
 const accessibilityStatement = require('./accessibility/accessibility-statement');
+const claimTypeChangeInCircumstances = require('./claim-type/claim-type-change-in-circumstances');
 
 module.exports = {
   verificationCode,
@@ -190,6 +199,9 @@ module.exports = {
   howToClaim,
   reportChangeInCircumstances,
   limitReached,
+  claimType,
+  claimTypeChangeInCircumstances,
+  claimTypeRenewal,
   effectiveDate,
   whoIsApplying,
   whoIsApplyingIneligible,
@@ -198,6 +210,9 @@ module.exports = {
   birthDateIneligible,
   otherBenefits,
   otherBenefitsIneligible,
+  pipIneligible,
+  dlaIneligible,
+  adpIneligible,
   attendanceAllowanceIneligible,
   residenceCountry,
   countryOutsideUkDuration,

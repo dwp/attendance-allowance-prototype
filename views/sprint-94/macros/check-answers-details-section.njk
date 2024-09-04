@@ -143,6 +143,21 @@
         </div>
       {% endif %}
       
+      {% if data['claim-type'] %}
+        <div class="govuk-summary-list__row claim-type-new">
+          <dt class="govuk-summary-list__key">
+            Claim type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['claim-type'] 
+            | replace("new-claim", "New claim")
+            }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('claim-type') }}
+          </dd>
+        </div>
+      {% endif %}
       {% if data['who-is-applying'] %}
         <div class="govuk-summary-list__row person-claiming-new">
           <dt class="govuk-summary-list__key">
@@ -182,7 +197,7 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['special-rules-declaration'] 
-              | replace("no", "Does not apply to me") 
+              | replace("no", "No") 
               | capitalize }}
           </dd>
           <dd class="govuk-summary-list__actions">

@@ -3,22 +3,20 @@
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
-
 {% block form %}
   
       <a class="govuk-back-link" href="residence-country">Back</a>
       
-      <h1 class="govuk-heading-l">Based on your answers, you may not be eligible to receive Attendance Allowance</h1>
+      <h1 class="govuk-heading-l">You may not get Attendance Allowance if you do not live in the UK</h1>
+
+      <p class="govuk-body">To be eligible for Attendance Allowance, you usually have to live in the UK.</p>
+
+      <div class="govuk-inset-text">
+        You might still be able to get Attednace Allowance if you live in or move to an EEA state or Switzerland. 
+        <a class="govuk-link" target=”_blank” href="https://www.gov.uk/uk-benefits-abroad">Check if you are eligible (opens in a new tab)</a>.</p>
+      </div>
       
-      {% if locale == 'NI' %}
-        <p class="govuk-body">There are some circumstances under which you may still be able to <a class="govuk-link" href="https://www.nidirect.gov.uk/publications/attendance-allowance-claim-form-and-guidance-notes">claim benefits if you live, move or travel abroad</a>.</p>
-        {% else %}
-      <p class="govuk-body">There are some circumstances under which you may still be able to <a class="govuk-link" href="https://www.gov.uk/government/publications/attendance-allowance-claim-form">claim benefits if you live, move or travel abroad</a>.</p>
-      {% endif %}
-      
-      <h2 class="govuk-heading-m">If you still want to apply</h2>
-      
-      <p class="govuk-body">You can <a href="national-insurance" class="govuk-link">apply for Attendance Allowance</a> but you may not be entitled to it.</p>
+      <p class="govuk-body">If you think you are eligible, you can <a href="national-insurance" class="govuk-link">continue to apply for Attendance Allowance</a>.</p>
         
 {% endblock %}
 

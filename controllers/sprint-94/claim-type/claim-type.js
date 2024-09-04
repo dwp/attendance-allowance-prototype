@@ -6,10 +6,11 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.whoIsApplying,
-  previous: [
+  name: urls.claimType,
+  previous: urls.howToClaim,
+  next: [
     {
-      page: urls.claimType,
+      page: urls.whoIsApplying,
       condition: {
         field: urls.claimType,
         value: 'new-claim',
@@ -17,26 +18,26 @@ const config = {
       },
     },
     {
-      page: urls.howToClaim,
-    },  
-  ],
-  next: [
-    {
-      page: urls.birthDate,
+      page: urls.claimTypeChangeInCircumstances,
       condition: {
-        field: urls.whoIsApplying,
-        value: 'myself',
+        field: urls.claimType,
+        value: 'change-in-circumstances',
         match: match.value,
       },
     },
     {
-      page: urls.bestDescribe,
+      page: urls.claimTypeRenewal,
+      condition: {
+        field: urls.claimType,
+        value: 'renewal',
+        match: match.value,
+      },
     },
   ],
   validation: {
     type: validation.radios,
     errors: {
-      required: 'Select who is applying',
+      required: 'Select what you want to do',
     },
   },
 };
