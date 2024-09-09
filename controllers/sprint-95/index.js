@@ -2,6 +2,7 @@
 const verificationCode = require('./start/verification-code');
 const start = require('./start/start');
 const beforeYouStart = require('./start/before-you-start');
+const beforeYouStartIneligible = require('./start/before-you-start-ineligible');
 const helpingSomeoneIntro = require('./start/helping-someone-intro');
 
 // govuk
@@ -192,6 +193,7 @@ module.exports = {
   verificationCode,
   start,
   beforeYouStart,
+  beforeYouStartIneligible,
   helpingSomeoneIntro,
   overview,
   whatYoullGet,
