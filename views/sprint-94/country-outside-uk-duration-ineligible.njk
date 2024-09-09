@@ -2,22 +2,26 @@
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
-
 {% block form %}
   
       <a href="country-outside-uk-duration" class="govuk-back-link">Back</a>
       
-      <h1 class="govuk-heading-l">Based on your answers, you may not be eligible to receive Attendance Allowance</h1>
+      <h1 class="govuk-heading-l">You may not get Attendance Allowance if you have been outside the UK for more than 12 months in the last 3 years</h1>
       
+      <p class="govuk-body">To be eligible for Attendance Allowance, you must have been in the UK for at least 2 of the last 3 years.</p>
+
       {% if locale == 'NI' %}
-        <p class="govuk-body">There are some circumstances under which you may still be able to <a class="govuk-link" href="https://www.nidirect.gov.uk/publications/attendance-allowance-claim-form-and-guidance-notes">claim benefits if you live, move or travel abroad</a>.</p>
+        <p class="govuk-body">There are some circumstances under which you may still be able to <a class="govuk-link" target=”_blank” href="https://www.nidirect.gov.uk/publications/attendance-allowance-claim-form-and-guidance-notes">claim benefits if you live, move or travel abroad (opens in a new tab)</a>.</p>
         {% else %}
-      <p class="govuk-body">There are some circumstances under which you may still be able to <a class="govuk-link" href="https://www.gov.uk/government/publications/attendance-allowance-claim-form">claim benefits if you live, move or travel abroad</a>.</p>
+      <p class="govuk-body">There are some circumstances under which you may still be able to <a class="govuk-link" target=”_blank” href="https://www.gov.uk/claim-benefits-abroad">claim benefits if you live, move or travel abroad (opens in a new tab)</a>.</p>
       {% endif %}
       
-      <h2 class="govuk-heading-m">If you still want to apply</h2>
+      <div class="govuk-inset-text">
+        If you submit an application for Attendance Allowance, we will contact you for 
+        more information about where you have travelled to, including dates.
+      </div>
       
-      <p class="govuk-body">You can <a href="national-insurance" class="govuk-link">apply for Attendance Allowance</a> but you may not be entitled to it.</p>
+      <p class="govuk-body">If you think you are eligible, you can <a href="country-outside-uk-benefits" class="govuk-link">continue to apply for Attendance Allowance</a>.</p>
         
 {% endblock %}
 
