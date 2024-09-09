@@ -24,6 +24,11 @@ module.exports = {
     // visiting service
     effectiveDate: 'effective-date',
 
+    // claim type
+    claimType: 'claim-type',
+    claimTypeChangeInCircumstances: 'claim-type-change-in-circumstances',
+    claimTypeRenewal: 'claim-type-renewal',
+
     // eligibility
     whoIsApplying: 'who-is-applying',
     bestDescribe: 'best-describe',
@@ -33,6 +38,9 @@ module.exports = {
     birthDateIneligible: 'birth-date-ineligible',
     otherBenefits: 'other-benefits',
     otherBenefitsIneligible: 'other-benefits-ineligible',
+    pipIneligible: 'pip-ineligible',
+    dlaIneligible: 'dla-ineligible',
+    adpIneligible: 'adp-ineligible',
     nationality: 'nationality',
     nationalityOther: 'nationality-other',
     livingInUk: 'living-in-uk',
