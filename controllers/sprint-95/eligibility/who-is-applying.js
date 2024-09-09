@@ -17,6 +17,14 @@ const config = {
       },
     },
     {
+      page: urls.beforeYouStart,
+      condition: {
+        field: urls.beforeYouStart,
+        value: 'yes',
+        match: match.value,
+      },
+    },
+    {
       page: urls.howToClaim,
     },  
   ],

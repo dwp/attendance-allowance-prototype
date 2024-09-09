@@ -1,28 +1,50 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
-
 {% block form %}
-  {% if locale == 'NI' %}
-    <a href="https://attendance-allowance.herokuapp.com" class="govuk-back-link">Back</a>
-    {% else %}
-    <a href="how-to-claim" class="govuk-back-link">Back</a>
-  {% endif %}
-  
 
-  <h1 class="govuk-heading-l">Information you will need to apply online</h1>
-  <p class="govuk-body">You will need certain information about yourself or the person you are applying for.</p>
-  <p class="govuk-body">You will need:</p>
- 
-  <ul class="govuk-list govuk-list--bullet">
-    <li>your National Insurance number</li>
-    <li>details of your health condition or disabilties that mean you need extra help or care</li>
-    <li>your GP surgery or medical centre details</li>
-    <li>your address and contact details</li>
-  </ul>
+  {% set beforeYouStartBody %}
+    <p class="govuk-body govuk-!-margin-bottom-4"> 
+      You will need:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>your National Insurance number</li>
+      <li>your address and contact details</li>
+      <li>details of the health condition or disability that you need extra help for</li>
+      <li>details of your GP surgery or medical centre</li>
+      <li>care home, hospital or hospice details if you are currently staying in one</li>
+    </ul>
+  {% endset %}
 
-  <p class="govuk-body">There is no time limit for completing the application.</p>
-  <p class="govuk-body">You cannot save your answers and come back to the application later.</p>
-  <p class="govuk-body">If you do not enter anything for more than 90 minutes, your application will time out and you’ll need to start again. This is to keep your details secure.</p>
+  {{ govukRadios({
+    idPrefix: "before-you-start",
+    name: "before-you-start",
+    classes: "govuk-!-margin-bottom-4",
+    fieldset: {
+      legend: {
+        text: "Do you have everything you need to apply for Attendance Allowance?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    errorMessage: data.validation['before-you-start'].error,
+    hint: {
+      html: beforeYouStartBody
+    },
+    items: [
+      {
+        value: "yes",
+        text: "Yes",
+        checked: true if data["before-you-start"] === "yes"
+      },
+      {
+        value: "no",
+        text: "No",
+        checked: true if data["before-you-start"] === "no"
+      }
+    ]
+  }) }}
 
 {% endblock %}
 

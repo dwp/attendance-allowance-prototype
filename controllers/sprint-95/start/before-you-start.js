@@ -1,12 +1,33 @@
 const {
   urls,
+  validation,
+  match,
   registerController,
-} = require('../../../utils/controller');
-const beforeYouStart = require('./before-you-start');
+} = require("../../../utils/controller");
 
 const config = {
   name: urls.beforeYouStart,
-  next: urls.whoIsApplying,
+  previous: urls.howToClaim, 
+  next: [
+    {
+      page: urls.beforeYouStartIneligible,
+      condition: {
+        field: urls.beforeYouStart,
+        value: "no",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.whoIsApplying,
+    },
+  ],
+  validation: {
+    type: validation.radios,
+    errors: {
+      required:
+        "Select if you have everything you need to apply for Attendance Allowance",
+    },
+  },
 };
 
 module.exports = registerController(config.name, config);
