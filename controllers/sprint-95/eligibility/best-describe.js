@@ -12,6 +12,13 @@ const {
       {
         page: urls.helpingSomeoneIntro,
         condition: {
+          sessionValue: 'SREL',
+          match: match.session,
+        },
+      },
+      {
+        page: urls.helpingSomeoneIntro,
+        condition: {
           field: urls.bestDescribe,
           value: 'friend',
           match: match.value,

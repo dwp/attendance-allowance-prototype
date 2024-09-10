@@ -18,8 +18,8 @@ const config = {
     {
       page: urls.consent,
       condition: {
-        field: urls.specialRulesDeclaration,
-        value: 'yes',
+        field: urls.consent,
+        value: 'no',
         match: match.value,
       },
     },

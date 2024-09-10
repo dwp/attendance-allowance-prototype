@@ -14,7 +14,16 @@ const config = {
       condition: {
         field: urls.specialRulesDeclaration,
         value: "yes",
-        match: match.value,
+        match: match.match,
+      },
+    },
+    {
+      page: urls.limitReached,
+      condition: {
+        field: urls.specialRulesDeclaration,
+        value: "no",
+        sessionValue: "SREL",
+        match: match.sessionAndValue,
       },
     },
     {

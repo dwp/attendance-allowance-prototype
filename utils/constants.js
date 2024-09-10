@@ -218,6 +218,8 @@ module.exports = {
     none: 'none',
     greaterThan: 'greater-than',
     lessThan: 'less-than',
+    session: 'session',
+    sessionAndValue: 'sessionAndValue',
   },
   options: {
     none: 'none',
