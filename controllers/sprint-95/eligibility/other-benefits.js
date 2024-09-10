@@ -7,7 +7,7 @@ const {
 
 const config = {
   name: urls.otherBenefits,
-  previous: urls.specialRulesDeclaration,
+  previous: urls.birthDate,
   next: [
     {
       page: urls.attendanceAllowanceIneligible,

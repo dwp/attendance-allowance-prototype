@@ -42,7 +42,7 @@ const config = {
       },
     },
     {
-      page: urls.illnessDisability,
+      page: urls.specialRulesDeclaration,
       condition: {
         field: urls.careHomeHospital,
         value: "none",

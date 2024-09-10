@@ -7,10 +7,10 @@ const {
 
 const config = {
   name: urls.specialRulesDeclaration,
-  previous: urls.birthDate, 
+  previous: urls.careHomeHospital, 
   next: [
     {
-      page: urls.whoIsApplyingIneligible,
+      page: urls.specialRulesForm,
       condition: {
         field: urls.specialRulesDeclaration,
         value: "yes",
@@ -18,7 +18,7 @@ const config = {
       },
     },
     {
-      page: urls.otherBenefits,
+      page: urls.illnessDisability,
     },
   ],
   validation: {

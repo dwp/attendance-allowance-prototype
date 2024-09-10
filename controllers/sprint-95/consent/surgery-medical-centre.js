@@ -1,13 +1,26 @@
 const {
   urls,
   validation,
+  match,
   registerController,
 } = require("../../../utils/controller");
 
 const config = {
   name: urls.surgeryMedicalCentre,
   previous: urls.consent,
-  next: urls.evidence,
+  next: [
+    {
+      page: urls.checkAnswersDetails,
+      condition: {
+        field: urls.specialRulesDeclaration,
+        value: "yes",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.evidence,
+    },
+  ],
   validation: [
     {
       name: "surgery-medical-centre-name",

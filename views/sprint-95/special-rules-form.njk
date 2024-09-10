@@ -7,7 +7,7 @@
 
   {% set specialRulesBody %}
     <p class="govuk-body govuk-hint"> 
-      A DS1500 is a report that gives the Department of Work and Pensions evidence about your illness. 
+      An SR1 is a form that gives the Department for Work and Pensions evidence about your illness. 
     </p>
   {% endset %}
 
@@ -17,7 +17,7 @@
     classes: "govuk-!-margin-bottom-3",
     fieldset: {
       legend: {
-        text: "Has your doctor, consultant or specialist nurse completed a DS1500 report?",
+        text: "Has your doctor, consultant or specialist nurse completed an SR1 form?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-4"
       }
@@ -38,9 +38,9 @@
         checked: true if data["special-rules-form"] === "no"
       },
       {
-        value: "not-sure",
-        text: "I'm not sure",
-        checked: true if data["special-rules-form"] === "not-sure"
+        value: "unsure",
+        text: "I do not know",
+        checked: true if data["special-rules-form"] === "unsure"
       }
     ]
   }) }}

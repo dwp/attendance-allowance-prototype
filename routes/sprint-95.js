@@ -32,8 +32,8 @@ router.use(`/${urls.claimTypeRenewal}`, controllers.claimTypeRenewal);
 // eligibility
 router.use(`/${urls.whoIsApplying}`, controllers.whoIsApplying);
 router.use(`/${urls.whoIsApplyingIneligible}`, controllers.whoIsApplyingIneligible);
+router.use(`/${urls.personClaimingIneligible}`, controllers.personClaimingIneligible);
 router.use(`/${urls.bestDescribe}`, controllers.bestDescribe);
-router.use(`/${urls.specialRulesDeclaration}`, controllers.specialRulesDeclaration);
 router.use(`/${urls.birthDate}`, controllers.birthDate);
 router.use(`/${urls.birthDateIneligible}`, controllers.birthDateIneligible);
 router.use(`/${urls.otherBenefits}`, controllers.otherBenefits);

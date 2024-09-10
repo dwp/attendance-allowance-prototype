@@ -8,8 +8,7 @@ const {
 const config = {
   name: urls.illnessDisability,
   next: urls.illnessDisabilityDate,
-  previous: urls.careHomeHospital,
-      
+  previous: urls.specialRulesDeclaration,
   validation: {
     type: validation.textInput,
     options: {

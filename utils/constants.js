@@ -33,8 +33,8 @@ module.exports = {
     // eligibility
     whoIsApplying: 'who-is-applying',
     bestDescribe: 'best-describe',
-    specialRulesDeclaration: 'special-rules-declaration',
     whoIsApplyingIneligible: 'who-is-applying-ineligible',
+    personClaimingIneligible: 'person-claiming-ineligible',
     birthDate: 'birth-date',
     birthDateIneligible: 'birth-date-ineligible',
     otherBenefits: 'other-benefits',
@@ -74,6 +74,10 @@ module.exports = {
     accommodationAddressOutsideUk: 'accommodation-address-outside-uk',
     sercoCareHomeHospital: 'serco-care-home-hospital',
 
+    // special rules
+    specialRulesDeclaration: 'special-rules-declaration',
+    specialRulesForm: 'special-rules-form',
+
     // illness and disabilities
     illnessDisability: 'illness-disability',
     illnessDisabilityAdded: 'illness-disability-added',
@@ -81,10 +85,6 @@ module.exports = {
     illnessDisabilityManual: 'illness-disability-manual',
     illnessDisabilityDate: 'illness-disability-date',
     illnessDisabilityDateManual: 'illness-disability-date-manual',
-
-    // special rules
-    specialRulesDeclaration: 'special-rules-declaration',
-    specialRulesForm: 'special-rules-form',
 
     // renal dyalisis
     renalDialysis: 'renal-dialysis',

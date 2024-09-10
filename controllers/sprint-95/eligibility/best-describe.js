@@ -26,7 +26,7 @@ const {
         },
       },
       {
-        page: urls.whoIsApplyingIneligible
+        page: urls.personClaimingIneligible,
       },
     ],
     validation: {
