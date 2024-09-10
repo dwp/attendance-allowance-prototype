@@ -45,14 +45,14 @@ const {
           value: 'yes',
           match: match.value,
         },
-         condition: {
-          field: urls.consent,
-          value: 'no',
-          match: match.value,
-        },
       },
       {
         page: urls.evidence,
+        condition: {
+          field: urls.specialRulesDeclaration,
+          value: 'no',
+          match: match.value,
+        },
       },
     ],
     validation: {

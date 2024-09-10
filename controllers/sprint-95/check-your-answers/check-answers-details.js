@@ -8,15 +8,28 @@ const config = {
   name: urls.checkAnswersDetails,
   previous: [
     {
-      page: urls.surgeryMedicalCentre,
+      page: urls.evidence,
       condition: {
-        field: urls.consent,
+        field: urls.specialRulesDeclaration,
+        value: 'no',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.consent,
+      condition: {
+        field: urls.specialRulesDeclaration,
         value: 'yes',
         match: match.value,
       },
     },
     {
-      page: urls.evidence,
+      page: urls.surgeryMedicalCentre,
+      condition: {
+        field: urls.specialRulesDeclaration,
+        value: 'yes',
+        match: match.value,
+      },
     },
   ],
   next: [
