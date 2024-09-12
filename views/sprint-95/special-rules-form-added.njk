@@ -1,0 +1,75 @@
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "v5-layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+ <h1 class="govuk-heading-l">Your uploaded files</h1>
+  
+    <p class="govuk-body govuk-!-display-none" id="refreshPageProgress"><a href="#" class="govuk-link">Refresh page to update file upload progress</a></p>
+
+    {{ govukSummaryList({
+      
+      rows: [
+        {
+          key: {
+            text: "photo2.jpg"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Remove",
+                visuallyHiddenText: "photo2.jpg"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "photo1.jpg"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Remove",
+                visuallyHiddenText: "photo1.jpg"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+    {{ govukRadios({
+      idPrefix: "special-rules-form-added",
+      name: "special-rules-form-added",
+      fieldset: {
+        legend: {
+          text: "Do you want to upload another file?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      errorMessage: data.validation['special-rules-form-added'].error,
+      items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+      ]
+    }) }}
+
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

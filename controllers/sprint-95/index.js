@@ -66,7 +66,13 @@ const sercoCareHomeHospital = require('./payability/serco-care-home-hospital');
 
 // special rules
 const specialRulesDeclaration = require('./special-rules/special-rules-declaration');
-const specialRulesForm = require('./special-rules/special-rules-form');
+const specialRulesFormCompleted = require('./special-rules/special-rules-form-completed');
+const specialRulesFormSent = require('./special-rules/special-rules-form-sent');
+const specialRulesFormUploadOption = require('./special-rules/special-rules-form-upload-option');
+const specialRulesFormType = require('./special-rules/special-rules-form-type');
+const specialRulesFormGuidance = require('./special-rules/special-rules-form-guidance');
+const specialRulesFormUpload = require('./special-rules/special-rules-form-upload');
+const specialRulesFormAdded = require('./special-rules/special-rules-form-added');
 
 // illness and disabilities
 const illnessDisability = require('./illness-and-disabilities/illness-disability');
@@ -239,7 +245,13 @@ module.exports = {
   accommodationAddressOutsideUK,
   sercoCareHomeHospital,
   specialRulesDeclaration,
-  specialRulesForm,
+  specialRulesFormCompleted,
+  specialRulesFormSent,
+  specialRulesFormUploadOption,
+  specialRulesFormType,
+  specialRulesFormGuidance,
+  specialRulesFormUpload,
+  specialRulesFormAdded,
   illnessDisability,
   illnessDisabilityDate,
   illnessDisabilityDateManual,

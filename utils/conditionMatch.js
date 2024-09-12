@@ -71,7 +71,7 @@ const conditionMatch = (routingConfig, req) => {
         // check value in session
       } else if (routingCondition.condition?.match === match.session) {
         if (routingCondition.condition.value) {
-          if (req.session.locale === routingCondition.condition.sessionValue) {
+          if (req.session.locale === routingCondition.condition.value) {
             routingMatch = true;
             matchedLink = routingCondition.page;
           }

@@ -10,11 +10,11 @@ const config = {
   previous: urls.careHomeHospital, 
   next: [
     {
-      page: urls.specialRulesForm,
+      page: urls.specialRulesFormCompleted,
       condition: {
         field: urls.specialRulesDeclaration,
         value: "yes",
-        match: match.match,
+        match: match.value,
       },
     },
     {
@@ -34,7 +34,7 @@ const config = {
     type: validation.radios,
     errors: {
       required:
-        "Select yes if your doctor has said you might have less than 12 months to live",
+        "Select yes if your doctor, consultant or specialist nurse has said you might have less than 12 months to live due to your condition",
     },
   },
 };

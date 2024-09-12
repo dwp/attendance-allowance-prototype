@@ -12,7 +12,7 @@ const {
       {
         page: urls.helpingSomeoneIntro,
         condition: {
-          sessionValue: 'SREL',
+          value: 'SREL',
           match: match.session,
         },
       },

@@ -1,20 +1,34 @@
 {% from "./macros/check-answers-details-section.njk" import checkAnswersDetailsSection %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
-
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
 
 {% block form %}
+  
+  {% if data['special-rules-declaration'] == 'no' %}
+    <a href="evidence" class="govuk-back-link">Back</a>
+  {% elif data['consent'] == 'no' %}
+    <a href="consent" class="govuk-back-link">Back</a>
+  {% else %}
+    <a href="surgery-medical-centre" class="govuk-back-link">Back</a>
+  {% endif %}
+
 <h1 class="govuk-heading-l">Check your answers</h1>
 
         {{ checkAnswersDetailsSection(data) }}
 
-{{ govukButton({
-  text: "Accept and continue"
-}) }}
+
 {% endblock %}
 
 {% block formButton %}
+ {% if data['special-rules-declaration'] == 'yes' %}
+    <a href="telephone-number" class="govuk-button">
+      Accept and continue
+    </a>
+  {% else %}
+    <a href="day-difficulties" class="govuk-button">
+      Accept and continue
+    </a>
+  {% endif %}
 {% endblock %}
 
 

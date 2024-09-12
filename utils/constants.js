@@ -76,7 +76,13 @@ module.exports = {
 
     // special rules
     specialRulesDeclaration: 'special-rules-declaration',
-    specialRulesForm: 'special-rules-form',
+    specialRulesFormCompleted: 'special-rules-form-completed',
+    specialRulesFormSent: 'special-rules-form-sent',
+    specialRulesFormUploadOption: 'special-rules-form-upload-option',
+    specialRulesFormType: 'special-rules-form-type',
+    specialRulesFormGuidance: 'special-rules-form-guidance',
+    specialRulesFormUpload: 'special-rules-form-upload',
+    specialRulesFormAdded: 'special-rules-form-added',
 
     // illness and disabilities
     illnessDisability: 'illness-disability',

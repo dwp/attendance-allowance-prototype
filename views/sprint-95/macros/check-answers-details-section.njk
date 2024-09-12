@@ -183,6 +183,11 @@
             {{ data['best-describe'] 
             | replace("friend", "I am a friend or family member who is helping the applicant with the application")
             | replace("charity", "I work for a charity or organisation who is helping the applicant with the application") 
+            | replace("powerOfAttorney", "I have Power of Attorney (Property and Finance)") 
+            | replace("appointed", "I have been appointed by DWP to deal with benefits of someone who cannot manage their own affairs" if locale != 'NI' else "I am an appointee, appointed by the DfC") 
+            | replace("appointee", "I want to be a DWP appointee" if locale != 'NI' else "I want to be an appointee") 
+            | replace("cab", "I am a Corporate Acting Body or appointee for the applicant") 
+            | replace("curator", "I am a curator bonis or judicial factor (under Scottish law)" if locale != 'NI' else "I am a Controller, appointed by the Department of Justice")
             }}
           </dd>
           <dd class="govuk-summary-list__actions">
@@ -508,20 +513,67 @@
             {{ changeLink('special-rules-declaration') }}
           </dd>
         </div>
-      {% if data['special-rules-form'] == 'yes' %}
+      {% if data['special-rules-form-completed'] == 'yes' %}
         <div class="govuk-summary-list__row special-rules-form">
           <dt class="govuk-summary-list__key">
             Has your doctor, consultant or specialist nurse completed an SR1 form?
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['special-rules-form'] 
+            {{ data['special-rules-form-completed'] 
               | replace("yes", "Yes") 
               | replace("no", "No") 
               | replace("unsure", "I do not know") 
               | capitalize }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            {{ changeLink('special-rules-form') }}
+            {{ changeLink('special-rules-form-completed') }}
+          </dd>
+        </div>
+      {% endif %}
+      {% if data['special-rules-form-sent'] %}
+        <div class="govuk-summary-list__row special-rules-form-sent">
+          <dt class="govuk-summary-list__key">
+            Has your doctor, consultant or specialist nurse sent your SR1 form to DWP?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['special-rules-form-sent'] 
+              | replace("yes", "Yes") 
+              | replace("no", "No") 
+              | replace("unsure", "I do not know") 
+              | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('special-rules-form-sent') }}
+          </dd>
+        </div>
+      {% endif %}
+      {% if data['special-rules-form-upload-option'] %}
+        <div class="govuk-summary-list__row special-rules-form-upload-option">
+          <dt class="govuk-summary-list__key">
+            Do you want to upload your SR1 form?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['special-rules-form-upload-option'] 
+              | replace("yes", "Yes") 
+              | replace("no", "No") 
+              | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('special-rules-form--upload-option') }}
+          </dd>
+        </div>
+      {% endif %}
+      {% if data['special-rules-form-upload-option'] == 'yes' %}
+        <div class="govuk-summary-list__row special-rules-form-upload">
+          <dt class="govuk-summary-list__key">
+            Your uploaded files
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">photo2.jpg<br/>
+            photo1.jpg</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('special-rules-form-added') }}
           </dd>
         </div>
       {% endif %}

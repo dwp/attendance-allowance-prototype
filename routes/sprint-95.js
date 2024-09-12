@@ -19,7 +19,7 @@ router.use(urls.root, controllers.howToClaim);
 router.use(urls.root, controllers.reportChangeInCircumstances);
 
 // govuk
-router.use(urls.root, controllers.limitReached);
+router.use(urls.limitReached, controllers.limitReached);
 
 // visiting service
 router.use(`/${urls.effectiveDate}`, controllers.effectiveDate);
@@ -70,6 +70,16 @@ router.use(`/${urls.careHomeFundingTrusts}`, controllers.careHomeFundingTrusts);
 router.use(`/${urls.accommodationAddressOutsideUk}`, controllers.accommodationAddressOutsideUK);
 router.use(`/${urls.sercoCareHomeHospital}`, controllers.sercoCareHomeHospital);
 
+// special rules
+router.use(`/${urls.specialRulesDeclaration}`, controllers.specialRulesDeclaration);
+router.use(`/${urls.specialRulesFormCompleted}`, controllers.specialRulesFormCompleted);
+router.use(`/${urls.specialRulesFormSent}`, controllers.specialRulesFormSent);
+router.use(`/${urls.specialRulesFormUploadOption}`, controllers.specialRulesFormUploadOption);
+router.use(`/${urls.specialRulesFormType}`, controllers.specialRulesFormType);
+router.use(`/${urls.specialRulesFormGuidance}`, controllers.specialRulesFormGuidance);
+router.use(`/${urls.specialRulesFormUpload}`, controllers.specialRulesFormUpload);
+router.use(`/${urls.specialRulesFormAdded}`, controllers.specialRulesFormAdded);
+
 // illness and disabilities
 router.use(`/${urls.illnessDisability}`, controllers.illnessDisability);
 router.use(`/${urls.illnessDisabilityDate}`, controllers.illnessDisabilityDate);
@@ -82,9 +92,6 @@ router.use(`/${urls.illnessDisabilityRemove}`, (req, res) => {
   return res.redirect(`${urls.illnessDisability}`);
 });
 
-// special rules
-router.use(`/${urls.specialRulesDeclaration}`, controllers.specialRulesDeclaration);
-router.use(`/${urls.specialRulesForm}`, controllers.specialRulesForm);
 
 // renal dyalisis
 router.use(`/${urls.renalDialysis}`, controllers.renalDialysis);

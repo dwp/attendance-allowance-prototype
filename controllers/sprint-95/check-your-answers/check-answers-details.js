@@ -1,53 +1,11 @@
+const express = require('express');
 const {
   urls,
-  match,
-  registerController,
 } = require('../../../utils/controller');
 
 const config = {
   name: urls.checkAnswersDetails,
-  previous: [
-    {
-      page: urls.evidence,
-      condition: {
-        field: urls.specialRulesDeclaration,
-        value: 'no',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.consent,
-      condition: {
-        field: urls.consent,
-        value: 'no',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.surgeryMedicalCentre,
-      condition: {
-        field: urls.specialRulesDeclaration,
-        value: 'yes',
-        match: match.value,
-      },
-    },
-  ],
-  next: [
-    {
-      page: urls.telephoneNumber,
-      condition: {
-        field: urls.specialRulesDeclaration,
-        value: 'yes',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.dayDifficulties,
-    },
-  ],
 };
-
-const express = require('express');
 
 const router = express.Router();
 
@@ -58,4 +16,3 @@ router.post('/', (req, res) => {
 });
 
 module.exports = router;
-module.exports = registerController(config.name, config);
