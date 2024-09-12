@@ -7,10 +7,10 @@ const {
 
 const config = {
   name: urls.specialRulesDeclaration,
-  previous: urls.birthDate, 
+  previous: urls.careHomeHospital, 
   next: [
     {
-      page: urls.whoIsApplyingIneligible,
+      page: urls.specialRulesFormCompleted,
       condition: {
         field: urls.specialRulesDeclaration,
         value: "yes",
@@ -18,14 +18,23 @@ const config = {
       },
     },
     {
-      page: urls.otherBenefits,
+      page: urls.limitReached,
+      condition: {
+        field: urls.specialRulesDeclaration,
+        value: "no",
+        sessionValue: "SREL",
+        match: match.sessionAndValue,
+      },
+    },
+    {
+      page: urls.illnessDisability,
     },
   ],
   validation: {
     type: validation.radios,
     errors: {
       required:
-        "Select yes if your doctor has said you might have less than 12 months to live",
+        "Select yes if your doctor, consultant or specialist nurse has said you might have less than 12 months to live due to your condition",
     },
   },
 };

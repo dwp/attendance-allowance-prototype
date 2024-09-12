@@ -5,20 +5,23 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.limitReached,
+  name: urls.specialRulesFormUpload,
+  previous: urls.specialRulesFormGuidance,
   previous: [
     {
-      page: urls.specialRulesDeclaration,
+      page: urls.specialRulesFormAdded,
       condition: {
-        field: urls.specialRulesDeclaration,
-        value: "no",
+        field: urls.specialRulesFormAdded,
+        value: "yes",
         match: match.value,
       },
     },
     {
-      page: urls.howToClaim,
+      page: urls.specialRulesFormGuidance,
     },
   ],
+  next: urls.specialRulesFormAdded,
 };
+
 
 module.exports = registerController(config.name, config);

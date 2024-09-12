@@ -87,6 +87,12 @@ app.use('/v2-0-0/', setVersionMiddleware('/v2-0-0/'), require('./routes/v2-0-0')
 app.use('/v1-1-0/', setVersionMiddleware('/v1-1-0/'), require('./routes/v1-1-0'));
 app.use('/', require('./routes/v1-0-0'));
 
+app.get('/clear-data', (req, res) => {
+  req.session.destroy((err) => {
+    res.redirect('/') // will always fire after session is destroyed
+  });
+});
+
 // Request middleware - renders views for GET requests without controller
 app.get(/^([^.]+)$/, (req, res, next) => {
   const { path } = req;

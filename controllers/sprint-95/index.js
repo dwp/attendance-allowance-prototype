@@ -20,7 +20,7 @@ const effectiveDate = require('./visiting-service/effective-date');
 
 // claim type
 const claimType = require('./claim-type/claim-type');
-const claimTypeChangeinCircumstances = require('./claim-type/claim-type-change-in-circumstances');
+const claimTypeChangeInCircumstances = require('./claim-type/claim-type-change-in-circumstances');
 const claimTypeRenewal = require('./claim-type/claim-type-renewal');
 
 // eligibility
@@ -41,8 +41,8 @@ const countryOutsideUkBenefits = require('./eligibility/country-outside-uk-benef
 const countryOutsideUkWorking = require('./eligibility/country-outside-uk-working');
 const whoIsApplying = require('./eligibility/who-is-applying');
 const whoIsApplyingIneligible = require('./eligibility/who-is-applying-ineligible');
+const personClaimingIneligible = require('./eligibility/person-claiming-ineligible');
 const bestDescribe = require('./eligibility/best-describe');
-const specialRulesDeclaration = require('./eligibility/special-rules-declaration');
 
 // identity
 const nationalInsurance = require('./identity/national-insurance');
@@ -64,6 +64,16 @@ const careHomeFundingTrusts = require('./payability/care-home-funding-trusts');
 const accommodationAddressOutsideUK = require('./payability/accommodation-address-outside-uk');
 const sercoCareHomeHospital = require('./payability/serco-care-home-hospital');
 
+// special rules
+const specialRulesDeclaration = require('./special-rules/special-rules-declaration');
+const specialRulesFormCompleted = require('./special-rules/special-rules-form-completed');
+const specialRulesFormSent = require('./special-rules/special-rules-form-sent');
+const specialRulesFormUploadOption = require('./special-rules/special-rules-form-upload-option');
+const specialRulesFormType = require('./special-rules/special-rules-form-type');
+const specialRulesFormGuidance = require('./special-rules/special-rules-form-guidance');
+const specialRulesFormUpload = require('./special-rules/special-rules-form-upload');
+const specialRulesFormAdded = require('./special-rules/special-rules-form-added');
+
 // illness and disabilities
 const illnessDisability = require('./illness-and-disabilities/illness-disability');
 const illnessDisabilityDate = require('./illness-and-disabilities/illness-disability-date');
@@ -77,9 +87,6 @@ const renalDialysisWhere = require('./renal-dyalisis/renal-dialysis-where');
 const renalDialysisWhen = require('./renal-dyalisis/renal-dialysis-when');
 const renalDialysisFrequency = require('./renal-dyalisis/renal-dialysis-frequency');
 const renalDialysisHelp = require('./renal-dyalisis/renal-dialysis-help');
-
-// special rules
-const specialRulesForm = require('./special-rules/special-rules-form');
 
 // surgery or treatment
 const treatmentSurgery = require('./surgery-or-treatment/treatment-surgery');
@@ -187,7 +194,6 @@ const checkAnswersSpecialRules = require('./check-your-answers/check-answers-spe
 
 // accessiblity
 const accessibilityStatement = require('./accessibility/accessibility-statement');
-const claimTypeChangeInCircumstances = require('./claim-type/claim-type-change-in-circumstances');
 
 module.exports = {
   verificationCode,
@@ -207,6 +213,7 @@ module.exports = {
   effectiveDate,
   whoIsApplying,
   whoIsApplyingIneligible,
+  personClaimingIneligible,
   bestDescribe,
   birthDate,
   birthDateIneligible,
@@ -237,6 +244,14 @@ module.exports = {
   careHomeFundingTrusts,
   accommodationAddressOutsideUK,
   sercoCareHomeHospital,
+  specialRulesDeclaration,
+  specialRulesFormCompleted,
+  specialRulesFormSent,
+  specialRulesFormUploadOption,
+  specialRulesFormType,
+  specialRulesFormGuidance,
+  specialRulesFormUpload,
+  specialRulesFormAdded,
   illnessDisability,
   illnessDisabilityDate,
   illnessDisabilityDateManual,
@@ -263,8 +278,6 @@ module.exports = {
   checkAnswersNight,
   nationality,
   nationalityOther,
-  specialRulesDeclaration,
-  specialRulesForm,
   renalDialysis,
   renalDialysisWhere,
   renalDialysisWhen,

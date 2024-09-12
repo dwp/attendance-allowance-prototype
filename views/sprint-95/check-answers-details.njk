@@ -3,7 +3,15 @@
 
 
 {% block form %}
- <a href="evidence" class="govuk-back-link">Back</a>
+  
+  {% if data['special-rules-declaration'] == 'no' %}
+    <a href="evidence" class="govuk-back-link">Back</a>
+  {% elif data['consent'] == 'no' %}
+    <a href="consent" class="govuk-back-link">Back</a>
+  {% else %}
+    <a href="surgery-medical-centre" class="govuk-back-link">Back</a>
+  {% endif %}
+
 <h1 class="govuk-heading-l">Check your answers</h1>
 
         {{ checkAnswersDetailsSection(data) }}
@@ -12,9 +20,15 @@
 {% endblock %}
 
 {% block formButton %}
-  <a href="day-difficulties" class="govuk-button">
-    Accept and continue
-  </a>
+ {% if data['special-rules-declaration'] == 'yes' %}
+    <a href="telephone-number" class="govuk-button">
+      Accept and continue
+    </a>
+  {% else %}
+    <a href="day-difficulties" class="govuk-button">
+      Accept and continue
+    </a>
+  {% endif %}
 {% endblock %}
 
 

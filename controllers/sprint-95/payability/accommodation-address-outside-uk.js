@@ -51,7 +51,7 @@ const config = {
 
   next: [
     {
-      page: urls.illnessDisability,
+      page: urls.specialRulesDeclaration,
       condition: {
         page: urls.careHomeHospital,
         field: "care-home-hospital",
@@ -69,7 +69,7 @@ const config = {
       },
     },
     {
-      page: urls.illnessDisability,
+      page: urls.specialRulesDeclaration,
       condition: {
         page: urls.careHomeHospital,
         field: "care-home-hospital",
@@ -78,7 +78,7 @@ const config = {
       },
     },
     {
-      page: urls.illnessDisability,
+      page: urls.specialRulesDeclaration,
       condition: {
         page: urls.careHomeHospital,
         field: "care-home-hospital",

@@ -17,6 +17,14 @@ const config = {
       },
     },
     {
+      page: urls.consent,
+      condition: {
+        field: urls.specialRulesDeclaration,
+        value: "yes",
+        match: match.value,
+      },
+    },
+    {
       page: urls.renalDialysis,
       condition: {
         field: urls.illnessDisability,

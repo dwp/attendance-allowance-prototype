@@ -8,7 +8,7 @@ const {
 const config = {
   name: urls.careHomeFundingTrusts,
   previous: urls.careHomeFundingWho,
-  next: urls.illnessDisability,
+  next: urls.specialRulesDeclaration,
   validation: {
     type: validation.radios,
     errors: {
