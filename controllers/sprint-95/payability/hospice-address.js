@@ -7,7 +7,7 @@ const {
 const config = {
   name: urls.hospiceAddress,
   previous: urls.careHomeHospital,
-  next: urls.illnessDisability,
+  next: urls.specialRulesDeclaration,
   validation: [
     {
       name: "hospice-name",

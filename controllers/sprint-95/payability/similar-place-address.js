@@ -7,7 +7,7 @@ const {
 const config = {
   name: urls.similarPlaceAddress,
   previous: urls.careHomeHospital,
-  next: urls.illnessDisability,
+  next: urls.specialRulesDeclaration,
   validation: [
     {
       name: "similar-place-name",

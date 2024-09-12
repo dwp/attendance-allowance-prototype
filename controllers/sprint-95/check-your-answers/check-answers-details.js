@@ -3,7 +3,9 @@ const {
   urls,
 } = require('../../../utils/controller');
 
-
+const config = {
+  name: urls.checkAnswersDetails,
+};
 
 const router = express.Router();
 

@@ -183,25 +183,15 @@
             {{ data['best-describe'] 
             | replace("friend", "I am a friend or family member who is helping the applicant with the application")
             | replace("charity", "I work for a charity or organisation who is helping the applicant with the application") 
+            | replace("powerOfAttorney", "I have Power of Attorney (Property and Finance)") 
+            | replace("appointed", "I have been appointed by DWP to deal with benefits of someone who cannot manage their own affairs" if locale != 'NI' else "I am an appointee, appointed by the DfC") 
+            | replace("appointee", "I want to be a DWP appointee" if locale != 'NI' else "I want to be an appointee") 
+            | replace("cab", "I am a Corporate Acting Body or appointee for the applicant") 
+            | replace("curator", "I am a curator bonis or judicial factor (under Scottish law)" if locale != 'NI' else "I am a Controller, appointed by the Department of Justice")
             }}
           </dd>
           <dd class="govuk-summary-list__actions">
             {{ changeLink('best-describe') }}
-          </dd>
-        </div>
-      {% endif %}
-      {% if data['special-rules-declaration'] === 'no' %}
-        <div class="govuk-summary-list__row special-rules-declaration">
-          <dt class="govuk-summary-list__key">
-            Has your doctor said you have less than 12 months to live?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['special-rules-declaration'] 
-              | replace("no", "No") 
-              | capitalize }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {{ changeLink('special-rules-declaration') }}
           </dd>
         </div>
       {% endif %}
@@ -504,6 +494,94 @@
   </section>
 
   <section class="Your health information">
+    {% if data['special-rules-declaration'] == 'yes' %}
+      <h2 class="govuk-heading-m">
+        Special rules for end of life
+      </h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row special-rules-declaration">
+          <dt class="govuk-summary-list__key">
+            Has your doctor, consultant or specialist nurse said you might 
+            have less than 12 months to live due to your condition?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['special-rules-declaration'] 
+              | replace("yes", "Yes") 
+              | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('special-rules-declaration') }}
+          </dd>
+        </div>
+      {% if data['special-rules-form-completed'] == 'yes' %}
+        <div class="govuk-summary-list__row special-rules-form">
+          <dt class="govuk-summary-list__key">
+            Has your doctor, consultant or specialist nurse completed an SR1 form?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['special-rules-form-completed'] 
+              | replace("yes", "Yes") 
+              | replace("no", "No") 
+              | replace("unsure", "I do not know") 
+              | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('special-rules-form-completed') }}
+          </dd>
+        </div>
+      {% endif %}
+      {% if data['special-rules-form-sent'] %}
+        <div class="govuk-summary-list__row special-rules-form-sent">
+          <dt class="govuk-summary-list__key">
+            Has your doctor, consultant or specialist nurse sent your SR1 form to DWP?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['special-rules-form-sent'] 
+              | replace("yes", "Yes") 
+              | replace("no", "No") 
+              | replace("unsure", "I do not know") 
+              | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('special-rules-form-sent') }}
+          </dd>
+        </div>
+      {% endif %}
+      {% if data['special-rules-form-upload-option'] %}
+        <div class="govuk-summary-list__row special-rules-form-upload-option">
+          <dt class="govuk-summary-list__key">
+            Do you want to upload your SR1 form?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['special-rules-form-upload-option'] 
+              | replace("yes", "Yes") 
+              | replace("no", "No") 
+              | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('special-rules-form--upload-option') }}
+          </dd>
+        </div>
+      {% endif %}
+      {% if data['special-rules-form-upload-option'] == 'yes' %}
+        <div class="govuk-summary-list__row special-rules-form-upload">
+          <dt class="govuk-summary-list__key">
+            Your uploaded files
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">photo2.jpg<br/>
+            photo1.jpg</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('special-rules-form-added') }}
+          </dd>
+        </div>
+      {% endif %}
+    {% endif %}
+  </section>
+  
+
+  <section class="Your health information">
     <h2 class="govuk-heading-m">
       Your health information
     </h2>
@@ -525,116 +603,131 @@
 						<dt class="govuk-summary-list__value ">{{ data['illness-start-date'] }}</dt>
 					</div>
 				</dl>
-        
-        
     </dl>
   </section>
 
   <section class="other-health-information">
-    <h2 class="govuk-heading-m">
-      Other health information
-    </h2>
-    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-      {% if data['renal-dialysis'] == 'yes' %}
-        <div class="govuk-summary-list__row renal-dialysis">
+    {% if data['special-rules-declaration'] == 'no' %}
+      <h2 class="govuk-heading-m">
+        Other health information
+      </h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row special-rules-declaration">
           <dt class="govuk-summary-list__key">
-            Are you undergoing renal dialysis?
+            Has your doctor, consultant or specialist nurse said you might 
+            have less than 12 months to live due to your condition?
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['renal-dialysis'] | replace("yes", "Yes") | replace("no", "No")| capitalize }}
+            {{ data['special-rules-declaration'] 
+              | replace("no", "No") 
+              | capitalize }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            {{ changeLink('renal-dialysis') }}
+            {{ changeLink('special-rules-declaration') }}
           </dd>
         </div>
-        <div class="govuk-summary-list__row renal-dialysis">
-          <dt class="govuk-summary-list__key">
-            Where do you have your dialysis?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['renal-dialysis-where'] 
-            | replace("home", "I receive my treatment at home") 
-            | replace("hospital", "I receive my treatment at a hospital or health centre")
-            | capitalize }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {{ changeLink('renal-dialysis-where') }}
-          </dd>
-        </div>
-      {% endif %}
-      {% if data['renal-dialysis-where'] == 'home' %}
-        <div class="govuk-summary-list__row renal-dialysis">
-          <dt class="govuk-summary-list__key">
-            When do you have your dialysis?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['renal-dialysis-when'] 
-            | replace("day", "I receive my treatment during the day") 
-            | replace("night", "I receive my treatment during the night")
-            | capitalize }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {{ changeLink('renal-dialysis-when') }}
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row renal-dialysis">
-          <dt class="govuk-summary-list__key">
-            How many days a week do you have dialysis?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['renal-dialysis-frequency'] 
-            | replace("one", "1 day a week") 
-            | replace("two", "2 days a week")
-            | replace("three-or-more", "3 or more than three days a week")
-            | capitalize }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {{ changeLink('renal-dialysis-frequency') }}
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row renal-dialysis">
-          <dt class="govuk-summary-list__key">
-            Do you require help from someone else during your dialysis?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['renal-dialysis-help']
-            | replace("yes", "Yes, I do need help") 
-            | replace("no", "No, I don't need help") 
-            }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {{ changeLink('renal-dialysis-help') }}
-          </dd>
-        </div>
-      {% endif %}
-
-      <div class="govuk-summary-list__row treatment-surgery">
-        <dt class="govuk-summary-list__key">
-          Are you having any other treatment or waiting for surgery?
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['treatment-surgery'] 
-          | replace("yes", "Yes") 
-          | replace("no", "No") }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          {{ changeLink('treatment-surgery') }}
-        </dd>
-      </div>
-      {% if data['treatment-surgery'] == 'yes' %}
-        <div class="govuk-summary-list__row treatment">
-          <dt class="govuk-summary-list__key">
-            About your treatment or surgery
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['treatment-surgery-information'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {{ changeLink('treatment-surgery-information') }}
-          </dd>
-        </div>
-      {% endif %}
-    </dl>
+        {% if data['renal-dialysis'] == 'yes' %}
+          <div class="govuk-summary-list__row renal-dialysis">
+            <dt class="govuk-summary-list__key">
+              Are you undergoing renal dialysis?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['renal-dialysis'] | replace("yes", "Yes") | replace("no", "No")| capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {{ changeLink('renal-dialysis') }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row renal-dialysis">
+            <dt class="govuk-summary-list__key">
+              Where do you have your dialysis?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['renal-dialysis-where'] 
+              | replace("home", "I receive my treatment at home") 
+              | replace("hospital", "I receive my treatment at a hospital or health centre")
+              | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {{ changeLink('renal-dialysis-where') }}
+            </dd>
+          </div>
+        {% endif %}
+        {% if data['renal-dialysis-where'] == 'home' %}
+          <div class="govuk-summary-list__row renal-dialysis">
+            <dt class="govuk-summary-list__key">
+              When do you have your dialysis?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['renal-dialysis-when'] 
+              | replace("day", "I receive my treatment during the day") 
+              | replace("night", "I receive my treatment during the night")
+              | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {{ changeLink('renal-dialysis-when') }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row renal-dialysis">
+            <dt class="govuk-summary-list__key">
+              How many days a week do you have dialysis?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['renal-dialysis-frequency'] 
+              | replace("one", "1 day a week") 
+              | replace("two", "2 days a week")
+              | replace("three-or-more", "3 or more than three days a week")
+              | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {{ changeLink('renal-dialysis-frequency') }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row renal-dialysis">
+            <dt class="govuk-summary-list__key">
+              Do you require help from someone else during your dialysis?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['renal-dialysis-help']
+              | replace("yes", "Yes, I do need help") 
+              | replace("no", "No, I don't need help") 
+              }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {{ changeLink('renal-dialysis-help') }}
+            </dd>
+          </div>
+        {% endif %}
+        {% if data['treatment-surgery']%}
+          <div class="govuk-summary-list__row treatment-surgery">
+            <dt class="govuk-summary-list__key">
+              Are you having any other treatment or waiting for surgery?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['treatment-surgery'] 
+              | replace("yes", "Yes") 
+              | replace("no", "No") }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {{ changeLink('treatment-surgery') }}
+            </dd>
+          </div>
+        {% endif %}
+        {% if data['treatment-surgery'] == 'yes' %}
+          <div class="govuk-summary-list__row treatment">
+            <dt class="govuk-summary-list__key">
+              About your treatment or surgery
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['treatment-surgery-information'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {{ changeLink('treatment-surgery-information') }}
+            </dd>
+          </div>
+        {% endif %}
+      </dl>
+    {% endif %}
   </section>
 
   <section class="consent">

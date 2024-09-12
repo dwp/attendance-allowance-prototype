@@ -46,7 +46,7 @@ const config = {
       },
     },
     {
-      page: urls.specialRulesDeclaration,
+      page: urls.otherBenefits,
     },
   ],
   validation: {
