@@ -28,6 +28,18 @@
   {{ govukButton({
     text: "Upload and continue"
   }) }}
+
+  {{ govukButton({
+    text: "Continue without uploading",
+    classes: "govuk-button--secondary",
+    href: "illness-disability"
+  }) }}
+
+  <div class="govuk-inset-text">
+    If you are struggling to upload your SR1 form, continue without 
+    uploading to avoid delaying your claim.
+  </div>
+
 {% endblock %}
 
 {% block postForm %}

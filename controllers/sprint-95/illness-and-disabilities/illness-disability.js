@@ -51,6 +51,14 @@ const config = {
     },
     {
       page: urls.specialRulesFormAdded,
+      condition: {
+        field: urls.specialRulesFormAdded,
+        value: "no",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.specialRulesFormUpload,
     },
   ],
   validation: {
