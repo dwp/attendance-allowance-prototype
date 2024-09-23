@@ -8,11 +8,13 @@
  <h1 class="govuk-heading-l">Upload your SR1 form</h1>
   
 {{ govukFileUpload({
-  id: "file-upload-1",
-  name: "fileUpload1",
+  id: "special-rules-form-upload",
+  name: "special-rules-form-upload",
   label: {
     text: "Upload a file"
-  }
+  },
+  value: data["special-rules-form-upload"],
+  errorMessage: data.validation['special-rules-form-upload'].error
 }) }}
 
 <p class="govuk-body govuk-!-static-padding-top-6">Your file must be:</p>

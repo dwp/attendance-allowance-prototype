@@ -6,6 +6,7 @@ const {
   RadioValidator,
   DropdownValidator,
   MatchValidator,
+  UploadValidator,
 } = require('../validators');
 
 module.exports = (config, isArray) => (req, res, next) => {
@@ -33,6 +34,9 @@ module.exports = (config, isArray) => (req, res, next) => {
       break;
     case 'match':
       validator = new MatchValidator(config.validation.options, config.validation.errors);
+      break;
+    case 'upload':
+      validator = new UploadValidator(config.validation.options, config.validation.errors);
       break;
     default:
       validator = new TextValidator(config.validation.options, config.validation.errors);
@@ -73,7 +77,7 @@ module.exports = (config, isArray) => (req, res, next) => {
       res.locals.validation = validationResult;
     }
   } else {
-    const validationResult = validator.validate(req.session.data[config.name]);
+    const validationResult = validator.validate(req.session.data[config.name], req.session.data[config.validation?.rows]);
     if (isArray) {
       res.locals.validation.push({ ...validationResult, name: config.name });
     } else {

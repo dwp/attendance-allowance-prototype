@@ -47,6 +47,19 @@ const buildTableRow = (value) => ([
     html: buildLink(`illness-disability-remove?remove=${value.toLowerCase().replace(/[^a-z0-9]/gi, '')}`, 'Remove')
   }
 ]);
+const buildSummaryRow = (value) => (
+  {
+    key: {
+      text: value,
+    },
+    actions: {
+      items: [
+        {
+          html: buildLink(`special-rules-form-remove?remove=${value.toLowerCase().replace(/[^a-z0-9]/gi, '')}`, 'Remove')
+        },
+      ]
+    }
+  });
 
 // illness disability
 const handleIllnessDisability = (input, data) => {
@@ -97,10 +110,10 @@ const handleIllnessStartDate = (input, data) => {
     return;
   }
   const lastEntry = data['illness-disability-rows'].length - 1;
-  const maybe = 
+  const maybe =
     [
       data['illness-disability-rows'][lastEntry][0],
-      {text: input['illness-start-date']},
+      { text: input['illness-start-date'] },
       data['illness-disability-rows'][lastEntry][2],
       data['illness-disability-rows'][lastEntry][3],
 
@@ -128,17 +141,32 @@ const handleAidsAdaptationsDifficulty = (input, data) => {
     return;
   }
   const lastEntry = data['aids-adaptations-rows'].length - 1;
-  const maybe = 
+  const maybe =
     [
       data['aids-adaptations-rows'][lastEntry][0],
-      {text: input['aids-adaptations-difficulty']},
+      { text: input['aids-adaptations-difficulty'] },
       data['aids-adaptations-rows'][lastEntry][2],
       data['aids-adaptations-rows'][lastEntry][3],
 
     ];
   data['aids-adaptations-rows'][lastEntry] = maybe;
-
 };
+
+
+// special-rules-form-upload
+const handleSpecialRules = (input, data) => {
+  if (!input || !data) {
+    return;
+  }
+  if (!data['special-rules-form-upload']) {
+    data['special-rules-form-upload'] = input['special-rules-form-upload'];
+    data['special-rules-form-upload-rows'] = [buildSummaryRow(input['special-rules-form-upload'])];
+  } else {
+    data['special-rules-form-upload'] = input['special-rules-form-upload'];
+    data['special-rules-form-upload-rows'].push(buildSummaryRow(input['special-rules-form-upload']));
+  }
+};
+
 
 module.exports = (req, res, next) => {
   if (!req.session.data) {
@@ -152,7 +180,9 @@ module.exports = (req, res, next) => {
     handleAidsAdaptations(req.body, req.session.data);
   } else if (req.body?.['nationality-other']) {
     handleNationalityOther(req.body, req.session.data);
-  }  else {
+  } else if (req.body?.['special-rules-form-upload']) {
+    handleSpecialRules(req.body, req.session.data);
+  } else {
     if (req.body?.['illness-start-date']) {
       handleIllnessStartDate(req.body, req.session.data);
     } else if (req.body?.['aids-adaptations-difficulty']) {

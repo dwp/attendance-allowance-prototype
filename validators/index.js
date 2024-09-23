@@ -4,6 +4,7 @@ const TextValidator = require('./text');
 const RadioValidator = require('./radio');
 const DropdownValidator = require('./dropdown');
 const MatchValidator = require('./match');
+const UploadValidator = require('./upload');
 
 module.exports = {
   CheckboxesValidator,
@@ -12,4 +13,5 @@ module.exports = {
   RadioValidator,
   DropdownValidator,
   MatchValidator,
+  UploadValidator
 };

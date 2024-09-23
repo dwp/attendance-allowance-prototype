@@ -4,6 +4,7 @@ const routeToNext = require('./routeToNext');
 const checkValidation = require('./checkValidation');
 const { conditionMatch } = require('../utils/conditionMatch');
 const validate = require('./validate');
+const autoClearData = require('./autoClearData');
 
 const handleValidation = (req, res, next, source, config) => {
   if (!config.validation) {
@@ -96,6 +97,8 @@ module.exports = (source, config, logic) => (req, res, next) => {
   handleEmptyPost(source, req);
   const isValid = handleValidation(req, res, next, source, config);
   if (!isValid) {
+    //remove invalid stuff from session
+    autoClearData(req, res, next);
     return res.redirect(`${req.version}${source}`);
   }
   const nextPage = handleRouting(config, req) ? handleRouting(config, req) : config.next;
