@@ -34,7 +34,7 @@
   {{ govukButton({
     text: "Continue without uploading",
     classes: "govuk-button--secondary",
-    href: "illness-disability"
+    href: "special-rules-form-added" if data['special-rules-form-upload-rows'].length > 0 else "illness-disability"
   }) }}
 
   <div class="govuk-inset-text">
