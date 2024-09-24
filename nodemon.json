@@ -2,12 +2,14 @@
   "restartable": "rs",
   "ignore": [
     ".git",
-    "node_modules/**/node_modules"
+    "node_modules/**/node_modules",
+    ".next"
   ],
   "verbose": true,
   "execMap": {
     "js": "node --harmony"
   },
+  "watch": ["views/**/*", "routes/**/*", "validators/**/*"],
   "env": {
     "NODE_ENV": "development"
   },
