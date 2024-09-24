@@ -8,6 +8,8 @@ class UploadValidator {
       maxLength: undefined,
       fileSize: undefined,
       fileType: undefined,
+      amount: undefined,
+      dupe: false,
     };
 
     Object.assign(this.options, options);
@@ -18,12 +20,13 @@ class UploadValidator {
       fileType: "The selected file must be a JPG, JPEG, PNG or PDF",
       fileSize: "The selected file must be smaller than 10MB",
       amount: "Upload no more than 2 files",
+      dupe: "Files must be unique",
     };
 
     Object.assign(this.errors, errors);
   }
 
-  validate(value, array) {
+  validate(value, array = []) {
     if (this.options.required && !value) {
       this.valid = false;
       this.error = {
@@ -62,13 +65,28 @@ class UploadValidator {
       }
     }
 
-    if (this.valid && array.length > 2) {
+    if (this.valid && this.options.amount && array?.length >= this.options.amount) {
       this.valid = false;
       this.error = {
         text: this.errors.amount,
         href: `#${this.options.name}`,
       }
     }
+
+    if (this.valid && this.options.dupe) {
+      const checkName = (name) => {
+        return value !== name?.key?.text;
+      }
+      const testArray = array.slice(0, -1);
+      this.valid = testArray.every(checkName);
+      if (!this.valid) {
+        this.error = {
+          text: this.errors.dupe,
+          href: `#${this.options.name}`,
+        }
+      }
+    }
+
 
     return {
       valid: this.valid,
