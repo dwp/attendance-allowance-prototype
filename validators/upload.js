@@ -65,7 +65,7 @@ class UploadValidator {
       }
     }
 
-    if (this.valid && this.options.amount && array?.length >= this.options.amount) {
+    if (this.valid && this.options.amount && value === 'yes' && array?.length >= this.options.amount) {
       this.valid = false;
       this.error = {
         text: this.errors.amount,
