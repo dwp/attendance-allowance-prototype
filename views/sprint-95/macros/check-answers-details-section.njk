@@ -494,7 +494,6 @@
   </section>
 
   <section class="Your health information">
-    {% if data['special-rules-declaration'] == 'yes' %}
       <h2 class="govuk-heading-m">
         Special rules for end of life
       </h2>
@@ -507,13 +506,14 @@
           <dd class="govuk-summary-list__value">
             {{ data['special-rules-declaration'] 
               | replace("yes", "Yes") 
+              | replace("no", "No") 
               | capitalize }}
           </dd>
           <dd class="govuk-summary-list__actions">
             {{ changeLink('special-rules-declaration') }}
           </dd>
         </div>
-      {% if data['special-rules-form-completed'] == 'yes' %}
+        {% if data['special-rules-form-completed'] %}
         <div class="govuk-summary-list__row special-rules-form">
           <dt class="govuk-summary-list__key">
             Has your doctor, consultant or specialist nurse completed an SR1 form?
@@ -569,15 +569,13 @@
             Your uploaded files
           </dt>
           <dd class="govuk-summary-list__value">
-            <p class="govuk-body">photo2.jpg<br/>
-            photo1.jpg</p>
+            {{ data['special-rules-form-upload'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             {{ changeLink('special-rules-form-added') }}
           </dd>
         </div>
       {% endif %}
-    {% endif %}
   </section>
   
 
@@ -607,25 +605,11 @@
   </section>
 
   <section class="other-health-information">
-    {% if data['special-rules-declaration'] == 'no' %}
+    {% if data['renal-dialysis'] %}
+    {% elif data['treatment-surgery']%}
       <h2 class="govuk-heading-m">
         Other health information
       </h2>
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row special-rules-declaration">
-          <dt class="govuk-summary-list__key">
-            Has your doctor, consultant or specialist nurse said you might 
-            have less than 12 months to live due to your condition?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['special-rules-declaration'] 
-              | replace("no", "No") 
-              | capitalize }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {{ changeLink('special-rules-declaration') }}
-          </dd>
-        </div>
         {% if data['renal-dialysis'] == 'yes' %}
           <div class="govuk-summary-list__row renal-dialysis">
             <dt class="govuk-summary-list__key">
