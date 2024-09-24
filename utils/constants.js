@@ -82,6 +82,8 @@ module.exports = {
     specialRulesFormType: 'special-rules-form-type',
     specialRulesFormGuidance: 'special-rules-form-guidance',
     specialRulesFormUpload: 'special-rules-form-upload',
+    specialRulesFormUploadRows: 'special-rules-form-upload-rows',
+    specialRulesFormRemove: 'special-rules-form-remove',
     specialRulesFormAdded: 'special-rules-form-added',
 
     // illness and disabilities
@@ -216,6 +218,7 @@ module.exports = {
     select: 'select',
     textInput: 'textInput',
     match: 'match',
+    upload: 'upload',
   },
   match: {
     value: 'value',

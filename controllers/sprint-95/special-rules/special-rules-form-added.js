@@ -22,9 +22,15 @@ const config = {
     },
   ],
   validation: {
-    type: validation.radios,
+    source: urls.specialRulesFormUpload,
+    rows: urls.specialRulesFormUploadRows,
+    type: validation.upload,
+    options: {
+      amount: 2
+    },
     errors: {
       required: "Select yes if you want to upload another file",
+      amount: "Upload no more than 2 files",
     },
   },
 };

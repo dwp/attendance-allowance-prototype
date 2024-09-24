@@ -79,6 +79,15 @@ router.use(`/${urls.specialRulesFormType}`, controllers.specialRulesFormType);
 router.use(`/${urls.specialRulesFormGuidance}`, controllers.specialRulesFormGuidance);
 router.use(`/${urls.specialRulesFormUpload}`, controllers.specialRulesFormUpload);
 router.use(`/${urls.specialRulesFormAdded}`, controllers.specialRulesFormAdded);
+router.use(`/${urls.specialRulesFormRemove}`, (req, res) => {
+  req.session.data['special-rules-form-upload'] = req.session.data['special-rules-form-upload'] = undefined;
+  req.session.data['special-rules-form-upload-rows'] = req.session.data['special-rules-form-upload-rows'].filter((e) => e?.key?.text.toLowerCase().replace(/[^a-z0-9]/gi, '') !== req?.query?.remove);
+  if (req.session.data['special-rules-form-upload-rows'].length > 0 ) {
+    return res.redirect(`${urls.specialRulesFormAdded}`);
+  }
+  return res.redirect(`${urls.specialRulesFormUpload}`);
+});
+
 
 // illness and disabilities
 router.use(`/${urls.illnessDisability}`, controllers.illnessDisability);
