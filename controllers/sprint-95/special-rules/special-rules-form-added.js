@@ -25,6 +25,7 @@ const config = {
     type: validation.radios,
     errors: {
       required: "Select yes if you want to upload another file",
+      amount: "Upload no more than 2 files",
     },
   },
 };

@@ -16,6 +16,12 @@
       rows: data['special-rules-form-upload-rows']
     }) }}
 
+    {% set uploadFilesLimit %}
+      <p class="govuk-body"> 
+        You can add up to 2.
+      </p>
+    {% endset %}
+
     {{ govukRadios({
       idPrefix: "special-rules-form-added",
       name: "special-rules-form-added",
@@ -25,6 +31,9 @@
           isPageHeading: true,
           classes: "govuk-fieldset__legend--m"
         }
+      },
+      hint: {
+      html: uploadFilesLimit
       },
       errorMessage: data.validation['special-rules-form-added'].error,
       items: [
