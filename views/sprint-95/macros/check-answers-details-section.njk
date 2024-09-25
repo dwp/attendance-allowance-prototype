@@ -569,7 +569,9 @@
             Your uploaded files
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['special-rules-form-upload'] }}
+            {% for key in data['special-rules-form-upload-rows'] %}
+            {{ key.key.text }} <br/><br/>
+            {% endfor %}
           </dd>
           <dd class="govuk-summary-list__actions">
             {{ changeLink('special-rules-form-added') }}
