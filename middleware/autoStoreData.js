@@ -158,14 +158,10 @@ const handleSpecialRules = (input, data) => {
   if (!input || !data) {
     return;
   }
-  if (!data['special-rules-form-upload']) {
-    data['special-rules-form-upload'] = input['special-rules-form-upload'];
-    data['special-rules-form-upload-rows'] = [buildSummaryRow(input['special-rules-form-upload'])];
-  } else {
+    data['special-rules-form-upload-rows'] = data['special-rules-form-upload-rows'] || [];
     data['special-rules-form-upload'] = input['special-rules-form-upload'];
     data['special-rules-form-upload-rows'].push(buildSummaryRow(input['special-rules-form-upload']));
-  }
-};
+  };
 
 
 module.exports = (req, res, next) => {
