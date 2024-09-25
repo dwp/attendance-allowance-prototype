@@ -28,17 +28,17 @@ const config = {
     type: validation.upload,
     options: {
       minLength: 1,
-      maxLength: 200,
+      maxLength: 255,
       fileSize: 10485760,
       fileType: ['jpg','jpeg', 'png', 'pdf'],
       dupe: true,
     },
     errors: {
       required: 'Select a file',
-      maxLength: "The name of your file should have 200 characters or less",
+      maxLength: "The name of your file must be 255 characters or less",
       fileType: "The selected file must be a JPG, JPEG, PNG or PDF",
       fileSize: "The selected file must be smaller than 10MB",
-      dupe: "We dupin",
+      dupe: "The selected file has already been uploaded",
     },
   },
 };
