@@ -513,72 +513,74 @@
             {{ changeLink('special-rules-declaration') }}
           </dd>
         </div>
-        {% if data['special-rules-form-completed'] %}
-        <div class="govuk-summary-list__row special-rules-form">
-          <dt class="govuk-summary-list__key">
-            Has your doctor, consultant or specialist nurse completed an SR1 form?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['special-rules-form-completed'] 
-              | replace("yes", "Yes") 
-              | replace("no", "No") 
-              | replace("unsure", "I do not know") 
-              | capitalize }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {{ changeLink('special-rules-form-completed') }}
-          </dd>
-        </div>
-      {% endif %}
-      {% if data['special-rules-form-sent'] %}
-        <div class="govuk-summary-list__row special-rules-form-sent">
-          <dt class="govuk-summary-list__key">
-            Has your doctor, consultant or specialist nurse sent your SR1 form to DWP?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['special-rules-form-sent'] 
-              | replace("yes", "Yes") 
-              | replace("no", "No") 
-              | replace("unsure", "I do not know") 
-              | capitalize }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {{ changeLink('special-rules-form-sent') }}
-          </dd>
-        </div>
-      {% endif %}
-      {% if data['special-rules-form-upload-option'] %}
-        <div class="govuk-summary-list__row special-rules-form-upload-option">
-          <dt class="govuk-summary-list__key">
-            Do you want to upload your SR1 form?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['special-rules-form-upload-option'] 
-              | replace("yes", "Yes") 
-              | replace("no", "No") 
-              | capitalize }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {{ changeLink('special-rules-form--upload-option') }}
-          </dd>
-        </div>
-      {% endif %}
-      {% if data['special-rules-form-upload-option'] == 'yes' %}
-        <div class="govuk-summary-list__row special-rules-form-upload">
-          <dt class="govuk-summary-list__key">
-            Your uploaded files
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% for key in data['special-rules-form-upload-rows'] %}
-            {{ key.key.text }} <br/><br/>
-            {% endfor %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {{ changeLink('special-rules-form-added') }}
-          </dd>
-        </div>
-      {% endif %}
-  </section>
+        {% if data['special-rules-declaration'] == "yes" %}
+          {% if data['special-rules-form-completed'] %}
+          <div class="govuk-summary-list__row special-rules-form">
+            <dt class="govuk-summary-list__key">
+              Has your doctor, consultant or specialist nurse completed an SR1 form?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['special-rules-form-completed'] 
+                | replace("yes", "Yes") 
+                | replace("no", "No") 
+                | replace("unsure", "I do not know") 
+                | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {{ changeLink('special-rules-form-completed') }}
+            </dd>
+          </div>
+          {% endif %}
+          {% if data['special-rules-form-sent'] %}
+            <div class="govuk-summary-list__row special-rules-form-sent">
+              <dt class="govuk-summary-list__key">
+                Has your doctor, consultant or specialist nurse sent your SR1 form to DWP?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['special-rules-form-sent'] 
+                  | replace("yes", "Yes") 
+                  | replace("no", "No") 
+                  | replace("unsure", "I do not know") 
+                  | capitalize }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                {{ changeLink('special-rules-form-sent') }}
+              </dd>
+            </div>
+          {% endif %}
+          {% if data['special-rules-form-upload-option'] %}
+            <div class="govuk-summary-list__row special-rules-form-upload-option">
+              <dt class="govuk-summary-list__key">
+                Do you want to upload your SR1 form?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['special-rules-form-upload-option'] 
+                  | replace("yes", "Yes") 
+                  | replace("no", "No") 
+                  | capitalize }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                {{ changeLink('special-rules-form--upload-option') }}
+              </dd>
+            </div>
+          {% endif %}
+          {% if data['special-rules-form-upload-option'] == 'yes' %}
+            <div class="govuk-summary-list__row special-rules-form-upload">
+              <dt class="govuk-summary-list__key">
+                Your uploaded files
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% for key in data['special-rules-form-upload-rows'] %}
+                {{ key.key.text }} <br/>
+                {% endfor %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                {{ changeLink('special-rules-form-added') }}
+              </dd>
+            </div>
+          {% endif %}
+        {% endif %}
+    </section>
   
 
   <section class="Your health information">
