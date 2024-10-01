@@ -15,6 +15,7 @@ const autoStoreDataMiddleware = require('./middleware/autoStoreData');
 const sessionMiddleware = require('./middleware/session');
 const { handleGetRequest } = require('./middleware/handleGetRequest');
 const locale = require('./middleware/locale');
+const journeyType = require('./middleware/journeyType');
 
 const actuatorRoutes = require('./routes/actuator');
 const notFoundRoutes = require('./routes/errors/404');
@@ -43,6 +44,7 @@ app.use(bodyParser.json());
 app.use(sessionMiddleware());
 app.use(autoStoreDataMiddleware);
 app.use(locale());
+app.use(journeyType());
 
 // [Journey routes] (do not edit this comment, it is used in automation)
 app.use('/sprint-95/', setVersionMiddleware('/sprint-95/'), require('./routes/sprint-95'));

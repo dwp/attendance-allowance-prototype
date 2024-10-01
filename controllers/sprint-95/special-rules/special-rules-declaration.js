@@ -22,7 +22,7 @@ const config = {
       condition: {
         field: urls.specialRulesDeclaration,
         value: "no",
-        sessionValue: "SREL",
+        sessionValue: "SPECIAL_RULES",
         match: match.sessionAndValue,
       },
     },
