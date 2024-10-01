@@ -68,10 +68,11 @@ const conditionMatch = (routingConfig, req) => {
             }
           }
         }
+        
         // check value in session
       } else if (routingCondition.condition?.match === match.session) {
         if (routingCondition.condition.value) {
-          if (req.session.locale === routingCondition.condition.value) {
+          if (req.session.journeyType === routingCondition.condition.value) {
             routingMatch = true;
             matchedLink = routingCondition.page;
           }
@@ -79,7 +80,7 @@ const conditionMatch = (routingConfig, req) => {
         // check value in session and page value
       } else if (routingCondition.condition?.match === match.sessionAndValue) {
         if (routingCondition.condition.value) {
-          if (req.session.locale === routingCondition.condition.sessionValue) {
+          if (req.session.journeyType === routingCondition.condition.sessionValue) {
             if (req.session.data[`${routingCondition.condition.field}`] === routingCondition.condition.value) {
               routingMatch = true;
               matchedLink = routingCondition.page;
