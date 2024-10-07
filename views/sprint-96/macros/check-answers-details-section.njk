@@ -608,12 +608,13 @@
     </dl>
   </section>
 
-  <section class="other-health-information">
-    {% if data['renal-dialysis'] %}
-    {% elif data['treatment-surgery']%}
+  
+  {% if data['special-rules-declaration'] == 'no' %}
+    <section class="other-health-information">
       <h2 class="govuk-heading-m">
         Other health information
       </h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         {% if data['renal-dialysis'] == 'yes' %}
           <div class="govuk-summary-list__row renal-dialysis">
             <dt class="govuk-summary-list__key">
@@ -715,8 +716,8 @@
           </div>
         {% endif %}
       </dl>
-    {% endif %}
-  </section>
+    </section>
+  {% endif %}
 
   <section class="consent">
     <h2 class="govuk-heading-m">
