@@ -20,45 +20,10 @@ const config = {
     {
       page: urls.specialRulesFormCompleted,
       condition: {
-        field: urls.specialRulesFormCompleted,
-        value: "no",
-        match: match.value,
-      },
-    },
-    {
-      page: urls.specialRulesFormCompleted,
-      condition: {
-        field: urls.specialRulesFormCompleted,
-        value: "unsure",
-        match: match.value,
-      },
-    },
-    {
-      page: urls.specialRulesFormSent,
-      condition: {
-        field: urls.specialRulesFormSent,
+        field: urls.specialRulesDeclaration,
         value: "yes",
         match: match.value,
       },
-    },
-    {
-      page: urls.specialRulesFormUploadOption,
-      condition: {
-        field: urls.specialRulesFormUploadOption,
-        value: "no",
-        match: match.value,
-      },
-    },
-    {
-      page: urls.specialRulesFormAdded,
-      condition: {
-        field: urls.specialRulesFormAdded,
-        value: "no",
-        match: match.value,
-      },
-    },
-    {
-      page: urls.specialRulesFormUpload,
     },
   ],
   validation: {
