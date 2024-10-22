@@ -56,12 +56,40 @@
             If you do have a carer, they could get <a href="#" class="govuk-link">Carer’s Allowance</a> if you have substantial caring needs.
           </div>
 
-            {{ govukPagination({
-              next: {
-                labelText: "What you'll get",
-                href: "what-youll-get"
-              }
-            }) }}
+          <h3 class="govuk-heading-m govuk-!-static-padding-top-5">If you live in Scotland</h3>
+
+          <p class="govuk-body">
+            You will need to <a href="https://www.mygov.scot/pension-age-disability-payment" class="govuk-link">
+            apply for Pension Age Disability Payment</a> instead of Attendance Allowance if you live in:
+          </p>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Aberdeen City</li>
+            <li>Argyll and Bute</li>
+            <li>Highland</li>
+            <li>Orkney Islands</li>
+            <li>Shetland Islands</li>
+          </ul>
+
+          <div class="govuk-inset-text">
+            If you live in one of these areas and you already get Attendance Allowance, 
+            you do not need to apply for Pension Age Disability Payment.
+          </div>
+
+          <p class="govuk-body">If you live in another part of Scotland, apply for Attendance Allowance.</p>
+
+          <h4 class="govuk-heading-s">If you currently get Attendance Allowance</h4>
+
+          <p class="govuk-body">You’ll automatically be moved to Pension Age Disability Payment from spring 2025.</p>
+
+          <p class="govuk-body">When the move begins, you’ll get letters from the Department for Work and Pensions (DWP) and Social Security Scotland.</p>
+
+          {{ govukPagination({
+            next: {
+              labelText: "What you'll get",
+              href: "what-youll-get"
+            }
+          }) }}
 
           <p class="govuk-body"><a href="#" class="govuk-link">View a printable version of the whole guide</a></p> 
         </div>
