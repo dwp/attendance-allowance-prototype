@@ -46,6 +46,8 @@ module.exports = {
     nationalityOther: 'nationality-other',
     livingInUk: 'living-in-uk',
     residenceCountry: 'residence-country',
+    previousResidenceScotland: 'previous-residence-scotland',
+    previousClaimPadp: 'previous-claim-padp',
     residenceCountryNorthernIreland: 'residence-country-northern-ireland',
     residenceCountryIneligible: 'residence-country-ineligible',
     countryOutsideUKDuration: 'country-outside-uk-duration',

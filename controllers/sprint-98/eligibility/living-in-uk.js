@@ -7,7 +7,27 @@ const {
 
 const config = {
   name: urls.livingInUk,
-  previous: urls.residenceCountry,
+  previous: [
+    {
+      page: urls.previousClaimPadp,
+      condition: {
+        field: urls.residenceCountry,
+        value: "scotland",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.previousClaimPadp,
+      condition: {
+        field: urls.previousResidenceScotland,
+        value: "yes",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.previousResidenceScotland,
+    },
+  ],
   next: urls.countryOutsideUKDuration,
   validation: {
     type: validation.radios,

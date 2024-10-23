@@ -6,8 +6,21 @@ const {
 } = require("../../../utils/controller");
 
 const config = {
-  name: urls.countryOutsideUKDuration,
+  name: urls.previousClaimPadp,
   previous: [
+    {
+      page: urls.residenceCountry,
+      condition: {
+        field: urls.residenceCountry,
+        value: "scotland",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.previousResidenceScotland,
+    },
+  ],
+  next: [
     {
       page: urls.livingInUk,
       condition: {
@@ -49,43 +62,14 @@ const config = {
       },
     },
     {
-      page: urls.previousClaimPadp,
-      condition: {
-        field: urls.previousResidenceScotland,
-        value: "yes",
-        match: match.value,
-      },
-    },
-    {
-      page: urls.previousClaimPadp,
-      condition: {
-        field: urls.residenceCountry,
-        value: "scotland",
-        match: match.value,
-      },
-    },
-    {
-      page: urls.previousResidenceScotland,
-    },
-  ],
-  next: [
-    {
-      page: urls.countryOutsideUKDurationInelgible,
-      condition: {
-        field: urls.countryOutsideUKDuration,
-        value: "yes",
-        match: match.value,
-      },
-    },
-    {
-      page: urls.countryOutsideUKBenefits,
+      page: urls.countryOutsideUKDuration,
     },
   ],
   validation: {
     type: validation.radios,
     errors: {
       required:
-        "Select yes if you have been outside the UK more than 12 months in the last 3 years",
+        "Select yes if you are getting, or have previously made a claim for, Pension Age Disability Payment",
     },
   },
 };
