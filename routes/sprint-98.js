@@ -46,6 +46,8 @@ router.use(`/${urls.nationality}`, controllers.nationality);
 router.use(`/${urls.nationalityOther}`, controllers.nationalityOther);
 router.use(`/${urls.livingInUk}`, controllers.livingInUk);
 router.use(`/${urls.residenceCountry}`, controllers.residenceCountry);
+router.use(`/${urls.previousResidenceScotland}`, controllers.previousResidenceScotland);
+router.use(`/${urls.previousClaimPadp}`, controllers.previousClaimPadp);
 router.use(`/${urls.countryOutsideUKDuration}`, controllers.countryOutsideUkDuration);
 router.use(`/${urls.countryOutsideUKBenefits}`, controllers.countryOutsideUkBenefits);
 router.use(`/${urls.countryOutsideUKWorking}`, controllers.countryOutsideUkWorking);

@@ -6,8 +6,17 @@ const {
 } = require("../../../utils/controller");
 
 const config = {
-  name: urls.countryOutsideUKDuration,
-  previous: [
+  name: urls.previousResidenceScotland,
+  previous: urls.residenceCountry,
+  next: [
+    {
+      page: urls.previousClaimPadp,
+      condition: {
+        field: urls.previousResidenceScotland,
+        value: 'yes',
+        match: match.value,
+      },
+    },
     {
       page: urls.livingInUk,
       condition: {
@@ -49,45 +58,38 @@ const config = {
       },
     },
     {
-      page: urls.previousClaimPadp,
+      page: urls.countryOutsideUKDuration,
+    },
+    
+  ],
+  validation: [
+    {
+      name: "previous-residence-scotland",
+      type: validation.radios,
+      errors: {
+        required:
+          "Select yes if you have moved from Scotland since 21 October 2024",
+      },
+    },
+    {
+      name: "moved-from-scotland-date",
+      type: validation.dateInput,
       condition: {
-        field: urls.previousResidenceScotland,
+        field: "previous-residence-scotland",
         value: "yes",
-        match: match.value,
       },
-    },
-    {
-      page: urls.previousClaimPadp,
-      condition: {
-        field: urls.residenceCountry,
-        value: "scotland",
-        match: match.value,
+      errors: {
+        required: 'Enter a date',
+        requiredDay: 'Date must include a day',
+        requiredMonth: 'Date must include a month',
+        requiredYear: 'Date must include a year',
+        validDay: 'Enter a real date',
+        validMonth: 'Enter a real date',
+        validYear: 'Enter a real date',
+        invalidDate: 'Enter a real date',
       },
-    },
-    {
-      page: urls.previousResidenceScotland,
     },
   ],
-  next: [
-    {
-      page: urls.countryOutsideUKDurationInelgible,
-      condition: {
-        field: urls.countryOutsideUKDuration,
-        value: "yes",
-        match: match.value,
-      },
-    },
-    {
-      page: urls.countryOutsideUKBenefits,
-    },
-  ],
-  validation: {
-    type: validation.radios,
-    errors: {
-      required:
-        "Select yes if you have been outside the UK more than 12 months in the last 3 years",
-    },
-  },
 };
 
 module.exports = registerController(config.name, config);
