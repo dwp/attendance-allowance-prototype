@@ -36,6 +36,8 @@ const nationality = require('./eligibility/nationality');
 const nationalityOther = require('./eligibility/nationality-other');
 const livingInUk = require('./eligibility/living-in-uk');
 const residenceCountry = require('./eligibility/residence-country');
+const previousResidenceScotland = require('./eligibility/previous-residence-scotland');
+const previousClaimPadp = require('./eligibility/previous-claim-padp');
 const countryOutsideUkDuration = require('./eligibility/country-outside-uk-duration');
 const countryOutsideUkBenefits = require('./eligibility/country-outside-uk-benefits');
 const countryOutsideUkWorking = require('./eligibility/country-outside-uk-working');
@@ -224,6 +226,8 @@ module.exports = {
   adpIneligible,
   attendanceAllowanceIneligible,
   residenceCountry,
+  previousResidenceScotland,
+  previousClaimPadp,
   countryOutsideUkDuration,
   countryOutsideUkBenefits,
   countryOutsideUkWorking,
