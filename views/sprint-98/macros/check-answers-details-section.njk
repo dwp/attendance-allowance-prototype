@@ -257,6 +257,56 @@
         </dd>
       </div>
 
+      {% if data['residence-country'] == 'england' or 'wales' %}
+        <div class="govuk-summary-list__row previous-residence-scotland">
+          <dt class="govuk-summary-list__key">
+            Have you moved from Scotland to
+            {{ data['residence-country']
+             | replace("england", "England")
+             | replace("wales", "Wales") }} 
+            since 21 October 2024?
+          </dt>
+          <dd class="govuk-summary-list__value">
+          {{ data['previous-residence-scotland']
+          | replace("yes", "Yes")
+          | replace("no", "No") }}
+        </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('previous-residence-scotland') }}
+          </dd>
+        </div>
+      {% endif %}
+
+      {% if data['previous-residence-scotland'] == 'yes' %}
+        <div class="govuk-summary-list__row moved-from-scotland-date">
+          <dt class="govuk-summary-list__key">
+            When did you move from Scotland?
+          </dt>
+          <dd class="govuk-summary-list__value">
+          {{ rewordDate(data['moved-from-scotland-date-day'], data['moved-from-scotland-date-month'], data['moved-from-scotland-date-year']) }}
+        </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('previous-residence-scotland') }}
+          </dd>
+        </div>
+      {% endif %}
+
+      {% if data['previous-residence-scotland'] == 'yes' %}
+        <div class="govuk-summary-list__row previous-claim-padp">
+          <dt class="govuk-summary-list__key">
+            Are you getting, or have you previously made a claim for, Pension Age Disability Payment?
+          </dt>
+          <dd class="govuk-summary-list__value">
+          {{ data['previous-claim-padp']
+          | replace("yes", "Yes")
+          | replace("no", "No") }}
+        </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('previous-claim-padp') }}
+          </dd>
+        </div>
+      {% endif %}
+
       {% if data['nationality'] == 'other' %}
         <div class="govuk-summary-list__row living-in-uk">
           <dt class="govuk-summary-list__key">
