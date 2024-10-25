@@ -1,13 +1,26 @@
 const {
   urls,
+  match,
   validation,
   registerController,
 } = require('../../../utils/controller');
 
 const config = {
   name: urls.homeAddressManual,
-  next: urls.careHomeHospital,
-  previous: urls.homeAddressPostcode,
+  next: [
+    {
+      page: urls.countryOutsideUKDuration,
+      condition: {
+        field: urls.residenceCountry,
+        value: 'scotland',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.careHomeHospital,
+    },
+  ],
+  previous: urls.homeAddressSelect,
   validation: [
     {
       name: 'home-address-manual-line-one',

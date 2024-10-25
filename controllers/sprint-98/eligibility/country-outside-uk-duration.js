@@ -9,6 +9,14 @@ const config = {
   name: urls.countryOutsideUKDuration,
   previous: [
     {
+      page: urls.homeAddressSelect,
+      condition: {
+        field: urls.residenceCountry,
+        value: 'scotland',
+        match: match.value,
+      },
+    },
+    {
       page: urls.livingInUk,
       condition: {
         field: urls.nationalityOther,
@@ -53,14 +61,6 @@ const config = {
       condition: {
         field: urls.previousResidenceScotland,
         value: "yes",
-        match: match.value,
-      },
-    },
-    {
-      page: urls.previousClaimPadp,
-      condition: {
-        field: urls.residenceCountry,
-        value: "scotland",
         match: match.value,
       },
     },

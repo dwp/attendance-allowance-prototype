@@ -7,7 +7,19 @@ const {
 
 const config = {
   name: urls.careHomeHospital,
-  previous: urls.homeAddressSelect,
+  previous: [
+    {
+      page: urls.fullName,
+      condition: {
+        field: urls.residenceCountry,
+        value: 'scotland',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.homeAddressSelect,
+    },
+  ],
   next: [
     {
       page: urls.hospitalAddress,
