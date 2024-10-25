@@ -87,6 +87,7 @@ const config = {
         validMonth: 'Enter a real date',
         validYear: 'Enter a real date',
         invalidDate: 'Enter a real date',
+        beforeDate: 'Enter a date that is later than 21 October 2024',
       },
     },
   ],
