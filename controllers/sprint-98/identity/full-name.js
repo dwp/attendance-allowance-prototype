@@ -1,14 +1,26 @@
 const {
   urls,
-  options,
   validation,
+  match,
   registerController,
 } = require("../../../utils/controller");
 
 const config = {
   name: urls.fullName,
   previous: urls.nationalInsurance,
-  next: urls.homeAddressPostcode,
+  next: [
+    {
+      page: urls.careHomeHospital,
+      condition: {
+        field: urls.residenceCountry,
+        value: 'scotland',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.homeAddressPostcode,
+    },
+  ],
   validation: [
     {
       name: "first-name",

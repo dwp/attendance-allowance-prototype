@@ -30,7 +30,7 @@ const config = {
       },
     },
     {
-      page: urls.previousClaimPadp,
+      page: urls.homeAddressPostcode,
       condition: {
         field: urls.residenceCountry,
         value: 'scotland',

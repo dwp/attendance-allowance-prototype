@@ -30,6 +30,8 @@
 {% endblock %}
 
 {% block postForm %}
+{% if data['residence-country'] == 'scotland' %}
+    {% else %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <p class="govuk-body">
@@ -39,6 +41,7 @@
       </p>
     </div>
   </div>
+  {% endif %}
   {% include './macros/assisted-digital-details.njk' %}
 
 {% endblock %}

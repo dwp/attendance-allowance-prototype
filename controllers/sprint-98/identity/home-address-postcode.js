@@ -1,12 +1,25 @@
 const {
   urls,
   validation,
+  match,
   registerController,
 } = require("../../../utils/controller");
 
 const config = {
   name: urls.homeAddressPostcode,
-  previous: urls.fullName,
+  previous: [
+    {
+      page: urls.residenceCountry,
+      condition: {
+        field: urls.residenceCountry,
+        value: 'scotland',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.fullName,
+    },
+  ],
   next: urls.homeAddressSelect,
   validation: {
     type: validation.textInput,
