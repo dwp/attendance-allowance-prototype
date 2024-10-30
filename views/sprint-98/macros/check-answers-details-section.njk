@@ -257,13 +257,13 @@
         </dd>
       </div>
 
-      {% if data['residence-country'] == 'england' or 'wales' %}
+      {% if data['residence-country'] == 'england' or data['residence-country'] == 'wales' %}
         <div class="govuk-summary-list__row previous-residence-scotland">
           <dt class="govuk-summary-list__key">
             Have you moved from Scotland to
             {{ data['residence-country']
-             | replace("england", "England")
-             | replace("wales", "Wales") }} 
+            | replace("england", "England")
+            | replace("wales", "Wales") }} 
             since 21 October 2024?
           </dt>
           <dd class="govuk-summary-list__value">

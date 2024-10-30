@@ -78,6 +78,7 @@ const config = {
         field: "previous-residence-scotland",
         value: "yes",
       },
+
       errors: {
         required: 'Enter a date',
         requiredDay: 'Date must include a day',
