@@ -17,7 +17,7 @@ const config = {
       },
     },
     {
-      page: urls.consent,
+      page: urls.trea,
       condition: {
         field: urls.specialRulesDeclaration,
         value: "yes",
