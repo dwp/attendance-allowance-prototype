@@ -120,6 +120,7 @@ router.use(`/${urls.treatmentSurgeryInformation}`, controllers.treatmentSurgeryI
 
 // consent
 router.use(`/${urls.consent}`, controllers.consent);
+router.use(`/${urls.gpDetails}`, controllers.gpDetails);
 router.use(`/${urls.surgeryMedicalCentre}`, controllers.surgeryMedicalCentre);
 router.use(`/${urls.surgeryMedicalCentreOutsideUk}`, controllers.surgeryMedicalCentreOutsideUk);
 router.use(`/${urls.evidence}`, controllers.evidence);

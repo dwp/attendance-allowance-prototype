@@ -96,6 +96,7 @@ const treatmentSurgeryInformation = require('./surgery-or-treatment/treatment-su
 
 // consent
 const consent = require('./consent/consent');
+const gpDetails = require('./consent/gp-details');
 const surgeryMedicalCentre = require('./consent/surgery-medical-centre');
 const surgeryMedicalCentreOutsideUk = require('./consent/surgery-medical-centre-outside-uk');
 const evidence = require('./consent/evidence');
@@ -262,6 +263,7 @@ module.exports = {
   illnessDisabilityAdded,
   illnessDisabilityManual,
   consent,
+  gpDetails,
   surgeryMedicalCentre,
   surgeryMedicalCentreOutsideUk,
   evidence,

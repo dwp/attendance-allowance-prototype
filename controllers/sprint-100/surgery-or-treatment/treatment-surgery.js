@@ -18,14 +18,6 @@ const config = {
       },
     },
     {
-      page: urls.checkAnswersSpecialRules,
-      condition: {
-        field: urls.specialRulesDeclaration,
-        value: "yes",
-        match: match.value,
-      },
-    },
-    {
       page: urls.consent,
     },
   ],

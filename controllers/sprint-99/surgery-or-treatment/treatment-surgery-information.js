@@ -8,20 +8,7 @@ const {
 const config = {
   name: urls.treatmentSurgeryInformation,
   previous: urls.treatmentSurgery,
-  next: [
-    {
-      page: urls.checkAnswersSpecialRules,
-      condition: {
-        field: urls.specialRulesDeclaration,
-        value: 'yes',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.consent,
-    },
-  ],
-
+  next: urls.consent,
   validation: {
     type: validation.textInput,
     options: {
