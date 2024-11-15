@@ -109,6 +109,7 @@ module.exports = {
 
     // consent
     consent: 'consent',
+    gpDetails: 'gp-details',
     surgeryMedicalCentre: 'surgery-medical-centre',
     surgeryMedicalCentreOutsideUk: 'surgery-medical-centre-outside-uk',
     evidence: 'evidence',

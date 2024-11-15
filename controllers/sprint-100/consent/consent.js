@@ -10,14 +10,6 @@ const {
     name: urls.consent,
     previous: [
       {
-        page: urls.illnessDisabilityAdded,
-        condition: {
-          field: urls.specialRulesDeclaration,
-          value: 'yes',
-          match: match.value,
-        },
-      },
-      {
         page: urls.treatmentSurgeryInformation,
         condition: {
           field: urls.treatmentSurgery,
@@ -31,7 +23,7 @@ const {
     ],
     next: [
       {
-        page: urls.surgeryMedicalCentre,
+        page: urls.gpDetails,
         condition: {
           field: urls.consent,
           value: 'yes',
