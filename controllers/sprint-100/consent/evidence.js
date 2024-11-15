@@ -8,7 +8,7 @@ const {
     name: urls.evidence,
     previous: [
       {
-        page: urls.surgeryMedicalCentre,
+        page: urls.gpDetails,
         condition: {
           field: urls.consent,
           value: 'yes',

@@ -788,36 +788,42 @@
         </dd>
       </div>
       {% endif %}
-      {% if data['surgery-medical-centre-name'] %}
-        <div class="govuk-summary-list__row surgery-medical-centre-name">
+      {% if data['consent'] == 'yes' %}
+        <div class="govuk-summary-list__row gp-surgery-name">
           <dt class="govuk-summary-list__key">
-            What is the name of your GP surgery or medical centre?
+            GP surgery or medical centre
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['surgery-medical-centre-name'] }} <br/>
-            {% if data['surgery-medical-centre-postcode'] %}
-              {{ data['surgery-medical-centre-postcode'] }} <br/>
-            {% endif %}
+            {{ data['gp-surgery-name'] }} 
           </dd>
           <dd class="govuk-summary-list__actions">
-          {{ changeLink('surgery-medical-centre') }}
+          {{ changeLink('gp-details') }}
         </dd>
         </div>
-      {% endif %} 
-      {% if data['surgery-medical-centre-outside-uk-name'] %}
-        <div class="govuk-summary-list__row surgery-medical-centre-outside-uk">
+      {% if data['gp-name'] %}
+        <div class="govuk-summary-list__row gp-name">
           <dt class="govuk-summary-list__key">
-            Enter the name of your GP surgery or medical centre outside of the UK
+            Name of GP
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['surgery-medical-centre-outside-uk-name'] }} <br/>
-            {{ data['surgery-medical-centre-outside-uk-town-city'] }} <br/>
-            {{ data['surgery-medical-centre-outside-uk-country'] }} 
+            {{ data['gp-name'] }} 
           </dd>
           <dd class="govuk-summary-list__actions">
-          {{ changeLink('surgery-medical-centre-outside-uk') }}
-          </dd>
+          {{ changeLink('gp-details') }}
+        </dd>
         </div>
-      {% endif %}  
+      {% endif %}
+        <div class="govuk-summary-list__row gp-telephone">
+          <dt class="govuk-summary-list__key">
+            Telephone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['gp-telephone'] }} 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          {{ changeLink('gp-details') }}
+        </dd>
+        </div>
+      {% endif %}
   </section>
 {% endmacro %}
