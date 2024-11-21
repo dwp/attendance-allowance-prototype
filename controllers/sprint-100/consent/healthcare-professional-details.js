@@ -1,43 +1,30 @@
 const {
   urls,
   validation,
-  match,
   registerController,
 } = require("../../../utils/controller");
 
 const config = {
-  name: urls.gpDetails,
-  previous: urls.consent,
-  next: [
-    {
-      page: urls.healthcareProfessionalAdd,
-      condition: {
-        field: urls.specialRulesDeclaration,
-        value: "yes",
-        match: match.value,
-      },
-    },
-    {
-      page: urls.evidence,
-    },
-  ],
+  name: urls.healthcareProfessionalDetails,
+  previous: urls.healthcareProfessionalOptions,
+  next: urls.checkAnswersDetails,
   validation: [
     {
-      name: "gp-surgery-name",
+      name: "healthcare-professional-name",
       type: validation.textInput,
       options: {
         minLength: 1,
-        maxLength: 150,
+        maxLength: 50,
       },
       errors: {
-        required: "Enter your GP surgery or medical centre",
+        required: "Enter their name",
         maxLength:
-          "Enter your GP surgery or medical centre in 150 characters or less",
+          "Enter their name in 50 characters or less",
       },
     },
 
     {
-      name: "gp-telephone",
+      name: "healthcare-professional-telephone",
       type: validation.textInput,
       options: {
         minLength: 5,
