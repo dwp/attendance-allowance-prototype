@@ -4,8 +4,8 @@
 
 {% block form %}
   
-  {% if data['special-rules-declaration'] == 'no' %}
-    <a href="evidence" class="govuk-back-link">Back</a>
+  {% if data['healthcare-professional-add'] == 'yes' %}
+    <a href="healthcare-professional-details" class="govuk-back-link">Back</a>
   {% elif data['consent'] == 'no' %}
     <a href="consent" class="govuk-back-link">Back</a>
   {% else %}
