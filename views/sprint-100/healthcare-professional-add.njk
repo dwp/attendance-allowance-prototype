@@ -6,26 +6,26 @@
 {% block form %}
 
  {{ govukRadios({
-  idPrefix: "email-submit",
-  name: "email-submit",
+  idPrefix: "healthcare-professional-add",
+  name: "healthcare-professional-add",
   fieldset: {
     legend: {
-      text: "Should we send an email to confirm you have submitted an application?",
+      text: "Do you want to add contact details for another healthcare professional?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
   },
-  errorMessage: data.validation['email-submit'].error,
+  errorMessage: data.validation['healthcare-professional-add'].error,
   items: [
     {
       value: "yes",
       text: "Yes",
-      checked: true if data["email-submit"] === "yes"
+      checked: true if data["healthcare-professional-add"] === "yes"
     },
     {
       value: "no",
       text: "No",
-      checked: true if data["email-submit"] === "no"
+      checked: true if data["healthcare-professional-add"] === "no"
     }
   ]
  }) }}

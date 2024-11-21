@@ -773,6 +773,7 @@
       Your healthcare professionals
     </h2>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+     
       {% if data['consent'] %}
       <div class="govuk-summary-list__row consent">
         <dt class="govuk-summary-list__key">
@@ -788,6 +789,7 @@
         </dd>
       </div>
       {% endif %}
+     
       {% if data['consent'] == 'yes' %}
         <div class="govuk-summary-list__row gp-surgery-name">
           <dt class="govuk-summary-list__key">
@@ -800,6 +802,8 @@
           {{ changeLink('gp-details') }}
         </dd>
         </div>
+      {% endif %}
+     
       {% if data['gp-name'] %}
         <div class="govuk-summary-list__row gp-name">
           <dt class="govuk-summary-list__key">
@@ -813,6 +817,8 @@
         </dd>
         </div>
       {% endif %}
+
+      {% if data['gp-telephone'] %}
         <div class="govuk-summary-list__row gp-telephone">
           <dt class="govuk-summary-list__key">
             Telephone number
@@ -824,6 +830,96 @@
           {{ changeLink('gp-details') }}
         </dd>
         </div>
+      {% endif %}
+      
+      {% if data['healthcare-professional-add'] %}
+        <div class="govuk-summary-list__row healthcare-professional-add">
+          <dt class="govuk-summary-list__key">
+            Do you want to add contact details for another healthcare professional?
+          </dt>
+          <dd class="govuk-summary-list__value">
+          {{ data['healthcare-professional-add'] 
+          | replace("yes", "Yes") 
+          | replace("no", "No") }}
+        </dd>
+          <dd class="govuk-summary-list__actions">
+          {{ changeLink('healthcare-professional-add') }}
+        </dd>
+        </div>
+      {% endif %}
+
+      {% if data['healthcare-professional-add'] == "yes" %}
+          <div class="govuk-summary-list__row healthcare-professional-options">
+            <dt class="govuk-summary-list__key">
+              Who do you want to add details for?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['healthcare-professional-options']
+                | replace("consultant", "Consultant")
+                | replace("specialist-doctor", "Specialist doctor")
+                | replace("district-specialist-nurse", "District or specialist nurse")
+                | replace("other-healthcare-professional", "Other healthcare professional") }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            {{ changeLink('healthcare-professional-options') }}
+          </dd>
+          </div>
+
+        {% if data['other-healthcare-professional-who'] %}
+          <div class="govuk-summary-list__row care-home-funding-who">
+              <dt class="govuk-summary-list__key">
+                  Their profession or job title
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  {{ data['other-healthcare-professional-who'] | capitalize }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                  {{ changeLink('healthcare-professional-options') }}
+              </dd>
+          </div>
+        {% endif %}
+
+        {% if data['healthcare-professional-name'] %}
+          <div class="govuk-summary-list__row healthcare-professional-name">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['healthcare-professional-name'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            {{ changeLink('healthcare-professional-details') }}
+          </dd>
+          </div>
+        {% endif %}
+      
+        {% if data['place-of-work'] %}
+          <div class="govuk-summary-list__row place-of-work">
+            <dt class="govuk-summary-list__key">
+              Their place of work
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['place-of-work'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            {{ changeLink('healthcare-professional-details') }}
+          </dd>
+          </div>
+        {% endif %}
+
+        {% if data['healthcare-professional-telephone'] %}
+          <div class="govuk-summary-list__row healthcare-professional-telephone">
+            <dt class="govuk-summary-list__key">
+              Telephone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['healthcare-professional-telephone'] }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            {{ changeLink('healthcare-professional-details') }}
+          </dd>
+          </div>
+        {% endif %}
       {% endif %}
   </section>
 {% endmacro %}

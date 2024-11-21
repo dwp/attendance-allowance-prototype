@@ -1,3 +1,5 @@
+
+
 module.exports = {
   urls: {
     // start
@@ -110,6 +112,9 @@ module.exports = {
     // consent
     consent: 'consent',
     gpDetails: 'gp-details',
+    healthcareProfessionalAdd: 'healthcare-professional-add',
+    healthcareProfessionalOptions: 'healthcare-professional-options',
+    healthcareProfessionalDetails: 'healthcare-professional-details',
     surgeryMedicalCentre: 'surgery-medical-centre',
     surgeryMedicalCentreOutsideUk: 'surgery-medical-centre-outside-uk',
     evidence: 'evidence',
