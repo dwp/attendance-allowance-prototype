@@ -31,7 +31,7 @@ const config = {
       name: "healthcare-professional-options",
       type: validation.radios,
       errors: {
-        required: "Select who you want to add details for",
+        required: "Select who you want to add contact details for",
       },
     },
   ],
