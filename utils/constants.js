@@ -1,5 +1,3 @@
-
-
 module.exports = {
   urls: {
     // start
@@ -89,6 +87,11 @@ module.exports = {
     specialRulesFormUploadRows: 'special-rules-form-upload-rows',
     specialRulesFormRemove: 'special-rules-form-remove',
     specialRulesFormAdded: 'special-rules-form-added',
+
+    // health conditions
+    healthConditions: 'health-conditions',
+    healthConditionsAdded: 'health-conditions-added',
+    healthConditionsManual: 'health-conditions-manual',
 
     // illness and disabilities
     illnessDisability: 'illness-disability',

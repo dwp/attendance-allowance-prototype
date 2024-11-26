@@ -6,8 +6,8 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.illnessDisability,
-  next: urls.illnessDisabilityAdded,
+  name: urls.healthConditions,
+  next: urls.healthConditionsAdded,
   previous: [
     {
       page: urls.specialRulesDeclaration,
@@ -53,6 +53,6 @@ const config = {
       },
     },
   ],
-};
+}
 
 module.exports = registerController(config.name, config);

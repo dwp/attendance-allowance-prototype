@@ -1,31 +1,13 @@
 const {
   urls,
   validation,
-  match,
   registerController,
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.illnessDisability,
-  next: urls.illnessDisabilityAdded,
-  previous: [
-    {
-      page: urls.specialRulesDeclaration,
-      condition: {
-        field: urls.specialRulesDeclaration,
-        value: "no",
-        match: match.value,
-      },
-    },
-    {
-      page: urls.specialRulesFormCompleted,
-      condition: {
-        field: urls.specialRulesDeclaration,
-        value: "yes",
-        match: match.value,
-      },
-    },
-  ],
+  name: urls.healthConditionsManual,
+  next: urls.healthConditionsAdded,
+  previous: urls.healthConditions,
   validation: [
     {
       name: 'illness-disability',

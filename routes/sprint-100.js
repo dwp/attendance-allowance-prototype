@@ -95,6 +95,10 @@ router.use(`/${urls.specialRulesFormRemove}`, (req, res) => {
 
 
 // illness and disabilities
+router.use(`/${urls.healthConditions}`, controllers.healthConditions);
+router.use(`/${urls.healthConditionsManual}`, controllers.healthConditionsManual);
+router.use(`/${urls.healthConditionsAdded}`, controllers.healthConditionsAdded);
+
 router.use(`/${urls.illnessDisability}`, controllers.illnessDisability);
 router.use(`/${urls.illnessDisabilityDate}`, controllers.illnessDisabilityDate);
 router.use(`/${urls.illnessDisabilityDateManual}`, controllers.illnessDisabilityDateManual);
