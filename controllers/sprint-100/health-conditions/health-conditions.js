@@ -28,8 +28,8 @@ const config = {
   ],
   validation: [
     {
-      name: 'illness-disability',
-      type: validation.textInput,
+      name: 'health-conditions',
+      type: validation.select,
       options: {
         minLength: 1,
         maxLength: 200,
@@ -40,7 +40,7 @@ const config = {
       },
     },
     {
-      name: "illness-start-date",
+      name: "health-conditions-start-date",
       type: validation.textInput,
       options: {
         minLength: 1,

@@ -6,12 +6,12 @@ const {
 } = require("../../../utils/controller");
 
 const config = {
-  name: urls.illnessDisabilityAdded,
+  name: urls.healthConditionsAdded,
   next: [
     {
-      page: urls.illnessDisability,
+      page: urls.healthConditions,
       condition: {
-        field: urls.illnessDisabilityAdded,
+        field: urls.healthConditionsAdded,
         value: "yes",
         match: match.value,
       },
@@ -27,7 +27,7 @@ const config = {
     {
       page: urls.renalDialysis,
       condition: {
-        field: urls.illnessDisability,
+        field: urls.healthConditions,
         value: [
           "Kidney disease or disorder",
           "Renal failure - acute",
@@ -42,7 +42,7 @@ const config = {
     {
       page: urls.treatmentSurgery,
       condition: {
-        field: urls.illnessDisability,
+        field: urls.healthConditions,
         value: [
           "Kidney disease or disorder",
           "Renal failure - acute",
@@ -55,7 +55,7 @@ const config = {
       },
     },
   ],
-  previous: urls.illnessDisability,
+  previous: urls.healthConditions,
   validation: {
     type: validation.radios,
     errors: {

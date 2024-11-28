@@ -92,6 +92,7 @@ module.exports = {
     healthConditions: 'health-conditions',
     healthConditionsAdded: 'health-conditions-added',
     healthConditionsManual: 'health-conditions-manual',
+    healthConditionsRemove: 'health-conditions-remove',
 
     // illness and disabilities
     illnessDisability: 'illness-disability',

@@ -15,13 +15,13 @@
 {% block form %}
 
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-    {% if data['illness-disability-rows'].length > 1 %}
+    {% if data['health-conditions-rows'].length > 1 %}
       <h1 class="govuk-fieldset__heading govuk-body govuk-!-margin-bottom-4">
-        You have added {{ data['illness-disability-rows'].length }} health conditions and disabilities
+        You have added {{ data['health-conditions-rows'].length }} health conditions and disabilities
       </h1>
     {% else %}
       <h1 class="govuk-fieldset__heading govuk-body govuk-!-margin-bottom-4">
-        You have added {{ data['illness-disability-rows'].length }} health condition or disability
+        You have added {{ data['health-conditions-rows'].length }} health condition or disability
       </h1>
     {% endif %}
   </legend>
@@ -41,7 +41,7 @@
           text: ""
         }
       ],
-      rows:data["illness-disability-rows"] 
+      rows:data["health-conditions-rows"] 
     }) }}
 
   {% set healthConditionsLimit %}

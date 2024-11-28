@@ -5,6 +5,7 @@ const checkValidation = require('./checkValidation');
 const { conditionMatch } = require('../utils/conditionMatch');
 const validate = require('./validate');
 const autoClearData = require('./autoClearData');
+const clearHealthConditions = require('./clearHealthConditions');
 
 const handleValidation = (req, res, next, source, config) => {
   if (!config.validation) {
@@ -101,6 +102,8 @@ module.exports = (source, config, logic) => (req, res, next) => {
     autoClearData(req, res, next);
     return res.redirect(`${req.version}${source}`);
   }
+  clearHealthConditions(req, res, next);
+  
   const nextPage = handleRouting(config, req) ? handleRouting(config, req) : config.next;
   routeToNext(source, nextPage)(req, res, next);
 };
