@@ -84,15 +84,30 @@ router.use(`/${urls.specialRulesFormAdded}`, controllers.specialRulesFormAdded);
 router.use(`/${urls.specialRulesFormRemove}`, (req, res) => {
   req.session.data['special-rules-form-upload'] = req.session.data['special-rules-form-upload'] = undefined;
   req.session.data['special-rules-form-upload-rows'] = req.session.data['special-rules-form-upload-rows'].filter((e) => {
-    const uploadRemove= e?.key?.text.toLowerCase().replace(/[^a-z0-9]/gi, '')
+    const uploadRemove = e?.key?.text.toLowerCase().replace(/[^a-z0-9]/gi, '')
     return uploadRemove !== req?.query?.remove
-   })
-  if (req.session.data['special-rules-form-upload-rows'].length > 0 ) {
+  })
+  if (req.session.data['special-rules-form-upload-rows'].length > 0) {
     return res.redirect(`${urls.specialRulesFormAdded}`);
   }
   return res.redirect(`${urls.specialRulesFormUpload}`);
 });
 
+
+// health conditions
+router.use(`/${urls.healthConditions}`, controllers.healthConditions);
+router.use(`/${urls.healthConditionsManual}`, controllers.healthConditionsManual);
+router.use(`/${urls.healthConditionsAdded}`, controllers.healthConditionsAdded);
+router.use(`/${urls.healthConditionsRemove}`, (req, res) => {
+  req.session.data['health-conditions'] = undefined;
+  req.session.data['health-conditions-start-date'] = undefined;
+  req.session.data['health-conditions-manual'] = undefined;
+  req.session.data['health-conditions-rows'] = req.session.data['health-conditions-rows'].filter((e) => e?.[0]?.text.toLowerCase().replace(/[^a-z0-9]/gi, '') !== req?.query?.remove);
+  if (req.session.data['health-conditions-rows'].length > 0) {
+    return res.redirect(`${urls.healthConditionsAdded}`);
+  }
+  return res.redirect(`${urls.healthConditions}`);
+});
 
 // illness and disabilities
 router.use(`/${urls.illnessDisability}`, controllers.illnessDisability);

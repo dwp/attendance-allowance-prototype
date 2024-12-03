@@ -1,5 +1,3 @@
-
-
 module.exports = {
   urls: {
     // start
@@ -89,6 +87,13 @@ module.exports = {
     specialRulesFormUploadRows: 'special-rules-form-upload-rows',
     specialRulesFormRemove: 'special-rules-form-remove',
     specialRulesFormAdded: 'special-rules-form-added',
+
+    // health conditions
+    healthConditions: 'health-conditions',
+    healthConditionsAdded: 'health-conditions-added',
+    healthConditionsManual: 'health-conditions-manual',
+    healthConditionsRemove: 'health-conditions-remove',
+    healthConditionsRows: 'health-conditions-rows',
 
     // illness and disabilities
     illnessDisability: 'illness-disability',
@@ -231,6 +236,7 @@ module.exports = {
   match: {
     value: 'value',
     anyOne: 'any-one',
+    anyInObject: 'any-in-object',
     all: 'all',
     none: 'none',
     greaterThan: 'greater-than',

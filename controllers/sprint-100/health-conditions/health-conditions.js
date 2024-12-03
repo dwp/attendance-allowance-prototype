@@ -6,8 +6,8 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.illnessDisability,
-  next: urls.illnessDisabilityAdded,
+  name: urls.healthConditions,
+  next: urls.healthConditionsAdded,
   previous: [
     {
       page: urls.specialRulesDeclaration,
@@ -28,8 +28,8 @@ const config = {
   ],
   validation: [
     {
-      name: 'illness-disability',
-      type: validation.textInput,
+      name: 'health-conditions',
+      type: validation.select,
       options: {
         minLength: 1,
         maxLength: 200,
@@ -40,7 +40,7 @@ const config = {
       },
     },
     {
-      name: "illness-start-date",
+      name: "health-conditions-start-date",
       type: validation.textInput,
       options: {
         minLength: 1,
@@ -53,6 +53,6 @@ const config = {
       },
     },
   ],
-};
+}
 
 module.exports = registerController(config.name, config);

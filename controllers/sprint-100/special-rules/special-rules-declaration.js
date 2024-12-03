@@ -27,7 +27,7 @@ const config = {
       },
     },
     {
-      page: urls.illnessDisability,
+      page: urls.healthConditions,
     },
   ],
   validation: {

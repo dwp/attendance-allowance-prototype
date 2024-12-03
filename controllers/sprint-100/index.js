@@ -83,6 +83,11 @@ const illnessDisabilityDateManual = require('./illness-and-disabilities/illness-
 const illnessDisabilityAdded = require('./illness-and-disabilities/illness-disability-added');
 const illnessDisabilityManual = require('./illness-and-disabilities/illness-disability-manual');
 
+// health conditions
+const healthConditions = require('./health-conditions/health-conditions');
+const healthConditionsManual = require('./health-conditions/health-conditions-manual');
+const healthConditionsAdded = require('./health-conditions/health-conditions-added');
+
 // renal dyalisis
 const renalDialysis = require('./renal-dyalisis/renal-dialysis');
 const renalDialysisWhere = require('./renal-dyalisis/renal-dialysis-where');
@@ -260,6 +265,9 @@ module.exports = {
   specialRulesFormGuidance,
   specialRulesFormUpload,
   specialRulesFormAdded,
+  healthConditions,
+  healthConditionsManual,
+  healthConditionsAdded,
   illnessDisability,
   illnessDisabilityDate,
   illnessDisabilityDateManual,

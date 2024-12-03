@@ -47,6 +47,21 @@ const buildTableRow = (value) => ([
     html: buildLink(`illness-disability-remove?remove=${value.toLowerCase().replace(/[^a-z0-9]/gi, '')}`, 'Remove')
   }
 ]);
+
+const buildHealthTableRow = (illness, startDate) => ([
+  {
+    text: illness
+  },
+  {
+    text: startDate
+  },
+  {
+    html: buildLink('', 'Change')
+  },
+  {
+    html: buildLink(`health-conditions-remove?remove=${illness.toLowerCase().replace(/[^a-z0-9]/gi, '')}`, 'Remove')
+  }
+]);
 const buildSummaryRow = (value) => (
   {
     key: {
@@ -84,6 +99,27 @@ const handleIllnessDisability = (input, data) => {
       data['illness-disability'].push(input['illness-disability']);
       data['illness-disability-rows'].push(buildTableRow(input['illness-disability']));
     }
+  }
+};
+//health-conditions
+const handleHealthConditions = (input, data) => {
+  if (!input || !data) {
+    return;
+  }
+  data['health-conditions-rows'] = data['health-conditions-rows'] || [];
+
+  const hcs = input['health-conditions'];
+  const hcsd = input['health-conditions-start-date'];
+  const mhcs = input['health-conditions-manual'];
+
+  if (mhcs?.length > 0) {
+    data['health-conditions-manual'] = mhcs;
+    data['health-conditions-rows'].push(buildHealthTableRow(mhcs, hcsd));
+  }
+  data['health-conditions'] = hcs;
+  data['health-conditions-start-date'] = hcsd;
+  if (hcs && hcsd) {
+    data['health-conditions-rows'].push(buildHealthTableRow(hcs, hcsd));
   }
 };
 
@@ -158,10 +194,10 @@ const handleSpecialRules = (input, data) => {
   if (!input || !data) {
     return;
   }
-    data['special-rules-form-upload-rows'] = data['special-rules-form-upload-rows'] || [];
-    data['special-rules-form-upload'] = input['special-rules-form-upload'];
-    data['special-rules-form-upload-rows'].push(buildSummaryRow(input['special-rules-form-upload']));
-  };
+  data['special-rules-form-upload-rows'] = data['special-rules-form-upload-rows'] || [];
+  data['special-rules-form-upload'] = input['special-rules-form-upload'];
+  data['special-rules-form-upload-rows'].push(buildSummaryRow(input['special-rules-form-upload']));
+};
 
 
 module.exports = (req, res, next) => {
@@ -172,6 +208,8 @@ module.exports = (req, res, next) => {
 
   if (req.body?.['illness-disability'] || req.body?.['illness-disability-manual']) {
     handleIllnessDisability(req.body, req.session.data);
+  } else if (req.body?.['health-conditions'] || req.body?.['health-conditions-manual']) {
+    handleHealthConditions(req.body, req.session.data);
   } else if (req.body?.['aids-adaptations']) {
     handleAidsAdaptations(req.body, req.session.data);
   } else if (req.body?.['nationality-other']) {
@@ -187,6 +225,7 @@ module.exports = (req, res, next) => {
     storeData(req.body, req.session.data);
     storeData(req.query, req.session.data);
   }
+
   res.locals.data = {};
 
   for (const j in req.session.data) {
