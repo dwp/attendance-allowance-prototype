@@ -641,19 +641,21 @@
       <dl class="govuk-summary-list row no-border">
 						<dt class="govuk-summary-list__key govuk-heading-s no-border">Your health conditions and disabilities</dt>
 						<dt class="govuk-summary-list__actions">
-							{{ changeLink('illness-disability-added') }}						
+							{{ changeLink('health-conditions-added') }}						
 						</dt>
 				</dl>
 				<dl class="govuk-summary-list row no-border">
+        {%- for name, date in data['health-conditions-rows'] %}
 					<div class="govuk-summary-list__row govuk-summary-list__row--no-border">
-						<dt class="govuk-summary-list__key ">{{ data['illness-disability'] }}</dt>
+						<dt class="govuk-summary-list__key ">{{ name.text }}</dt>
 						<dt class="govuk-summary-list__value "></dt>
             <dt class="govuk-summary-list__actions"></dt>
 					</div>
 					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
 						<dt class="govuk-summary-list__key govuk-!-font-weight-regular">Start date</dt>
-						<dt class="govuk-summary-list__value ">{{ data['illness-start-date'] }}</dt>
+						<dt class="govuk-summary-list__key "> {{ date.text }} </dt>
 					</div>
+          {% endfor %}
 				</dl>
     </dl>
   </section>
