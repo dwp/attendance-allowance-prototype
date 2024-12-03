@@ -46,7 +46,19 @@ const conditionMatch = (routingConfig, req) => {
             }
           }
         }
-        // all of the provided values
+      // any one of the provided values in an array of objects
+      } else if (routingCondition.condition?.match === match.anyInObject) {
+        if (routingCondition.condition.field && routingCondition.condition.value
+          && Array.isArray(routingCondition.condition.value)) {
+          if (Array.isArray(req.session.data[`${routingCondition.condition.field}`])) {
+            const mapped = req.session.data[`${routingCondition.condition.field}`].map((x) => x[0].text);
+            if (mapped?.some((e) => routingCondition.condition.value.includes(e))) {
+              routingMatch = true;
+              matchedLink = routingCondition.page;
+            }
+          }
+        }
+      // all of the provided values
       } else if (routingCondition.condition?.match === match.all) {
         if (routingCondition.condition.field && routingCondition.condition.value
           && Array.isArray(routingCondition.condition.value)) {
@@ -57,7 +69,7 @@ const conditionMatch = (routingConfig, req) => {
             }
           }
         }
-        // none of the provided values
+      // none of the provided values
       } else if (routingCondition.condition?.match === match.none) {
         if (routingCondition.condition.field && routingCondition.condition.value
           && Array.isArray(routingCondition.condition.value)) {
@@ -67,8 +79,7 @@ const conditionMatch = (routingConfig, req) => {
               matchedLink = routingCondition.page;
             }
           }
-        }
-        
+          }
         // check value in session
       } else if (routingCondition.condition?.match === match.session) {
         if (routingCondition.condition.value) {

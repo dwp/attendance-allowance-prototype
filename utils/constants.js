@@ -93,6 +93,7 @@ module.exports = {
     healthConditionsAdded: 'health-conditions-added',
     healthConditionsManual: 'health-conditions-manual',
     healthConditionsRemove: 'health-conditions-remove',
+    healthConditionsRows: 'health-conditions-rows',
 
     // illness and disabilities
     illnessDisability: 'illness-disability',
@@ -235,6 +236,7 @@ module.exports = {
   match: {
     value: 'value',
     anyOne: 'any-one',
+    anyInObject: 'any-in-object',
     all: 'all',
     none: 'none',
     greaterThan: 'greater-than',
