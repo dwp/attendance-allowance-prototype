@@ -9,6 +9,14 @@ const config = {
   name: urls.healthConditionsAdded,
   next: [
     {
+      page: urls.treatmentSurgery,
+      condition: {
+        field: urls.specialRulesDeclaration,
+        value: "yes",
+        match: match.value,
+      },
+    },
+    {
       page: urls.renalDialysis,
       condition: {
         field: urls.healthConditionsRows,
