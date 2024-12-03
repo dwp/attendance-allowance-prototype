@@ -38,7 +38,7 @@
 
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
     <h2 class="govuk-fieldset__heading govuk-body">
-      {% if data['health-conditions'].length > 0 %}
+      {% if data['health-conditions-rows'].length > 0 %}
         Search for another health condition or disability
       {% else %}
         Search for your first health condition or disability
@@ -2784,7 +2784,7 @@ value: "Writer's cramp",
       }
     ] %}
   {{ govukSelect({
-      id: "f-health-conditions",
+      id: "health-conditions",
       name: "health-conditions",
       value: data['health-conditions'],
       items: illnesses,
@@ -2820,7 +2820,7 @@ value: "Approximate date this health condition or disability started",
 
   <div class="govuk-button-group">
     {{ phaseButton(data, "Continue") }}
-    {% if data['health-conditions'].length > 0 %}
+    {% if data['health-conditions-rows'].length > 0 %}
       {{ govukButton({
         text: "Skip",
 value: "Skip",
@@ -2832,7 +2832,7 @@ value: "Skip",
 
   <script>
      accessibleAutocomplete.enhanceSelectElement({
-      selectElement: document.querySelector('#f-health-conditions')
+      selectElement: document.querySelector('#health-conditions')
     })
   </script>
 

@@ -94,13 +94,14 @@ router.use(`/${urls.specialRulesFormRemove}`, (req, res) => {
 });
 
 
-// illness and disabilities
+// health conditions
 router.use(`/${urls.healthConditions}`, controllers.healthConditions);
 router.use(`/${urls.healthConditionsManual}`, controllers.healthConditionsManual);
 router.use(`/${urls.healthConditionsAdded}`, controllers.healthConditionsAdded);
 router.use(`/${urls.healthConditionsRemove}`, (req, res) => {
   req.session.data['health-conditions'] = undefined;
   req.session.data['health-conditions-start-date'] = undefined;
+  req.session.data['health-conditions-manual'] = undefined;
   req.session.data['health-conditions-rows'] = req.session.data['health-conditions-rows'].filter((e) => e?.[0]?.text.toLowerCase().replace(/[^a-z0-9]/gi, '') !== req?.query?.remove);
   if (req.session.data['health-conditions-rows'].length > 0) {
     return res.redirect(`${urls.healthConditionsAdded}`);
@@ -108,7 +109,7 @@ router.use(`/${urls.healthConditionsRemove}`, (req, res) => {
   return res.redirect(`${urls.healthConditions}`);
 });
 
-
+// illness and disabilities
 router.use(`/${urls.illnessDisability}`, controllers.illnessDisability);
 router.use(`/${urls.illnessDisabilityDate}`, controllers.illnessDisabilityDate);
 router.use(`/${urls.illnessDisabilityDateManual}`, controllers.illnessDisabilityDateManual);

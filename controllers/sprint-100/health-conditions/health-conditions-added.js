@@ -17,7 +17,7 @@ const config = {
       },
     },
     {
-      page: urls.trea,
+      page: urls.treatmentSurgery,
       condition: {
         field: urls.specialRulesDeclaration,
         value: "yes",
