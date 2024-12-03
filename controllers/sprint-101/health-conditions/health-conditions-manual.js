@@ -10,7 +10,7 @@ const config = {
   previous: urls.healthConditions,
   validation: [
     {
-      name: 'illness-disability',
+      name: 'health-conditions',
       type: validation.textInput,
       options: {
         minLength: 1,
@@ -22,7 +22,7 @@ const config = {
       },
     },
     {
-      name: "illness-start-date",
+      name: "health-conditions-start-date",
       type: validation.textInput,
       options: {
         minLength: 1,
@@ -31,7 +31,7 @@ const config = {
       errors: {
         required:
           'Enter the approximate date this health condition or disability started',
-        maxLength: 'Enter the approximate date this health condition or disability in 50 characters or less',
+        maxLength: 'Enter the approximate date this health condition or disability started in 50 characters or less',
       },
     },
   ],

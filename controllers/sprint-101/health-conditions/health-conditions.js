@@ -49,7 +49,7 @@ const config = {
       errors: {
         required:
           'Enter the approximate date this health condition or disability started',
-        maxLength: 'Enter the approximate date this health condition or disability in 50 characters or less',
+        maxLength: 'Enter the approximate date this health condition or disability started in 50 characters or less',
       },
     },
   ],
