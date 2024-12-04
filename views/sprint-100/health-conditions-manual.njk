@@ -15,6 +15,7 @@
     Tell us about your health condition or disability
   </h1>
 
+<div class="govuk-!-margin-bottom-8">
   {{ govukInput({
     errorMessage: data.validation['health-conditions-manual'].error,
     id: "health-conditions-manual",
@@ -25,6 +26,7 @@
       classes: "govuk-label--m"
     }
   }) }}
+  </div>
   
   {{ govukInput({
     errorMessage: data.validation['health-conditions-start-date'].error,
