@@ -1,5 +1,6 @@
 {% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "../macros/phase-button.njk" import phaseButton %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% extends "v5-layouts/prototypeLayout.njk" %}
 
@@ -14,24 +15,24 @@
     Tell us about your health condition or disability
   </h1>
 
-  <div class="govuk-!-margin-bottom-6">
-    {{ govukInput({
-      errorMessage: data.validation['illness-disability-manual'].error,
-      id: "illness-disability-manual",
-      name:  "illness-disability-manual",
-      label: {
-        text: "Enter your health condition or disability",
-        isPageHeading: true,
-        classes: "govuk-label--m"
-      }
-    }) }}
+<div class="govuk-!-margin-bottom-8">
+  {{ govukInput({
+    errorMessage: data.validation['health-conditions-manual'].error,
+    id: "health-conditions-manual",
+    name: "health-conditions-manual",
+    label: {
+      text: "Enter your health condition or disability",
+      isPageHeading: false,
+      classes: "govuk-label--m"
+    }
+  }) }}
   </div>
   
   {{ govukInput({
-    errorMessage: data.validation['illness-start-date'].error,
+    errorMessage: data.validation['health-conditions-start-date'].error,
     classes: "govuk-!-width-two-thirds",
-    id: "illness-start-date",
-    name: "illness-start-date",
+    id: "health-conditions-start-date",
+    name: "health-conditions-start-date",
     label: {
       text: "Approximate date this health condition or disability started",
       isPageHeading: false,
@@ -48,7 +49,7 @@
 
   <div class="govuk-button-group">
     {{ phaseButton(data, "Continue") }}
-    {% if data['health-conditions'].length > 0 %}
+    {% if data['health-conditions-rows'].length > 0 %}
       {{ govukButton({
         text: "Skip",
         classes: "govuk-button--secondary",
