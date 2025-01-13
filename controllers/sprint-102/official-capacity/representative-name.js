@@ -1,17 +1,16 @@
 const {
   urls,
   validation,
-  match,
   registerController,
 } = require("../../../utils/controller");
 
 const config = {
-  name: urls.fullName,
-  previous: urls.nationalInsurance,
-  next: urls.homeAddressPostcode,
+  name: urls.representativeName,
+  previous: urls.representativeContactInformation,
+  next: urls.representativeNationalInsurance,
   validation: [
     {
-      name: "first-name",
+      name: "representative-first-name",
       type: validation.textInput,
       options: {
         minLength: 1,
@@ -23,7 +22,7 @@ const config = {
       },
     },
     {
-      name: "last-name",
+      name: "representative-last-name",
       type: validation.textInput,
       options: {
         minLength: 1,

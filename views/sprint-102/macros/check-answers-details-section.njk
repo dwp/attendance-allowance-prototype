@@ -107,6 +107,18 @@
         </div>
       {% endif %}
 
+      <div class="govuk-summary-list__row telephone-number">
+				<dt class="govuk-summary-list__key">
+					Your telephone number
+				</dt>
+				<dd class="govuk-summary-list__value">
+					{{ data['main-contact-number'] }}
+				</dd>
+				 <dd class="govuk-summary-list__actions">
+					{{ changeLink('telephone-number') }}
+				</dd>
+			</div>
+
       {% if data['national-insurance'] %}
         <div class="govuk-summary-list__row national-insurance-number">
           <dt class="govuk-summary-list__key">

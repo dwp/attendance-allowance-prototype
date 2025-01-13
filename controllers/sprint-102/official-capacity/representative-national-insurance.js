@@ -5,9 +5,9 @@ const {
 } = require("../../../utils/controller");
 
 const config = {
-  name: urls.nationalInsurance,
-  previous: urls.birthDate,
-  next: urls.fullName,
+  name: urls.representativeNationalInsurance,
+  previous: urls.representativeName,
+  next: urls.representativeBirthDate,
   validation: {
     type: validation.textInput,
     options: {

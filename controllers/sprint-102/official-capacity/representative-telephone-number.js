@@ -1,16 +1,29 @@
 const {
   urls,
   validation,
+  match,
   registerController,
-} = require('../../../utils/controller');
+} = require("../../../utils/controller");
 
 const config = {
-  name: urls.telephoneNumberOther,
-  previous: urls.addContactDetails,
-  next: urls.alternativeFormats,
+  name: urls.representativeTelephoneNumber,
+  previous: [
+    {
+      page: urls.representativeAddress,
+      condition: {
+        field: urls.representativeAddress,
+        value: "yes",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.representativeAddressSelect,
+    },
+  ],
+  next: urls.addContactDetails,
   validation: [
     {
-      name: 'main-contact-number-other',
+      name: "representative-telephone-number",
       type: validation.textInput,
       options: {
         minLength: 5,

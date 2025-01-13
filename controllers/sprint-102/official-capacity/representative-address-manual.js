@@ -5,12 +5,12 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.homeAddressInternational,
-  next: urls.telephoneNumber,
-  previous: urls.homeAddressSelect,
+  name: urls.representativeAddressManual,
+  next: urls.representativeTelephoneNumber,
+  previous: urls.representativeAddressSelect,
   validation: [
     {
-      name: 'home-address-international-line-one',
+      name: 'home-address-manual-line-one',
       type: validation.textInput,
       options: {
         minLength: 1,
@@ -22,29 +22,29 @@ const config = {
       },
     },
     {
-      name: 'home-address-international-line-three',
+      name: 'home-address-manual-town',
       type: validation.textInput,
       options: {
         minLength: 1,
         maxLength: 50,
       },
       errors: {
-        required: 'Enter the second line of your address',
-        maxLength: 'Enter the second line of your address in 50 characters or less',
+        required: 'Enter a town or city',
+        maxLength: 'Enter a town or city in 50 characters or less',
       },
     },
     {
-      name: 'home-address-international-country',
+      name: 'home-address-manual-postcode',
       type: validation.textInput,
       options: {
-        minLength: 1,
-        maxLength: 50,
+        regEx: /^([A-Za-z][A-Ha-hK-Yk-y]?[0-9][A-Za-z0-9]? ?[0-9][A-Za-z]{2}|[Gg][Ii][Rr] ?0[Aa]{2})$/
       },
       errors: {
-        required: 'Enter a country',
-        maxLength: 'Enter a country in 50 characters or less',
+        required: "Enter a postcode",
+        regEx: 'Enter a postcode in the correct format',
       },
     },
+    
   ],
 };
 

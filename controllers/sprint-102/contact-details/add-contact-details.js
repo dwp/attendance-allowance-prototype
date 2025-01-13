@@ -7,7 +7,7 @@ const {
 
 const config = {
   name: urls.addContactDetails,
-  previous: urls.telephoneNumber,
+  previous: urls.representativeTelephoneNumber,
   next: [
     {
       page: urls.telephoneNumberOther,
@@ -18,7 +18,7 @@ const config = {
       },
     },
     {
-      page: urls.welshLanguageSpeak,
+      page: urls.alternativeFormats,
     },
   ],
   validation: [

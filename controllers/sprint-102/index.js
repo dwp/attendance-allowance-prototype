@@ -46,6 +46,19 @@ const whoIsApplyingIneligible = require('./eligibility/who-is-applying-ineligibl
 const personClaimingIneligible = require('./eligibility/person-claiming-ineligible');
 const bestDescribe = require('./eligibility/best-describe');
 
+// official capacity
+const representativeIntro = require('./official-capacity/representative-intro');
+const representativeContactInformation = require('./official-capacity/representative-contact-information');
+const representativeName = require('./official-capacity/representative-name');
+const representativeNationalInsurance = require('./official-capacity/representative-national-insurance');
+const representativeBirthDate = require('./official-capacity/representative-birth-date');
+const representativeAddress = require('./official-capacity/representative-address');
+const representativeAddressPostcode = require('./official-capacity/representative-address-postcode');
+const representativeAddressSelect = require('./official-capacity/representative-address-select');
+const representativeAddressManual = require('./official-capacity/representative-address-manual');
+const representativeAddressInternational = require('./official-capacity/representative-address-international');
+const representativeTelephoneNumber = require('./official-capacity/representative-telephone-number');
+
 // identity
 const nationalInsurance = require('./identity/national-insurance');
 const fullName = require('./identity/full-name');
@@ -226,6 +239,17 @@ module.exports = {
   whoIsApplyingIneligible,
   personClaimingIneligible,
   bestDescribe,
+  representativeIntro,
+  representativeContactInformation,
+  representativeName,
+  representativeNationalInsurance,
+  representativeBirthDate,
+  representativeAddress,
+  representativeAddressPostcode,
+  representativeAddressSelect,
+  representativeAddressManual,
+  representativeAddressInternational,
+  representativeTelephoneNumber,
   birthDate,
   birthDateIneligible,
   otherBenefits,

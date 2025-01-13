@@ -52,6 +52,19 @@ router.use(`/${urls.countryOutsideUKDuration}`, controllers.countryOutsideUkDura
 router.use(`/${urls.countryOutsideUKBenefits}`, controllers.countryOutsideUkBenefits);
 router.use(`/${urls.countryOutsideUKWorking}`, controllers.countryOutsideUkWorking);
 
+// official capacity
+router.use(`/${urls.representativeIntro}`, controllers.representativeIntro);
+router.use(`/${urls.representativeContactInformation}`, controllers.representativeContactInformation);
+router.use(`/${urls.representativeName}`, controllers.representativeName);
+router.use(`/${urls.representativeNationalInsurance}`, controllers.representativeNationalInsurance);
+router.use(`/${urls.representativeBirthDate}`, controllers.representativeBirthDate);
+router.use(`/${urls.representativeAddress}`, controllers.representativeAddress);
+router.use(`/${urls.representativeAddressPostcode}`, controllers.representativeAddressPostcode);
+router.use(`/${urls.representativeAddressSelect}`, controllers.representativeAddressSelect);
+router.use(`/${urls.representativeAddressManual}`, controllers.representativeAddressManual);
+router.use(`/${urls.representativeAddressInternational}`, controllers.representativeAddressInternational);
+router.use(`/${urls.representativeTelephoneNumber}`, controllers.representativeTelephoneNumber);
+
 // identity
 router.use(`/${urls.nationalInsurance}`, controllers.nationalInsurance);
 router.use(`/${urls.fullName}`, controllers.fullName);
