@@ -47,6 +47,7 @@ app.use(locale());
 app.use(journeyType());
 
 // [Journey routes] (do not edit this comment, it is used in automation)
+app.use('/sprint-103/', setVersionMiddleware('/sprint-103/'), require('./routes/sprint-103'));
 app.use('/sprint-102/', setVersionMiddleware('/sprint-102/'), require('./routes/sprint-102'));
 app.use('/sprint-101/', setVersionMiddleware('/sprint-101/'), require('./routes/sprint-101'));
 app.use('/sprint-100/', setVersionMiddleware('/sprint-100/'), require('./routes/sprint-100'));
