@@ -6,7 +6,7 @@ const {
 
 const config = {
   name: urls.homeAddressInternational,
-  next: urls.telephoneNumber,
+  next: urls.careHomeHospital,
   previous: urls.homeAddressSelect,
   validation: [
     {

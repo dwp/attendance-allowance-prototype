@@ -7,7 +7,7 @@ const {
 
 const config = {
   name: urls.addContactDetails,
-  previous: urls.representativeTelephoneNumber,
+  previous: urls.telephoneNumber,
   next: [
     {
       page: urls.telephoneNumberOther,

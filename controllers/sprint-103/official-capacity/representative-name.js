@@ -6,7 +6,7 @@ const {
 
 const config = {
   name: urls.representativeName,
-  previous: urls.representativeContactInformation,
+  previous: urls.bestDescribe,
   next: urls.representativeNationalInsurance,
   validation: [
     {

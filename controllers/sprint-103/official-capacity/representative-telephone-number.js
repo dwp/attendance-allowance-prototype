@@ -20,7 +20,7 @@ const config = {
       page: urls.representativeAddressSelect,
     },
   ],
-  next: urls.addContactDetails,
+  next: urls.helpingSomeoneIntro,
   validation: [
     {
       name: "representative-telephone-number",

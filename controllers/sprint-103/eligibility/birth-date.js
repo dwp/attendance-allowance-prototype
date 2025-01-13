@@ -33,7 +33,7 @@ const config = {
       },
     },
     {
-      page: urls.representativeIntro,
+      page: urls.helpingSomeoneIntro,
       condition: {
         field: urls.bestDescribe,
         value: "appointed",
@@ -41,7 +41,7 @@ const config = {
       },
     },
     {
-      page: urls.representativeIntro,
+      page: urls.helpingSomeoneIntro,
       condition: {
         field: urls.bestDescribe,
         value: "appointee",
