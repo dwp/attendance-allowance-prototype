@@ -5,9 +5,9 @@ const {
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.homeAddressInternational,
-  next: urls.telephoneNumber,
-  previous: urls.homeAddressSelect,
+  name: urls.representativeAddressInternational,
+  next: urls.representativeTelephoneNumber,
+  previous: urls.representativeAddressPostcode,
   validation: [
     {
       name: 'home-address-international-line-one',

@@ -33,6 +33,23 @@ const {
         },
       },
       {
+        page: urls.representativeIntro,
+        condition: {
+          field: urls.bestDescribe,
+          value: 'appointed',
+          match: match.value,
+        },
+      },
+      {
+        page: urls.representativeIntro,
+        condition: {
+          field: urls.bestDescribe,
+          value: 'appointee',
+          match: match.value,
+        },
+      },
+      
+      {
         page: urls.personClaimingIneligible,
       },
     ],

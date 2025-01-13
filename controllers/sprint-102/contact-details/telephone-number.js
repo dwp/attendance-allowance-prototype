@@ -1,26 +1,13 @@
 const {
   urls,
   validation,
-  match,
   registerController,
 } = require("../../../utils/controller");
 
 const config = {
   name: urls.telephoneNumber,
-  previous: [
-    {
-      page: urls.checkAnswersSpecialRules,
-      condition: {
-        field: urls.specialRulesDeclaration,
-        value: "yes",
-        match: match.value,
-      },
-    },
-    {
-      page: urls.checkAnswersStartDate,
-    },
-  ],
-  next: urls.addContactDetails,
+  previous: urls.homeAddressSelect,
+  next: urls.careHomeHospital,
   validation: [
     {
       name: "main-contact-number",
