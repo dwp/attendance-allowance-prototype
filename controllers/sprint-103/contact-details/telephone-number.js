@@ -6,8 +6,8 @@ const {
 
 const config = {
   name: urls.telephoneNumber,
-  previous: urls.homeAddressSelect,
-  next: urls.careHomeHospital,
+  previous: urls.checkAnswersDetails,
+  next: urls.addContactDetails,
   validation: [
     {
       name: "main-contact-number",

@@ -6,7 +6,7 @@ const beforeYouStart = require('./before-you-start');
 
 const config = {
   name: urls.helpingSomeoneIntro,
-  previous: urls.bestDescribe, 
+  previous: urls.representativeTelephoneNumber, 
   next: urls.birthDate,
 };
 
