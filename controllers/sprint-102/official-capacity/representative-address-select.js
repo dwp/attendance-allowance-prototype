@@ -1,14 +1,13 @@
 const {
   urls,
   validation,
-  match,
   registerController,
 } = require('../../../utils/controller');
 
 const config = {
-  name: urls.homeAddressSelect,
-  previous: urls.homeAddressPostcode,
-  next: urls.telephoneNumber,
+  name: urls.representativeAddressSelect,
+  previous: urls.representativeAddressPostcode,
+  next: urls.representativeTelephoneNumber,
   validation: {
     type: validation.select,
     errors: {

@@ -7,19 +7,7 @@ const {
 
 const config = {
   name: urls.homeAddressManual,
-  next: [
-    {
-      page: urls.countryOutsideUKDuration,
-      condition: {
-        field: urls.residenceCountry,
-        value: 'scotland',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.careHomeHospital,
-    },
-  ],
+  next: urls.telephoneNumber,
   previous: urls.homeAddressSelect,
   validation: [
     {

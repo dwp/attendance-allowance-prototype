@@ -56,6 +56,19 @@ module.exports = {
     countryOutsideUKWorking: 'country-outside-uk-working',
     attendanceAllowanceIneligible: 'attendance-allowance-ineligible',
 
+    // official capacity
+    representativeIntro: 'representative-intro',
+    representativeContactInformation: 'representative-contact-information',
+    representativeName: 'representative-name',
+    representativeNationalInsurance: 'representative-national-insurance',
+    representativeBirthDate: 'representative-birth-date',
+    representativeAddress: 'representative-address',
+    representativeAddressPostcode: 'representative-address-postcode',
+    representativeAddressSelect: 'representative-address-select',
+    representativeAddressManual: 'representative-address-manual',
+    representativeAddressInternational: 'representative-address-international',
+    representativeTelephoneNumber: 'representative-telephone-number',
+
     // identity
     nationalInsurance: 'national-insurance',
     fullName: 'full-name',

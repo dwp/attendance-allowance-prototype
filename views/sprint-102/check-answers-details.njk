@@ -3,7 +3,10 @@
 
 
 {% block form %}
-  
+
+<a href="health-conditions-added" class="govuk-back-link">Back</a>
+
+{#
   {% if data['healthcare-professional-add'] == 'yes' %}
     <a href="healthcare-professional-details" class="govuk-back-link">Back</a>
   {% elif data['consent'] == 'no' %}
@@ -11,6 +14,7 @@
   {% else %}
     <a href="gp-details" class="govuk-back-link">Back</a>
   {% endif %}
+#}
 
 <h1 class="govuk-heading-l">Check your answers</h1>
 
@@ -19,9 +23,23 @@
 
 {% endblock %}
 
+{#
 {% block formButton %}
  {% if data['special-rules-declaration'] == 'yes' %}
     <a href="telephone-number" class="govuk-button">
+      Accept and continue
+    </a>
+  {% else %}
+    <a href="day-difficulties" class="govuk-button">
+      Accept and continue
+    </a>
+  {% endif %}
+{% endblock %}
+#}
+
+{% block formButton %}
+ {% if data['best-describe'] == 'appointed' or data['best-describe'] == 'appointee' %}
+    <a href="representative-contact-information" class="govuk-button">
       Accept and continue
     </a>
   {% else %}
