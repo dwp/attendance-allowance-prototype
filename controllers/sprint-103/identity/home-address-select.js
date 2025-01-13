@@ -8,7 +8,7 @@ const {
 const config = {
   name: urls.homeAddressSelect,
   previous: urls.homeAddressPostcode,
-  next: urls.telephoneNumber,
+  next: urls.careHomeHospital,
   validation: {
     type: validation.select,
     errors: {

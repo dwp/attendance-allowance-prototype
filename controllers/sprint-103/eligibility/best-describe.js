@@ -33,7 +33,7 @@ const {
         },
       },
       {
-        page: urls.representativeIntro,
+        page: urls.representativeName,
         condition: {
           field: urls.bestDescribe,
           value: 'appointed',
@@ -41,7 +41,7 @@ const {
         },
       },
       {
-        page: urls.representativeIntro,
+        page: urls.representativeName,
         condition: {
           field: urls.bestDescribe,
           value: 'appointee',
