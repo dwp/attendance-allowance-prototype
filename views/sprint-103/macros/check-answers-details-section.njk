@@ -6,7 +6,7 @@
 
 	<section class="who-is-applying">
 		<h2 class="govuk-heading-m">
-			Who is applying?
+			Your claim information
 		</h2>
 
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -23,6 +23,20 @@
             {{ changeLink('claim-type') }}
           </dd>
         </div>
+
+        {% if data['effective-date-day'] %}
+        <div class="govuk-summary-list__row effective-date">
+          <dt class="govuk-summary-list__key">
+            When did the customer contact DWP?
+          </dt>
+          <dd class="govuk-summary-list__value">
+          {{ rewordDate(data['effective-date-day'], data['effective-date-month'], data['effective-date-year']) }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            {{ changeLink('effective-date') }}
+          </dd>
+        </div>
+      {% endif %}
 
         <div class="govuk-summary-list__row person-claiming-new">
           <dt class="govuk-summary-list__key">
@@ -320,28 +334,6 @@
           </dd>
           <dd class="govuk-summary-list__actions">
             {{ changeLink('national-insurance') }}
-          </dd>
-        </div>
-      {% endif %}
-    </dl>
-  </section>
-
-  <section class="Your claim information">
-    <h2 class="govuk-heading-m">
-      Your claim information
-    </h2>
-    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-      
-      {% if data['effective-date-day'] %}
-        <div class="govuk-summary-list__row effective-date">
-          <dt class="govuk-summary-list__key">
-            When did the customer contact DWP?
-          </dt>
-          <dd class="govuk-summary-list__value">
-          {{ rewordDate(data['effective-date-day'], data['effective-date-month'], data['effective-date-year']) }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {{ changeLink('effective-date') }}
           </dd>
         </div>
       {% endif %}
