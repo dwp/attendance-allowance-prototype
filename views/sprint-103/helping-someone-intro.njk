@@ -6,7 +6,7 @@
 
 {% block form %}
 
-  {% if data['best-describe'] == 'appointed' or data['best-describe'] == 'appointed' %}
+  {% if data['best-describe'] == 'appointed' or data['best-describe'] == 'appointee' %}
   <h1 class="govuk-heading-l">You should now answer all questions as if you are the person who wants to claim Attendance Allowance</h1>
   {% else %}
   <h1 class="govuk-heading-l">You should answer all questions as if you are the person who wants to claim Attendance Allowance</h1>
@@ -14,16 +14,16 @@
 
   <p class="govuk-body">The questions in this application relate to the person you are helping to apply. Do not enter your own details.</p>
 
-  {% if journeyType == 'SPECIAL_RULES' or data['best-describe'] == 'appointed' or data['best-describe'] == 'appointed' %}
+  {% if journeyType == 'SPECIAL_RULES' or data['best-describe'] == 'appointed' or data['best-describe'] == 'appointee' %}
   {% elif locale == 'NI' %}
     <div class="govuk-inset-text">
-      If the person you are helping has a power of attorney or a DfC appointee, you will need to use the
+      If the person you are helping has a power of attorney you will need to use the
       <a href="https://www.nidirect.gov.uk/publications/attendance-allowance-claim-form-and-guidance-notes" 
       target="_blank" class="govuk-link">paper claim form</a>. You should check this if you are unsure.
     </div>
   {% else %}
     <div class="govuk-inset-text">
-      If the person you are helping has a power of attorney or a DWP appointee, you will need to use the
+      If the person you are helping has a power of attorney you will need to use the
       <a href="https://www.gov.uk/government/publications/attendance-allowance-claim-form" target="_blank" 
       class="govuk-link">paper claim form</a>. You should check this if you are unsure.
     </div>
