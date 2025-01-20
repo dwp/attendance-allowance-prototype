@@ -338,6 +338,7 @@
         </div>
       {% endif %}
       
+      {% if data['other-benefits'] %}
       <div class="govuk-summary-list__row other-benefits">
         <dt class="govuk-summary-list__key">
           Other benefits
@@ -355,6 +356,9 @@
           {{ changeLink('other-benefits') }}
         </dd>
       </div>
+      {% endif %}
+
+      {#
       <div class="govuk-summary-list__row nationality">
         <dt class="govuk-summary-list__key">
           What is your nationality?
@@ -508,6 +512,7 @@
       </div>
 
     </dl>
+    #}
   </section>
 
   <section class="consent">
@@ -803,11 +808,11 @@
     </dl>
   </section>
 
-  
-    <section class="other-health-information">
-      <h2 class="govuk-heading-m">
-        Other health information
-      </h2>
+  {# 
+  <section class="other-health-information">
+    <h2 class="govuk-heading-m">
+      Other health information
+    </h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         {% if data['renal-dialysis'] == 'yes' %}
           <div class="govuk-summary-list__row renal-dialysis">
@@ -1067,4 +1072,5 @@
         {% endif %}
       {% endif %}
   </section>
+  #}
 {% endmacro %}
