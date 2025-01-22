@@ -211,6 +211,7 @@
 				</div>
 			{% endif %}
 
+			{% if data['welsh-language-speak'] %}
 			<div class="govuk-summary-list__row formats">
 				<dt class="govuk-summary-list__key">
 					What language do you want us to speak to you in?
@@ -225,7 +226,9 @@
 					{{ changeLink('welsh-language-speak') }}
 				</dd>
 			</div>
+			{% endif %}
 
+			{% if data['welsh-language-write'] %}
 			<div class="govuk-summary-list__row formats">
 				<dt class="govuk-summary-list__key">
 					What language do you want us to write to you in?
@@ -240,6 +243,7 @@
 					{{ changeLink('welsh-language-write') }}
 				</dd>
 			</div>
+			{% endif %}
 
 			<div class="govuk-summary-list__row formats">
 				<dt class="govuk-summary-list__key">
