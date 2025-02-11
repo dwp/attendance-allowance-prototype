@@ -146,6 +146,16 @@ router.use(`/${urls.renalDialysisHelp}`, controllers.renalDialysisHelp);
 router.use(`/${urls.treatmentSurgery}`, controllers.treatmentSurgery);
 router.use(`/${urls.treatmentSurgeryInformation}`, controllers.treatmentSurgeryInformation);
 
+// supporting documents
+router.use(`/${urls.supportingDocumentsIntro}`, controllers.supportingDocumentsIntro);
+router.use(`/${urls.supportingDocumentsOptions}`, controllers.supportingDocumentsOptions);
+router.use(`/${urls.supportingDocumentsGuidance}`, controllers.supportingDocumentsGuidance);
+router.use(`/${urls.supportingDocumentsUpload}`, controllers.supportingDocumentsUpload);
+router.use(`/${urls.supportingDocumentsEmailLink}`, controllers.supportingDocumentsEmailLink);
+router.use(`/${urls.supportingDocumentsEmailAddress}`, controllers.supportingDocumentsEmailAddress);
+router.use(`/${urls.supportingDocumentsUploadLater}`, controllers.supportingDocumentsUploadLater);
+router.use(`/${urls.supportingDocumentsPost}`, controllers.supportingDocumentsPost);
+
 // consent
 router.use(`/${urls.consent}`, controllers.consent);
 router.use(`/${urls.gpDetails}`, controllers.gpDetails);

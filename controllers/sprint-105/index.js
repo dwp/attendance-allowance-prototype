@@ -112,6 +112,16 @@ const renalDialysisHelp = require('./renal-dyalisis/renal-dialysis-help');
 const treatmentSurgery = require('./surgery-or-treatment/treatment-surgery');
 const treatmentSurgeryInformation = require('./surgery-or-treatment/treatment-surgery-information');
 
+// supporting documents
+const supportingDocumentsIntro = require('./evidence/supporting-documents-intro');
+const supportingDocumentsOptions = require('./evidence/supporting-documents-options');
+const supportingDocumentsGuidance = require('./evidence/supporting-documents-guidance');
+const supportingDocumentsUpload = require('./evidence/supporting-documents-upload');
+const supportingDocumentsEmailLink = require('./evidence/supporting-documents-email-link');
+const supportingDocumentsEmailAddress = require('./evidence/supporting-documents-email-address');
+const supportingDocumentsUploadLater = require('./evidence/supporting-documents-upload-later');
+const supportingDocumentsPost = require('./evidence/supporting-documents-post');
+
 // consent
 const consent = require('./consent/consent');
 const gpDetails = require('./consent/gp-details');
@@ -297,6 +307,14 @@ module.exports = {
   illnessDisabilityDateManual,
   illnessDisabilityAdded,
   illnessDisabilityManual,
+  supportingDocumentsIntro,
+  supportingDocumentsOptions,
+  supportingDocumentsGuidance,
+  supportingDocumentsUpload,
+  supportingDocumentsEmailLink,
+  supportingDocumentsEmailAddress,
+  supportingDocumentsUploadLater,
+  supportingDocumentsPost,
   consent,
   gpDetails,
   healthcareProfessionalAdd,

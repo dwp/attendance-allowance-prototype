@@ -18,6 +18,46 @@ const {
         },
       },
       {
+        page: urls.supportingDocumentsIntro,
+        condition: {
+          field: urls.supportingDocumentsIntro,
+          value: 'no',
+          match: match.value,
+        },
+      },
+      {
+        page: urls.supportingDocumentsOptions,
+        condition: {
+          field: urls.supportingDocumentsOptions,
+          value: 'no-documents',
+          match: match.value,
+        },
+      },
+      {
+        page: urls.supportingDocumentsUploadLater,
+        condition: {
+          field: urls.supportingDocumentsEmailLink,
+          value: 'no',
+          match: match.value,
+        },
+      },
+      {
+        page: urls.supportingDocumentsEmailAddress,
+        condition: {
+          field: urls.supportingDocumentsEmailLink,
+          value: 'yes',
+          match: match.value,
+        },
+      },
+      {
+        page: urls.supportingDocumentsPost,
+        condition: {
+          field: urls.supportingDocumentsOptions,
+          value: 'post',
+          match: match.value,
+        },
+      },
+      {
         page: urls.treatmentSurgery,
       },
     ],

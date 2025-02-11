@@ -127,6 +127,16 @@ module.exports = {
     treatmentSurgery: 'treatment-surgery',
     treatmentSurgeryInformation: 'treatment-surgery-information',
 
+    // supporting documents
+    supportingDocumentsIntro: 'supporting-documents-intro',
+    supportingDocumentsOptions: 'supporting-documents-options',
+    supportingDocumentsGuidance: 'supporting-documents-guidance',
+    supportingDocumentsUpload: 'supporting-documents-upload',
+    supportingDocumentsEmailLink: 'supporting-documents-email-link',
+    supportingDocumentsEmailAddress: 'supporting-documents-email-address',
+    supportingDocumentsUploadLater: 'supporting-documents-upload-later',
+    supportingDocumentsPost: 'supporting-documents-post',
+
     // consent
     consent: 'consent',
     gpDetails: 'gp-details',
