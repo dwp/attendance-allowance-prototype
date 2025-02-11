@@ -911,6 +911,70 @@
             </dd>
           </div>
         {% endif %}
+
+        {% if data['supporting-documents-intro']%}
+          <div class="govuk-summary-list__row supporting-documents">
+            <dt class="govuk-summary-list__key">
+              Do you have any supporting documents to confirm what you have told us?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['supporting-documents-intro'] 
+              | replace("yes", "Yes") 
+              | replace("no", "No") }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {{ changeLink('supporting-documents-intro') }}
+            </dd>
+          </div>
+        {% endif %}
+
+        {% if data['supporting-documents-intro'] == "yes" %}
+          <div class="govuk-summary-list__row supporting-documents">
+            <dt class="govuk-summary-list__key">
+              How do you want to give us your supporting documents?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['supporting-documents-options'] 
+              | replace("upload-now", "I want to upload them now") 
+              | replace("upload-later", "I want to upload them later")
+              | replace("post", "I want to send them in the post")
+              | replace("no-documents", "I do not want to give these to DWP") }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {{ changeLink('supporting-documents-options') }}
+            </dd>
+          </div>
+        {% endif %}
+
+        {% if data['supporting-documents-options'] == "upload-later" %}
+          <div class="govuk-summary-list__row supporting-documents">
+            <dt class="govuk-summary-list__key">
+              Can we email you a link to upload your supporting documents?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['supporting-documents-email-link'] 
+              | replace("yes", "Yes") 
+              | replace("no", "No") }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {{ changeLink('supporting-documents-email-link') }}
+            </dd>
+          </div>
+        {% endif %}
+
+        {% if data['supporting-documents-email-link']== "yes" %}
+				<div class="govuk-summary-list__row supporting-documents">
+					<dt class="govuk-summary-list__key">
+						Email address
+					</dt>
+					<dd class="govuk-summary-list__value">
+						{{ data['supporting-documents-email'] }}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						{{ changeLink('supporting-documents-email-address') }}
+					</dd>
+				</div>
+			{% endif %}
       </dl>
     </section>
 
