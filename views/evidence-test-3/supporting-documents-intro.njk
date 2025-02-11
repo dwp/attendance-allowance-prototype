@@ -1,0 +1,63 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "v5-layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+  <h1 class="govuk-heading-l">
+    Supporting documents
+  </h1>
+
+  <p class="govuk-body">
+    You can give us supporting documents to confirm what you have told us about your health conditions or disabilities.
+  </p>
+
+  <p class="govuk-body">
+    This could be:
+  </p>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li>a GP health record</li>
+    <li>a care plan</li>
+    <li>reports from a specialist</li>
+    <li>an up-to-date prescription</li>
+  </ul>
+
+  <p class="govuk-body">
+    You can choose to upload these during the application, upload once you have completed your application or send by post.
+  </p>
+
+  <p class="govuk-body">
+    Do not worry if you do not have any supporting documents, just submit your claim. 
+  </p>
+
+    {{ govukRadios({
+      idPrefix: "supporting-documents-intro",
+      name: "supporting-documents-intro",
+      fieldset: {
+        legend: {
+          text: "Do you have any supporting documents to confirm what you have told us?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      errorMessage: data.validation['supporting-documents-intro'].error,
+      items: [
+        {
+          value: "yes",
+          text: "Yes",
+          checked: true if data["supporting-documents-intro"] === "yes"
+        },
+        {
+          value: "no",
+          text: "No",
+          checked: true if data["supporting-documents-intro"] === "no"
+        }
+      ]
+    }) }}
+
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
