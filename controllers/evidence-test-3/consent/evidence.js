@@ -8,20 +8,20 @@ const {
     name: urls.evidence,
     previous: [
       {
-        page: urls.gpDetails,
+        page: urls.supportingDocumentsIntro,
         condition: {
-          field: urls.consent,
-          value: 'yes',
+          field: urls.supportingDocumentsIntro,
+          value: 'no',
           match: match.value,
         },
       },
       {
-        page: urls.consent,
+        page: urls.supportingDocumentsOptions,
       },
     ],
     next: [
       {
-        page: urls.checkAnswersDetails,
+        page: urls.consent,
       },
     ],
   };

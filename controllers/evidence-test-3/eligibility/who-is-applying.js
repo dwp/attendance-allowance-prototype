@@ -7,27 +7,6 @@ const {
 
 const config = {
   name: urls.whoIsApplying,
-  previous: [
-    {
-      page: urls.claimType,
-      condition: {
-        field: urls.claimType,
-        value: 'new-claim',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.beforeYouStart,
-      condition: {
-        field: urls.beforeYouStart,
-        value: 'yes',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.howToClaim,
-    },  
-  ],
   next: [
     {
       page: urls.birthDate,
