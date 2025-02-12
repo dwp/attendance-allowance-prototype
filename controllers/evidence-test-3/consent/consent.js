@@ -10,7 +10,7 @@ const {
     name: urls.consent,
     previous: [
       {
-        page: urls.supportingDocumentsIntro,
+        page: urls.evidence,
         condition: {
           field: urls.supportingDocumentsIntro,
           value: 'no',
@@ -26,7 +26,7 @@ const {
         },
       },
       {
-        page: urls.supportingDocumentsOptions,
+        page: urls.evidence,
         condition: {
           field: urls.supportingDocumentsOptions,
           value: 'no-documents',
