@@ -30,7 +30,7 @@ const config = {
       },
     },
     {
-      page: urls.consent,
+      page: urls.evidence,
     },
   ],
   validation: {
