@@ -8,20 +8,8 @@ const {
 const config = {
   name: urls.gpDetails,
   previous: urls.consent,
-  next: [
-    {
-      page: urls.healthcareProfessionalAdd,
-      condition: {
-        field: urls.specialRulesDeclaration,
-        value: "yes",
-        match: match.value,
-      },
-    },
-    {
-      page: urls.evidence,
-    },
-  ],
-  validation: [
+  next: urls.checkAnswersDetails,
+  /* validation: [
     {
       name: "gp-surgery-name",
       type: validation.textInput,
@@ -49,7 +37,7 @@ const config = {
         maxLength: 'Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192',
       },
     },
-  ],
+  ],*/
 };
 
 module.exports = registerController(config.name, config);
