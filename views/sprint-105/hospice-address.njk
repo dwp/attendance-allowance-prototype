@@ -19,7 +19,6 @@
       text: 'Name of hospice', 
       isPageHeading: true
     },
-    classes: "govuk-!-width-two-thirds",
     errorMessage: data.validation['hospice-name'].error,
     id: "hospice-name",
     name: "hospice-name",
@@ -27,6 +26,19 @@
     autocomplete: "hospice-name"
   }) }}
 
+  {{ govukInput({
+    label: {
+      text: 'Town or city', 
+      isPageHeading: true
+    },
+    classes: "govuk-!-width-two-thirds",
+    errorMessage: data.validation['hospice-town'].error,
+    id: "hospice-town",
+    name: "hospice-town",
+    value: data["hospice-town"]
+  }) }}
+
+  {#
   {{ govukInput({
     label: {
       text: "Postcode", 
@@ -39,9 +51,11 @@
     value: data["hospice-postcode"],
     autocomplete: "hospice-postcode"
   }) }}
+  #}
 
 {% endcall %}
 
+{#
   <div class="govuk-grid-row">  
     <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5">
       <p class="govuk-body">
@@ -51,6 +65,7 @@
       </p>
     </div>
   </div>
+#}
   
 {% endblock %}
 

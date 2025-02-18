@@ -1,13 +1,26 @@
 const {
   urls,
   validation,
+  match,
   registerController,
 } = require("../../../utils/controller");
 
 const config = {
   name: urls.careHomeAddress,
   previous: urls.careHomeHospital,
-  next: urls.careHomeFunding,
+  next: [
+    {
+      page: urls.careHomeHospitalAdmissionDate,
+      condition: {
+        field: urls.specialRulesDeclaration,
+        value: "yes",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.careHomeFunding,
+    },
+  ],
   validation: [
     {
       name: "care-home-name",
@@ -22,7 +35,20 @@ const config = {
           "Enter the name of the care or nursing home in 150 characters or less",
       },
     },
-
+    {
+      name: "care-home-town",
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 50,
+      },
+      errors: {
+        required: "Enter a town or city",
+        maxLength:
+          "Enter a town or city in 50 characters or less",
+      },
+    },
+    /*
     {
       name: "care-home-postcode",
       type: validation.textInput,
@@ -34,6 +60,7 @@ const config = {
         regEx: 'Enter a postcode in the correct format',
       },
     },
+    */
   ],
 };
 

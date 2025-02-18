@@ -82,6 +82,13 @@ router.use(`/${urls.similarPlaceAddress}`, controllers.similarPlaceAddress);
 router.use(`/${urls.careHomeFunding}`, controllers.careHomeFunding);
 router.use(`/${urls.careHomeFundingWho}`, controllers.careHomeFundingWho);
 router.use(`/${urls.careHomeFundingTrusts}`, controllers.careHomeFundingTrusts);
+router.use(`/${urls.careHomeHospitalAdmissionDate}`, controllers.careHomeHospitalAdmissionDate);
+router.use(`/${urls.hospitalAdmissionDate}`, controllers.hospitalAdmissionDate);
+router.use(`/${urls.careHomeAdmissionDate}`, controllers.careHomeAdmissionDate);
+router.use(`/${urls.hospiceAdmissionDate}`, controllers.hospiceAdmissionDate);
+router.use(`/${urls.hospitalFunding}`, controllers.hospitalFunding);
+router.use(`/${urls.careHomeHospitalOvernight}`, controllers.careHomeHospitalOvernight);
+router.use(`/${urls.careHomeHospitalOvernightInformation}`, controllers.careHomeHospitalOvernightInformation);
 router.use(`/${urls.accommodationAddressOutsideUk}`, controllers.accommodationAddressOutsideUK);
 router.use(`/${urls.sercoCareHomeHospital}`, controllers.sercoCareHomeHospital);
 

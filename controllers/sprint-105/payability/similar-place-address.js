@@ -7,7 +7,7 @@ const {
 const config = {
   name: urls.similarPlaceAddress,
   previous: urls.careHomeHospital,
-  next: urls.specialRulesDeclaration,
+  next: urls.healthConditions,
   validation: [
     {
       name: "similar-place-name",
@@ -22,7 +22,20 @@ const config = {
           "Enter the name of the place where you are staying in 150 characters or less",
       },
     },
-
+    {
+      name: "similar-place-town",
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 50,
+      },
+      errors: {
+        required: "Enter a town or city",
+        maxLength:
+          "Enter a town or city in 50 characters or less",
+      },
+    },
+    /*
     {
       name: "similar-place-postcode",
       type: validation.textInput,
@@ -34,6 +47,7 @@ const config = {
         regEx: 'Enter a postcode in the correct format',
       },
     },
+    */
   ],
 };
 

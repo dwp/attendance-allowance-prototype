@@ -7,7 +7,19 @@ const {
 
 const config = {
   name: urls.specialRulesDeclaration,
-  previous: urls.careHomeHospital, 
+  previous: [
+    {
+      page: urls.fullName,
+      condition: {
+        field: urls.residenceCountry,
+        value: 'scotland',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.homeAddressSelect,
+    },
+  ],
   next: [
     {
       page: urls.specialRulesFormCompleted,
@@ -27,7 +39,7 @@ const config = {
       },
     },
     {
-      page: urls.healthConditions,
+      page: urls.careHomeHospital,
     },
   ],
   validation: {

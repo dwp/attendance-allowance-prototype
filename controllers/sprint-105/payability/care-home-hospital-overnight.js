@@ -6,23 +6,10 @@ const {
 } = require("../../../utils/controller");
 
 const config = {
-  name: urls.careHomeHospital,
+  name: urls.careHomeHospitalOvernight,
   previous: [
     {
-      page: urls.specialRulesFormCompleted,
-      condition: {
-        field: urls.specialRulesDeclaration,
-        value: 'yes',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.specialRulesDeclaration,
-    },
-  ],
-  next: [
-    {
-      page: urls.hospitalAddress,
+      page: urls.hospitalFunding,
       condition: {
         field: urls.careHomeHospital,
         value: "hospital",
@@ -30,7 +17,15 @@ const config = {
       },
     },
     {
-      page: urls.careHomeAddress,
+      page: urls.careHomeFundingWho,
+      condition: {
+        field: urls.careHomeFunding,
+        value: "no-get-funding",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.careHomeFunding,
       condition: {
         field: urls.careHomeHospital,
         value: "care-nursing-home",
@@ -38,7 +33,7 @@ const config = {
       },
     },
     {
-      page: urls.hospiceAddress,
+      page: urls.careHomeHospitalAdmissionDate,
       condition: {
         field: urls.careHomeHospital,
         value: "hospice",
@@ -46,17 +41,14 @@ const config = {
       },
     },
     {
-      page: urls.similarPlaceAddress,
-      condition: {
-        field: urls.careHomeHospital,
-        value: "similar-place",
-        match: match.value,
-      },
+      page: urls.careHomeHospital,
     },
+  ],
+  next: [
     {
-      page: urls.careHomeHospitalOvernight,
+      page: urls.careHomeHospitalOvernightInformation,
       condition: {
-        field: urls.specialRulesDeclaration,
+        field: urls.careHomeHospitalOvernight,
         value: "yes",
         match: match.value,
       },
@@ -68,7 +60,7 @@ const config = {
   validation: {
     type: validation.radios,
     errors: {
-      required: "Select if you are staying in any of these places at the moment",
+      required: "Select yes if you have stayed overnight in a care home, hospital or hospice between [6 weeks ago] and [admission date / today's date]",
     },
   },
 };
