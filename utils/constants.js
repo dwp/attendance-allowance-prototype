@@ -86,6 +86,13 @@ module.exports = {
     careHomeFunding: 'care-home-funding',
     careHomeFundingWho: 'care-home-funding-who',
     careHomeFundingTrusts: 'care-home-funding-trusts',
+    careHomeHospitalAdmissionDate: 'care-home-hospital-admission-date',
+    hospitalAdmissionDate: 'hospital-admission-date',
+    careHomeAdmissionDate: 'care-home-admission-date',
+    hospiceAdmissionDate: 'hospice-admission-date',
+    hospitalFunding: 'hospital-funding',
+    careHomeHospitalOvernight: 'care-home-hospital-overnight',
+    careHomeHospitalOvernightInformation: 'care-home-hospital-overnight-information',
     accommodationAddressOutsideUk: 'accommodation-address-outside-uk',
     sercoCareHomeHospital: 'serco-care-home-hospital',
 

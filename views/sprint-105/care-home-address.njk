@@ -19,7 +19,6 @@
       text: 'Name of care or nursing home', 
       isPageHeading: true
     },
-    classes: "govuk-!-width-two-thirds",
     errorMessage: data.validation['care-home-name'].error,
     id: "care-home-name",
     name: "care-home-name",
@@ -27,6 +26,19 @@
     autocomplete: "care-home-name"
   }) }}
 
+  {{ govukInput({
+    label: {
+      text: 'Town or city', 
+      isPageHeading: true
+    },
+    classes: "govuk-!-width-two-thirds",
+    errorMessage: data.validation['care-home-town'].error,
+    id: "care-home-town",
+    name: "care-home-town",
+    value: data["care-home-town"]
+  }) }}
+
+  {#
   {{ govukInput({
     label: {
       text: "Postcode", 
@@ -39,9 +51,11 @@
     value: data["care-home-postcode"],
     autocomplete: "care-home-postcode"
   }) }}
+  #}
 
 {% endcall %}
 
+  {#
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5">
       <p class="govuk-body">
@@ -51,6 +65,7 @@
       </p>
     </div>
   </div>
+  #}
   
 {% endblock %}
 
