@@ -18,7 +18,15 @@ const config = {
       },
     },
     {
-      page: urls.specialRulesDeclaration,
+      page: urls.careHomeHospitalOvernight,
+      condition: {
+        field: urls.specialRulesDeclaration,
+        value: "yes",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.healthConditions,
     },
   ],
   validation: [

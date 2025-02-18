@@ -19,7 +19,6 @@
       text: 'Name of the place where you are staying', 
       isPageHeading: true
     },
-    classes: "govuk-!-width-two-thirds",
     errorMessage: data.validation['similar-place-name'].error,
     id: "similar-place-name",
     name: "similar-place-name",
@@ -27,6 +26,19 @@
     autocomplete: "similar-place-name"
   }) }}
 
+  {{ govukInput({
+    label: {
+      text: 'Town or city', 
+      isPageHeading: true
+    },
+    classes: "govuk-!-width-two-thirds",
+    errorMessage: data.validation['similar-place-town'].error,
+    id: "similar-place-town",
+    name: "similar-place-town",
+    value: data["similar-place-town"]
+  }) }}
+
+  {#
   {{ govukInput({
     label: {
       text: "Postcode", 
@@ -39,9 +51,11 @@
     value: data["similar-place-postcode"],
     autocomplete: "similar-place-postcode"
   }) }}
+  #}
 
 {% endcall %}
 
+{#
   <div class="govuk-grid-row">  
     <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5">
       <p class="govuk-body">
@@ -51,6 +65,7 @@
       </p>
     </div>
   </div>
+#}
   
 {% endblock %}
 

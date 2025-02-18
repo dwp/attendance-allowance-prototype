@@ -7,7 +7,7 @@ const {
 const config = {
   name: urls.specialRulesFormCompleted,
   previous: urls.specialRulesDeclaration,
-  next: urls.healthConditions,
+  next: urls.careHomeHospital,
   validation: {
     type: validation.radios,
     errors: {

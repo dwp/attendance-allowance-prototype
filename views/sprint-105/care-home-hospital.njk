@@ -30,12 +30,12 @@
         value: "hospice",
         text: "Hospice",
         checked: true if data["care-home-hospital"] === "hospice"
-      },
+      }, 
       {
         value: "similar-place",
         text: "Similar place",
         checked: true if data["care-home-hospital"] === "similar-place"
-      },
+      } if data['special-rules-declaration'] == 'no',
       {
         divider: "or"
       },

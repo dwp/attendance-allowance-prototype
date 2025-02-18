@@ -76,6 +76,13 @@ const similarPlaceAddress = require('./payability/similar-place-address');
 const careHomeFunding = require('./payability/care-home-funding');
 const careHomeFundingWho = require('./payability/care-home-funding-who');
 const careHomeFundingTrusts = require('./payability/care-home-funding-trusts');
+const careHomeHospitalAdmissionDate = require('./payability/care-home-hospital-admission-date');
+const hospitalAdmissionDate = require('./payability/hospital-admission-date');
+const careHomeAdmissionDate = require('./payability/care-home-admission-date');
+const hospiceAdmissionDate = require('./payability/hospice-admission-date');
+const hospitalFunding = require('./payability/hospital-funding');
+const careHomeHospitalOvernight = require('./payability/care-home-hospital-overnight');
+const careHomeHospitalOvernightInformation = require('./payability/care-home-hospital-overnight-information');
 const accommodationAddressOutsideUK = require('./payability/accommodation-address-outside-uk');
 const sercoCareHomeHospital = require('./payability/serco-care-home-hospital');
 
@@ -289,6 +296,13 @@ module.exports = {
   careHomeFunding,
   careHomeFundingWho,
   careHomeFundingTrusts,
+  careHomeHospitalAdmissionDate,
+  hospitalAdmissionDate,
+  careHomeAdmissionDate,
+  hospiceAdmissionDate,
+  hospitalFunding,
+  careHomeHospitalOvernight,
+  careHomeHospitalOvernightInformation,
   accommodationAddressOutsideUK,
   sercoCareHomeHospital,
   specialRulesDeclaration,

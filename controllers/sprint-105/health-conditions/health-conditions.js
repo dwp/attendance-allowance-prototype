@@ -10,20 +10,63 @@ const config = {
   next: urls.healthConditionsAdded,
   previous: [
     {
-      page: urls.specialRulesDeclaration,
+      page: urls.careHomeHospitalOvernightInformation,
       condition: {
-        field: urls.specialRulesDeclaration,
+        field: urls.careHomeHospitalOvernight,
+        value: "yes",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.careHomeHospitalOvernight,
+      condition: {
+        field: urls.careHomeHospitalOvernight,
         value: "no",
         match: match.value,
       },
     },
     {
-      page: urls.specialRulesFormCompleted,
+      page: urls.hospitalFunding,
       condition: {
-        field: urls.specialRulesDeclaration,
-        value: "yes",
+        field: urls.careHomeHospital,
+        value: "hospital",
         match: match.value,
       },
+    },
+    {
+      page: urls.hospiceAddress,
+      condition: {
+        field: urls.careHomeHospital,
+        value: "hospice",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.careHomeFundingWho,
+      condition: {
+        field: urls.careHomeFunding,
+        value: "no-get-funding",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.careHomeFunding,
+      condition: {
+        field: urls.careHomeHospital,
+        value: "care-nursing-home",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.similarPlaceAddress,
+      condition: {
+        field: urls.careHomeHospital,
+        value: "similar-place",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.careHomeHospital,
     },
   ],
   validation: [

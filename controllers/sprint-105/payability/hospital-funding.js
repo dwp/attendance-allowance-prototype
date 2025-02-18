@@ -6,7 +6,7 @@ const {
 } = require("../../../utils/controller");
 
 const config = {
-  name: urls.careHomeFunding,
+  name: urls.hospitalFunding,
   previous: [
     {
       page: urls.careHomeHospitalAdmissionDate,
@@ -17,34 +17,26 @@ const config = {
       },
     },
     {
-      page: urls.careHomeAddress,
+      page: urls.hospitalAddress,
     },
   ],
   next: [
     {
-      page: urls.careHomeFundingWho,
+      page: urls.careHomeHospitalOvernight,
       condition: {
-        field: urls.careHomeFunding,
-        value: "no-get-funding",
+        field: urls.specialRulesDeclaration,
+        value: "yes",
         match: match.value,
       },
     },
     {
       page: urls.healthConditions,
-      condition: {
-        field: urls.specialRulesDeclaration,
-        value: "no",
-        match: match.value,
-      },
-    },
-    {
-      page: urls.careHomeHospitalOvernight,
     },
   ],
   validation: {
     type: validation.radios,
     errors: {
-      required: "Select if you pay for the full cost of your care or nursing home",
+      required: "Select yes if your treatment is being provided by the NHS",
     },
   },
 };

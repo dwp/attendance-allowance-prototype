@@ -6,21 +6,8 @@ const {
 } = require("../../../utils/controller");
 
 const config = {
-  name: urls.careHomeHospital,
+  name: urls.careHomeHospitalAdmissionDate,
   previous: [
-    {
-      page: urls.specialRulesFormCompleted,
-      condition: {
-        field: urls.specialRulesDeclaration,
-        value: 'yes',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.specialRulesDeclaration,
-    },
-  ],
-  next: [
     {
       page: urls.hospitalAddress,
       condition: {
@@ -45,30 +32,39 @@ const config = {
         match: match.value,
       },
     },
+  ],
+  next: [
     {
-      page: urls.similarPlaceAddress,
+      page: urls.hospitalFunding,
       condition: {
         field: urls.careHomeHospital,
-        value: "similar-place",
+        value: "hospital",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.careHomeFunding,
+      condition: {
+        field: urls.careHomeHospital,
+        value: "care-nursing-home",
         match: match.value,
       },
     },
     {
       page: urls.careHomeHospitalOvernight,
-      condition: {
-        field: urls.specialRulesDeclaration,
-        value: "yes",
-        match: match.value,
-      },
-    },
-    {
-      page: urls.healthConditions,
     },
   ],
   validation: {
-    type: validation.radios,
+    type: validation.dateInput,
     errors: {
-      required: "Select if you are staying in any of these places at the moment",
+      required: 'Enter a date',
+      requiredDay: 'Date must include a day',
+      requiredMonth: 'Date must include a month',
+      requiredYear: 'Date must include a year',
+      validDay: 'Enter a real date',
+      validMonth: 'Enter a real date',
+      validYear: 'Enter a real date',
+      invalidDate: 'Enter a real date',
     },
   },
 };
