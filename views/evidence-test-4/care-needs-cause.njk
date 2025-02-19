@@ -5,22 +5,23 @@
 {% set careNeedsCauses = [] %}
 
 {%- for name, date in data['health-conditions-rows'] %}
-    {{  careNeedsCauses.push({
+  {{  careNeedsCauses.push({
         value: name.text,
         text: name.text
-      })  }}     
-{% endfor %}
-      {{ careNeedsCauses.push({
-        divider: "or"
-       }) }}
-      {{ careNeedsCauses.push({
+        })  }}     
+  {% endfor %}
+    {{ careNeedsCauses.push({
+      divider: "or"
+      }) }}
+    {{ careNeedsCauses.push({
         value: "none-of-these",
         text: "None of these",
         behaviour: "exclusive",
         checked: true if data["care-needs-cause"] and data["care-needs-cause"].includes("none-of-these")
-      })}}
+    })}}
 
 {% block form %}
+
   {{ govukCheckboxes
     ({
       idPrefix: "care-needs-cause",
