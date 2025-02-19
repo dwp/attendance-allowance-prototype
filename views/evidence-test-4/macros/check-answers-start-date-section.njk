@@ -1,8 +1,207 @@
 {% from "./change-link.njk" import changeLink %}
 {% from "./reword-date.njk" import rewordDate %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "./reword-format.njk" import rewordFormat %}
 
 {% macro checkAnswersStartDateSection(data) %}
+
+	<section class="Your health information">
+    <h2 class="govuk-heading-m">
+      Your health information
+    </h2>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <dl class="govuk-summary-list row no-border">
+			<dt class="govuk-summary-list__key govuk-heading-s no-border">Your health conditions and disabilities</dt>
+			<dt class="govuk-summary-list__actions">
+				{{ changeLink('health-conditions-added') }}						
+			</dt>
+		</dl>
+		<dl class="govuk-summary-list row no-border">
+        	{%- for name, date in data['health-conditions-rows'] %}
+				<div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+					<dt class="govuk-summary-list__key ">{{ name.text }}</dt>
+					<dt class="govuk-summary-list__value "></dt>
+            		<dt class="govuk-summary-list__actions"></dt>
+				</div>
+				<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+					<dt class="govuk-summary-list__key govuk-!-font-weight-regular">Start date</dt>
+					<dt class="govuk-summary-list__key "> {{ date.text }} </dt>
+				</div>
+          {% endfor %}
+		</dl>
+  	</section>
+
+	{#
+  	<section class="other-health-information">
+		<h2 class="govuk-heading-m">
+			Other health information
+		</h2>
+      	
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        
+			{% if data['treatment-surgery']%}
+			<div class="govuk-summary-list__row treatment-surgery">
+				<dt class="govuk-summary-list__key">
+				Are you having any other treatment or waiting for surgery?
+				</dt>
+				<dd class="govuk-summary-list__value">
+				{{ data['treatment-surgery'] 
+				| replace("yes", "Yes") 
+				| replace("no", "No") }}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+				{{ changeLink('treatment-surgery') }}
+				</dd>
+			</div>
+			{% endif %}
+			{% if data['treatment-surgery'] == 'yes' %}
+			<div class="govuk-summary-list__row treatment">
+				<dt class="govuk-summary-list__key">
+				About your treatment or surgery
+				</dt>
+				<dd class="govuk-summary-list__value">
+				{{ data['treatment-surgery-information'] }}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+				{{ changeLink('treatment-surgery-information') }}
+				</dd>
+			</div>
+			{% endif %}
+      </dl>
+	</section>
+	#}
+
+  	<section class="consent">
+		<h2 class="govuk-heading-m">
+		Your healthcare professionals
+		</h2>
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+		
+		{% if data['consent'] %}
+		<div class="govuk-summary-list__row consent">
+			<dt class="govuk-summary-list__key">
+			Do you give consent for your GP or other healthcare professionals to share relevant information about your health conditions with DWP?
+			</dt>
+			<dd class="govuk-summary-list__value">
+			{{ data['consent'] 
+			| replace("yes", "Yes, information about my health can be shared") 
+			| replace("no", "No, information about my health cannot be shared") }}
+			</dd>
+			<dd class="govuk-summary-list__actions">
+			{{ changeLink('consent') }}
+			</dd>
+		</div>
+		{% endif %}
+		
+		{% if data['consent'] == 'yes' %}
+			<div class="govuk-summary-list__row gp-surgery-name">
+			<dt class="govuk-summary-list__key">
+				GP surgery or medical centre
+			</dt>
+			<dd class="govuk-summary-list__value">
+				{{ data['gp-surgery-name'] }} 
+			</dd>
+			<dd class="govuk-summary-list__actions">
+			{{ changeLink('gp-details') }}
+			</dd>
+			</div>
+		{% endif %}
+		
+		{% if data['gp-name'] %}
+			<div class="govuk-summary-list__row gp-name">
+			<dt class="govuk-summary-list__key">
+				Name of GP
+			</dt>
+			<dd class="govuk-summary-list__value">
+				{{ data['gp-name'] }} 
+			</dd>
+			<dd class="govuk-summary-list__actions">
+			{{ changeLink('gp-details') }}
+			</dd>
+			</div>
+		{% endif %}
+
+		{% if data['gp-telephone'] %}
+			<div class="govuk-summary-list__row gp-telephone">
+			<dt class="govuk-summary-list__key">
+				Telephone number
+			</dt>
+			<dd class="govuk-summary-list__value">
+				{{ data['gp-telephone'] }} 
+			</dd>
+			<dd class="govuk-summary-list__actions">
+			{{ changeLink('gp-details') }}
+			</dd>
+			</div>
+		{% endif %}
+	</section>
+      
+
+	<section class="Your care needs during the day">
+        <h2 class="govuk-heading-m">
+            Your care needs during the day
+        </h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row difficulties-day">
+                <dt class="govuk-summary-list__key">
+                    Activities you need help with
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <ul class="govuk-list">
+                        {% for item in data['day-difficulties'] %}
+                            <li>
+                                {{ item
+								| replace("daytime-bed", "Getting in or out of bed")
+								| replace("daytime-washing", "Washing or bathing")
+								| replace("daytime-dressing", "Dressing or undressing yourself")
+								| replace("daytime-moving", "Moving around indoors")
+								| replace("stumbling-falling", "Stumbling or falling")
+								| replace("daytime-toilet", "Using the toilet or managing incontinence")
+								| replace("daytime-eating", "Eating or drinking")
+								| replace("daytime-medication", "Taking medication or receiving treatment")
+								| replace("daytime-hobbies", "Social activities")
+								| replace("daytime-communication", "Communication")
+								| replace("daytime-none", "None of these apply to me") }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    {{ changeLink('day-difficulties') }}
+                </dd>
+            </div>
+        </dl>
+    </section>
+
+	<section class="Your care needs during the night">
+		<h2 class="govuk-heading-m">
+			Your care needs during the night
+		</h2>
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+			<div class="govuk-summary-list__row night-activities">
+				<dt class="govuk-summary-list__key">
+					Activities you need help with
+				</dt>
+				<dd class="govuk-summary-list__value">
+					<ul class="govuk-list">
+						{% for item in data['night-difficulties'] %}
+							<li>
+								{{ item 
+								| replace("nighttime-turning-over", "Turning over or changing position in bed")
+								| replace("nighttime-getting-settled", "Getting settled") 
+								| replace("nighttime-cleaning-yourself", "Using the toilet or managing incontinence")
+								| replace("nighttime-medication", "Managing medication or treatment")
+								| replace("nighttime-none", "I do not have difficulties or need help during the night") }}
+							</li>
+						{% endfor %}
+					</ul>
+				</dd>
+				<dd class="govuk-summary-list__actions">
+					{{ changeLink('night-difficulties') }}
+				</dd>
+			</div>
+		</dl>
+	</section>
 
 	<section class="Someone to keep you safe at home">
 		<h2 class="govuk-heading-m">Someone to keep you safe at home</h2>
@@ -29,171 +228,15 @@
 					{{ changeLink('safe-day-night') }}
 				</dd>
 			</div>
-			{% if data['safe-day-night'] and data['safe-day-night'].includes("day") %}
-				<div class="govuk-summary-list__row safe-day-why">
-					<dt class="govuk-summary-list__key">
-						Why do you need someone to help you stay safe at home?
-					</dt>
-					<dd class="govuk-summary-list__value">
-						<ul class="govuk-list">
-							{% for item in data['safe-day-why'] %}
-								<li>
-									{{ item
-									| replace("prevent-danger", "To prevent danger to myself or others")
-									| replace("wander", "I may wander or become disorientated")
-									| replace("voices-or-intrusive-thoughts", "I can hear voices or experience intrustive thoughts")
-									| replace("uncontrolled-seizures", "I have uncontrolled seizures, dizzy spells or blackouts")
-									| replace("not-aware-hazards", "I am not aware of household hazards")
-									| replace("falling", "I am at risk of hurting myself, for example by falling")
-									| replace("self-harm", "I self harm")
-									| replace("something-else", "Something else")
-									| replace("none", "None of these apply to me") }}
-								</li>
-							{% endfor %}
-						</ul>
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						{{ changeLink('safe-day-why') }}
-					</dd>
-				</div>
-				{% if  data['safe-day-night'] and data['safe-day-why-something-else'] %}
-					<div class="govuk-summary-list__row safe-day-why">
-						<dt class="govuk-summary-list__key">
-							Tell us why you need someone to help you stay safe at home
-						</dt>
-						<dd class="govuk-summary-list__value">
-							{{ data['safe-day-why-something-else'] | capitalize }}
-						</dd>
-						<dd class="govuk-summary-list__actions">
-							{{ changeLink('safe-day-why') }}
-						</dd>
-					</div>
-				{% endif %}
-				<div class="govuk-summary-list__row safe-day-length">
-					<dt class="govuk-summary-list__key">
-						How long can you be safely left alone during the day?
-					</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['safe-day-length']
-						| replace("cannot-be-alone", "I cannot be left alone")
-						| replace("less-than-one-hour", "Less than 1 hour")
-						| replace("one-or-four", "Between 1 to 4 hours")
-						| replace("more-than-four", "More than 4 hours") }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						{{ changeLink('safe-day-length') }}
-					</dd>
-				</div>
-			{% endif %}
-			{% if  data['safe-day-night'] and data['safe-day-night'].includes("night") %}
-				<div class="govuk-summary-list__row safe-night-frequency">
-					<dt class="govuk-summary-list__key">
-						Approximately, how many times is someone awake in the night to keep you safe?
-					</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['safe-night-frequency']
-						| replace("one", "1")
-						| replace("two", "2")
-						| replace("three-to-four", "3 to 4")
-						| replace("more-than-four", "More than 4") }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						{{ changeLink('safe-night-frequency') }}
-					</dd>
-				</div>
-				<div class="govuk-summary-list__row safe-night-length">
-					<dt class="govuk-summary-list__key">
-						Approximately, how long is someone awake in the night to keep you safe?
-					</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['safe-night-length']
-						| replace("less-than-one-hour", "Less than an hour")
-						| replace("more-than-one-hour", "More than an hour")
-						| replace("cannot-left-alone", "I can't be left alone") }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						{{ changeLink('safe-night-length') }}
-					</dd>
-				</div>
-			{% endif %}
-		</dl>
-	</section>
-	<section class="When your care needs started">
-		<h2 class="govuk-heading-m">
-			Adaptations, equipment or aids
-		</h2>
-		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-			<div class="govuk-summary-list__row aids-adaptations-question">
-				<dt class="govuk-summary-list__key">
-					Do you have any home adaptations, specialist equipment or aids?
-				</dt>
-				<dd class="govuk-summary-list__value">
-					{{ data['aids-adaptations-question'] 
-					| replace("yes", "Yes")
-					| replace("no", "No") }}
-				</dd>
-				<dd class="govuk-summary-list__actions">
-					{{ changeLink('aids-adaptations-question') }}
-				</dd>
-			</div>
-		</dl>
-
-
-			{% if data['aids-adaptations-question'] == "yes" %}
-
-				 <dl class="govuk-summary-list">
-					<dt class="govuk-summary-list__key govuk-heading-s no-border">Your adaptations, equipment or aids</dt>
-					<dt class="govuk-summary-list__actions">
-							{{ changeLink('aids-adaptations-added') }}						
-						</dt>
-				</dl>
-				<dl class="govuk-summary-list row no-border">
-					<div class="govuk-summary-list__row govuk-summary-list__row--no-border">
-						<dt class="govuk-summary-list__key">{{ data['aids-adaptations'] }}</dt>
-						<dt class="govuk-summary-list__value"></dt>
-						<dt class="govuk-summary-list__actions"></dt>
-					</div>
-					<div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
-						<dt class="govuk-summary-list__key govuk-!-font-weight-regular">Difficulty using</dt>
-						<dt class="govuk-summary-list__value">{{ data['aids-adaptations-difficulty'] }}</dt>
-					</div>
-				</dl>
-			{% endif %}
-
-
-			{% if data['aids-adaptations-question'] == "no" %}
-				<div class="govuk-summary-list__row aids-adaptations-reason">
-					<dt class="govuk-summary-list__key">
-						Tell us why you do not use any adaptations, equipment or aids
-					</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['aids-adaptations-reason'] }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						{{ changeLink('aids-adaptations-reason') }}
-					</dd>
-				</div>
-			{% endif %}
-			{% if data['aids-adaptations-question'] == "no" and data['aids-adaptations-reason'] == "other" %}
-				<div class="govuk-summary-list__row aids-adaptations-reason">
-					<dt class="govuk-summary-list__key">
-						Explain why you do not use any adaptations, equipment or aids
-					</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['aids-adaptations-reason-other'] }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						{{ changeLink('aids-adaptations-reason') }}
-					</dd>
-				</div>
-			{% endif %}
 		</dl>
 	</section>
 	
 	<section class="When your care needs started">
+		
 		<h2 class="govuk-heading-m">
 			When you started to experience difficulties
 		</h2>
+		
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row difficulties-start-date">
 				<dt class="govuk-summary-list__key">
@@ -224,6 +267,94 @@
 					</dd>
 				</div>
 			{% endif %}
+		</dl>
+	</section>
+
+	<section class="supporting-documents">
+		<h2 class="govuk-heading-m">Your supporting documents</h2>
+		
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+			{% if data['supporting-documents-intro']%}
+			<div class="govuk-summary-list__row supporting-documents">
+				<dt class="govuk-summary-list__key">
+				Do you have any supporting documents to confirm what you have told us?
+				</dt>
+				<dd class="govuk-summary-list__value">
+				{{ data['supporting-documents-intro'] 
+				| replace("yes", "Yes") 
+				| replace("no", "No") }}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+				{{ changeLink('supporting-documents-intro') }}
+				</dd>
+			</div>
+			{% endif %}
+
+			{% if data['supporting-documents-intro'] == "yes" %}
+			<div class="govuk-summary-list__row supporting-documents">
+				<dt class="govuk-summary-list__key">
+				How do you want to give us your supporting documents?
+				</dt>
+				<dd class="govuk-summary-list__value">
+				{{ data['supporting-documents-options'] 
+				| replace("upload-now", "I want to upload them now") 
+				| replace("upload-later", "I want to upload them later")
+				| replace("post", "I want to send them in the post")
+				| replace("no-documents", "I do not want to give these to DWP") }}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+				{{ changeLink('supporting-documents-options') }}
+				</dd>
+			</div>
+			{% endif %}
+
+			{% if data['supporting-documents-options'] == "upload-later" %}
+			<div class="govuk-summary-list__row supporting-documents">
+				<dt class="govuk-summary-list__key">
+				Can we email you a link to upload your supporting documents?
+				</dt>
+				<dd class="govuk-summary-list__value">
+				{{ data['supporting-documents-email-link'] 
+				| replace("yes", "Yes") 
+				| replace("no", "No") }}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+				{{ changeLink('supporting-documents-email-link') }}
+				</dd>
+			</div>
+			{% endif %}
+
+			{% if data['supporting-documents-email-link']== "yes" %}
+					<div class="govuk-summary-list__row supporting-documents">
+						<dt class="govuk-summary-list__key">
+							Email address
+						</dt>
+						<dd class="govuk-summary-list__value">
+							{{ data['supporting-documents-email'] }}
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							{{ changeLink('supporting-documents-email-address') }}
+						</dd>
+					</div>
+				{% endif %}
+
+			{% if data['supporting-documents-options'] == 'upload-now' %}
+				<div class="govuk-summary-list__row supporting-documents-upload">
+				<dt class="govuk-summary-list__key">
+					Your uploaded files
+				</dt>
+				<dd class="govuk-summary-list__value">
+					{% for key in data['supporting-documents-upload-rows'] %}
+					{{ key.key.text }} <br/>
+					{% endfor %}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+					{{ changeLink('supporting-documents-added') }}
+				</dd>
+				</div>
+			{% endif %}
+	
 		</dl>
 	</section>
 
