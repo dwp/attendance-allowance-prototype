@@ -982,6 +982,22 @@
 					</dd>
 				</div>
 			{% endif %}
+
+      {% if data['supporting-documents-options'] == 'upload-now' %}
+            <div class="govuk-summary-list__row supporting-documents-upload">
+              <dt class="govuk-summary-list__key">
+                Your uploaded files
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% for key in data['supporting-documents-upload-rows'] %}
+                {{ key.key.text }} <br/>
+                {% endfor %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                {{ changeLink('supporting-documents-added') }}
+              </dd>
+            </div>
+          {% endif %}
       </dl>
     </section>
 
