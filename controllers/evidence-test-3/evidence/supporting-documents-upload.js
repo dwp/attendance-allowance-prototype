@@ -9,8 +9,8 @@ const config = {
   previous: urls.supportingDocumentsGuidance,
   next: urls.supportingDocumentsAdded,
   validation: {
-    source: urls.specialRulesFormUpload,
-    rows: urls.specialRulesFormUploadRows,
+    source: urls.supportingDocumentsUpload,
+    rows: urls.supportingDocumentsUploadRows,
     type: validation.upload,
     options: {
       minLength: 1,
