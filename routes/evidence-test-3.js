@@ -151,10 +151,23 @@ router.use(`/${urls.supportingDocumentsIntro}`, controllers.supportingDocumentsI
 router.use(`/${urls.supportingDocumentsOptions}`, controllers.supportingDocumentsOptions);
 router.use(`/${urls.supportingDocumentsGuidance}`, controllers.supportingDocumentsGuidance);
 router.use(`/${urls.supportingDocumentsUpload}`, controllers.supportingDocumentsUpload);
+router.use(`/${urls.supportingDocumentsAdded}`, controllers.supportingDocumentsAdded);
 router.use(`/${urls.supportingDocumentsEmailLink}`, controllers.supportingDocumentsEmailLink);
 router.use(`/${urls.supportingDocumentsEmailAddress}`, controllers.supportingDocumentsEmailAddress);
 router.use(`/${urls.supportingDocumentsUploadLater}`, controllers.supportingDocumentsUploadLater);
 router.use(`/${urls.supportingDocumentsPost}`, controllers.supportingDocumentsPost);
+router.use(`/${urls.supportingDocumentsRemove}`, (req, res) => {
+  req.session.data['supporting-documents-upload'] = req.session.data['supporting-documents-upload'] = undefined;
+  req.session.data['supporting-documents-upload-rows'] = req.session.data['supporting-documents-upload-rows'].filter((e) => {
+    const uploadRemove = e?.key?.text.toLowerCase().replace(/[^a-z0-9]/gi, '')
+    return uploadRemove !== req?.query?.remove
+  })
+  if (req.session.data['supporting-documents-upload-rows'].length > 0) {
+    return res.redirect(`${urls.supportingDocumentsAdded}`);
+  }
+  return res.redirect(`${urls.supportingDocumentsUpload}`);
+});
+
 
 // consent
 router.use(`/${urls.consent}`, controllers.consent);

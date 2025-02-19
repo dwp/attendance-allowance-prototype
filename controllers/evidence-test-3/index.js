@@ -117,6 +117,7 @@ const supportingDocumentsIntro = require('./evidence/supporting-documents-intro'
 const supportingDocumentsOptions = require('./evidence/supporting-documents-options');
 const supportingDocumentsGuidance = require('./evidence/supporting-documents-guidance');
 const supportingDocumentsUpload = require('./evidence/supporting-documents-upload');
+const supportingDocumentsAdded = require('./evidence/supporting-documents-added');
 const supportingDocumentsEmailLink = require('./evidence/supporting-documents-email-link');
 const supportingDocumentsEmailAddress = require('./evidence/supporting-documents-email-address');
 const supportingDocumentsUploadLater = require('./evidence/supporting-documents-upload-later');
@@ -311,6 +312,7 @@ module.exports = {
   supportingDocumentsOptions,
   supportingDocumentsGuidance,
   supportingDocumentsUpload,
+  supportingDocumentsAdded,
   supportingDocumentsEmailLink,
   supportingDocumentsEmailAddress,
   supportingDocumentsUploadLater,

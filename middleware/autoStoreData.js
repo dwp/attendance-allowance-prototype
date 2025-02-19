@@ -200,6 +200,17 @@ const handleSpecialRules = (input, data) => {
 };
 
 
+// supporting-documents-upload
+const handleSupportingDocuments = (input, data) => {
+  if (!input || !data) {
+    return;
+  }
+  data['supporting-documents-upload-rows'] = data['supporting-documents-upload-rows'] || [];
+  data['supporting-documents-upload-'] = input['supporting-documents-upload'];
+  data['supporting-documents-upload-rows'].push(buildSummaryRow(input['supporting-documents-upload']));
+};
+
+
 module.exports = (req, res, next) => {
   if (!req.session.data) {
     req.session.data = {};
@@ -216,6 +227,8 @@ module.exports = (req, res, next) => {
     handleNationalityOther(req.body, req.session.data);
   } else if (req.body?.['special-rules-form-upload']) {
     handleSpecialRules(req.body, req.session.data);
+  } else if (req.body?.['supporting-documents-upload']) {
+    handleSupportingDocuments(req.body, req.session.data);
   } else {
     if (req.body?.['illness-start-date']) {
       handleIllnessStartDate(req.body, req.session.data);

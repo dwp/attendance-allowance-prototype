@@ -43,6 +43,12 @@ module.exports = (req, res, next) => {
     storeData(req.body, req.session.data);
     storeData(req.query, req.session.data);
   }
+  if (req.body?.['supporting-documents-upload']) {
+    req.session.data['supporting-documents-upload'] = req.body['supporting-documents-upload'];
+    req.session.data['supporting-documents-upload-rows'].pop();
+    storeData(req.body, req.session.data);
+    storeData(req.query, req.session.data);
+  }
   res.locals.data = {};
 
   for (const j in req.session.data) {
