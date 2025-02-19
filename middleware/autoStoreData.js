@@ -206,7 +206,7 @@ const handleSupportingDocuments = (input, data) => {
     return;
   }
   data['supporting-documents-upload-rows'] = data['supporting-documents-upload-rows'] || [];
-  data['supporting-documents-upload-'] = input['supporting-documents-upload'];
+  data['supporting-documents-upload'] = input['supporting-documents-upload'];
   data['supporting-documents-upload-rows'].push(buildSummaryRow(input['supporting-documents-upload']));
 };
 
