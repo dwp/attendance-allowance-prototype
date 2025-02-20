@@ -317,7 +317,7 @@
 				<dd class="govuk-summary-list__value">
 				{{ data['supporting-documents-options'] 
 				| replace("upload-now", "I want to upload them now") 
-				| replace("upload-later", "I want to upload them later")
+				| replace("upload-later", "I want to upload them after submitting my application")
 				| replace("post", "I want to send them in the post")
 				| replace("no-documents", "I do not want to give these to DWP") }}
 				</dd>
@@ -330,19 +330,18 @@
 			{% if data['supporting-documents-options'] == "upload-later" %}
 			<div class="govuk-summary-list__row supporting-documents">
 				<dt class="govuk-summary-list__key">
-				Can we email you a link to upload your supporting documents?
+					Email address
 				</dt>
 				<dd class="govuk-summary-list__value">
-				{{ data['supporting-documents-email-link'] 
-				| replace("yes", "Yes") 
-				| replace("no", "No") }}
+					{{ data['supporting-documents-email'] }}
 				</dd>
 				<dd class="govuk-summary-list__actions">
-				{{ changeLink('supporting-documents-email-link') }}
+					{{ changeLink('supporting-documents-email-address') }}
 				</dd>
 			</div>
 			{% endif %}
 
+			{# 
 			{% if data['supporting-documents-email-link']== "yes" %}
 					<div class="govuk-summary-list__row supporting-documents">
 						<dt class="govuk-summary-list__key">
@@ -356,6 +355,7 @@
 						</dd>
 					</div>
 				{% endif %}
+			#}
 
 			{% if data['supporting-documents-options'] == 'upload-now' %}
 				<div class="govuk-summary-list__row supporting-documents-upload">
