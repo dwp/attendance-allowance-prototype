@@ -267,6 +267,24 @@
 					</dd>
 				</div>
 			{% endif %}
+
+			{% if data['care-needs-cause'] %}
+				 <div class="govuk-summary-list__row care-needs-cause">
+                <dt class="govuk-summary-list__key">
+                   Which health condition or disability causes the difficulties you have told us about?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <ul class="govuk-list">
+                        {% for item in data['care-needs-cause'] %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    {{ changeLink('care-needs-cause') }}
+                </dd>
+            </div>
+			{% endif %}
 		</dl>
 	</section>
 
