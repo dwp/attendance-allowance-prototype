@@ -25,9 +25,13 @@
   <div class="govuk-inset-text">
     <p class="govuk-body">You told us you need support because of:</p>
     <ul class="govuk-list govuk-list--bullet">
-      {% for item in data['care-needs-cause'] %}
-      <li>{{ item }}</li>
-      {% endfor %}
+      {% if data['care-needs-cause'] is string %}
+          <li>{{data['care-needs-cause'] }}</li>
+      {% else %}
+        {% for item in data['care-needs-cause'] %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      {% endif %}
     </ul>
   </div>
   {% endif %}
