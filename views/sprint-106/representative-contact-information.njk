@@ -1,0 +1,32 @@
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "v5-layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+  <h1 class="govuk-heading-l">
+    <span class="govuk-caption-l">About the DWP appointee</span>
+    We need additional information about you to process this claim
+  </h1>
+  
+  {% if data['best-describe'] == 'appointed' %}
+    <p class="govuk-body">You told us that you are completing this application on behalf of someone else as a DWP appointee.</p>
+
+    <p class="govuk-body">The following questions are about you. Do not enter the details of the person who wants to claim Attendance Allowance.</p>
+  {% else %}
+    <p class="govuk-body">You told us that you are completing this application on behalf of someone else and want to be appointed by DWP to deal with their benefits.</p>
+
+    <p class="govuk-body">The following questions are about you. Do not enter the details of the person who wants to claim Attendance Allowance.</p>
+
+    <div class="govuk-inset-text">
+      Find out more about <a class="govuk-link" target=”_blank” href="https://www.gov.uk/become-appointee-for-someone-claiming-benefits">becoming an appointee for someone (opens in new tab)</a>.
+    </div>
+  {% endif %}
+
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
