@@ -5,7 +5,7 @@ const {
 
 const config = {
   name: urls.start,
-  next: urls.healthConditions,
+  next: urls.beforeYouStart,
 };
 
 module.exports = registerController(config.name, config);

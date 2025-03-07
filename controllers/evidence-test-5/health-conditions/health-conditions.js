@@ -7,7 +7,7 @@ const {
 
 const config = {
   name: urls.healthConditions,
-  previous: urls.start,
+  previous: urls.beforeYouStart,
   next: urls.healthConditionsAdded,
   validation: [
     {

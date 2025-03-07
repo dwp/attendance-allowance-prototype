@@ -7,7 +7,7 @@ const {
 
 const config = {
   name: urls.beforeYouStart,
-  previous: urls.howToClaim, 
+  previous: urls.start, 
   next: [
     {
       page: urls.beforeYouStartIneligible,
