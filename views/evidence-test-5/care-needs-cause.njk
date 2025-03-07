@@ -1,0 +1,105 @@
+{% from "govuk/components/checkboxes/macro.njk"    import govukCheckboxes %}
+
+{% extends "v5-layouts/prototypeLayout.njk" %}
+
+{% set careNeedsCauses = [] %}
+
+{%- for name, date in data['health-conditions-rows'] %}
+  {{  careNeedsCauses.push({
+        value: name.text,
+        text: name.text
+        })  }}     
+  {% endfor %}
+    {{ careNeedsCauses.push({
+      divider: "or"
+      }) }}
+    {{ careNeedsCauses.push({
+        value: "none-of-these",
+        text: "None of these",
+        behaviour: "exclusive",
+        checked: true if data["care-needs-cause"] and data["care-needs-cause"].includes("none-of-these")
+    })}}
+
+{% block form %}
+
+  <h1 class="govuk-heading-l">
+    You have told us about the following difficulties
+  </h1>
+
+  {% if data['day-difficulties'] == "daytime-none" %}
+  {% else %}
+    <h2 class="govuk-heading-s govuk-!-margin-0">Your care needs during the day</h2>
+    <ul class="govuk-list">
+      {% for item in data['day-difficulties'] %}
+        <li>
+          {{ item
+					| replace("daytime-bed", "Getting in or out of bed")
+          | replace("daytime-washing", "Washing or bathing")
+          | replace("daytime-dressing", "Dressing or undressing yourself")
+          | replace("daytime-moving", "Moving around indoors")
+          | replace("stumbling-falling", "Stumbling or falling")
+          | replace("daytime-toilet", "Using the toilet or managing incontinence")
+          | replace("daytime-eating", "Eating or drinking")
+          | replace("daytime-medication", "Taking medication or receiving treatment")
+          | replace("daytime-hobbies", "Social activities")
+          | replace("daytime-communication", "Communication") }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if data['night-difficulties'] == "nighttime-none" %}
+  {% else %}
+    <h2 class="govuk-heading-s govuk-!-margin-0">Your care needs during the night</h2>
+    <ul class="govuk-list">
+      {% for item in data['night-difficulties'] %}
+        <li>
+          {{ item 
+          | replace("nighttime-turning-over", "Turning over or changing position in bed")
+          | replace("nighttime-getting-settled", "Getting settled") 
+          | replace("nighttime-cleaning-yourself", "Using the toilet or managing incontinence")
+          | replace("nighttime-medication", "Managing medication or treatment") }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if data['safe-day-night'] == "no" %}
+  {% else %}
+    <h2 class="govuk-heading-s govuk-!-margin-0">Someone to keep you safe at home</h2>
+    <ul class="govuk-list">
+      {% for item in data['safe-day-night'] %}
+        <li>
+          {{ item
+          | replace("day", "Yes, during the day")
+          | replace("night", "Yes, during the night")
+          | replace("no", "No") }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {{ govukCheckboxes
+    ({
+      idPrefix: "care-needs-cause",
+      name: "care-needs-cause",
+      fieldset: {
+        legend: {
+          text: "Which health condition or disability causes these difficulties?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m govuk-!-padding-top-4"
+        }
+      },
+      hint: {
+        text: "Select all that apply."
+      },
+      errorMessage: data.validation['care-needs-cause'].error,
+      items: careNeedsCauses
+    })
+  }}
+
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
