@@ -1,0 +1,53 @@
+{% extends "v5.9.0-layouts/prototypeLayout.njk" %}
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "#",
+    serviceName: "Apply for Attendance Allowance",
+    serviceUrl: "#",
+    containerClasses: "govuk-width-container",
+    useTudorCrown: true
+  }) }}
+{% endblock %}
+
+{% block form %}
+  <h1 class="govuk-heading-l">Thanks for coming!</h1>
+  <p class="govuk-body">Please read the instructions</p>
+  
+  <h2 class="govuk-heading-m">To proceed you need to:</h2>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>be State Pension age or older</li>
+    <li>be included in our testing cohort</li>
+  </ul>
+
+{% endblock %}
+
+{% block formButton %}
+{% endblock %}
+
+{% block postForm %}
+{% endblock %}
+
+{% block footer %}
+    {{ govukFooter({
+      meta: {
+        items: [
+        ]
+      }
+    }) }}
+  {% endblock %}
+
+
+  {% block scripts %}
+    {{ super() }}
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6CW8322169"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'GTM-MDFH6NT');
+    </script>
+  {% endblock %}
