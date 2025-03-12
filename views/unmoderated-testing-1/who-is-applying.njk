@@ -1,0 +1,67 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "v5.9.0-layouts/prototypeLayout.njk" %}
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "#",
+    serviceName: "Apply for Attendance Allowance",
+    serviceUrl: "#",
+    containerClasses: "govuk-width-container",
+    useTudorCrown: true
+  }) }}
+{% endblock %}
+
+{% block form %}
+  {{ govukRadios({
+    idPrefix: "who-is-applying",
+    name: "who-is-applying",
+    fieldset: {
+      legend: {
+        text: "Who is applying?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    errorMessage: data.validation['who-is-applying'].error,
+    items: [
+      {
+        value: "myself",
+        text: "I am applying for myself",
+        checked: true if data["who-is-applying"] and data["who-is-applying"].includes("myself")
+      },
+      {
+        value: "helping-someone",
+        text: "I am applying for someone else",
+        checked: true if data["who-is-applying"] and data["who-is-applying"].includes("someone-else")
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
+
+{% block footer %}
+    {{ govukFooter({
+      meta: {
+        items: [
+        ]
+      }
+    }) }}
+  {% endblock %}
+
+  {% block scripts %}
+    {{ super() }}
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6CW8322169"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'GTM-MDFH6NT');
+    </script>
+  {% endblock %}

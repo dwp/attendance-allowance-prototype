@@ -7,6 +7,8 @@ module.exports = {
     beforeYouStart: 'before-you-start',
     beforeYouStartIneligible: 'before-you-start-ineligible',
     helpingSomeoneIntro: 'helping-someone-intro',
+    oops: 'you-have-gone-wrong',
+    thanks: 'thanks',
 
     // gov
     overview: 'overview',
