@@ -11,20 +11,26 @@
 {% endblock %}
 
 {% block form %}
-  <h1 class="govuk-heading-l">Start of moderated testing</h1>
-  <p class="govuk-body">Please read the instructions</p>
+  <h1 class="govuk-heading-l">Attendance Allowance testing</h1>
+
+  <p class="govuk-body">You are about to be shown a series of pages from the online application for Attendance Allowance.</p> 
   
-  <h2 class="govuk-heading-m">To proceed you need to:</h2>
+  <h2 class="govuk-heading-m">You told the recruiter you:</h2>
   <ul class="govuk-list govuk-list--bullet">
-    <li>be State Pension age or older</li>
-    <li>be included in our testing cohort</li>
+    <li>deal with the benefits of someone who cannot manage their own affairs, or in the process of doing this</li>
+    <li>can legally make decisions about money and property for someone who lacks mental capacity</li>
   </ul>
+
+  <p class="govuk-body"><div class="govuk-inset-text">For the purposes of this test, imagine that you are 
+  helping the person that you support in the ways outlined above to complete a real application for Attendance Allowance.</p></div>
+
+  <p class="govuk-body">The test should take around two minutes to complete. </p>
 
 {% endblock %}
 
 {% block formButton %}
   <a href="who-is-applying" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
-    Apply now
+    Start now
     <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
       <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
     </svg>
@@ -48,13 +54,12 @@
   {% block scripts %}
     {{ super() }}
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6CW8322169"></script>
+ <script>dataLayer=[{'gtm.whitelist':['gaawc', 'gaawe', 'ua','cl','lcl','fsl','tl','jel','hl','v','c','ctv','e','dbg','d','f','j','smm','r','u','gas','remm','vis','evl','sdl']}]</script> 
+  
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'GTM-MDFH6NT');
-    </script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','{{ tagManagerId }}');</script>
   {% endblock %}
