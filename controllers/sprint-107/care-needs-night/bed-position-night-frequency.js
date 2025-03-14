@@ -52,7 +52,7 @@ const config = {
       name: "night-frequency-bed-position",
       errors: {
         required:
-          "Select how many times a night you have difficulties getting settled",
+          "Select how many times a night you have difficulty getting settled",
       },
     },
   ],

@@ -87,9 +87,9 @@ const config = {
       },
       errors: {
         required:
-          "Enter how many times you need to wash yourself again during the day",
+          "Enter how many times a day you need to wash yourself again",
         maxLength:
-          "Enter how many times you need to wash yourself again during the day in 4 characters or less",
+          "Enter how many times a day you need to wash yourself again in 4 characters or less",
       },
       condition: {
         field: "additional-wash-day",
