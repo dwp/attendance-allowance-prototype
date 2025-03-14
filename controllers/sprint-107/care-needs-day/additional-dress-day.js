@@ -79,9 +79,9 @@ const config = {
       },
       errors: {
         required:
-          "Enter the average number of times you change your clothes during the day",
+          "Enter how many times a day you change your clothes",
         maxLength:
-          "Enter the average number of times you change your clothes during the day in 4 characters or less",
+          "Enter how many times a day you change your clothes in 4 characters or less",
       },
       condition: {
         field: "additional-dress-day",

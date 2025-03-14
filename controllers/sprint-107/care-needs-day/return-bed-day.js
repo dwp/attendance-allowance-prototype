@@ -95,9 +95,9 @@ const config = {
       },
       errors: {
         required:
-          "Enter the average number of times you need to go back to bed",
+          "Enter how many times a day you need to go back to bed",
         maxLength:
-          "Enter the average number of times you need to go back to bed in 4 characters or less",
+          "Enter how many times a day you need to go back to bed in 4 characters or less",
       },
       condition: {
         field: "return-bed-day",
