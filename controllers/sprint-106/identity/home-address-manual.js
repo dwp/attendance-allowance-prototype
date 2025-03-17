@@ -17,7 +17,7 @@ const config = {
       },
     },
     {
-      page: urls.careHomeHospital,
+      page: urls.specialRulesDeclaration,
     },
   ],
   previous: urls.homeAddressSelect,
