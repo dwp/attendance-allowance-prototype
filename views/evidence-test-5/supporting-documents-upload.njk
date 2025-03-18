@@ -5,7 +5,13 @@
 
 {% block form %}
 
-  <h1 class="govuk-heading-l">Upload your supporting documents</h1>
+  <h1 class="govuk-heading-l">
+       {% if data['supporting-documents-upload-rows'].length > 0 %}
+        Upload another supporting document
+      {% else %}
+        Upload your first supporting document
+      {% endif %}
+  </h1>
 
   <div class="govuk-form-group">
     <label class="govuk-label" for="supporting-documents-upload">

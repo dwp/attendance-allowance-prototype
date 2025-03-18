@@ -26,11 +26,11 @@ const config = {
     rows: urls.supportingDocumentsUploadRows,
     type: validation.upload,
     options: {
-      amount: 2
+      amount: 10
     },
     errors: {
       required: "Select yes if you want to upload another file",
-      amount: "Upload no more than 2 files",
+      amount: "Upload no more than 10 files",
     },
   },
 };
