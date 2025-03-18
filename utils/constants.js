@@ -143,7 +143,7 @@ module.exports = {
     supportingDocumentsGuidance: 'supporting-documents-guidance',
     supportingDocumentsUpload: 'supporting-documents-upload',
     supportingDocumentsUploadRows: 'supporting-documents-upload-rows',
-    supporitngDocumentsRemove: 'supporting-documents-remove',
+    supportingDocumentsRemove: 'supporting-documents-remove',
     supportingDocumentsAdded: 'supporting-documents-added',
     supportingDocumentsEmailLink: 'supporting-documents-email-link',
     supportingDocumentsEmailAddress: 'supporting-documents-email-address',
