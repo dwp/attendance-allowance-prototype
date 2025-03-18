@@ -62,7 +62,7 @@ const buildHealthTableRow = (illness, startDate) => ([
     html: buildLink(`health-conditions-remove?remove=${illness.toLowerCase().replace(/[^a-z0-9]/gi, '')}`, 'Remove')
   }
 ]);
-const buildSummaryRow = (value) => (
+const buildSpecialRulesSummaryRow = (value) => (
   {
     key: {
       text: value,
@@ -75,6 +75,20 @@ const buildSummaryRow = (value) => (
       ]
     }
   });
+  const buildDocumentsSummaryRow = (value) => (
+    {
+      key: {
+        text: value,
+      },
+      actions: {
+        items: [
+          {
+            html: buildLink(`supporting-documents-remove?remove=${value.toLowerCase().replace(/[^a-z0-9]/gi, '')}`, 'Remove')
+          },
+        ]
+      }
+    });
+  
 
 // illness disability
 const handleIllnessDisability = (input, data) => {
@@ -196,7 +210,7 @@ const handleSpecialRules = (input, data) => {
   }
   data['special-rules-form-upload-rows'] = data['special-rules-form-upload-rows'] || [];
   data['special-rules-form-upload'] = input['special-rules-form-upload'];
-  data['special-rules-form-upload-rows'].push(buildSummaryRow(input['special-rules-form-upload']));
+  data['special-rules-form-upload-rows'].push(buildSpecialRulesSummaryRow(input['special-rules-form-upload']));
 };
 
 
@@ -207,7 +221,7 @@ const handleSupportingDocuments = (input, data) => {
   }
   data['supporting-documents-upload-rows'] = data['supporting-documents-upload-rows'] || [];
   data['supporting-documents-upload'] = input['supporting-documents-upload'];
-  data['supporting-documents-upload-rows'].push(buildSummaryRow(input['supporting-documents-upload']));
+  data['supporting-documents-upload-rows'].push(buildDocumentsSummaryRow(input['supporting-documents-upload']));
 };
 
 
