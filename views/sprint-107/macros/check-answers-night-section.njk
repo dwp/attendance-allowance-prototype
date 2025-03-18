@@ -40,7 +40,7 @@
 			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 				<div class="govuk-summary-list__row turning-over-night-frequency">
 					<dt class="govuk-summary-list__key">
-							On average, how many times a night do you need help to turn over or change position?
+							Approximately, how many times a night do you need help to turn over or change position?
 						</dt>
 					<dd class="govuk-summary-list__value">
 						{{ data['night-frequency-1-bed'] 
@@ -111,7 +111,7 @@
 					{% endif %}
 					<div class="govuk-summary-list__row night-frequency-bed-position">
 						<dt class="govuk-summary-list__key">
-							On average, how many times a night do you have difficulties getting settled?
+							Approximately, how many times a night do you have difficulty getting settled?
 						</dt>
 						<dd class="govuk-summary-list__value">
 							{{ data['night-frequency-bed-position'] 
@@ -227,7 +227,7 @@
 					{% endif %}
 					<div class="govuk-summary-list__row night-frequency-2-loo">
 						<dt class="govuk-summary-list__key">
-										Approximately, how many times a night do you have difficulties with your toilet needs?
+										Approximately, how many times a night do you have difficulty with your toilet needs?
 								</dt>
 						<dd class="govuk-summary-list__value">
 							{{ data['night-frequency-2-loo']
@@ -242,7 +242,7 @@
 					{% if data['night-frequency-2-loo']==['once-a-night'] %}
 						<div class="govuk-summary-list__row toilet-night-frequency">
 							<dt class="govuk-summary-list__key">
-											How long does it take to manage your difficulties with your toilet needs?
+											How long does it take to manage the difficulty you have with your toilet needs?
 									</dt>
 							<dd class="govuk-summary-list__value">
 								{{ data['toilet-typically-how-long'] | capitalize }}
@@ -337,7 +337,7 @@
 					{% endif %}
 					<div class="govuk-summary-list__row medication-treatment-night-frequency">
 						<dt class="govuk-summary-list__key">
-						 On average, how many times a night do you have difficulty taking medication or getting treatment?
+						 Approximately, how many times a night do you have difficulty taking medication or getting treatment?
 						</dt>
 						<dd class="govuk-summary-list__value">
 							{{ data['medication-treatment-night-frequency']
