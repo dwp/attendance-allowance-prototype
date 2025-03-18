@@ -1,25 +1,26 @@
 {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
-{% extends "v5-layouts/prototypeLayout.njk" %}
+{% extends "v5.9.0-layouts/prototypeLayout.njk" %}
 
 {% block form %}
 
- <h1 class="govuk-heading-l">Upload your supporting documents</h1>
-  
-{{ govukFileUpload({
-  id: "supporting-documents-upload",
-  name: "supporting-documents-upload",
-  label: {
-    text: "Upload a file"
-  },
-  value: data["supporting-documents-upload"],
-  errorMessage: data.validation['supporting-documents-upload'].error
-}) }}
+  <h1 class="govuk-heading-l">Upload your supporting documents</h1>
 
-<p class="govuk-body govuk-!-static-padding-top-6">Your file must be:</p>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="supporting-documents-upload">
+      Upload a file
+    </label>
+    <div
+      class="govuk-drop-zone"
+      data-module="govuk-file-upload">
+      <input class="govuk-file-upload" id="supporting-documents-upload" name="supporting-documents-upload" type="file">
+    </div>
+  </div>
 
-<ul class="govuk-list govuk-list--bullet">
+  <p class="govuk-body govuk-!-static-padding-top-6">Your file must be:</p>
+
+  <ul class="govuk-list govuk-list--bullet">
     <li>a JPG, JPEG, PNG or PDF</li>
     <li>smaller than 10MB</li>
   </ul>
