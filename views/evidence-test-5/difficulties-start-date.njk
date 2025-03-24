@@ -52,7 +52,7 @@
 
   {% if data['day-difficulties'] == "daytime-none" %}
   {% else %}
-    <h2 class="govuk-heading-s govuk-!-margin-0">Your care needs during the day</h2>
+    <h2 class="govuk-heading-s govuk-!-margin-0">During the day</h2>
     <ul class="govuk-list">
       {% for item in data['day-difficulties'] %}
         <li>
@@ -74,7 +74,7 @@
 
   {% if data['night-difficulties'] == "nighttime-none" %}
   {% else %}
-    <h2 class="govuk-heading-s govuk-!-margin-0">Your care needs during the night</h2>
+    <h2 class="govuk-heading-s govuk-!-margin-0">During the night</h2>
     <ul class="govuk-list">
       {% for item in data['night-difficulties'] %}
         <li>
