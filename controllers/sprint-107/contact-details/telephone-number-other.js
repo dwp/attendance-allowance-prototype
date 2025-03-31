@@ -7,7 +7,7 @@ const {
 const config = {
   name: urls.telephoneNumberOther,
   previous: urls.addContactDetails,
-  next: urls.alternativeFormats,
+  next: urls.preferenceContact,
   validation: [
     {
       name: 'main-contact-number-other',
