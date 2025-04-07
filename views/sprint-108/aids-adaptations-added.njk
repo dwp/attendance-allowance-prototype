@@ -14,13 +14,13 @@
 {% block form %}
 
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-   {% if data['aids-adaptations-rows'].length > 1 %}
+   {% if data['adaptations-rows'].length > 1 %}
       <h1 class="govuk-fieldset__heading govuk-body govuk-!-margin-bottom-4">
-          You have added {{ data['aids-adaptations-rows'].length }} adaptations, equipment or aids
+          You have added {{ data['adaptations-rows'].length }} adaptations, equipment or aids
         </h1>
       {% else %}
         <h1 class="govuk-fieldset__heading govuk-body govuk-!-margin-bottom-4">
-          You have added {{ data['aids-adaptations-rows'].length }} adaptation, equipment or aid
+          You have added {{ data['adaptations-rows'].length }} adaptation, equipment or aid
         </h1>
       {% endif %}
   </legend>
@@ -28,10 +28,10 @@
     {{ govukTable({
       head: [
         {
-          text: "Aids or adaptations"
+          text: "Aid or adaptation"
         },
         {
-          text: "Difficulty using"
+          text: "Difficult to use"
         },
         {
           text: ""
@@ -40,7 +40,7 @@
           text: ""
         }
       ],
-      rows:data["aids-adaptations-rows"] 
+      rows:data["adaptations-rows"] 
     }) }}
 
   {% set aidsAdaptationsLimit %}
