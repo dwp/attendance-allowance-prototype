@@ -62,6 +62,20 @@ const buildHealthTableRow = (illness, startDate) => ([
     html: buildLink(`health-conditions-remove?remove=${illness.toLowerCase().replace(/[^a-z0-9]/gi, '')}`, 'Remove')
   }
 ]);
+const buildAdaptationTableRow = (adaptation, difficulty) => ([
+  {
+    text: adaptation
+  },
+  {
+    text: difficulty
+  },
+  {
+    html: buildLink('', 'Change')
+  },
+  {
+    html: buildLink(`aids-adaptations-remove?remove=${adaptation.toLowerCase().replace(/[^a-z0-9]/gi, '')}`, 'Remove')
+  }
+]);
 const buildSpecialRulesSummaryRow = (value) => (
   {
     key: {
@@ -172,6 +186,23 @@ const handleIllnessStartDate = (input, data) => {
 
 };
 
+// aids and adaptations (new)
+const handleAidsAdaptations2 = (input, data) => {
+  if (!input || !data) {
+    return;
+  }
+  data['aids-adaptations-rows-2'] = data['aids-adaptations-rows-2'] || [];
+
+  const adapts = input['aids-adaptations-2'];
+  const adaptsdiff = input['aids-adaptations-difficulty-2'];
+
+  data['aids-adaptations-2'] = adapts;
+  data['aids-adaptations-difficulty-2'] = adaptsdiff;
+  if (adapts && adaptsdiff) {
+    data['aids-adaptations-rows-2'].push(buildAdaptationTableRow(adapts, adaptsdiff));
+  }
+};
+
 // aids-adaptations
 const handleAidsAdaptations = (input, data) => {
   if (!input || !data) {
@@ -235,6 +266,8 @@ module.exports = (req, res, next) => {
     handleIllnessDisability(req.body, req.session.data);
   } else if (req.body?.['health-conditions'] || req.body?.['health-conditions-manual']) {
     handleHealthConditions(req.body, req.session.data);
+  } else if (req.body?.['aids-adaptations-2']) {
+    handleAidsAdaptations2(req.body, req.session.data);
   } else if (req.body?.['aids-adaptations']) {
     handleAidsAdaptations(req.body, req.session.data);
   } else if (req.body?.['nationality-other']) {

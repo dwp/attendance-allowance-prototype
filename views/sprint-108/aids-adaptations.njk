@@ -7,28 +7,62 @@
 
 
 {% block form %}
+
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading govuk-body govuk-!-margin-bottom-7">
+        Your home adaptations, specialist equipment or aids
+      </h1>
+    </legend>
+
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+    <h2 class="govuk-fieldset__heading govuk-body">
+      {% if data['aids-adaptations-rows-2'].length > 0 %}
+        Enter another adaptation, equipment or aid
+      {% else %}
+        Enter your first adaptation, equipment or aid
+      {% endif %}
+    </h2>
+  </legend>
   
     {{ govukInput({
-    label: {
-        text: "Enter the name of your adaptation, equipment or aid",
-        classes: "govuk-label--l",
-        isPageHeading: true
-    },
-    hint: {
-        text: "You need to enter the name of each adaptation, equipment or aid, one at a time."
-    },
-    id: "aids-adaptations",
-    name: "aids-adaptations",
-    errorMessage: data.validation['aids-adaptations'].error,
-    classes: "govuk-input--width-20"
+    id: "aids-adaptations-2",
+    name: "aids-adaptations-2",
+    errorMessage: data.validation['aids-adaptations-2'].error,
+    classes: "govuk-!-margin-bottom-5"
     }) }}
+
+
+    {{ govukRadios({
+    idPrefix: "aids-adaptations-difficulty-2",
+    name: "aids-adaptations-difficulty-2",
+    fieldset: {
+      legend: {
+        text: "Do you find this adaptation, equipment or aid difficult to use?",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    errorMessage: data.validation['aids-adaptations-difficulty-2'].error,
+    items: [
+      {
+        value: "Yes",
+        text: "Yes",
+        checked: true if data["aids-adaptations-difficulty-2"] === "yes"
+      },
+      {
+        value: "No",
+        text: "No",
+        checked: true if data["aids-adaptations-difficulty-2"] === "no"
+      }
+    ]
+  }) }}
 
 {% block formButton %} 
 {% endblock %}
 
   <div class="govuk-button-group">
-    {{ phaseButton(data, "Add adaptation") }}
-    {% if data['aids-adaptations'].length > 0 %}
+    {{ phaseButton(data, "Continue") }}
+    {% if data['aids-adaptations-rows'].length > 0 %}
       {{ govukButton({
         text: "Skip",
         classes: "govuk-button--secondary",

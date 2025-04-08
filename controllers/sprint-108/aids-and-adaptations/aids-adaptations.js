@@ -1,33 +1,35 @@
 const {
     urls,
     validation,
-    match,
     registerController,
   } = require('../../../utils/controller');
   
   const config = {
     name: urls.aidsAdaptations,
-    previous: [
+    previous: urls.aidsAdaptationsQuestion,
+    next: urls.aidsAdaptationsAdded,
+    validation: [
       {
-        page: urls.aidsAdaptationsQuestion,
+        name: "aids-adaptations-2",
+        type: validation.textInput,
+        options: {
+          minLength: 1,
+          maxLength: 200,
+        },
+        errors: {
+          required: 'Enter the name of your adaptation, equipment or aid',
+          maxLength: "Enter the name of your adaptation, equipment or aid in 200 characters or less",
+        },
+      },
+      {
+        name: "aids-adaptations-difficulty-2",
+        type: validation.radios,
+        errors: {
+          required:
+            "Select yes if you find this adaptation, equipment or aid difficult to use",
+        },
       },
     ],
-    next: [
-      {
-        page: urls.aidsAdaptationsDifficulty,
-      },
-    ],
-    validation: {
-      type: validation.textInput,
-      options: {
-        minLength: 1,
-        maxLength: 200,
-      },
-      errors: {
-        required: 'Enter the name of your adapation, equipment or aid',
-        maxLength: "Enter the name of your adapation, equipment or aid in 200 characters or less",
-      },
-    },
   };
   
   module.exports = registerController(config.name, config);
