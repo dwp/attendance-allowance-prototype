@@ -20,7 +20,7 @@ const config = {
       page: urls.difficultiesStartDate,
     },
   ],
-  previous: urls.aidsAdaptationsDifficulty,
+  previous: urls.aidsAdaptations,
   validation: {
     type: validation.radios,
     errors: {
