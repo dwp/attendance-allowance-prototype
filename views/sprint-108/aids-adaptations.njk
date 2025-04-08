@@ -16,7 +16,7 @@
 
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
     <h2 class="govuk-fieldset__heading govuk-body">
-      {% if data['aids-adaptations-rows'].length > 0 %}
+      {% if data['aids-adaptations-rows-2'].length > 0 %}
         Enter another adaptation, equipment or aid
       {% else %}
         Enter your first adaptation, equipment or aid
@@ -25,16 +25,16 @@
   </legend>
   
     {{ govukInput({
-    id: "aids-adaptations",
-    name: "aids-adaptations",
-    errorMessage: data.validation['aids-adaptations'].error,
+    id: "aids-adaptations-2",
+    name: "aids-adaptations-2",
+    errorMessage: data.validation['aids-adaptations-2'].error,
     classes: "govuk-!-margin-bottom-5"
     }) }}
 
 
     {{ govukRadios({
-    idPrefix: "aids-adaptations-difficulty",
-    name: "aids-adaptations-difficulty",
+    idPrefix: "aids-adaptations-difficulty-2",
+    name: "aids-adaptations-difficulty-2",
     fieldset: {
       legend: {
         text: "Do you find this adaptation, equipment or aid difficult to use?",
@@ -42,17 +42,17 @@
         classes: "govuk-fieldset__legend--m"
       }
     },
-    errorMessage: data.validation['aids-adaptations-difficulty'].error,
+    errorMessage: data.validation['aids-adaptations-difficulty-2'].error,
     items: [
       {
         value: "Yes",
         text: "Yes",
-        checked: true if data["aids-adaptations-difficulty"] === "yes"
+        checked: true if data["aids-adaptations-difficulty-2"] === "yes"
       },
       {
         value: "No",
         text: "No",
-        checked: true if data["aids-adaptations-difficulty"] === "no"
+        checked: true if data["aids-adaptations-difficulty-2"] === "no"
       }
     ]
   }) }}

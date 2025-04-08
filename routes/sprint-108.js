@@ -242,9 +242,13 @@ router.use(`/${urls.aidsAdaptations}`, controllers.aidsAdaptations);
 router.use(`/${urls.aidsAdaptationsDifficulty}`, controllers.aidsAdaptationsDifficulty);
 router.use(`/${urls.aidsAdaptationsAdded}`, controllers.aidsAdaptationsAdded);
 router.use(`/${urls.aidsAdaptationsRemove}`, (req, res) => {
-  req.session.data['aids-adaptations'] = req.session.data['aids-adaptations'].filter((e) => e.toLowerCase().replace(/[^a-z0-9]/gi, '') !== req?.query?.remove);
-  req.session.data['aids-adaptations-rows'] = req.session.data['aids-adaptations-rows'].filter((e) => e?.[0]?.text.toLowerCase().replace(/[^a-z0-9]/gi, '') !== req?.query?.remove);
-  return res.redirect(`${urls.aidsAdaptationsAdded}`);
+  req.session.data['aids-adaptations-2'] = undefined;
+  req.session.data['aids-adaptations-difficulty-2'] = undefined;
+  req.session.data['aids-adaptations-rows-2'] = req.session.data['aids-adaptations-rows-2'].filter((e) => e?.[0]?.text.toLowerCase().replace(/[^a-z0-9]/gi, '') !== req?.query?.remove);
+  if (req.session.data['aids-adaptations-rows-2'].length > 0) {
+    return res.redirect(`${urls.aidsAdaptationsAdded}`);
+  }
+  return res.redirect(`${urls.aidsAdaptations}`);
 });
 
 // contact details

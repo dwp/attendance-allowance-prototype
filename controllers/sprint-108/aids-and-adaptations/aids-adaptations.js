@@ -10,7 +10,7 @@ const {
     next: urls.aidsAdaptationsAdded,
     validation: [
       {
-        name: "aids-adaptations",
+        name: "aids-adaptations-2",
         type: validation.textInput,
         options: {
           minLength: 1,
@@ -22,7 +22,7 @@ const {
         },
       },
       {
-        name: "aids-adaptations-difficulty",
+        name: "aids-adaptations-difficulty-2",
         type: validation.radios,
         errors: {
           required:
