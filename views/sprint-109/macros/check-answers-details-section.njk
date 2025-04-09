@@ -1126,22 +1126,24 @@
         </div>
       {% endif %}
 
-      {% if data['healthcare-professional-add'] == "yes" %}
+        {% if data['healthcare-professional-options'] %}
           <div class="govuk-summary-list__row healthcare-professional-options">
             <dt class="govuk-summary-list__key">
-              Who do you want to add contact details for?
+              Do you want to add contact details for another healthcare professional?
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['healthcare-professional-options']
                 | replace("consultant", "Consultant")
                 | replace("specialist-doctor", "Specialist doctor")
                 | replace("district-specialist-nurse", "District or specialist nurse")
-                | replace("other-healthcare-professional", "Other healthcare professional") }}
+                | replace("other-healthcare-professional", "Other healthcare professional")
+                | replace("i-do-not-want-to", "No, none of these") }}
             </dd>
             <dd class="govuk-summary-list__actions">
             {{ changeLink('healthcare-professional-options') }}
           </dd>
           </div>
+        {% endif %}
 
         {% if data['other-healthcare-professional-who'] %}
           <div class="govuk-summary-list__row care-home-funding-who">
@@ -1198,7 +1200,7 @@
           </dd>
           </div>
         {% endif %}
-      {% endif %}
+
   </section>
 
 {% endmacro %}
