@@ -1,13 +1,26 @@
 const {
   urls,
   validation,
+  match,
   registerController,
 } = require("../../../utils/controller");
 
 const config = {
   name: urls.healthcareProfessionalOptions,
-  previous: urls.healthcareProfessionalAdd,
-  next: urls.healthcareProfessionalDetails,
+  previous: urls.gpDetails,
+  next: [
+    {
+      page: urls.checkAnswersDetails,
+      condition: {
+        field: urls.healthcareProfessionalOptions,
+        value: 'i-do-not-want-to',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.healthcareProfessionalDetails,
+    },
+  ],
   validation: [
     {
       name: "other-healthcare-professional-who",
