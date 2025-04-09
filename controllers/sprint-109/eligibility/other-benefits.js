@@ -18,7 +18,7 @@ const config = {
       },
     },
     {
-      page: urls.otherBenefitsIneligible,
+      page: urls.pipIneligible,
       condition: {
         field: urls.otherBenefits,
         value: ["personal-independence-payment"],
@@ -26,7 +26,7 @@ const config = {
       },
     },
     {
-      page: urls.otherBenefitsIneligible,
+      page: urls.adpIneligible,
       condition: {
         field: urls.otherBenefits,
         value: ["adult-disability-payment"],
@@ -34,7 +34,7 @@ const config = {
       },
     },
     {
-      page: urls.otherBenefitsIneligible,
+      page: urls.dlaIneligible,
       condition: {
         field: urls.otherBenefits,
         value: ["disability-living-allowance"],
