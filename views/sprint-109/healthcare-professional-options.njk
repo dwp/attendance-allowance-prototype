@@ -23,7 +23,7 @@
   name: "healthcare-professional-options",
   fieldset: {
     legend: {
-      text: "Who do you want to add contact details for?",
+      text: "Do you want to add contact details for another healthcare professional?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
@@ -52,7 +52,15 @@
         conditional: {
           html: otherHealthcareProfessionalHtml
         }
-    }
+    },
+    {
+        divider: "or"
+      },
+      {
+        value: "i-do-not-want-to",
+        text: "No, none of these",
+        checked: true if data["healthcare-professional-options"] === "i-do-not-want-to"
+      }
   ]
  }) }}
 {% endblock %}
