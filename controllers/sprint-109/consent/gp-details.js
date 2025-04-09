@@ -10,7 +10,7 @@ const config = {
   previous: urls.consent,
   next: [
     {
-      page: urls.healthcareProfessionalAdd,
+      page: urls.healthcareProfessionalOptions,
       condition: {
         field: urls.specialRulesDeclaration,
         value: "yes",
