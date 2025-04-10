@@ -46,7 +46,7 @@ const conditionMatch = (routingConfig, req) => {
             }
           }
         }
-      // any one of the provided values in an array of objects
+        // any one of the provided values in an array of objects
       } else if (routingCondition.condition?.match === match.anyInObject) {
         if (routingCondition.condition.field && routingCondition.condition.value
           && Array.isArray(routingCondition.condition.value)) {
@@ -58,7 +58,7 @@ const conditionMatch = (routingConfig, req) => {
             }
           }
         }
-      // all of the provided values
+        // all of the provided values
       } else if (routingCondition.condition?.match === match.all) {
         if (routingCondition.condition.field && routingCondition.condition.value
           && Array.isArray(routingCondition.condition.value)) {
@@ -69,7 +69,7 @@ const conditionMatch = (routingConfig, req) => {
             }
           }
         }
-      // none of the provided values
+        // none of the provided values
       } else if (routingCondition.condition?.match === match.none) {
         if (routingCondition.condition.field && routingCondition.condition.value
           && Array.isArray(routingCondition.condition.value)) {
@@ -79,7 +79,7 @@ const conditionMatch = (routingConfig, req) => {
               matchedLink = routingCondition.page;
             }
           }
-          }
+        }
         // check value in session
       } else if (routingCondition.condition?.match === match.session) {
         if (routingCondition.condition.value) {
@@ -98,6 +98,11 @@ const conditionMatch = (routingConfig, req) => {
             }
           }
         }
+      } else if (routingCondition.condition?.match === match.custom) {
+         if(routingCondition.condition.customValidation(req.session.data)){
+          routingMatch = true;
+            matchedLink = routingCondition.page;
+         }
       }
     }
   });
