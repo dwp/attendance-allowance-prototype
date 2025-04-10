@@ -203,6 +203,8 @@ module.exports = {
     safeDayWhy: 'safe-day-why',
     safeDayLength: 'safe-day-length',
     careNeedsCause: 'care-needs-cause',
+    noDifficultiesIneligible: 'no-difficulties-ineligible',
+    
 
     // night time care needs
     turningOverNightFrequency: 'turning-over-night-frequency',
@@ -280,6 +282,7 @@ module.exports = {
     lessThan: 'less-than',
     session: 'session',
     sessionAndValue: 'sessionAndValue',
+    custom: 'custom',
   },
   options: {
     none: 'none',

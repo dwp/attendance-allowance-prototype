@@ -14,6 +14,18 @@ const config = {
   ],
   next: [
     {
+      page: urls.noDifficultiesIneligible,
+      condition: {
+        page: urls.noDifficultiesIneligible,
+        match: match.custom,
+        customValidation: (data) => {
+          return data[urls.safeDayNight]?.includes('no') &&
+            data[urls.dayDifficulties]?.includes('daytime-none') &&
+            data[urls.nightDifficulties]?.includes('nighttime-none')
+        }
+      },
+    },
+    {
       page: urls.safeDayWhy,
       condition: {
         page: urls.safeDayNight,
