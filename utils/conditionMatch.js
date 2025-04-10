@@ -99,10 +99,10 @@ const conditionMatch = (routingConfig, req) => {
           }
         }
       } else if (routingCondition.condition?.match === match.custom) {
-         if(routingCondition.condition.customValidation(req.session.data)){
+        if (routingCondition.condition.customValidation(req.session.data)) {
           routingMatch = true;
-            matchedLink = routingCondition.page;
-         }
+          matchedLink = routingCondition.page;
+        }
       }
     }
   });

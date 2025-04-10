@@ -13,7 +13,7 @@ const config = {
     },
   ],
   next: [
-    {
+     {
       page: urls.noDifficultiesIneligible,
       condition: {
         page: urls.noDifficultiesIneligible,
