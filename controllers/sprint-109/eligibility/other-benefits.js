@@ -18,6 +18,51 @@ const config = {
       },
     },
     {
+      page: urls.otherBenefitsIneligible,
+      condition: {
+        field: urls.otherBenefits,
+        value: [
+          "adult-disability-payment",
+          "disability-living-allowance",
+          "personal-independence-payment",
+        ],
+        match: match.all,
+      },
+    },
+    {
+      page: urls.otherBenefitsIneligible,
+      condition: {
+        field: urls.otherBenefits,
+        value: [
+          "adult-disability-payment",
+          "disability-living-allowance",
+        ],
+        match: match.all,
+      },
+    },
+    {
+      page: urls.otherBenefitsIneligible,
+      condition: {
+        field: urls.otherBenefits,
+        value: [
+          "adult-disability-payment",
+          "personal-independence-payment",
+        ],
+        match: match.all,
+      },
+    },
+    {
+      page: urls.otherBenefitsIneligible,
+      condition: {
+        field: urls.otherBenefits,
+        value: [
+          "disability-living-allowance",
+          "personal-independence-payment",
+        ],
+        match: match.all,
+      },
+    },
+    {
       page: urls.pipIneligible,
       condition: {
         field: urls.otherBenefits,
