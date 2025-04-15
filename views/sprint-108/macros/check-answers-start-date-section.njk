@@ -118,7 +118,9 @@
 			{% endif %}
 		</dl>
 	</section>
-	<section class="When your care needs started">
+	
+	{% if data['aids-adaptations-question'] == "yes" %}
+	<section class="aids-adaptations">
 		<h2 class="govuk-heading-m">
 			Adaptations, equipment or aids
 		</h2>
@@ -137,18 +139,15 @@
 				</dd>
 			</div>
 		</dl>
-
-		{% if data['aids-adaptations-question'] == "yes" %}
-
-			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-				<dl class="govuk-summary-list row no-border">
-					<dt class="govuk-summary-list__key govuk-heading-s no-border">Your adaptations, equipment or aids</dt>
-					<dt class="govuk-summary-list__actions">
-						{{ changeLink('aids-adaptations-added') }}						
-					</dt>
-				</dl>
-				<dl class="govuk-summary-list row no-border">
-				{%- for name, date in data['aids-adaptations-rows-2'] %}
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+			<dl class="govuk-summary-list row no-border">
+				<dt class="govuk-summary-list__key govuk-heading-s no-border">Your adaptations, equipment or aids</dt>
+				<dt class="govuk-summary-list__actions">
+					{{ changeLink('aids-adaptations-added') }}						
+				</dt>
+			</dl>
+			<dl class="govuk-summary-list row no-border">
+			{%- for name, date in data['aids-adaptations-rows-2'] %}
 				<div class="govuk-summary-list__row govuk-summary-list__row--no-border">
 					<dt class="govuk-summary-list__key ">{{ name.text }}</dt>
 					<dt class="govuk-summary-list__value "></dt>
@@ -158,28 +157,52 @@
 					<dt class="govuk-summary-list__key govuk-!-font-weight-regular">Difficult to use</dt>
 					<dt class="govuk-summary-list__key "> {{ date.text }} </dt>
 				</div>
-				{% endfor %}
-				</dl>
+			{% endfor %}
 			</dl>
-		{% endif %}
+		</dl>
+	</section>
+	{% endif %}
 
-		{% if data['aids-adaptations-question'] == "no" %}
+	{% if data['aids-adaptations-question'] == "no" %}
+	<section class="When your care needs started">
+		<h2 class="govuk-heading-m">
+			Adaptations, equipment or aids
+		</h2>
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+			<div class="govuk-summary-list__row aids-adaptations-question">
+				<dt class="govuk-summary-list__key">
+					Do you have any home adaptations, specialist equipment or aids?
+				</dt>
+				<dd class="govuk-summary-list__value">
+					{{ data['aids-adaptations-question'] 
+					| replace("yes", "Yes")
+					| replace("no", "No") }}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+					{{ changeLink('aids-adaptations-question') }}
+				</dd>
+			</div>
 			<div class="govuk-summary-list__row aids-adaptations-reason">
 				<dt class="govuk-summary-list__key">
 					Tell us why you do not use any adaptations, equipment or aids
 				</dt>
 				<dd class="govuk-summary-list__value">
-					{{ data['aids-adaptations-reason'] }}
+					{{ data['aids-adaptations-reason']
+					| replace("not-need", "I do not need them")
+					| replace("assessment", "I am waiting for an assessment")
+					| replace("fitted", "They can not be fitted in my home")
+					| replace("difficult", "I find them difficult to use") 
+					| replace("other", "Something else") }}
 				</dd>
 				<dd class="govuk-summary-list__actions">
 					{{ changeLink('aids-adaptations-reason') }}
 				</dd>
 			</div>
-		{% endif %}
-		{% if data['aids-adaptations-question'] == "no" and data['aids-adaptations-reason'] == "other" %}
+			
+			{% if data['aids-adaptations-reason'] == "other" %}
 			<div class="govuk-summary-list__row aids-adaptations-reason">
 				<dt class="govuk-summary-list__key">
-					Explain why you do not use any adaptations, equipment or aids
+					Tell us why you do not use any adaptations, equipment or aids
 				</dt>
 				<dd class="govuk-summary-list__value">
 					{{ data['aids-adaptations-reason-other'] }}
@@ -188,9 +211,10 @@
 					{{ changeLink('aids-adaptations-reason') }}
 				</dd>
 			</div>
-		{% endif %}
+			{% endif %}
 		</dl>
 	</section>
+	{% endif %}
 	
 	<section class="When your care needs started">
 		<h2 class="govuk-heading-m">
