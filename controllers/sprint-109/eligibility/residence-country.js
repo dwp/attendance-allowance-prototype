@@ -30,7 +30,7 @@ const config = {
       },
     },
     {
-      page: urls.homeAddressPostcode,
+      page: urls.homeAddressPostcodeScotland,
       condition: {
         field: urls.residenceCountry,
         value: 'scotland',
