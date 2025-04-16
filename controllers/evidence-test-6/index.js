@@ -66,6 +66,7 @@ const homeAddressPostCode = require('./identity/home-address-postcode');
 const homeAddressSelect = require('./identity/home-address-select');
 const homeAddressManual = require('./identity/home-address-manual');
 const homeAddressInternational = require('./identity/home-address-international');
+const homeAddressPostcodeScotland = require('./identity/home-address-postcode-scotland');
 
 // payability
 const careHomeHospital = require('./payability/care-home-hospital');
@@ -289,6 +290,7 @@ module.exports = {
   homeAddressPostCode,
   homeAddressManual,
   homeAddressInternational,
+  homeAddressPostcodeScotland,
   treatmentSurgery,
   careHomeHospital,
   hospitalAddress,

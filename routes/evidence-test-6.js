@@ -72,6 +72,7 @@ router.use(`/${urls.homeAddressPostcode}`, controllers.homeAddressPostCode);
 router.use(`/${urls.homeAddressSelect}`, controllers.homeAddressSelect);
 router.use(`/${urls.homeAddressManual}`, controllers.homeAddressManual);
 router.use(`/${urls.homeAddressInternational}`, controllers.homeAddressInternational);
+router.use(`/${urls.homeAddressPostcodeScotland}`, controllers.homeAddressPostcodeScotland);
 
 // payability
 router.use(`/${urls.careHomeHospital}`, controllers.careHomeHospital);
