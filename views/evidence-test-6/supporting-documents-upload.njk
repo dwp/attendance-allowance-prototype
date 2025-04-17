@@ -34,15 +34,18 @@
 {% endblock %}
 
 {% block formButton %}
-  {{ govukButton({
-    text: "Upload and continue"
-  }) }}
 
-  {{ govukButton({
-    text: "Cancel upload",
-    classes: "govuk-button--secondary",
-    href: "supporting-documents-added" if data['supporting-documents-upload-rows'].length > 0 else "supporting-documents-options"
-  }) }}
+  <div class="govuk-button-group">
+    {{ phaseButton(data, "Upload and continue") }}
+    {% if data['supporting-documents-upload-rows'].length > 0 %}
+      {{ govukButton({
+        text: "Skip",
+        value: "Skip",
+        classes: "govuk-button--secondary",
+        href: "supporting-documents-added"
+      }) }}
+    {% endif %}
+  </div>
 
 {% endblock %}
 

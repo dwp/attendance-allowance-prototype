@@ -149,6 +149,7 @@ module.exports = {
     supportingDocumentsEmailAddress: 'supporting-documents-email-address',
     supportingDocumentsUploadLater: 'supporting-documents-upload-later',
     supportingDocumentsPost: 'supporting-documents-post',
+    supportingDocumentsNone: 'supporting-documents-none',
 
     // consent
     consent: 'consent',
