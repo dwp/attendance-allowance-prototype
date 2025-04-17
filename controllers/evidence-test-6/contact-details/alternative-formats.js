@@ -6,7 +6,7 @@ const {
 
 const config = {
   name: urls.alternativeFormats,
-  previous: urls.welshLanguageWrite,
+  previous: urls.addContactDetails,
   next: urls.emailSubmit,
   validation: {
     type: validation.checkboxes,
