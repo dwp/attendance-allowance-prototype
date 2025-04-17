@@ -130,6 +130,7 @@ const supportingDocumentsEmailLink = require('./evidence/supporting-documents-em
 const supportingDocumentsEmailAddress = require('./evidence/supporting-documents-email-address');
 const supportingDocumentsUploadLater = require('./evidence/supporting-documents-upload-later');
 const supportingDocumentsPost = require('./evidence/supporting-documents-post');
+const supportingDocumentsNone = require('./evidence/supporting-documents-none');
 
 // consent
 const consent = require('./consent/consent');
@@ -334,6 +335,7 @@ module.exports = {
   supportingDocumentsEmailAddress,
   supportingDocumentsUploadLater,
   supportingDocumentsPost,
+  supportingDocumentsNone,
   consent,
   gpDetails,
   healthcareProfessionalAdd,
