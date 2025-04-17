@@ -1,0 +1,54 @@
+{% from "./macros/check-answers-details-section.njk" import checkAnswersDetailsSection %}
+{% extends "v5.9.0-layouts/prototypeLayout.njk" %}
+
+
+{% block form %}
+
+  {% if data['healthcare-professional-options'] == 'i-do-not-want-to' %}
+    <a href="healthcare-professional-options" class="govuk-back-link">Back</a>
+  {% elif data['healthcare-professional-name'] %}
+    <a href="healthcare-professional-details" class="govuk-back-link">Back</a>
+  {% elif data['consent'] == 'no' %}
+    <a href="consent" class="govuk-back-link">Back</a>
+  {% else %}
+    <a href="gp-details" class="govuk-back-link">Back</a>
+  {% endif %}
+
+<h1 class="govuk-heading-l">Check your answers</h1>
+
+        {{ checkAnswersDetailsSection(data) }}
+
+
+{% endblock %}
+
+{#
+{% block formButton %}
+ {% if data['special-rules-declaration'] == 'yes' %}
+    <a href="telephone-number" class="govuk-button">
+      Accept and continue
+    </a>
+  {% else %}
+    <a href="day-difficulties" class="govuk-button">
+      Accept and continue
+    </a>
+  {% endif %}
+{% endblock %}
+#}
+
+{% block formButton %}
+ {% if data['best-describe'] == 'appointed' or data['best-describe'] == 'appointee' %}
+    <a href="telephone-number" class="govuk-button">
+      Accept and continue
+    </a>
+  {% else %}
+    <a href="day-difficulties" class="govuk-button">
+      Accept and continue
+    </a>
+  {% endif %}
+{% endblock %}
+
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
+
