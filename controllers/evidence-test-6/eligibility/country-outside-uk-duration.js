@@ -7,6 +7,8 @@ const {
 
 const config = {
   name: urls.countryOutsideUKDuration,
+  previous: urls.residenceCountry,
+  /* 
   previous: [
     {
       page: urls.homeAddressSelect,
@@ -67,7 +69,8 @@ const config = {
     {
       page: urls.previousResidenceScotland,
     },
-  ],
+  ], 
+  */
   next: [
     {
       page: urls.countryOutsideUKDurationInelgible,
@@ -78,7 +81,7 @@ const config = {
       },
     },
     {
-      page: urls.countryOutsideUKBenefits,
+      page: urls.nationalInsurance,
     },
   ],
   validation: {
