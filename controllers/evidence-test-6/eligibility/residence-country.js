@@ -22,7 +22,7 @@ const config = {
   ],
   next: [
     {
-      page: urls.previousResidenceScotland,
+      page: urls.countryOutsideUKDuration,
       condition: {
         field: urls.residenceCountry,
         value: 'england',
