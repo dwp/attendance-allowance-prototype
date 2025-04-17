@@ -164,6 +164,7 @@ router.use(`/${urls.supportingDocumentsEmailLink}`, controllers.supportingDocume
 router.use(`/${urls.supportingDocumentsEmailAddress}`, controllers.supportingDocumentsEmailAddress);
 router.use(`/${urls.supportingDocumentsUploadLater}`, controllers.supportingDocumentsUploadLater);
 router.use(`/${urls.supportingDocumentsPost}`, controllers.supportingDocumentsPost);
+router.use(`/${urls.supportingDocumentsNone}`, controllers.supportingDocumentsNone);
 router.use(`/${urls.supportingDocumentsRemove}`, (req, res) => {
   req.session.data['supporting-documents-upload'] = req.session.data['supporting-documents-upload'] = undefined;
   req.session.data['supporting-documents-upload-rows'] = req.session.data['supporting-documents-upload-rows'].filter((e) => {
