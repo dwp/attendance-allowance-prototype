@@ -8,6 +8,7 @@ const config = {
   name: urls.emailConfirm,
   previous: urls.emailSubmit,
   next: urls.checkAnswersContactDetails,
+  /*
   validation: [
     {
       name: 'contact-by-email',
@@ -36,6 +37,7 @@ const config = {
       },
     },
   ],
+  */
 };
 
 module.exports = registerController(config.name, config);
