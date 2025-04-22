@@ -21,6 +21,7 @@ const config = {
       page: urls.checkAnswersDetails,
     },
   ],
+  /*
   validation: [
     {
       name: "gp-surgery-name",
@@ -50,6 +51,7 @@ const config = {
       },
     },
   ],
+  */
 };
 
 module.exports = registerController(config.name, config);

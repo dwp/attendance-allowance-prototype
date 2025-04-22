@@ -21,6 +21,7 @@ const config = {
     },
   ],
   next: urls.homeAddressSelect,
+  /*
   validation: {
     type: validation.textInput,
     options: {
@@ -31,6 +32,7 @@ const config = {
       regEx: 'Enter a postcode in the correct format',
     },
   },
+  */
 };
 
 module.exports = registerController(config.name, config);

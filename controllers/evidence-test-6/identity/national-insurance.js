@@ -8,6 +8,7 @@ const config = {
   name: urls.nationalInsurance,
   previous: urls.countryOutsideUKDuration,
   next: urls.fullName,
+  /*
   validation: {
     type: validation.textInput,
     options: {
@@ -18,6 +19,7 @@ const config = {
       regEx: "Enter your National Insurance number in the correct format",
     },
   },
+  */
 };
 
 module.exports = registerController(config.name, config);
