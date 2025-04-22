@@ -49,6 +49,7 @@ const config = {
       page: urls.otherBenefits,
     },
   ],
+  /*
   validation: {
     type: validation.dateInput,
     errors: {
@@ -62,6 +63,7 @@ const config = {
       invalidDate: 'Date of birth must be a real date',
     },
   },
+  */
 };
 
 module.exports = registerController(config.name, config);

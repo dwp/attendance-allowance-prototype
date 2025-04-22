@@ -8,6 +8,7 @@ const config = {
   name: urls.telephoneNumber,
   previous: urls.checkAnswersStartDate,
   next: urls.addContactDetails,
+  /*
   validation: [
     {
       name: "main-contact-number",
@@ -23,6 +24,7 @@ const config = {
       },
     },
   ],
+  */
 };
 
 module.exports = registerController(config.name, config);
