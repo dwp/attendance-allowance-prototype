@@ -16,7 +16,7 @@ const config = {
       minLength: 1,
       maxLength: 255,
       fileSize: 10485760,
-      fileType: ['jpg','jpeg', 'png', 'pdf'],
+      fileType: ['jpg','jpeg', 'png', 'pdf','doc', 'docx'],
       dupe: true,
     },
     errors: {
