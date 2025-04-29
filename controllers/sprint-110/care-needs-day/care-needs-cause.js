@@ -12,7 +12,7 @@ const config = {
     type: validation.checkboxes,
     errors: {
       required:
-        "Select the health conditions or disabilities that cause the difficulties you have told us about",
+        "Select which health condition or disability causes the difficulties you have told us about",
       },
     },
   };
