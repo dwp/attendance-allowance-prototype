@@ -5,16 +5,18 @@
 
 
 {% block form %}
+  
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">What is your nationality?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">What is their nationality?</h1>
+    {% endif %}
+  </legend>
+  
   {{ govukRadios({
     idPrefix: "nationality",
     name: "nationality",
-    fieldset: {
-      legend: {
-        text: "What is your nationality?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
     errorMessage: data.validation['nationality'].error,
     items: [
       {

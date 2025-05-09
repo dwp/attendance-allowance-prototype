@@ -2,18 +2,19 @@
 
 {% extends "v5.9.0-layouts/prototypeLayout.njk" %}
 
-
 {% block form %}
+  
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">Where do you live?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">Where do they live?</h1>
+    {% endif %}
+  </legend>
+  
   {{ govukRadios({
     idPrefix: "residence-country",
     name: "residence-country",
-    fieldset: {
-      legend: {
-        text: "Where do you live?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
     errorMessage: data.validation['residence-country'].error,
     items: [
       {
@@ -46,6 +47,7 @@
       }
     ]
   }) }}
+  
 {% endblock %}
 
 {% block postForm %}

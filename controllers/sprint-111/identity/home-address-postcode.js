@@ -9,15 +9,15 @@ const config = {
   name: urls.homeAddressPostcode,
   previous: [
     {
-      page: urls.residenceCountry,
+      page: urls.fullName,
       condition: {
-        field: urls.residenceCountry,
-        value: 'scotland',
+        field: urls.whoIsApplying,
+        value: 'myself',
         match: match.value,
       },
     },
     {
-      page: urls.fullName,
+      page: urls.nationalInsurance,
     },
   ],
   next: urls.homeAddressSelect,

@@ -4,17 +4,19 @@
 
 
 {% block form %}
+  
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">Are you getting any of these benefits?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">Are they getting any of these benefits?</h1>
+    {% endif %}
+  </legend>
+  
   {{ govukCheckboxes
     ({
       idPrefix: "other-benefits",
       name: "other-benefits",
-      fieldset: {
-        legend: {
-          text: "Are you getting any of these benefits?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-6"
-        }
-      },
       hint: {
         text: "Select all that apply."
       },
@@ -56,6 +58,7 @@
       }]
     })
   }}
+  
 {% endblock %}
 
 {% block postForm %}

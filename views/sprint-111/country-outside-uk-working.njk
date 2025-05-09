@@ -10,16 +10,17 @@
     </p>
   {% endset %}
 
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">Are you, your wife, husband or civil partner working in or paying insurance to an EEA state or Switzerland?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">Are they, their wife, husband or civil partner working in or paying insurance to an EEA state or Switzerland?</h1>
+    {% endif %}
+  </legend>
+
   {{ govukRadios({
     idPrefix: "country-outside-uk-working",
     name: "country-outside-uk-working",
-    fieldset: {
-      legend: {
-        text: "Are you, your wife, husband or civil partner working in or paying insurance to an EEA state or Switzerland?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
     errorMessage: data.validation['country-outside-uk-working'].error,
     hint: {
       html: countryOutsideUkInsuranceBody

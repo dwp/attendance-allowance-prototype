@@ -4,13 +4,25 @@
 
 
 {% block form %}
+  
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-  <h1 class="govuk-fieldset__heading">What is your home address?</h1>
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-4">What is your home address?</h1>
+      <p class="govuk-body">
+        We will only use this to send you letters about your Attendance Allowance claim.
+      </p>
+    {% else %}
+      <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-4">What is their home address?</h1>
+      <p class="govuk-body">
+        We will only use this to send the applicant letters about their Attendance Allowance claim.
+      </p>
+    {% endif %}
   </legend>
-  <p class="govuk-body">We will only use this to send you letters about your Attendance Allowance claim.</p>
+
   <h2 class="govuk-heading-m">Postcode</h2>
-  <p class="govuk-body">NE25 9NZ&emsp;<a href="home-address-postcode" class="govuk-link">Change</a>
-  </p>
+  
+  <p class="govuk-body">NE25 9NZ&emsp;<a href="home-address-postcode" class="govuk-link">Change</a></p>
+  
   <div class="govuk-form-group">
     <label class="govuk-heading-m" for="address">
       Select an address
@@ -83,16 +95,18 @@
           {value:"120 TURNBERRY, RED HOUSE FARM, WHITLEY BAY", text :"120 TURNBERRY, RED HOUSE FARM, WHITLEY BAY"}
         ]
       }) }}
-
-    <!-- <select class="govuk-select" id="address" name="address">
-      <option value="47089597">60 addresses found</option>
-      <option value="2 TURNBERRY RED HOUSE FARM, WHITLEY BAY">2 TURNBERRY, RED HOUSE FARM, Cullercoats</option>
-    </select> -->
   </div>
-  <p class="govuk-body">
-  <a href="home-address-manual" class="govuk-link">
-  <br>I cannot find my address</a>
-  </p>
+
+  {% if data['who-is-applying'] == 'myself' %}
+    <p class="govuk-body">
+      <a href="home-address-manual" class="govuk-link"><br>I cannot find my address</a>
+    </p>
+  {% else %}
+    <p class="govuk-body">
+      <a href="home-address-manual" class="govuk-link"><br>I cannot find their address</a>
+    </p>
+  {% endif %}
+  
 {% endblock %}
 
 {% block postForm %}
