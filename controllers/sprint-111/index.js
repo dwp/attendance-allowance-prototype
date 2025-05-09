@@ -45,6 +45,9 @@ const whoIsApplying = require('./eligibility/who-is-applying');
 const whoIsApplyingIneligible = require('./eligibility/who-is-applying-ineligible');
 const personClaimingIneligible = require('./eligibility/person-claiming-ineligible');
 const bestDescribe = require('./eligibility/best-describe');
+const manageOwnAffairs = require('./eligibility/manage-own-affairs');
+const manageOwnAffairsIneligible = require('./eligibility/manage-own-affairs-ineligible');
+const helperName = require('./eligibility/helper-name');
 
 // official capacity
 const representativeIntro = require('./official-capacity/representative-intro');
@@ -260,6 +263,9 @@ module.exports = {
   whoIsApplyingIneligible,
   personClaimingIneligible,
   bestDescribe,
+  manageOwnAffairs,
+  manageOwnAffairsIneligible,
+  helperName,
   representativeIntro,
   representativeContactInformation,
   representativeName,

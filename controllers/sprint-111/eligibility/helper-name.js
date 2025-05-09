@@ -1,38 +1,13 @@
 const {
   urls,
   validation,
-  match,
   registerController,
 } = require("../../../utils/controller");
 
 const config = {
-  name: urls.fullName,
-  previous: [
-    {
-      page: urls.bestDescribe,
-      condition: {
-        field: urls.bestDescribe,
-        value: 'friend',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.nationalInsurance,
-    },
-  ],
-  next: [
-    {
-      page: urls.manageOwnAffairs,
-      condition: {
-        field: urls.bestDescribe,
-        value: 'friend',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.homeAddressPostcode,
-    },
-  ],
+  name: urls.helperName,
+  previous: urls.manageOwnAffairs,
+  next: urls.helpingSomeoneIntro,
   validation: [
     {
       name: "first-name",

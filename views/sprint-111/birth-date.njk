@@ -2,7 +2,6 @@
 
 {% extends "v5.9.0-layouts/prototypeLayout.njk" %}
 
-
 {% block form %}
 
   {% set allErrors  = ' govuk-input--error ' if data.validation['birth-date'].error.href === '#birth-date' %}
@@ -10,16 +9,17 @@
   {% set monthError = ' govuk-input--error ' if data.validation['birth-date'].error.href === '#birth-date-month' %}
   {% set yearError  = ' govuk-input--error ' if data.validation['birth-date'].error.href === '#birth-date-year' %}
 
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">What is your date of birth?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">What is their date of birth?</h1>
+    {% endif %}
+  </legend>
+
   {{ govukDateInput({
     id: "birth-date",
     namePrefix: "birth-date",
-    fieldset: {
-      legend: {
-        text: "What is your date of birth?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
     hint: {
       text: "For example, 27 3 1948."
     },

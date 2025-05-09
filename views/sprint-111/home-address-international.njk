@@ -6,17 +6,19 @@
 
 {% block form %}
 
-  {% call govukFieldset({
-    legend: {
-      text: "Enter your home address outside of the UK",
-      classes: "govuk-fieldset__legend--l",
-      isPageHeading: true
-    }
-  }) %}
-
-  <p class="govuk-body">We will only use this to send you letters about your Attendance Allowance claim.</p>
-
-  <div class="govuk-!-padding-bottom-3"></div>
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-4">Enter your home address outside of the UK</h1>
+      <p class="govuk-body">
+        We will only use this to send you letters about your Attendance Allowance claim.
+      </p>
+    {% else %}
+      <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-4">Enter their home address outside of the UK</h1>
+      <p class="govuk-body">
+        We will only use this to send the applicant letters about their Attendance Allowance claim.
+      </p>
+    {% endif %}
+  </legend>
 
   {{ govukInput({
     label: {
@@ -80,10 +82,6 @@
     value: data["home-address-international-country"], 
     autocomplete: "home-address-international-country"
   }) }}
-
-  <div class="govuk-!-padding-bottom-2"></div>
-
-{% endcall %}
   
 {% endblock %}
 

@@ -17,7 +17,7 @@ const {
         },
       },
       {
-        page: urls.helpingSomeoneIntro,
+        page: urls.fullName,
         condition: {
           field: urls.bestDescribe,
           value: 'friend',

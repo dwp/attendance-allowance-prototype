@@ -4,16 +4,18 @@
 
 
 {% block form %}
+  
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">Have you been outside the UK more than 12 months in the last 3 years?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">Have they been outside the UK more than 12 months in the last 3 years?</h1>
+    {% endif %}
+  </legend>
+  
   {{ govukRadios({
     idPrefix: "country-outside-uk-duration",
     name: "country-outside-uk-duration",
-    fieldset: {
-      legend: {
-        text: "Have you been outside the UK more than 12 months in the last 3 years?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
     errorMessage: data.validation['country-outside-uk-duration'].error,
     items: [
       {
@@ -28,6 +30,7 @@
       }
     ]
   }) }}
+  
 {% endblock %}
 
 {% block postForm %}

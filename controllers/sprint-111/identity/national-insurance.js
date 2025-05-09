@@ -1,13 +1,26 @@
 const {
   urls,
   validation,
+  match,
   registerController,
 } = require("../../../utils/controller");
 
 const config = {
   name: urls.nationalInsurance,
   previous: urls.countryOutsideUKWorking,
-  next: urls.fullName,
+  next: [
+    {
+      page: urls.fullName,
+      condition: {
+        field: urls.whoIsApplying,
+        value: 'myself',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.homeAddressPostcode,
+    },
+  ],
   validation: {
     type: validation.textInput,
     options: {

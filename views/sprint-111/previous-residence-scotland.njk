@@ -5,14 +5,12 @@
 
 {% block form %}
 
-  {% set currentResidence = data['residence-country'] | capitalize %}
-
   {% set allErrors  = ' govuk-input--error ' if data.validation['moved-from-scotland-date'].error.href === '#moved-from-scotland-date' %}
   {% set dayError   = ' govuk-input--error ' if data.validation['moved-from-scotland-date'].error.href === '#moved-from-scotland-date-day' %}
   {% set monthError = ' govuk-input--error ' if data.validation['moved-from-scotland-date'].error.href === '#moved-from-scotland-date-month' %}
   {% set yearError  = ' govuk-input--error ' if data.validation['moved-from-scotland-date'].error.href === '#moved-from-scotland-date-year' %}
 
-{% set previousResidenceScotlandHtml %}
+  {% set previousResidenceScotlandHtml %}
     {{ govukDateInput({
       id: "moved-from-scotland-date",
       namePrefix: "moved-from-scotland-date",
@@ -47,16 +45,17 @@
     }) }}
   {% endset -%}
 
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">Have you moved from Scotland to {{ data['residence-country'] | capitalize }} since 21 October 2024?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">Have they moved from Scotland to {{ data['residence-country'] | capitalize }} since 21 October 2024?</h1>
+    {% endif %}
+  </legend>
+
   {{ govukRadios({
     idPrefix: "previous-residence-scotland",
     name: "previous-residence-scotland",
-    fieldset: {
-      legend: {
-        text: "Have you moved from Scotland to " + currentResidence + " since 21 October 2024?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
     errorMessage: data.validation['previous-residence-scotland'].error,
     items: [
       {
