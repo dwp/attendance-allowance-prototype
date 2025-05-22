@@ -5,9 +5,13 @@
 
 {% block form %}
 
-  <h1 class="govuk-heading-l">
-    Do you need someone with you to make sure you are safe at home?
-  </h1>
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">Do you need someone with you to make sure you are safe at home?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">Do they need someone with them to make sure they are safe at home?</h1>
+    {% endif %}
+  </legend>
 
   {{ govukCheckboxes
     ({

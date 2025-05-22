@@ -2,33 +2,45 @@
 
 {% extends "v5.9.0-layouts/prototypeLayout.njk" %}
 
-
 {% block form %}
+
+  {% if data['who-is-applying'] == 'myself' %}
+    {% set meName = data['who-is-applying'] | replace("myself", "me") %}
+    {% set youName = data['who-is-applying'] | replace("myself", "you") %}
+  {% else %}
+    {% set meName = data['first-name'] | capitalize %}
+    {% set youName = data['first-name'] | capitalize %}
+  {% endif %}
+
+  
+
+
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">Who should we contact first if we have questions?</h1>
+  </legend>
+
+  <p class="govuk-body">We will only call if we have questions about this application.</p>
+
   {{ govukRadios({
     idPrefix: "preference-contact",
     name: "preference-contact",
-    fieldset: {
-      legend: {
-        text: "Who should we contact first if we have questions?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-    hint: {
-          text: "We will only call if we have questions about your application."
-        },
     errorMessage: data.validation['preference-contact'].error,
     items: [
       {
         value: "prefer-claimant",
-        text: "Call me first",
+        text: "Call " + meName + " first",
         checked: true if data["preference-contact"] === "prefer-claimant"
       },
       {
-        value: "prefer-person-helping",
-        text: "Call the person who is helping me first",
-        checked: true if data["preference-contact"] === "prefer-person-helping"
-      },
+        value: "prefer-helper",
+        text: "Call me first",
+        checked: true if data["preference-contact"] === "prefer-helper"
+      } if data['add-contact-details'] == 'helper-number',
+      {
+        value: "prefer-someone-else",
+        text: "Call the other person first",
+        checked: true if data["preference-contact"] === "prefer-someone-else"
+      } if data['add-contact-details'] == 'someone-else',
       {
         divider: "or"
       },
@@ -36,7 +48,7 @@
         value: "no-preference",
         text: "I do not mind",
         hint: {
-          text: "If you do not give a preference, we will try to call you first."
+          text: "If you do not give a preference, we will try to call " + youName + " first."
         },
         checked: true if data["preference-contact"] === "no-preference"
       }

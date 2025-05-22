@@ -10,7 +10,7 @@ const config = {
   previous: urls.howToClaim,
   next: [
     {
-      page: urls.beforeYouStart,
+      page: urls.whoIsApplying,
       condition: {
         field: urls.claimType,
         value: 'new-claim',

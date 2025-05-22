@@ -2,38 +2,76 @@
 
 
 {% block form %}
+
+  {% if data['who-is-applying'] == 'myself' %}
+
+    <h1 class="govuk-heading-l">
+      You cannot get Attendance Allowance if you are under State Pension age
+    </h1>
+    
+    <p class="govuk-body">
+      If you think you are eligible, <a href="birth-date" class="govuk-link">check you have entered your correct date of birth.</a>
+    </p>
+    
+    <h2 class="govuk-heading-m">
+      If you are under State Pension age
+    </h2>
+    
+    {% if locale == 'NI' %}
+      <p class="govuk-body">You can <a target=”_blank” href="https://www.nidirect.gov.uk/articles/personal-independence-payment-pip" class="govuk-link">apply for Personal Independence Payment (opens in a new tab)</a>.</p>
+      {% else %}
+      <p class="govuk-body">You can <a target=”_blank” href="https://www.gov.uk/pip" class="govuk-link">apply for Personal Independence Payment (opens in a new tab)</a>.</p>
+    {% endif %}
+    
+    <p class="govuk-body">
+      It can help with extra living costs if you have both:
+    </p>
+    
+    <ul class="govuk-list govuk-list--bullet">
+      <li>a long-term physical or mental health condition or disability</li>
+      <li>difficulty doing certain everyday tasks or getting around</li>
+    </ul>
   
-  <h1 class="govuk-heading-l">
-    You cannot get Attendance Allowance if you are under State Pension age
-  </h1>
+    <p class="govuk-body">
+      If you live in Scotland, you will need to <a href="https://www.mygov.scot/adult-disability-payment" class="govuk-link">
+      apply for Adult Disability Payment (opens in a new tab)</a>.
+    </p>
+
+  {% else %}
+
+    <h1 class="govuk-heading-l">
+      They cannot get Attendance Allowance if they are under State Pension age
+    </h1>
+    
+    <p class="govuk-body">
+      If you think they are eligible, <a href="birth-date" class="govuk-link">check you have entered their correct date of birth.</a>
+    </p>
+    
+    <h2 class="govuk-heading-m">
+      If they are under State Pension age
+    </h2>
+    
+    {% if locale == 'NI' %}
+      <p class="govuk-body">You can <a target=”_blank” href="https://www.nidirect.gov.uk/articles/personal-independence-payment-pip" class="govuk-link">apply for Personal Independence Payment (opens in a new tab)</a>.</p>
+      {% else %}
+      <p class="govuk-body">You can <a target=”_blank” href="https://www.gov.uk/pip" class="govuk-link">apply for Personal Independence Payment (opens in a new tab)</a>.</p>
+    {% endif %}
+    
+    <p class="govuk-body">
+      It can help with extra living costs if they have both:
+    </p>
+    
+    <ul class="govuk-list govuk-list--bullet">
+      <li>a long-term physical or mental health condition or disability</li>
+      <li>difficulty doing certain everyday tasks or getting around</li>
+    </ul>
   
-  <p class="govuk-body">
-    If you think you are eligible, <a href="birth-date" class="govuk-link">check you have entered your correct date of birth.</a>
-  </p>
-  
-  <h2 class="govuk-heading-m">
-    If you are under State Pension age
-  </h2>
-  
-  {% if locale == 'NI' %}
-    <p class="govuk-body">You can <a target=”_blank” href="https://www.nidirect.gov.uk/articles/personal-independence-payment-pip" class="govuk-link">apply for Personal Independence Payment (opens in a new tab)</a>.</p>
-    {% else %}
-    <p class="govuk-body">You can <a target=”_blank” href="https://www.gov.uk/pip" class="govuk-link">apply for Personal Independence Payment (opens in a new tab)</a>.</p>
+    <p class="govuk-body">
+      If they live in Scotland, you will need to <a href="https://www.mygov.scot/adult-disability-payment" class="govuk-link">
+      apply for Adult Disability Payment (opens in a new tab)</a>.
+    </p>
+
   {% endif %}
-  
-  <p class="govuk-body">
-    It can help with extra living costs if you have both:
-  </p>
-  
-  <ul class="govuk-list govuk-list--bullet">
-    <li>a long-term physical or mental health condition or disability</li>
-    <li>difficulty doing certain everyday tasks or getting around</li>
-  </ul>
- 
-  <p class="govuk-body">
-    If you live in Scotland, you will need to <a href="https://www.mygov.scot/adult-disability-payment" class="govuk-link">
-    apply for Adult Disability Payment (opens in a new tab)</a>.
-  </p>
   
 {% endblock %}
 

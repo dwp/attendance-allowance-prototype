@@ -6,6 +6,11 @@
 
 {% block form %}
 
+{% set person = data['who-is-applying']
+  | replace("myself", "you")
+  | replace("helping-someone", "they")
+%}
+
 {% set allErrors  = ' govuk-input--error ' if data.validation['difficulties-start-date'].error.href === '#difficulties-start-date' %}
 {% set dayError   = ' govuk-input--error ' if data.validation['difficulties-start-date'].error.href === '#difficulties-start-date-day' %}
 {% set monthError = ' govuk-input--error ' if data.validation['difficulties-start-date'].error.href === '#difficulties-start-date-month' %}
@@ -90,7 +95,11 @@
 
   {% if data['safe-day-night'] == "no" %}
   {% else %}
-    <h2 class="govuk-heading-s govuk-!-margin-0">Someone to keep you safe at home</h2>
+    {% if data['who-is-applying'] == 'myself' %}
+      <h2 class="govuk-heading-s govuk-!-margin-0">Someone to keep you safe at home</h2>
+    {% else %}
+      <h2 class="govuk-heading-s govuk-!-margin-0">Someone to keep them safe at home</h2>
+    {% endif %}
     <ul class="govuk-list">
       {% for item in data['safe-day-night'] %}
         <li>
@@ -104,16 +113,20 @@
   {% endif %}
 
 
+    {% if data['who-is-applying'] == 'myself' %}
+      <h2 class="govuk-heading-m govuk-!-padding-top-3">
+        How long have you had these difficulties?
+      </h2>
+    {% else %}
+      <h2 class="govuk-heading-m govuk-!-padding-top-3">
+        How long have they had these difficulties?
+      </h2>
+    {% endif %}
+
+
   {{ govukRadios({
     idPrefix: "start-date",
     name: "start-date",
-    fieldset: {
-      legend: {
-        text: "How long have you had these difficulties?",
-        isPageHeading: false,
-        classes: "govuk-fieldset__legend--m govuk-!-padding-top-4"
-      }
-    },
     errorMessage: data.validation['start-date'].error,
     items: [
       {

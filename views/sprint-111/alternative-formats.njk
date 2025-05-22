@@ -4,20 +4,22 @@
 
 
 {% block form %}
-  {{ govukCheckboxes
+
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">Do you need us to use a different format when we contact you?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">Does the person you are helping to apply need us to use a different format when we contact them?</h1>
+    {% endif %}
+  </legend>
+ 
+ {{ govukCheckboxes
     ({
       idPrefix: "alternative-formats",
       name: "alternative-formats",
-      fieldset: {
-        legend: {
-          text: "Do you need us to use a different format when we contact you?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-6"
-          }
-      },
       hint: {
         text: "Select all that apply."
-    },
+       },
       errorMessage: data.validation['alternative-formats'].error,
       items: [
       {
@@ -45,7 +47,7 @@
       },
       {
         value: "format-none",
-        text: "No, these do not apply to me",
+        text: "No, these do not apply",
         behaviour: "exclusive",
         checked: true if data["alternative-formats"] and data["alternative-formats"].includes("format-none")
       }]

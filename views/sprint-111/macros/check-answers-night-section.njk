@@ -4,14 +4,30 @@
 {% macro checkAnswersNightSection(data) %}
 
 	<section class="Your care needs during the night">
+		
+		{% if data['who-is-applying'] == 'myself' %}
 		<h2 class="govuk-heading-m">
 			Difficulties you have during the night
 		</h2>
+        {% else %}
+		<h2 class="govuk-heading-m">
+			Difficulties they have during the night
+		</h2>
+        {% endif %}
+
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row night-activities">
-				<dt class="govuk-summary-list__key">
-					Activities you have difficulty with
-				</dt>
+				
+				{% if data['who-is-applying'] == 'myself' %}
+                <dt class="govuk-summary-list__key">
+                    Activities you have difficulty with
+                </dt>
+                {% else %}
+                <dt class="govuk-summary-list__key">
+                    Activities they have difficulty with
+                </dt>
+                {% endif %}
+
 				<dd class="govuk-summary-list__value">
 					<ul class="govuk-list">
 						{% for item in data['night-difficulties'] %}

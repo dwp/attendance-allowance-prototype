@@ -4,7 +4,14 @@
 
 
 {% block form %}
-  <h1 class="govuk-heading-l">Add your GP's details</h1>
+ 
+ <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">Add your GP's details</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">Add their GP's details</h1>
+    {% endif %}
+  </legend>
 
   {{ govukInput({
     label: {

@@ -2,18 +2,19 @@
 
 {% extends "v5.9.0-layouts/prototypeLayout.njk" %}
 
-
 {% block form %}
+
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">Are you having any other treatment or waiting for surgery?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">Are they having any other treatment or waiting for surgery?</h1>
+    {% endif %}
+  </legend>
+
   {{ govukRadios({
     idPrefix: "treatment-surgery",
     name: "treatment-surgery",
-    fieldset: {
-      legend: {
-        text: "Are you having any other treatment or waiting for surgery?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
     errorMessage: data.validation['treatment-surgery'].error,
     items: [
       {
@@ -28,6 +29,7 @@
       }
     ]
   }) }}
+
 {% endblock %}
 
 {% block postForm %}

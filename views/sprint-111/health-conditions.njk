@@ -27,21 +27,31 @@
 {% block form %}
 
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-    <h1 class="govuk-fieldset__heading govuk-body">
-      Your health conditions and disabilities
-    </h1>
+      <h1 class="govuk-fieldset__heading">
+        Health conditions and disabilities
+      </h1>
   </legend>
 
-  <p class="govuk-body govuk-!-margin-bottom-7">
-    We need to know about the health conditions or disabilities that mean you need extra help or care.
-  </p>
-
+  {% if data['who-is-applying'] == 'myself' %}
+    <p class="govuk-body govuk-!-margin-bottom-7">
+      We need to know about the health conditions or disabilities that mean you need extra help or care.
+    </p>
+  {% else %}
+    <p class="govuk-body govuk-!-margin-bottom-7">
+      We need to know about the health conditions or disabilities that mean they need extra help or care.
+    </p>
+  {% endif %}
+  
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
     <h2 class="govuk-fieldset__heading govuk-body">
       {% if data['health-conditions-rows'].length > 0 %}
         Search for another health condition or disability
       {% else %}
+        {% if data['who-is-applying'] == 'myself' %}
         Search for your first health condition or disability
+        {% else %}
+        Search for their first health condition or disability
+        {% endif %}
       {% endif %}
     </h2>
   </legend>
@@ -2820,9 +2830,9 @@ value: "Writer's cramp",
       } if  data.validation['health-conditions'].error
     }) }}
 
-  <p class="govuk-body govuk-!-margin-bottom-8">
+  <p class="govuk-body govuk-!-margin-bottom-7">
     <a href="health-conditions-manual" class="govuk-link">
-      I cannot find my health condition or disability
+      I cannot find the health condition or disability
     </a>
   </p>
 
