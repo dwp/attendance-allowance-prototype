@@ -47,6 +47,7 @@ app.use(locale());
 app.use(journeyType());
 
 // [Journey routes] (do not edit this comment, it is used in automation)
+app.use('/context-switch-v2/', setVersionMiddleware('/context-switch-v2/'), require('./routes/context-switch-v2'));
 app.use('/context-switch-v1/', setVersionMiddleware('/context-switch-v1/'), require('./routes/context-switch-v1'));
 app.use('/sprint-111/', setVersionMiddleware('/sprint-111/'), require('./routes/sprint-111'));
 app.use('/sprint-110/', setVersionMiddleware('/sprint-110/'), require('./routes/sprint-110'));
