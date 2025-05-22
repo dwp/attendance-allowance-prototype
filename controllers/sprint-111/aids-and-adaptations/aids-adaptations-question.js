@@ -25,7 +25,7 @@ const config = {
       },
     },
     {
-      page: urls.evidence,
+      page: urls.supportingDocumentsNone,
     },
   ],
   next: [

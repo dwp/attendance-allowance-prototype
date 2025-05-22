@@ -1,0 +1,61 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "v5.9.0-layouts/prototypeLayout.njk" %}
+
+
+{% block form %}
+
+  {% set specialRulesFormCompletedBody %}
+    {% if data['who-is-applying'] == 'myself' %}
+      {% if locale == 'NI' %}
+        <p class="govuk-body govuk-hint">An SR1 is a form that gives the Department for Communities (DfC) evidence about your illness.</p>
+      {% else %}
+        <p class="govuk-body govuk-hint">An SR1 is a form that gives the Department for Work and Pensions (DWP) evidence about your illness.</p>
+      {% endif %}
+    {% else %}
+      {% if locale == 'NI' %}
+        <p class="govuk-body govuk-hint">An SR1 is a form that gives the Department for Communities (DfC) evidence about their illness.</p>
+      {% else %}
+        <p class="govuk-body govuk-hint">An SR1 is a form that gives the Department for Work and Pensions (DWP) evidence about their illness.</p>
+      {% endif %}
+    {% endif %}
+  {% endset %}
+
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">Has your doctor, consultant or specialist nurse completed an SR1 form?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">Has their doctor, consultant or specialist nurse completed an SR1 form?</h1>
+    {% endif %}
+  </legend>
+
+  {{ govukRadios({
+    idPrefix: "special-rules-form-completed",
+    name: "special-rules-form-completed",
+    errorMessage: data.validation['special-rules-form-completed'].error,
+    hint: {
+      html: specialRulesFormCompletedBody
+    },
+    items: [
+      {
+        value: "yes",
+        text: "Yes",
+        checked: true if data["special-rules-form-completed"] === "yes"
+      },
+      {
+        value: "no",
+        text: "No",
+        checked: true if data["special-rules-form-completed"] === "no"
+      },
+      {
+        value: "unsure",
+        text: "I do not know",
+        checked: true if data["special-rules-form-completed"] === "unsure"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

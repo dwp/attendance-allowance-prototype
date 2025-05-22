@@ -1,0 +1,71 @@
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "v5.9.0-layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+{% set addTelephoneNumber %}
+    
+    {{ govukInput({
+        label: {
+          text: "Your telephone number",
+          classes: "govuk-!-font-weight-bold"
+        },
+        hint: {
+          text: "For international numbers include the country code."
+        },
+        id: "helper-number-input",
+        name: "helper-number-input",
+        errorMessage: data.validation['helper-number-input'].error,
+        value: data['helper-telephone-number-input'],
+        classes: "govuk-input--width-20"
+      }) }}
+      
+  {% endset %}
+
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">Do you want to add contact details for someone else?</h1>
+  </legend>
+
+  {% if data['who-is-applying'] == 'myself' %}
+    <p class="govuk-body">We will only phone them if we have questions about your application.</p>
+  {% else %}
+    <p class="govuk-body">We will only phone them if we have questions about this application.</p>
+  {% endif %}
+   
+   
+  {{ govukRadios({
+    idPrefix: "add-contact-details",
+    name: "add-contact-details",
+    errorMessage: data.validation['add-contact-details'].error,
+    items: [
+      {
+        value: "helper-number",
+        text: "Yes, add my details",
+        checked: true if data["add-contact-details"] === "helper-number",
+        conditional: { html: addTelephoneNumber }
+      } if data['applying-someone-else'] == 'helping-someone',
+      {
+        value: "someone-else",
+        text: "Yes, add details for someone else",
+        checked: true if data["add-contact-details"] === "someone-else"
+      } if data['applying-someone-else'] == 'helping-someone',
+      {
+        value: "someone-else",
+        text: "Yes",
+        checked: true if data["add-contact-details"] === "someone-else"
+      } if data['who-is-applying'] == 'myself',
+      {
+        value: "no",
+        text: "No",
+        checked: true if data["add-contact-details"] === "no"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

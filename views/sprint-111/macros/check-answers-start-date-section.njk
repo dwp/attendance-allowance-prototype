@@ -138,6 +138,7 @@
 		</dl>
 	</section>
 	
+	{% if data['start-date'] %}
 	<section class="When your care needs started">
 
 		{% if data['who-is-applying'] == 'myself' %}
@@ -213,6 +214,7 @@
 
 		</dl>
 	</section>
+	{% endif %}
 
 	{% if data['supporting-documents-intro']%}
 	<section class="supporting-documents">
