@@ -1,0 +1,40 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "v5.9.0-layouts/prototypeLayout.njk" %}
+
+
+{% block form %}
+  {{ govukRadios({
+    idPrefix: "applying-someone-else",
+    name: "applying-someone-else",
+    fieldset: {
+      legend: {
+        text: "Why are you applying for someone else?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    errorMessage: data.validation['applying-someone-else'].error,
+    items: [
+      {
+        value: "helping-someone",
+        text: "I am helping someone to fill in the application",
+        checked: true if data["applying-someone-else"] and data["applying-someone-else"].includes("helping-someone")
+      },
+      {
+        value: "individual",
+        text: "I am an individual acting on behalf of someone who cannot manage their own affairs",
+        checked: true if data["applying-someone-else"] and data["applying-someone-else"].includes("individual")
+      },
+      {
+        value: "corporate",
+        text: "I am an organisation acting on behalf of someone who cannot manage their own affairs",
+        checked: true if data["applying-someone-else"] and data["applying-someone-else"].includes("corporate")
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

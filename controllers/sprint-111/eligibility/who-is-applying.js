@@ -7,30 +7,10 @@ const {
 
 const config = {
   name: urls.whoIsApplying,
-  previous: [
-    {
-      page: urls.claimType,
-      condition: {
-        field: urls.claimType,
-        value: 'new-claim',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.beforeYouStart,
-      condition: {
-        field: urls.beforeYouStart,
-        value: 'yes',
-        match: match.value,
-      },
-    },
-    {
-      page: urls.howToClaim,
-    },  
-  ],
+  previous: urls.claimType,
   next: [
     {
-      page: urls.birthDate,
+      page: urls.beforeYouStart,
       condition: {
         field: urls.whoIsApplying,
         value: 'myself',
@@ -38,7 +18,7 @@ const config = {
       },
     },
     {
-      page: urls.bestDescribe,
+      page: urls.applyingSomeoneElse,
     },
   ],
   validation: {

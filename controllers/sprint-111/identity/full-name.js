@@ -7,13 +7,25 @@ const {
 
 const config = {
   name: urls.fullName,
-  previous: urls.nationalInsurance,
+  previous: [
+    {
+      page: urls.beforeYouStart,
+      condition: {
+        field: urls.manageOwnAffairs,
+        value: 'yes',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.nationalInsurance,
+    },
+  ],
   next: [
     {
-      page: urls.careHomeHospital,
+      page: urls.helperName,
       condition: {
-        field: urls.residenceCountry,
-        value: 'scotland',
+        field: urls.manageOwnAffairs,
+        value: 'yes',
         match: match.value,
       },
     },

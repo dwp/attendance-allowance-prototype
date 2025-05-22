@@ -31,9 +31,13 @@ router.use(`/${urls.claimTypeRenewal}`, controllers.claimTypeRenewal);
 
 // eligibility
 router.use(`/${urls.whoIsApplying}`, controllers.whoIsApplying);
+router.use(`/${urls.applyingSomeoneElse}`, controllers.applyingSomeoneElse);
 router.use(`/${urls.whoIsApplyingIneligible}`, controllers.whoIsApplyingIneligible);
 router.use(`/${urls.personClaimingIneligible}`, controllers.personClaimingIneligible);
 router.use(`/${urls.bestDescribe}`, controllers.bestDescribe);
+router.use(`/${urls.manageOwnAffairs}`, controllers.manageOwnAffairs);
+router.use(`/${urls.manageOwnAffairsIneligible}`, controllers.manageOwnAffairsIneligible);
+router.use(`/${urls.helperName}`, controllers.helperName);
 router.use(`/${urls.birthDate}`, controllers.birthDate);
 router.use(`/${urls.birthDateIneligible}`, controllers.birthDateIneligible);
 router.use(`/${urls.otherBenefits}`, controllers.otherBenefits);
@@ -268,6 +272,7 @@ router.use(`/${urls.aidsAdaptationsRemove}`, (req, res) => {
 
 // contact details
 router.use(`/${urls.telephoneNumber}`, controllers.telephoneNumber);
+router.use(`/${urls.helperTelephoneNumber}`, controllers.helperTelephoneNumber);
 router.use(`/${urls.telephoneNumberOther}`, controllers.telephoneNumberOther);
 router.use(`/${urls.addContactDetails}`, controllers.addContactDetails);
 router.use(`/${urls.preferenceContact}`, controllers.preferenceContact);

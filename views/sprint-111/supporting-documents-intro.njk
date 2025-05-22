@@ -4,27 +4,45 @@
 
 {% block form %}
 
+  {% set person = data['who-is-applying']
+  | replace("myself", "you")
+  | replace("someone-else", "they")
+  %}
+
   <h1 class="govuk-heading-l">
     Supporting documents
   </h1>
 
-  <p class="govuk-body">
-    You can give us supporting documents to confirm what you have told us about your health conditions or disabilities.
-    For example, a letter from a specialist, care plan or summary from your GP.
-  </p>
+  {% if data['who-is-applying'] == 'myself' %}
+    <p class="govuk-body">
+      You can give us supporting documents to confirm what you have told us about your health conditions or disabilities.
+      For example, a letter from a specialist, care plan or summary from your GP.
+    </p>
+  {% else %}
+    <p class="govuk-body">
+      You can give us supporting documents to confirm what you have told us about their health conditions or disabilities.
+      For example, a letter from a specialist, care plan or summary from their GP.
+    </p>
+  {% endif %}
 
   <p class="govuk-body">
     You can choose to upload these during the application or send them by post.
   </p>
 
   <p class="govuk-body">
-    Do not worry if you do not have any supporting documents, just submit your claim. 
+    Do not worry if you do not have any supporting documents, just submit the claim. 
   </p>
 
   {% if data['care-needs-cause'] == "none-of-these" %}
   {% elif data['care-needs-cause'] %}
   <div class="govuk-inset-text">
-    <p class="govuk-body">You told us you need support because of:</p>
+    
+    {% if data['who-is-applying'] == 'myself' %}
+      <p class="govuk-body">You told us you need support because of:</p>
+    {% else %}
+      <p class="govuk-body">You told us the person you are helping needs support because of:</p>
+    {% endif %}
+    
     <ul class="govuk-list govuk-list--bullet">
       {% if data['care-needs-cause'] is string %}
           <li>{{data['care-needs-cause'] }}</li>
@@ -43,7 +61,7 @@
       name: "supporting-documents-intro",
       fieldset: {
         legend: {
-          text: "Do you have any supporting documents to confirm what you have told us?",
+          text: "Do " + person + " have any supporting documents to confirm what you have told us?",
           isPageHeading: false,
           classes: "govuk-fieldset__legend--m"
         }

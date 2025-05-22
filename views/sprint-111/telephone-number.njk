@@ -5,18 +5,41 @@
 
 
 {% block form %}
-  <h1 class="govuk-heading-l govuk-!-margin-bottom-2">What is your telephone number?</h1>
-  <p class="govuk-body">We will only phone you if we need to talk to you about your claim.</p>
+  
+  {% if data['who-is-applying'] == 'myself' %}
+    
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">What is your telephone number?</h1>
+    </legend>
 
-  <div class="govuk-form-group">
+    <p class="govuk-body">
+      We will only phone you if we need to talk to you about your claim.
+    </p>
+
     <div class="govuk-inset-text">
-      Later you will have the opportunity to add contact details for someone else.
-    </div> 
-  </div>
+      You can add contact details for someone else next.
+    </div>
+
+  {% else %}
+
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">What is their telephone number?</h1>
+    </legend>
+
+    <p class="govuk-body">
+      We will only phone them if we need to talk to them about their claim.
+    </p>
+
+    <div class="govuk-inset-text">
+      You can add contact details for yourself or someone else next.
+    </div>
+
+  {% endif %}
   
   {{ govukInput({
     label: {
-      text: "Telephone number"
+      text: "Telephone number",
+      classes: "govuk-!-font-weight-bold"
     },
     hint: {
       text: "For international numbers include the country code."

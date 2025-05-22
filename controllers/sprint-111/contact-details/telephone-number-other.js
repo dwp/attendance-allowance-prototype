@@ -10,7 +10,20 @@ const config = {
   next: urls.preferenceContact,
   validation: [
     {
-      name: 'main-contact-number-other',
+      name: "someone-else-name",
+      type: validation.textInput,
+      options: {
+        minLength: 1,
+        maxLength: 100,
+      },
+      errors: {
+        required: "Enter the full name of the other contact",
+        maxLength:
+          "Enter the full name of the other contact in 100 characters or less",
+      },
+    },
+    {
+      name: 'someone-else-number',
       type: validation.textInput,
       options: {
         minLength: 5,

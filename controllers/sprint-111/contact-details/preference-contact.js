@@ -1,12 +1,25 @@
 const {
   urls,
   validation,
+  match,
   registerController,
 } = require('../../../utils/controller');
 
 const config = {
   name: urls.preferenceContact,
-  previous: urls.telephoneNumberOther,
+  previous: [
+    {
+      page: urls.addContactDetails,
+      condition: {
+        field: urls.addContactDetails,
+        value: "helper-number",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.telephoneNumberOther,
+    },
+  ],
   next: urls.alternativeFormats,
   validation: {
     type: validation.radios,

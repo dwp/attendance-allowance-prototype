@@ -5,6 +5,11 @@
 
 {% block form %}
 
+  {% set person = data['who-is-applying']
+  | replace("myself", "you")
+  | replace("someone-else", "their")
+  %}
+
   {% if locale == 'NI' %}
     <h1 class="govuk-heading-l">Sharing information about your health condition or disability</h1>
     
@@ -33,22 +38,34 @@
   {% else %}
 
     {% set consentBody %}
-      <p class="govuk-body govuk-!-static-padding-top-1"> 
-        The Department for Work and Pensions (DWP) may need more information about your health condition 
-        or disability to assess and make a decision on your claim.
-      </p>
+      {% if data['who-is-applying'] == 'myself' %}
+        <p class="govuk-body1"> 
+          The Department for Work and Pensions (DWP) may need more information about your health condition 
+          or disability to assess and make a decision on your claim.
+        </p>
+      {% else %}
+        <p class="govuk-body"> 
+          The Department for Work and Pensions (DWP) may need more information about their health condition 
+          or disability to assess and make a decision on their claim.
+        </p>
+      {% endif %}
     {% endset %}
+
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      {% if data['who-is-applying'] == 'myself' %}
+       <h1 class="govuk-fieldset__heading">
+        Do you give consent for your GP or other healthcare professionals to share relevant information about your health conditions with DWP?
+      </h1>
+      {% else %}
+        <h1 class="govuk-fieldset__heading">
+          Does the person you are helping to apply give consent for their GP or other healthcare professionals to share relevant information about their health conditions with DWP?
+        </h1>
+      {% endif %}
+    </legend>
 
     {{ govukRadios({
         idPrefix: "consent",
         name: "consent",
-        fieldset: {
-          legend: {
-            text: "Do you give consent for your GP or other healthcare professionals to share relevant information about your health conditions with DWP?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
         errorMessage: data.validation['consent'].error,
         hint: {
           html: consentBody
@@ -56,12 +73,12 @@
         items: [
           {
             value: "yes",
-            text: "Yes, information about my health can be shared",
+            text: "Yes, information about " + person + " health can be shared",
             checked: true if data["consent"] and data["consent"].includes("yes")
           },
           {
             value: "no",
-            text: "No, information about my health cannot be shared",
+            text: "No, information about " + person + " health cannot be shared",
             checked: true if data["consent"] and data["consent"].includes("no")
           }
       ]
@@ -69,14 +86,14 @@
 
     <h2 class="govuk-heading-m govuk-!-static-padding-top-7">How DWP uses this information</h2>
     
-    <p class="govuk-body">DWP uses this information to:</p>
+    <p class="govuk-body">DWP will use this information to:</p>
   
     <ul class="govuk-list govuk-list--bullet">
-      <li>assess your claim</li>
-      <li>make a decision on your claim, or any future disputes or appeals</li>
+      <li>assess this claim</li>
+      <li>make a decision on this claim, or any future disputes or appeals</li>
     </ul>
 
-    <p class="govuk-body">If you do not give your consent, DWP will make a decision using only the information you provide.</p>
+    <p class="govuk-body">If consent is not given, DWP will make a decision using only the information provided in this application.</p>
 
   {% endif %}
 

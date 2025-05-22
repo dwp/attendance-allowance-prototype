@@ -19,7 +19,7 @@ const config = {
       },
     },
     {
-      page: urls.aidsAdaptationsQuestion,
+      page: urls.difficultiesStartDate,
     },
   ],
   validation: {
