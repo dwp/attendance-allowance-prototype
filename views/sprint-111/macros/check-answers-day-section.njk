@@ -1,15 +1,33 @@
- {% from "./change-link.njk" import changeLink %}
+{% from "./change-link.njk" import changeLink %}
 {% from "./reword-date.njk" import rewordDate %}
+
 {% macro checkAnswersDaySection(data) %}
+
     <section class="Your care needs during the day">
+       
+        {% if data['who-is-applying'] == 'myself' %}
         <h2 class="govuk-heading-m">
             Difficulties you have during the day
         </h2>
+        {% else %}
+        <h2 class="govuk-heading-m">
+            Difficulties they have during the day
+        </h2>
+        {% endif %}
+
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
             <div class="govuk-summary-list__row difficulties-day">
+               
+                {% if data['who-is-applying'] == 'myself' %}
                 <dt class="govuk-summary-list__key">
                     Activities you have difficulty with
                 </dt>
+                {% else %}
+                <dt class="govuk-summary-list__key">
+                    Activities they have difficulty with
+                </dt>
+                {% endif %}
+                
                 <dd class="govuk-summary-list__value">
                     <ul class="govuk-list">
                         {% for item in data['day-difficulties'] %}

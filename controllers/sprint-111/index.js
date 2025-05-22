@@ -42,6 +42,7 @@ const countryOutsideUkDuration = require('./eligibility/country-outside-uk-durat
 const countryOutsideUkBenefits = require('./eligibility/country-outside-uk-benefits');
 const countryOutsideUkWorking = require('./eligibility/country-outside-uk-working');
 const whoIsApplying = require('./eligibility/who-is-applying');
+const applyingSomeoneElse = require('./eligibility/applying-someone-else');
 const whoIsApplyingIneligible = require('./eligibility/who-is-applying-ineligible');
 const personClaimingIneligible = require('./eligibility/person-claiming-ineligible');
 const bestDescribe = require('./eligibility/best-describe');
@@ -217,6 +218,7 @@ const aidsAdaptationsAdded = require('./aids-and-adaptations/aids-adaptations-ad
 
 // contact details
 const telephoneNumber = require('./contact-details/telephone-number');
+const helperTelephoneNumber = require('./contact-details/helper-telephone-number');
 const telephoneNumberOther = require('./contact-details/telephone-number-other');
 const addContactDetails = require('./contact-details/add-contact-details');
 const preferenceContact = require('./contact-details/preference-contact');
@@ -260,6 +262,7 @@ module.exports = {
   claimTypeRenewal,
   effectiveDate,
   whoIsApplying,
+  applyingSomeoneElse,
   whoIsApplyingIneligible,
   personClaimingIneligible,
   bestDescribe,
@@ -351,6 +354,7 @@ module.exports = {
   surgeryMedicalCentreOutsideUk,
   evidence,
   telephoneNumber,
+  helperTelephoneNumber,
   telephoneNumberOther,
   preferenceContact,
   dayDifficulties,

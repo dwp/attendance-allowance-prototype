@@ -1,0 +1,63 @@
+{% extends "v5-layouts/prototypeLayout.njk" %}
+
+
+{% block form %}
+
+  {% if data['who-is-applying'] == 'myself' %}
+
+    <h1 class="govuk-heading-l">
+      You cannot claim Attendance Allowance if you get PIP
+    </h1>
+
+    <p class="govuk-body">
+      If you are already getting Personal Independence Payment (PIP), 
+      you are not eligible for Attendance Allowance.
+    </p>
+
+    {% if locale == 'NI' %}
+      <p class="govuk-body"><a class="govuk-link" target=”_blank” href="https://www.nidirect.gov.uk/articles/personal-independence-payment-pip">Find out more about PIP (opens in a new tab)</a>, including how to 
+      <a class="govuk-link" target=”_blank” href="https://www.nidirect.gov.uk/articles/personal-independence-payment-pip#toc-9">report a change to your care needs or circumstances (opens in a new tab)</a>.</p>
+      {% else %}
+      <p class="govuk-body"><a class="govuk-link" target=”_blank” href="https://www.gov.uk/pip">Find out more about PIP (opens in a new tab)</a>, including how to 
+      <a class="govuk-link" target=”_blank” href="https://www.gov.uk/pip/change-of-circumstances">report a change to your care needs or circumstances (opens in a new tab)</a>.</p>
+    {% endif %}
+
+    <p class="govuk-body">
+      If you <a href="nationality" class="govuk-link">continue to apply for Attendance Allowance</a>,
+      your existing benefits will be reviewed which may result in a change to what you currently get.
+    </p>
+  
+  {% else %}
+
+    <h1 class="govuk-heading-l">
+      {{ data['first-name'] | capitalize }} cannot claim Attendance Allowance if they get PIP
+    </h1>
+
+    <p class="govuk-body">
+      If they are already getting Personal Independence Payment (PIP), 
+      they are not eligible for Attendance Allowance.
+    </p>
+
+    {% if locale == 'NI' %}
+      <p class="govuk-body"><a class="govuk-link" target=”_blank” href="https://www.nidirect.gov.uk/articles/personal-independence-payment-pip">Find out more about PIP (opens in a new tab)</a>, including how to 
+      <a class="govuk-link" target=”_blank” href="https://www.nidirect.gov.uk/articles/personal-independence-payment-pip#toc-9">report a change to their care needs or circumstances (opens in a new tab)</a>.</p>
+      {% else %}
+      <p class="govuk-body"><a class="govuk-link" target=”_blank” href="https://www.gov.uk/pip">Find out more about PIP (opens in a new tab)</a>, including how to 
+      <a class="govuk-link" target=”_blank” href="https://www.gov.uk/pip/change-of-circumstances">report a change to their care needs or circumstances (opens in a new tab)</a>.</p>
+    {% endif %}
+
+    <p class="govuk-body">
+      If you <a href="nationality" class="govuk-link">continue to apply for Attendance Allowance</a>,
+      their existing benefits will be reviewed which may result in a change to what they currently get.
+    </p>
+
+  {% endif %}
+
+{% endblock %}
+
+{% block formButton %}
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

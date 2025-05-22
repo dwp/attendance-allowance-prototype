@@ -10,11 +10,18 @@
             You cannot renew your claim for Attendance Allowance online
         </h1>
             
-        <p class="govuk-body">
-            You will need to use the <a class="govuk-link" href="https://www.gov.uk/attendance-allowance/how-to-claim#apply-by-post">paper claim form</a>
-            if you already get Attendance Allowance and want to renew your claim.
-        </p>
-        
+        {% if locale == 'NI' %}
+            <p class="govuk-body">
+                You will need to use the <a class="govuk-link" href="https://www.nidirect.gov.uk/articles/attendance-allowance#toc-2">paper claim form</a> 
+                if you already get Attendance Allowance and want to renew your claim.
+            </p>
+            {% else %}
+            <p class="govuk-body">
+                You will need to use the <a class="govuk-link" href="https://www.gov.uk/attendance-allowance/how-to-claim#apply-by-post">paper claim form</a> 
+                if you already get Attendance Allowance and want to renew your claim.
+            </p>
+        {% endif %}
+       
         {% if locale == 'NI' %}
             <p class="govuk-body">If you want to report a change in circumstances, you must contact the <a class="govuk-link" href="https://www.nidirect.gov.uk/articles/attendance-allowance#toc-9">Attendance Allowance helpline.</a></p>
             {% else %}
@@ -24,17 +31,20 @@
     {% else %}
 
         <h1 class="govuk-heading-l">
-            {{ data['first-name'] | capitalize }} cannot renew their claim for Attendance Allowance online
+            They cannot apply again if they are already getting Attendance Allowance
         </h1>
 
-        <h1 class="govuk-heading-l">
-            You cannot renew {{ data['first-name'] | capitalize }}'s claim for Attendance Allowance online
-        </h1>
-            
-        <p class="govuk-body">
-            You will need to use the <a class="govuk-link" href="https://www.gov.uk/attendance-allowance/how-to-claim#apply-by-post">paper claim form</a>
-            if they already get Attendance Allowance and want to renew their claim.
-        </p>
+        {% if locale == 'NI' %}
+            <p class="govuk-body">
+                You will need to use the <a class="govuk-link" href="https://www.nidirect.gov.uk/articles/attendance-allowance#toc-2">paper claim form</a> 
+                if they already get Attendance Allowance and want to renew their claim.
+            </p>
+            {% else %}
+            <p class="govuk-body">
+                You will need to use the <a class="govuk-link" href="https://www.gov.uk/attendance-allowance/how-to-claim#apply-by-post">paper claim form</a> 
+                if they already get Attendance Allowance and want to renew their claim.
+            </p>
+        {% endif %}
         
         {% if locale == 'NI' %}
             <p class="govuk-body">If you want to report a change in circumstances, you must contact the <a class="govuk-link" href="https://www.nidirect.gov.uk/articles/attendance-allowance#toc-9">Attendance Allowance helpline.</a></p>

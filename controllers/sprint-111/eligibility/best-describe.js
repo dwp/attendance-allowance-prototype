@@ -7,7 +7,7 @@ const {
   
   const config = {
     name: urls.bestDescribe,
-    previous: urls.whoIsApplying,
+    previous: urls.applyingSomeoneElse,
     next: [
       {
         page: urls.helpingSomeoneIntro,
@@ -17,7 +17,7 @@ const {
         },
       },
       {
-        page: urls.fullName,
+        page: urls.manageOwnAffairs,
         condition: {
           field: urls.bestDescribe,
           value: 'friend',
@@ -25,7 +25,7 @@ const {
         },
       },
       {
-        page: urls.helpingSomeoneIntro,
+        page: urls.manageOwnAffairs,
         condition: {
           field: urls.bestDescribe,
           value: 'charity',

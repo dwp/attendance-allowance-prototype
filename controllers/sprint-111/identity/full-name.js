@@ -9,10 +9,10 @@ const config = {
   name: urls.fullName,
   previous: [
     {
-      page: urls.bestDescribe,
+      page: urls.beforeYouStart,
       condition: {
-        field: urls.bestDescribe,
-        value: 'friend',
+        field: urls.manageOwnAffairs,
+        value: 'yes',
         match: match.value,
       },
     },
@@ -22,10 +22,10 @@ const config = {
   ],
   next: [
     {
-      page: urls.manageOwnAffairs,
+      page: urls.helperName,
       condition: {
-        field: urls.bestDescribe,
-        value: 'friend',
+        field: urls.manageOwnAffairs,
+        value: 'yes',
         match: match.value,
       },
     },

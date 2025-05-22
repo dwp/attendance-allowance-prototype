@@ -1,3 +1,4 @@
+
 module.exports = {
   urls: {
     // start
@@ -34,6 +35,7 @@ module.exports = {
 
     // eligibility
     whoIsApplying: 'who-is-applying',
+    applyingSomeoneElse: 'applying-someone-else',
     bestDescribe: 'best-describe',
     whoIsApplyingIneligible: 'who-is-applying-ineligible',
     personClaimingIneligible: 'person-claiming-ineligible',
@@ -240,6 +242,7 @@ module.exports = {
 
     // contact details
     telephoneNumber: 'telephone-number',
+    helperTelephoneNumber: 'helper-telephone-number',
     addContactDetails: 'add-contact-details',
     telephoneNumberOther: 'telephone-number-other',
     preferenceContact: 'preference-contact',

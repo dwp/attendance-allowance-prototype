@@ -1,0 +1,55 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "v5.9.0-layouts/prototypeLayout.njk" %}
+
+{% block form %}
+  
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">Where do you live?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">Where do they live?</h1>
+    {% endif %}
+  </legend>
+  
+  {{ govukRadios({
+    idPrefix: "residence-country",
+    name: "residence-country",
+    errorMessage: data.validation['residence-country'].error,
+    items: [
+      {
+        value: "england",
+        text: "England",
+        checked: true if data["residence-country"] === "england"
+      },
+      {
+        value: "scotland",
+        text: "Scotland",
+        checked: true if data["residence-country"] === "scotland"
+      },
+      {
+        value: "wales",
+        text: "Wales",
+        checked: true if data["residence-country"] === "wales"
+      },
+      {
+        value: "northern-ireland",
+        text: "Northern Ireland",
+        checked: true if data["residence-country"] === "northern-ireland"
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "abroad",
+        text: "Somewhere else",
+        checked: true if data["residence-country"] === "abroad"
+      }
+    ]
+  }) }}
+  
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

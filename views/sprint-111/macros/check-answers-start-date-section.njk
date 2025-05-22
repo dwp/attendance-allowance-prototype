@@ -3,16 +3,26 @@
 {% from "govuk/components/table/macro.njk" import govukTable %}
 
 {% macro checkAnswersStartDateSection(data) %}
-
+	
 	<section class="Someone to keep you safe at home">
+		
 		<h2 class="govuk-heading-m">
 			Staying safe at home
 		</h2>
+		
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row someone-to-keep-an-eye">
-				<dt class="govuk-summary-list__key">
-					Do you need someone with you to make sure you are safe at home?
-				</dt>
+				
+				{% if data['who-is-applying'] == 'myself' %}
+                <dt class="govuk-summary-list__key">
+                    Do you need someone with you to make sure you are safe at home?
+                </dt>
+                {% else %}
+                <dt class="govuk-summary-list__key">
+                    Do they need someone with them to make sure they are safe at home?
+                </dt>
+                {% endif %}
+				
 				<dd class="govuk-summary-list__value">
 					<ul class="govuk-list">
 						{% if data['safe-day-night'] %}
@@ -31,6 +41,7 @@
 					{{ changeLink('safe-day-night') }}
 				</dd>
 			</div>
+
 			{% if data['safe-day-night'] and data['safe-day-night'].includes("day") %}
 				<div class="govuk-summary-list__row safe-day-why">
 					<dt class="govuk-summary-list__key">
@@ -58,6 +69,7 @@
 						{{ changeLink('safe-day-why') }}
 					</dd>
 				</div>
+			
 				{% if  data['safe-day-night'] and data['safe-day-why-something-else'] %}
 					<div class="govuk-summary-list__row safe-day-why">
 						<dt class="govuk-summary-list__key">
@@ -71,6 +83,7 @@
 						</dd>
 					</div>
 				{% endif %}
+				
 				<div class="govuk-summary-list__row safe-day-length">
 					<dt class="govuk-summary-list__key">
 						Approximately, how long can you be safely left alone during the day?
@@ -86,7 +99,9 @@
 						{{ changeLink('safe-day-length') }}
 					</dd>
 				</div>
+
 			{% endif %}
+			
 			{% if  data['safe-day-night'] and data['safe-day-night'].includes("night") %}
 				<div class="govuk-summary-list__row safe-night-frequency">
 					<dt class="govuk-summary-list__key">
@@ -103,6 +118,7 @@
 						{{ changeLink('safe-night-frequency') }}
 					</dd>
 				</div>
+
 				<div class="govuk-summary-list__row safe-night-length">
 					<dt class="govuk-summary-list__key">
 						Approximately, how long is someone awake in the night to keep you safe?
@@ -118,18 +134,35 @@
 					</dd>
 				</div>
 			{% endif %}
+
 		</dl>
 	</section>
 	
 	<section class="When your care needs started">
+
+		{% if data['who-is-applying'] == 'myself' %}
 		<h2 class="govuk-heading-m">
 			About the difficulties you have
 		</h2>
+        {% else %}
+		<h2 class="govuk-heading-m">
+			About the difficulties they have
+		</h2>
+        {% endif %}
+
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row difficulties-start-date">
+				
+				{% if data['who-is-applying'] == 'myself' %}
 				<dt class="govuk-summary-list__key">
 					How long have you had these difficulties?
 				</dt>
+				{% else %}
+				<dt class="govuk-summary-list__key">
+					How long have they had these difficulties?
+				</dt>
+				{% endif %}
+
 				<dd class="govuk-summary-list__value">
 				{{ data['start-date'] 
 					| replace("less-than-six-months", "Less than 6 months")
@@ -156,8 +189,6 @@
 				</div>
 			{% endif %}
 
-			
-
 			{% if data['care-needs-cause'] %}
 				 <div class="govuk-summary-list__row care-needs-cause">
                 <dt class="govuk-summary-list__key">
@@ -179,19 +210,27 @@
                 </dd>
             </div>
 			{% endif %}
+
 		</dl>
 	</section>
 
+	{% if data['supporting-documents-intro']%}
 	<section class="supporting-documents">
-		<h2 class="govuk-heading-m">Your supporting documents</h2>
+		
+		<h2 class="govuk-heading-m">Supporting documents</h2>
 		
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-			{% if data['supporting-documents-intro']%}
+			
 			<div class="govuk-summary-list__row supporting-documents">
+				{% if data['who-is-applying'] == 'myself' %}
 				<dt class="govuk-summary-list__key">
 					Do you have any supporting documents to confirm what you have told us?
 				</dt>
+				{% else %}
+				<dt class="govuk-summary-list__key">
+					Do they have any supporting documents to confirm what you have told us?
+				</dt>
+				{% endif %}
 				<dd class="govuk-summary-list__value">
 				{{ data['supporting-documents-intro'] 
 				| replace("yes", "Yes") 
@@ -201,7 +240,6 @@
 				{{ changeLink('supporting-documents-intro') }}
 				</dd>
 			</div>
-			{% endif %}
 
 			{% if data['supporting-documents-intro'] == "yes" %}
 			<div class="govuk-summary-list__row supporting-documents">
@@ -252,6 +290,7 @@
 	
 		</dl>
 	</section>
+	{% endif %}
 
 	{% if data['aids-adaptations-question'] == "yes" %}
 	<section class="aids-adaptations">
@@ -260,9 +299,17 @@
 		</h2>
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row aids-adaptations-question">
+				
+				{% if data['who-is-applying'] == 'myself' %}
 				<dt class="govuk-summary-list__key">
 					Do you have any home adaptations, specialist equipment or aids?
 				</dt>
+				{% else %}
+				<dt class="govuk-summary-list__key">
+					Do they have any home adaptations, specialist equipment or aids?
+				</dt>
+				{% endif %}
+
 				<dd class="govuk-summary-list__value">
 					{{ data['aids-adaptations-question'] 
 					| replace("yes", "Yes")
@@ -275,7 +322,15 @@
 		</dl>
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<dl class="govuk-summary-list row no-border">
-				<dt class="govuk-summary-list__key govuk-heading-s no-border">Your adaptations, equipment or aids</dt>
+				{% if data['who-is-applying'] == 'myself' %}
+				<dt class="govuk-summary-list__key govuk-heading-s no-border">
+					Your adaptations, equipment or aids
+				</dt>
+				{% else %}
+				<dt class="govuk-summary-list__key govuk-heading-s no-border">
+					Their adaptations, equipment or aids
+				</dt>
+				{% endif %}
 				<dt class="govuk-summary-list__actions">
 					{{ changeLink('aids-adaptations-added') }}						
 				</dt>

@@ -5,9 +5,15 @@
 
 {% block form %}
 
-  <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Do you have any home adaptations, specialist equipment or aids?</h1>
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">Do you have any home adaptations, specialist equipment or aids?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">Do they have any home adaptations, specialist equipment or aids?</h1>
+    {% endif %}
+  </legend>
 
-  <div class="govuk-hint ">This means things like a raised toilet seat, walking stick, handrails, shoe horn, hearing aid or special cutlery.</div>
+  <p class="govuk-hint">This means things like a raised toilet seat, walking stick, handrails, shoe horn, hearing aid or special cutlery.</p>
 
   {{ govukRadios({
     idPrefix: "aids-adaptations-question",

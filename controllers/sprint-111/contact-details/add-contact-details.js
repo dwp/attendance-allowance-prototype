@@ -10,15 +10,23 @@ const config = {
   previous: urls.telephoneNumber,
   next: [
     {
-      page: urls.telephoneNumberOther,
+      page: urls.preferenceContact,
       condition: {
         field: urls.addContactDetails,
-        value: "yes",
+        value: "helper-number",
         match: match.value,
       },
     },
     {
-      page: urls.welshLanguageSpeak,
+      page: urls.telephoneNumberOther,
+      condition: {
+        field: urls.addContactDetails,
+        value: "someone-else",
+        match: match.value,
+      },
+    },
+    {
+      page: urls.alternativeFormats,
     },
   ],
   validation: [
@@ -27,20 +35,20 @@ const config = {
       type: validation.radios,
     },
     {
-      name: "add-contact-details-name",
+      name: 'helper-number-input',
       type: validation.textInput,
       options: {
-        minLength: 1,
-        maxLength: 100,
+        minLength: 5,
+        maxLength: 15,
       },
       errors: {
-        required: "Enter the full name of the other contact",
-        maxLength:
-          "Enter the full name of the other contact in 100 characters or less",
+        required: 'Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192',
+        minLength: 'Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192',
+        maxLength: 'Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192',
       },
       condition: {
         field: "add-contact-details",
-        value: "yes",
+        value: "helper-number",
       },
     },
     {

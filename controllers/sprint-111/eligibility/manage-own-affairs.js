@@ -7,10 +7,10 @@ const {
   
   const config = {
     name: urls.manageOwnAffairs,
-    previous: urls.fullName,
+    previous: urls.bestDescribe,
     next: [
       {
-        page: urls.helperName,
+        page: urls.beforeYouStart,
         condition: {
           field: urls.manageOwnAffairs,
           value: 'yes',

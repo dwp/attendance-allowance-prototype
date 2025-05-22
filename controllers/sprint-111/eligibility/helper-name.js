@@ -6,7 +6,7 @@ const {
 
 const config = {
   name: urls.helperName,
-  previous: urls.manageOwnAffairs,
+  previous: urls.fullName,
   next: urls.helpingSomeoneIntro,
   validation: [
     {

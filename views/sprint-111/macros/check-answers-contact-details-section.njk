@@ -4,6 +4,14 @@
 
 {% macro checkAnswersContactDetailsSection(data) %}
 
+{% if data['who-is-applying'] == 'myself' %}
+{% set meName = data['who-is-applying'] | replace("myself", "me") %}
+{% set youName = data['who-is-applying'] | replace("myself", "you") %}
+{% else %}
+{% set meName = data['first-name'] | capitalize %}
+{% set youName = data['first-name'] | capitalize %}
+{% endif %}
+
 	<section class="contact-preferences">
 		<h2 class="govuk-heading-m">
 			Contact preferences
@@ -11,9 +19,15 @@
 
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row telephone-number">
+				{% if data['who-is-applying'] == 'myself' %}
 				<dt class="govuk-summary-list__key">
 					Your telephone number
 				</dt>
+				{% else %}
+				<dt class="govuk-summary-list__key">
+					{{ data['first-name'] | capitalize }}'s telephone number
+				</dt>
+				{% endif %}
 				<dd class="govuk-summary-list__value">
 					{{ data['main-contact-number'] }}
 				</dd>
@@ -24,58 +38,80 @@
 
 			<div class="govuk-summary-list__row add-contact-details">
 				<dt class="govuk-summary-list__key">
-				Do you want to add contact details for someone else?
+					Do you want to add contact details for someone else?
 				</dt>
 				<dd class="govuk-summary-list__value">
-				{{ data['add-contact-details'] | replace("yes", "Yes") | replace("no", "No")| capitalize }}
+				{{ data['add-contact-details'] 
+				| replace("helper-number", "Yes, add my details") 
+				| replace("someone-else", "Yes, add details for someone else") 
+				| replace("no", "No")
+				 }}
 				</dd>
 				<dd class="govuk-summary-list__actions">
 				{{ changeLink('add-contact-details') }}
 				</dd>
       		</div>
-			{% if data['add-contact-details'] == 'yes' %}
-				<div class="govuk-summary-list__row add-contact-details">
-					<dt class="govuk-summary-list__key">
-						Their full name
-					</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['add-contact-details-name'] | capitalize }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-							{{ changeLink('add-contact-details') }}
-					</dd>
-				</div>
 
-				<div class="govuk-summary-list__row telephone-number-other">
-					<dt class="govuk-summary-list__key">
-						Their telephone number
-					</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['main-contact-number-other'] }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						{{ changeLink('telephone-number-other') }}
-					</dd>
-				</div>
+		{% if data['add-contact-details'] == 'helper-number' %}
+			<div class="govuk-summary-list__row add-contact-details">
+				<dt class="govuk-summary-list__key">
+					Your telephone number
+				</dt>
+				<dd class="govuk-summary-list__value">
+					{{ data['helper-number-input'] }}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+					{{ changeLink('add-contact-details') }}
+				</dd>
+			</div>
+		{% endif %}
 
-				<div class="govuk-summary-list__row preference-contact">
-					<dt class="govuk-summary-list__key">
-						Who should we contact first if we have questions?
-					</dt>
-					<dd class="govuk-summary-list__value">
-					{{ data['preference-contact'] 
-					| replace("prefer-claimant", "Call me first") 
-					| replace("prefer-person-helping", "Call the person who’s helping me first")
-					| replace("no-preference", "I don’t mind")
-					}}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						{{ changeLink('preference-contact') }}
-					</dd>
-				</div>
-			{% endif %}
+		{% if data['add-contact-details'] == 'someone-else' %}
+			<div class="govuk-summary-list__row add-contact-details">
+				<dt class="govuk-summary-list__key">
+					Their full name
+				</dt>
+				<dd class="govuk-summary-list__value">
+					{{ data['someone-else-name'] | capitalize }}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+					{{ changeLink('telephone-number-other') }}
+				</dd>
+			</div>
 
-			{% if data['welsh-language-speak'] %}
+			<div class="govuk-summary-list__row telephone-number-other">
+				<dt class="govuk-summary-list__key">
+					Their telephone number
+				</dt>
+				<dd class="govuk-summary-list__value">
+					{{ data['someone-else-number'] }}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+					{{ changeLink('telephone-number-other') }}
+				</dd>
+			</div>
+		{% endif %}
+
+		{% if data['add-contact-details'] == 'helper-number' or data['add-contact-details'] == 'someone-else' %}
+			<div class="govuk-summary-list__row preference-contact">
+				<dt class="govuk-summary-list__key">
+					Who should we contact first if we have questions?
+				</dt>
+				<dd class="govuk-summary-list__value">
+				{{ data['preference-contact'] 
+				| replace("prefer-claimant", "Call " + meName + " first") 
+				| replace("prefer-helper", "Call me first")
+				| replace("prefer-someone-else", "Call the other person first")
+				| replace("no-preference", "I don’t mind")
+				}}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+					{{ changeLink('preference-contact') }}
+				</dd>
+			</div>
+		{% endif %}
+
+		{% if data['welsh-language-speak'] %}
 			<div class="govuk-summary-list__row formats">
 				<dt class="govuk-summary-list__key">
 					What language do you want us to speak to you in?
@@ -90,9 +126,9 @@
 					{{ changeLink('welsh-language-speak') }}
 				</dd>
 			</div>
-			{% endif %}
+		{% endif %}
 
-			{% if data['welsh-language-write'] %}
+		{% if data['welsh-language-write'] %}
 			<div class="govuk-summary-list__row formats">
 				<dt class="govuk-summary-list__key">
 					What language do you want us to write to you in?
@@ -107,51 +143,57 @@
 					{{ changeLink('welsh-language-write') }}
 				</dd>
 			</div>
+		{% endif %}
+
+		<div class="govuk-summary-list__row formats">
+			{% if data['who-is-applying'] == 'myself' %}
+			<dt class="govuk-summary-list__key">
+				Do you need us to use a different format when we contact you?
+			</dt>
+			{% else %}
+			<dt class="govuk-summary-list__key">
+				Does the person you are helping to apply need us to use a different format when we contact you?
+			</dt>
 			{% endif %}
+			<dd class="govuk-summary-list__value">
+			<ul class="govuk-list">
+				{% for format in data['alternative-formats'] %}
+				<li>
+					{{ rewordFormat(format) }}
+				</li>
+				{% endfor %}
+			</ul>
+			</dd>
+			<dd class="govuk-summary-list__actions">
+				{{ changeLink('alternative-formats') }}
+			</dd>
+		</div>
 
-			<div class="govuk-summary-list__row formats">
-				<dt class="govuk-summary-list__key">
-					Do you need us to use a different format when we contact you?
-				</dt>
-				<dd class="govuk-summary-list__value">
-				<ul class="govuk-list">
-					{% for format in data['alternative-formats'] %}
-					<li>
-						{{ rewordFormat(format) }}
-					</li>
-					{% endfor %}
-				</ul>
-				</dd>
-				<dd class="govuk-summary-list__actions">
-					{{ changeLink('alternative-formats') }}
-				</dd>
-			</div>
+		<div class="govuk-summary-list__row email-confirm">
+			<dt class="govuk-summary-list__key">
+				Should we send an email confirmation?
+			</dt>
+			<dd class="govuk-summary-list__value">
+				{{ data['email-submit'] | capitalize }}
+			</dd>
+			<dd class="govuk-summary-list__actions">
+				{{ changeLink('email-submit') }}
+			</dd>
+		</div>
 
+		{% if data['email-submit']== "yes" %}
 			<div class="govuk-summary-list__row email-confirm">
 				<dt class="govuk-summary-list__key">
-					Should we send an email confirmation?
+					Email address
 				</dt>
 				<dd class="govuk-summary-list__value">
-					{{ data['email-submit'] | capitalize }}
+					{{ data['contact-by-email'] }}
 				</dd>
 				<dd class="govuk-summary-list__actions">
-					{{ changeLink('email-submit') }}
+					{{ changeLink('email-confirm') }}
 				</dd>
 			</div>
-
-			{% if data['email-submit']== "yes" %}
-				<div class="govuk-summary-list__row email-confirm">
-					<dt class="govuk-summary-list__key">
-						Email address
-					</dt>
-					<dd class="govuk-summary-list__value">
-						{{ data['contact-by-email'] }}
-					</dd>
-					<dd class="govuk-summary-list__actions">
-						{{ changeLink('email-confirm') }}
-					</dd>
-				</div>
-			{% endif %}
+		{% endif %}
 		</dl>
 	</section>
 
