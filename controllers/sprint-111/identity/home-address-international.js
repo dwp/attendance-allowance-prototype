@@ -7,7 +7,7 @@ const {
 const config = {
   name: urls.homeAddressInternational,
   next: urls.specialRulesDeclaration,
-  previous: urls.homeAddressSelect,
+  previous: urls.homeAddressPostcode,
   validation: [
     {
       name: 'home-address-international-line-one',

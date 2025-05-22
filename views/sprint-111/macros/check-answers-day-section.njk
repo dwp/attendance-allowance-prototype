@@ -3,6 +3,11 @@
 
 {% macro checkAnswersDaySection(data) %}
 
+    {% set personCaptialised = data['who-is-applying']
+	| replace("myself", "I")
+	| replace("someone-else", "They")
+	%}
+
     <section class="Your care needs during the day">
        
         {% if data['who-is-applying'] == 'myself' %}
@@ -43,7 +48,7 @@
 								| replace("daytime-medication", "Taking medication or receiving treatment")
 								| replace("daytime-hobbies", "Social activities")
 								| replace("daytime-communication", "Communication")
-								| replace("daytime-none", "None of these apply to me") }}
+								| replace("daytime-none", "" + personCaptialised + " do not have difficulties or need help during the day") }}
                             </li>
                         {% endfor %}
                     </ul>

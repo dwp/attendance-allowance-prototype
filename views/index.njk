@@ -11,13 +11,74 @@
 
       {# [Version listings] (do not delete this comment it is used in automation) #}
 
+      {# [context-switch-v2-start] (do not delete this comment it is used in automation) #}
+      <div class="app-most-recent govuk-!-padding-bottom-7">
+        <div>
+          <span class="govuk-tag govuk-tag--red">To test</span>
+        </div>
+        <br/>
+        <h2 class="govuk-heading-m">Context switching test</h2>
+
+        <p class="govuk-body">
+         Ticket: <a href='https://dwpdigital.atlassian.net/browse/AAG-4971' class="govuk-link">AAG-4971</a>
+        </p>
+
+        <p class="govuk-body">
+          As someone completing an application or supporting someone to complete an application
+        </p>
+
+        <p class="govuk-body">
+         I need the application to be clear and straightforward
+        </p>
+
+        <p class="govuk-body">
+          So that I am confident that I have provided complete and accurate information
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+        </ul>
+
+          {% set details %}
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/how-to-claim' class="govuk-link">How to claim</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/claim-type' class="govuk-link">Claim type</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/who-is-applying' class="govuk-link">Who is applying</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/manage-own-affairs' class="govuk-link">Mental capacity</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/before-you-start' class="govuk-link">Before you start</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/birth-date' class="govuk-link">Eligibility</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/national-insurance' class="govuk-link">Identity</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/special-rules-declaration' class="govuk-link">Special rules</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/care-home-hospital' class="govuk-link">Care home or hospital</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/health-conditions' class="govuk-link">Health conditions</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/treatment-surgery' class="govuk-link">Treatment or surgery</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/consent' class="govuk-link">Consent</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/day-difficulties' class="govuk-link">Day care</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/night-difficulties' class="govuk-link">Night care</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/safe-day-night' class="govuk-link">Supervision</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/difficulties-start-date' class="govuk-link">Difficulties start date</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/supporting-documents-intro' class="govuk-link">Supporting documents</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/aids-adaptations-question' class="govuk-link">Aids and adaptations</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/telephone-number' class="govuk-link">Contact preferences</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/claim-submission' class="govuk-link">Claim submission</a></p>
+          <p class="govuk-body govuk-!-margin-bottom-1"><a href='context-switch-v2/done' class="govuk-link">Application complete</a></p>
+        {% endset %}
+
+        {{ govukDetails({
+            summaryText: "Key sections in journey",
+            html: details
+          }) }}
+
+        <a href="context-switch-v2/claim-type" class="govuk-button govuk-button--start">Start</a>
+        <p class="govuk-body govuk-!-font-size-16">Date created - Thu May 22 2025</p>
+      </div>
+      {# [context-switch-v2-end] (do not delete this comment it is used in automation) #}
+
       {# [context-switch-v1-start] (do not delete this comment it is used in automation) #}
       <div class="app-most-recent govuk-!-padding-bottom-7">
         <div>
           <span class="govuk-tag govuk-tag--red">Incomplete</span>
         </div>
         <br/>
-        <h2 class="govuk-heading-m">Context switching test - using names</h2>
+        <h2 class="govuk-heading-m">Context switching design (using names)</h2>
 
         <p class="govuk-body">
           Early design exploration around using the applicant's name in H1s.
@@ -29,6 +90,7 @@
 
         <ul class="govuk-list govuk-list--bullet">
         </ul>
+
         <a href="context-switch-v1/who-is-applying" class="govuk-button govuk-button--start">Start</a>
         <p class="govuk-body govuk-!-font-size-16">Date created - Wed May 14 2025</p>
       </div>
@@ -172,7 +234,7 @@
         </p>
         
         <p class="govuk-body">
-          <a href='https://dwpdigital.atlassian.net/browse/AAG-4852' target=”_blank” class="govuk-link">Ticket</a>
+          Ticket: <a href='https://dwpdigital.atlassian.net/browse/AAG-4852' target=”_blank” class="govuk-link">AAG-4852</a>
         </p>
         
         <p class="govuk-body">

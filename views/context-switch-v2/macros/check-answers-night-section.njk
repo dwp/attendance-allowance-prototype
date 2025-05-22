@@ -1,0 +1,57 @@
+{% from "./change-link.njk" import changeLink %}
+{% from "./reword-date.njk" import rewordDate %}
+
+{% macro checkAnswersNightSection(data) %}
+
+	{% set personCaptialised = data['who-is-applying']
+	| replace("myself", "I")
+	| replace("someone-else", "They")
+	%}
+
+	<section class="Your care needs during the night">
+		
+		{% if data['who-is-applying'] == 'myself' %}
+		<h2 class="govuk-heading-m">
+			Difficulties you have during the night
+		</h2>
+        {% else %}
+		<h2 class="govuk-heading-m">
+			Difficulties they have during the night
+		</h2>
+        {% endif %}
+
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+			<div class="govuk-summary-list__row night-activities">
+				
+				{% if data['who-is-applying'] == 'myself' %}
+                <dt class="govuk-summary-list__key">
+                    Activities you have difficulty with
+                </dt>
+                {% else %}
+                <dt class="govuk-summary-list__key">
+                    Activities they have difficulty with
+                </dt>
+                {% endif %}
+
+				<dd class="govuk-summary-list__value">
+					<ul class="govuk-list">
+						{% for item in data['night-difficulties'] %}
+							<li>
+								{{ item 
+								| replace("nighttime-turning-over", "Turning over or changing position in bed")
+								| replace("nighttime-getting-settled", "Getting settled") 
+								| replace("nighttime-cleaning-yourself", "Using the toilet or managing incontinence")
+								| replace("nighttime-medication", "Managing medication or treatment")
+								| replace("nighttime-none", "" + personCaptialised + " do not have difficulties or need help during the night") }}
+							</li>
+						{% endfor %}
+					</ul>
+				</dd>
+				<dd class="govuk-summary-list__actions">
+					{{ changeLink('night-difficulties') }}
+				</dd>
+			</div>
+		</dl>
+	</section>
+	
+{% endmacro %}
