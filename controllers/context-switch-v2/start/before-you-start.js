@@ -50,7 +50,7 @@ const config = {
     type: validation.radios,
     errors: {
       required:
-        "Select if you have everything you need to apply for Attendance Allowance",
+        "Select yes if you have everything you need to help them apply for Attendance Allowance",
     },
   },
 };
