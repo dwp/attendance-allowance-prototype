@@ -8,7 +8,7 @@
 
 {% set person = data['who-is-applying']
   | replace("myself", "you")
-  | replace("helping-someone", "they")
+  | replace("someone-else", "they")
 %}
 
 {% set allErrors  = ' govuk-input--error ' if data.validation['difficulties-start-date'].error.href === '#difficulties-start-date' %}
@@ -113,15 +113,15 @@
   {% endif %}
 
 
-    {% if data['who-is-applying'] == 'myself' %}
-      <h2 class="govuk-heading-m govuk-!-padding-top-3">
-        How long have you had these difficulties?
-      </h2>
-    {% else %}
-      <h2 class="govuk-heading-m govuk-!-padding-top-3">
-        How long have they had these difficulties?
-      </h2>
-    {% endif %}
+  {% if data['who-is-applying'] == 'myself' %}
+    <h2 class="govuk-heading-m govuk-!-padding-top-3">
+      How long have you had these difficulties?
+    </h2>
+  {% else %}
+    <h2 class="govuk-heading-m govuk-!-padding-top-3">
+      How long have they had these difficulties?
+    </h2>
+  {% endif %}
 
 
   {{ govukRadios({

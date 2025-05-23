@@ -17,8 +17,8 @@ const config = {
         maxLength: 200,
       },
       errors: {
-        required: 'Enter the name of your health condition or disability',
-        maxLength: 'Enter the name of your health condition or disability in 200 characters or less',
+        required: 'Enter the name of their health condition or disability',
+        maxLength: 'Enter the name of their health condition or disability in 200 characters or less',
       },
     },
     {
