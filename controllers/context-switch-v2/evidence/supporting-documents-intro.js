@@ -24,7 +24,7 @@ const config = {
       page: urls.careNeedsCause,
     },
   ],
-  next: urls.aidsAdaptationsQuestion,
+  next: urls.checkAnswersStartDate,
   validation: {
     type: validation.radios,
     errors: {
