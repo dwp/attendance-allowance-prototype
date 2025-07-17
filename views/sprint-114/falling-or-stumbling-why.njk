@@ -1,0 +1,101 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
+{% extends "v5.11.0-layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <span class="govuk-caption-l">Stumbling or falling during the day</span>
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">What causes you to stumble or fall down?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">What causes them to stumble or fall down?</h1>
+    {% endif %}
+  </legend>
+
+  {% set personMyTheir = data['who-is-applying']
+  | replace("myself", "My")
+  | replace("someone-else", "Their")
+  %}
+
+  {% set personIAmTheyAre = data['who-is-applying']
+  | replace("myself", "I am")
+  | replace("someone-else", "They are")
+  %}
+
+  {% set personIThey = data['who-is-applying']
+  | replace("myself", "I")
+  | replace("someone-else", "They")
+  %}
+
+{{ govukCheckboxes
+  ({
+    idPrefix: "falling-or-stumbling-why",
+    name: "falling-or-stumbling-why",
+    hint: {
+      text: "Select all that apply."
+    },
+    errorMessage: data.validation['falling-or-stumbling-why'].error,
+    items: [{
+      value: "joints-weak",
+      text: " " + personMyTheir + " joints are stiff or weak",
+      checked: true if data["falling-or-stumbling-why"] and data["falling-or-stumbling-why"].includes("joints-weak")
+    },
+    {
+      value: "weak-frail",
+      text: " " + personIAmTheyAre + " physically weak or frail",
+      checked: true if data["falling-or-stumbling-why"] and data["falling-or-stumbling-why"].includes("weak-frail")
+    },
+    {
+      value: "visually-impaired",
+      text: " " + personIAmTheyAre + " visually impaired",
+      checked: true if data["falling-or-stumbling-why"] and data["falling-or-stumbling-why"].includes("visually-impaired")
+    },
+    {
+      value: "unbalanced-dizzy",
+      text: " " + personIThey + " feel unbalanced or dizzy",
+      checked: true if data["falling-or-stumbling-why"] and data["falling-or-stumbling-why"].includes("unbalanced-dizzy")
+    },
+    {
+      value: "blackouts-fits",
+      text: " " + personIThey + " have blackouts or seizures",
+      checked: true if data["falling-or-stumbling-why"] and data["falling-or-stumbling-why"].includes("blackouts-fits")
+    },
+    {
+      value: "something-else",
+      text: "Something else",
+      checked: true if data["falling-or-stumbling-why"] and data["falling-or-stumbling-why"].includes("something-else"),
+      conditional: {
+        html: conditionalSomethingElseFallingHtml
+      }
+    }]
+  })
+}}
+{% endblock %}
+
+{% set conditionalSomethingElseFallingHtml %}
+
+  {% set person = data['who-is-applying']
+  | replace("myself", "you")
+  | replace("someone-else", "them")
+  %}
+
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
+    isPageHeading: true,
+    label: {
+      text: "Tell us what causes " + person + " to stumble or fall down"
+    },
+    id: "something-else-falling-explain",
+    name: "something-else-falling-explain",
+    errorMessage: data.validation['something-else-falling-explain'].error,
+    value: data['something-else-falling-explain']
+    })
+  }}
+{% endset %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

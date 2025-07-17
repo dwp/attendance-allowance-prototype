@@ -1,0 +1,49 @@
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% extends "v5.11.0-layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+    <a class="govuk-back-link" href="safe-day-night">Back</a>
+
+    {% if data['who-is-applying'] == 'myself' %}
+
+      <h1 class="govuk-heading-l">
+        You told us you do not have any difficulties during the day or night, or need someone with you to keep you safe at home
+      </h1>
+
+      <p class="govuk-body">
+        To be eligible for Attendance Allowance, you must have a health condition or disability which means you need some help or support at home.
+      </p>
+
+      <p class="govuk-body">
+        If you think you are eligible, you can <a href="supporting-documents-intro" class="govuk-link">continue to apply for Attendance Allowance</a>.
+        We will contact you by telephone if we need more information about your claim.
+      </p>
+
+    {% else %}
+
+      <h1 class="govuk-heading-l">
+        You told us they do not have any difficulties during the day or night, or need someone with them to keep them safe at home
+      </h1>
+
+      <p class="govuk-body">
+        To be eligible for Attendance Allowance, they must have a health condition or disability which means they need some help or support at home.
+      </p>
+
+      <p class="govuk-body">
+        If you think they are eligible, you can <a href="supporting-documents-intro" class="govuk-link">continue to apply for Attendance Allowance</a>.
+        If we need more information about this claim, we will ask for this by telephone.
+      </p>
+
+    {% endif %}
+
+{% endblock %}
+
+{% block formButton %}
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

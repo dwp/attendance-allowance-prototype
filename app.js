@@ -47,6 +47,9 @@ app.use(locale());
 app.use(journeyType());
 
 // [Journey routes] (do not edit this comment, it is used in automation)
+app.use('/appointee-test-v3/', setVersionMiddleware('/appointee-test-v3/'), require('./routes/appointee-test-v3'));
+app.use('/sprint-115/', setVersionMiddleware('/sprint-115/'), require('./routes/sprint-115'));
+app.use('/sprint-114/', setVersionMiddleware('/sprint-114/'), require('./routes/sprint-114'));
 app.use('/context-switch-v2/', setVersionMiddleware('/context-switch-v2/'), require('./routes/context-switch-v2'));
 app.use('/context-switch-v1/', setVersionMiddleware('/context-switch-v1/'), require('./routes/context-switch-v1'));
 app.use('/sprint-111/', setVersionMiddleware('/sprint-111/'), require('./routes/sprint-111'));

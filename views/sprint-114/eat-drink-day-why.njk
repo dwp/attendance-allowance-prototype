@@ -1,0 +1,108 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
+{% extends "v5.11.0-layouts/prototypeLayout.njk" %}
+
+
+
+{% block form %}
+
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <span class="govuk-caption-l">Eating or drinking during the day</span>
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">How do you manage to eat or drink?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">How do they manage to eat or drink?</h1>
+    {% endif %}
+  </legend>
+
+  {% set personIThey = data['who-is-applying']
+  | replace("myself", "I")
+  | replace("someone-else", "They")
+  %}
+
+  {% set personMeThem = data['who-is-applying']
+  | replace("myself", "me")
+  | replace("someone-else", "them")
+  %}
+
+  {% set personIAmTheyAre = data['who-is-applying']
+  | replace("myself", "I am")
+  | replace("someone-else", "They are")
+  %}
+
+  {{ govukCheckboxes
+    ({
+      idPrefix: "eat-drink-day-why",
+      name: "eat-drink-day-why",
+      hint: {
+        text: 'Select all that apply.'
+      },
+      errorMessage: data.validation['eat-drink-day-why'].error,
+      items: [{
+        value: "hold",
+        text: " " + personIThey + " cannot hold cutlery or a cup",
+        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("hold")
+      },
+      {
+        value: "spill",
+        text: " " + personIThey + " spill food and drink",
+        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("spill")
+      },
+      {
+        value: "help",
+        text: "Someone has to physically help " + personMeThem + " eat or drink",
+        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("help")
+      },
+      {
+        value: "safety",
+        text: " " + personIThey + " cannot eat or drink safely",
+        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("safety")
+      },
+      {
+        value: "confused",
+        text: " " + personIThey + " get confused when eating",
+        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("confused")
+      },
+      {
+        value: "tube",
+        text: " " + personIAmTheyAre + " tube fed",
+        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("tube")
+      },
+      {
+        value: "eat-drink-why-something-else",
+        text: "Something else",
+        checked: true if data["eat-drink-day-why"] and data["eat-drink-day-why"].includes("eat-drink-why-something-else"),
+        conditional: {
+          html: conditionalSomethingElseEatDrinkWhy
+        }
+      }]
+    })
+  }}
+{% endblock %}
+
+{% set conditionalSomethingElseEatDrinkWhy %}
+
+  {% set person = data['who-is-applying']
+  | replace("myself", "you")
+  | replace("someone-else", "they")
+  %}
+
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
+    isPageHeading: false,
+    label: {
+      text: "Tell us how " + person + " manage to eat or drink"
+    },
+    id: "something-else-eating-drinking-day-why-explain",
+    name: "something-else-eating-drinking-day-why-explain",
+    errorMessage: data.validation['something-else-eating-drinking-day-why-explain'].error,
+    value: data['something-else-eating-drinking-day-why-explain']
+    })
+  }}
+{% endset %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

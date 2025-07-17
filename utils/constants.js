@@ -1,4 +1,3 @@
-
 module.exports = {
   urls: {
     // start
@@ -39,8 +38,10 @@ module.exports = {
     bestDescribe: 'best-describe',
     whoIsApplyingIneligible: 'who-is-applying-ineligible',
     personClaimingIneligible: 'person-claiming-ineligible',
+    organisationClaimingIneligible: 'organisation-claiming-ineligible',
     manageOwnAffairs: 'manage-own-affairs',
     manageOwnAffairsIneligible: 'manage-own-affairs-ineligible',
+    manageOwnAffairsAuthority: 'manage-own-affairs-authority',
     helperName: 'helper-name',
     birthDate: 'birth-date',
     birthDateIneligible: 'birth-date-ineligible',
@@ -262,9 +263,11 @@ module.exports = {
 
     // claim submission
     claimSubmission: 'claim-submission',
+    declaration: 'declaration',
     sercoLateApplication: 'serco-late-application',
     checkAnswersFullList: 'check-answers-full-list',
     done: 'done',
+    applicationComplete: 'application-complete',
 
     // accessiblity
     accessibilityStatement: 'accessibility-statement',
