@@ -48,10 +48,25 @@
         Send your supporting documents to:
       </p>
 
-      <div class="govuk-inset-text">
-        Freepost<br/>
-        DWP Attendance Allowance
-      </div>
+        {% if locale == 'NI' %}
+          <div class="govuk-inset-text">
+            DWP Attendance Allowance<br/>
+            Attendance Allowance<br/>
+            Disability and Carers Service<br/>
+            Mail Opening Unit<br/>
+            PO Box 42<br/>
+            Limavady<br/>
+            BT49 4AN
+          </div>
+
+        {% else %}
+
+          <div class="govuk-inset-text">
+            Freepost<br/>
+            DWP Attendance Allowance
+          </div>
+
+        {% endif %}
 
       <p class="govuk-body">
         To avoid delaying your claim, do not write anything except the freepost address on the envelope. 

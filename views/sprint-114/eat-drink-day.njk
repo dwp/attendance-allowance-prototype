@@ -1,0 +1,110 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
+{% extends "v5.11.0-layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <span class="govuk-caption-l">Eating or drinking during the day</span>
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">What difficulty do you have when eating or drinking?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">What difficulty do they have when eating or drinking?</h1>
+    {% endif %}
+  </legend>
+
+  {% set personMyTheir = data['who-is-applying']
+  | replace("myself", "my")
+  | replace("someone-else", "their")
+  %}
+
+  {% set personIThey = data['who-is-applying']
+  | replace("myself", "I")
+  | replace("someone-else", "They")
+  %}
+
+  {{ govukCheckboxes
+    ({
+      idPrefix: "eat-drink-day",
+      name: "eat-drink-day",
+      hint: {
+        text: 'Select all that apply.'
+      },
+      errorMessage: data.validation['eat-drink-day'].error,
+      items: [{
+        value: "cutting-food",
+        text: "Cutting up the food on " + personMyTheir + " plate",
+        checked: true if data["eat-drink-day"] and data["eat-drink-day"].includes("cutting-food")
+      },
+      {
+        value: "putting-food",
+        text: "Putting food or drink in " + personMyTheir + " mouth",
+        checked: true if data["eat-drink-day"] and data["eat-drink-day"].includes("putting-food")
+      },
+      {
+        value: "chewing-swallowing",
+        text: "Chewing or swallowing food or drink",
+        checked: true if data["eat-drink-day"] and data["eat-drink-day"].includes("chewing-swallowing")
+      },
+      {
+        value: "identifying-food",
+        text: "Identifying the food on " + personMyTheir + " plate",
+        checked: true if data["eat-drink-day"] and data["eat-drink-day"].includes("identifying-food")
+      },
+      {
+        value: "motivation-eat",
+        text: "Forgetting or lacking the motivation to eat",
+        checked: true if data["eat-drink-day"] and data["eat-drink-day"].includes("motivation-eat")
+      },
+      {
+        value: "motivation-drink",
+        text: "Forgetting or lacking the motivation to drink",
+        checked: true if data["eat-drink-day"] and data["eat-drink-day"].includes("motivation-drink")
+      },
+      {
+        value: "eat-drink-something-else",
+        text: "Something else",
+        checked: true if data["eat-drink-day"] and data["eat-drink-day"].includes("eat-drink-something-else"),
+        conditional: {
+          html: conditionalSomethingElseEatDrink
+        }
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "none",
+        text: " " + personIThey + " do not have difficulty when eating or drinking",
+        behaviour: "exclusive",
+        checked: true if data["eat-drink-day"] and data["eat-drink-day"].includes("none")
+      }]
+    })
+  }}
+{% endblock %}
+
+{% set conditionalSomethingElseEatDrink %}
+
+  {% set person = data['who-is-applying']
+  | replace("myself", "you")
+  | replace("someone-else", "they")
+  %}
+
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
+    isPageHeading: false,
+    label: {
+      text: "Tell us what difficulty " + person + " have when eating or drinking"
+    },
+    id: "something-else-eating-drinking-day-explain",
+    name: "something-else-eating-drinking-day-explain",
+    errorMessage: data.validation['something-else-eating-drinking-day-explain'].error,
+    value: data['something-else-eating-drinking-day-explain']
+    })
+  }}
+{% endset %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

@@ -1,0 +1,112 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
+{% extends "v5.11.0-layouts/prototypeLayout.njk" %}
+
+
+{% block form %}
+
+  {% set personMeThem = data['who-is-applying']
+    | replace("myself", "me")
+    | replace("someone-else", "them")
+  %}
+
+  {% set personMyTheir = data['who-is-applying']
+    | replace("myself", "my")
+    | replace("someone-else", "their")
+  %}
+
+  {% set personIThey = data['who-is-applying']
+    | replace("myself", "I")
+    | replace("someone-else", "They")
+  %}
+
+  {% set personMyselfThemself = data['who-is-applying']
+    | replace("myself", "myself")
+    | replace("someone-else", "themself")
+  %}
+
+  {% set personYourTheir = data['who-is-applying']
+    | replace("myself", "your")
+    | replace("someone-else", "their")
+  %}
+
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <span class="govuk-caption-l">Medication or treatment during the night</span>
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">How do you manage taking medication or getting treatment during the night?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">How do they manage taking medication or getting treatment during the night?</h1>
+    {% endif %}
+  </legend>
+
+  {{ govukCheckboxes
+    ({
+      idPrefix: "medication-treatment-night-why",
+      name: "medication-treatment-night-why",
+      hint: {
+        text: 'Select all that apply.'
+      },
+      errorMessage: data.validation['medication-treatment-night-why'].error,
+      items: [{
+        value: "long-time",
+        text: "It takes " + personMeThem + " a long time to take the medication or treatment on " + personMyTheir + " own",
+        checked: true if data["medication-treatment-night-why"] and data["medication-treatment-night-why"].includes("long-time")
+      },
+      {
+        value: "someone-prepare",
+        text: "Someone has to prepare " + personMyTheir + " medication or treatment for " + personMeThem + " ",
+        checked: true if data["medication-treatment-night-why"] and data["medication-treatment-night-why"].includes("someone-prepare")
+      },
+      {
+        value: "remind-encourage",
+        text: "Someone has to remind or encourage " + personMeThem + " to take " + personMyTheir + " medication or treatment",
+        checked: true if data["medication-treatment-night-why"] and data["medication-treatment-night-why"].includes("remind-encourage")
+      },
+      {
+        value: "help",
+        text: " " + personIThey + " cannot take the medication or treatment by " + personMyselfThemself + " ",
+        checked: true if data["medication-treatment-night-why"] and data["medication-treatment-night-why"].includes("help")
+      },
+      {
+        value: "medication-treatment-night-why-something-else",
+        text: "Something else",
+        checked: true if data["medication-treatment-night-why"] and data["medication-treatment-night-why"].includes("medication-treatment-night-why-something-else"),
+        conditional: {
+          html: conditionalSomethingElseMedicationTreatmentNightWhy
+        }
+      }]
+    })
+  }}
+{% endblock %}
+
+{% set conditionalSomethingElseMedicationTreatmentNightWhy %}
+
+  {% set person = data['who-is-applying']
+  | replace("myself", "you")
+  | replace("someone-else", "they")
+  %}
+
+  {% set personYourTheir = data['who-is-applying']
+  | replace("myself", "your")
+  | replace("someone-else", "their")
+  %}
+
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
+    isPageHeading: false,
+    label: {
+      text: "Tell us how " + person + " manage taking " + personYourTheir + " medication or getting treatment during the night"
+    },
+    id: "something-else-medication-treatment-night-why-explain",
+    name: "something-else-medication-treatment-night-why-explain",
+    errorMessage: data.validation['something-else-medication-treatment-night-why-explain'].error,
+    value: data['something-else-medication-treatment-night-why-explain']
+    })
+  }}
+{% endset %}
+
+{% block postForm %}
+  {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

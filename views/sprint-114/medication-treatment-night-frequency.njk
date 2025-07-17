@@ -1,0 +1,76 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
+{% extends "v5.11.0-layouts/prototypeLayout.njk" %}
+
+
+{% block form %}
+
+  {% set person = data['who-is-applying']
+  | replace("myself", "you")
+  | replace("someone-else", "them")
+  %}
+
+   <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <span class="govuk-caption-l">Medication or treatment during the night</span>
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">Approximately, how many times a night do you have difficulty taking medication or getting treatment?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">Approximately, how many times a night do they have difficulty taking medication or getting treatment?</h1>
+    {% endif %}
+  </legend>
+
+  {{ govukRadios({
+    id: "medication-treatment-night-frequency",
+    name: "medication-treatment-night-frequency",
+    errorMessage: data.validation['medication-treatment-night-frequency'].error,
+    items: [
+      {
+        value: "once-a-night",
+        text: "Once a night",
+        checked: true if data["medication-treatment-night-frequency"] === "once-a-night",
+        conditional: {
+          html: conditionalMedicationTypicallyHowLongHtml
+          }
+      },
+      {
+        value: "twice-a-night",
+        text: "2 times a night",
+        checked: true if data["medication-treatment-night-frequency"] === "twice-a-night"
+      },
+     {
+        value: "three-or-more-a-night",
+        text: "3 times a night or more",
+        checked: true if data["medication-treatment-night-frequency"] === "three-or-more-a-night"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% set conditionalMedicationTypicallyHowLongHtml %}
+
+  {% set person = data['who-is-applying']
+  | replace("myself", "you")
+  | replace("someone-else", "them")
+  %}
+
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
+    isPageHeading: true,
+    label: {
+      text: "How long does it take " + person + " to take medication or get treatment?"
+    },
+    id: "medication-typically-how-long",
+    name: "medication-typically-how-long",
+    errorMessage: data.validation['medication-typically-how-long'].error,
+    value: data['medication-typically-how-long']
+    })
+  }}
+{% endset %}
+
+{% block postForm %}
+  {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

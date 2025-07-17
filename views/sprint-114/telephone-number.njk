@@ -1,0 +1,69 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% extends "v5.11.0-layouts/prototypeLayout.njk" %}
+
+
+{% block form %}
+
+  {% if data['who-is-applying'] == 'myself' %}
+
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">What is your telephone number?</h1>
+    </legend>
+
+    <p class="govuk-body">
+      We will only phone you if we need to talk to you about your application.
+    </p>
+
+    <div class="govuk-inset-text">
+      You can add contact details for someone else next.
+    </div>
+
+   {% elif data['best-describe'] == 'appointed' or data['best-describe'] == 'appointee' %}
+
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">What is their telephone number?</h1>
+    </legend>
+
+    <p class="govuk-body">
+        Update with how we will use their telephone number.
+    </p>
+
+  {% else %}
+
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">What is their telephone number?</h1>
+    </legend>
+
+    <p class="govuk-body">
+      We will only phone them if we need to talk to them about their application.
+    </p>
+
+    <div class="govuk-inset-text">
+      You can add contact details for yourself or someone else next.
+    </div>
+
+  {% endif %}
+
+  {{ govukInput({
+    label: {
+      text: "Telephone number",
+      classes: "govuk-!-font-weight-bold"
+    },
+    hint: {
+      text: "For international numbers include the country code."
+    },
+    classes: "govuk-input--width-30",
+    errorMessage: data.validation['main-contact-number'].error,
+    id: "main-contact-number",
+    name: "main-contact-number",
+    value: data["main-contact-number"],
+    autocomplete: "main-contact-number"
+  }) }}
+
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

@@ -1,0 +1,37 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% extends "v5.11.0-layouts/prototypeLayout.njk" %}
+
+
+{% block form %}
+
+  {% set applicantName = data['first-name'] | capitalize %}
+
+  <h1 class="govuk-heading-l">
+    You cannot help someone to apply if they do not have the mental capacity to manage their affairs
+  </h1>
+
+  {% if locale == 'NI' %}
+    <p class="govuk-body">
+      If someone has been appointed to make decisions for the person you are helping, for example a Power of Attorney, they will need to apply using the
+    <a href="https://www.nidirect.gov.uk/publications/attendance-allowance-claim-form-and-guidance-notes" target="_blank" class="govuk-link">paper claim form</a>.
+    </p>
+  {% else %}
+   <p class="govuk-body">
+      If someone has been appointed to make decisions for the person you are helping, for example a Power of Attorney, they will need to apply using the
+      <a href="https://www.gov.uk/government/publications/attendance-allowance-claim-form" target="_blank" class="govuk-link">paper claim form</a>.
+    </p>
+  {% endif %}
+
+  <p class="govuk-body">
+    This is because we need additional information about them. This claim will be delayed if we do not have this information
+  </p>
+
+{% endblock %}
+
+{% block formButton %}
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

@@ -1,0 +1,122 @@
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% extends "v5.11.0-layouts/prototypeLayout.njk" %}
+
+
+{% block form %}
+
+  {% if data['who-is-applying'] == 'myself' %}
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">Enter your home address outside of the UK</h1>
+    </legend>
+
+    <p class="govuk-body">
+      We will only use this to send you letters about your Attendance Allowance claim.
+    </p>
+
+  {% elif data['best-describe'] == 'appointed' %}
+
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">Enter their home address outside of the UK</h1>
+    </legend>
+
+    <p class="govuk-body">
+      Update with how we will use their address.
+    </p>
+
+  {% elif data['best-describe'] == 'appointee' %}
+
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">Enter their home address outside of the UK</h1>
+    </legend>
+
+    <p class="govuk-body">
+      DWP's Visiting Service will arrange an appointment at this address to assess:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>if an appointee is needed</li>
+      <li>your suitability as an appointee</li>
+    </ul>
+
+  {% else %}
+
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">Enter their home address outside of the UK</h1>
+    </legend>
+
+    <p class="govuk-body">
+      We will only use this to send the applicant letters about their Attendance Allowance claim.
+    </p>
+
+  {% endif %}
+
+  {{ govukInput({
+    label: {
+      text: "Address line 1",
+      classes: "govuk-body",
+      isPageHeading: true
+    },
+    errorMessage: data.validation['home-address-international-line-one'].error,
+    id: "home-address-international-line-one",
+    name: "home-address-international-line-one",
+    value: data["home-address-international-line-one"],
+    autocomplete: "home-address-international-line-one"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Address line 2 (optional)",
+      classes: "govuk-body",
+      isPageHeading: true
+    },
+    errorMessage: data.validation['home-address-international-line-two'].error,
+    id: "home-address-international-line-two",
+    name: "home-address-international-line-two",
+    value: data["home-address-international-line-two"],
+    autocomplete: "home-address-international-line-two"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Address line 3",
+      classes: "govuk-body",
+      isPageHeading: true
+    },
+    id: "home-address-international-line-three",
+    name: "home-address-international-line-three",
+    value: data["home-address-international-line-three"],
+    autocomplete: "home-address-international-line-three"
+  }) }}
+
+   {{ govukInput({
+    label: {
+      text: "Address line 4 (optional)",
+      classes: "govuk-body",
+      isPageHeading: true
+    },
+    id: "home-address-international-line-four",
+    name: "home-address-international-line-four",
+    value: data["home-address-international-line-four"],
+    autocomplete: "home-address-international-line-four"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Country",
+      isPageHeading: true
+    },
+    classes: "govuk-!-width-two-thirds",
+    errorMessage: data.validation['home-address-international-country'].error,
+    id: "home-address-international-country",
+    name: "home-address-international-country",
+    value: data["home-address-international-country"],
+    autocomplete: "home-address-international-country"
+  }) }}
+
+{% endblock %}
+
+{% block postForm %}
+    {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}

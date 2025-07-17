@@ -1,0 +1,131 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
+{% extends "v5.11.0-layouts/prototypeLayout.njk" %}
+
+{% block form %}
+
+  {% set person = data['who-is-applying']
+  | replace("myself", "you")
+  | replace("someone-else", "they")
+  %}
+
+  {% set personIThey = data['who-is-applying']
+  | replace("myself", "I")
+  | replace("someone-else", "They")
+  %}
+
+  {% set personIAmTheyAre = data['who-is-applying']
+  | replace("myself", "I am")
+  | replace("someone-else", "They are")
+  %}
+
+  {% set personMyTheir = data['who-is-applying']
+  | replace("myself", "my")
+  | replace("someone-else", "their")
+  %}
+
+  {% set personMeThem = data['who-is-applying']
+  | replace("myself", "me")
+  | replace("someone-else", "them")
+  %}
+
+  {% set personYourTheir = data['who-is-applying']
+  | replace("myself", "your")
+  | replace("someone-else", "their")
+  %}
+
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <span class="govuk-caption-l">Toilet needs or managing incontinence during the night</span>
+    {% if data['who-is-applying'] == 'myself' %}
+      <h1 class="govuk-fieldset__heading">How do you manage your toilet needs during the night?</h1>
+    {% else %}
+      <h1 class="govuk-fieldset__heading">How do they manage their toilet needs during the night?</h1>
+    {% endif %}
+  </legend>
+
+  {{ govukCheckboxes
+    ({
+      idPrefix: "toilet-night-why",
+      name: "toilet-night-why",
+      hint: {
+        text: "Select all that apply."
+      },
+      errorMessage: data.validation['toilet-night-why'].error,
+      items: [{
+        value: "lean-on-sink-radiator",
+        text: " " + personIThey + " need to lean on something, for example, a sink or radiator",
+        checked: true if data["toilet-night-why"] and data["toilet-night-why"].includes("lean-on-sink-radiator")
+      },
+      {
+        value: "toilet-raised",
+        text: " " + personIThey + " use a raised toilet seat",
+        checked: true if data["toilet-night-why"] and data["toilet-night-why"].includes("toilet-raised")
+      },
+      {
+        value: "toilet-several-attempts",
+        text: "It takes me several attempts to get on or off the toilet or commode",
+        checked: true if data["toilet-night-why"] and data["toilet-night-why"].includes("toilet-several-attempts")
+      },
+      {
+        value: "toilet-accident",
+        text: " " + personIThey + " have accidents because " + personIThey + " cannot get there in time",
+        checked: true if data["toilet-night-why"] and data["toilet-night-why"].includes("toilet-accident")
+      },
+      {
+        value: "toilet-safely",
+        text: " " + personIAmTheyAre + " unable to get on or off the toilet on " + personMyTheir + " own",
+        checked: true if data["toilet-night-why"] and data["toilet-night-why"].includes("toilet-safely")
+      },
+      {
+        value: "toilet-physical-assist",
+        text: "Someone has to physically assist  " + personMeThem + " ",
+        checked: true if data["toilet-night-why"] and data["toilet-night-why"].includes("toilet-physical-assist")
+      },
+      {
+        value: "unable-to-manage",
+        text: " " + personIAmTheyAre + " unable to manage",
+        checked: true if data["toilet-night-why"] and data["toilet-night-why"].includes("unable-to-manage")
+      },
+      {
+        value: "toilet-night-why-something-else",
+        text: "Something else",
+        checked: true if data["toilet-night-why"] and data["toilet-night-why"].includes("toilet-night-why-something-else"),
+        conditional: {
+          html: conditionalSomethingElseToiletNightWhy
+        }
+      }]
+    })
+  }}
+{% endblock %}
+
+{% set conditionalSomethingElseToiletNightWhy %}
+
+  {% set person = data['who-is-applying']
+  | replace("myself", "you")
+  | replace("someone-else", "they")
+  %}
+
+  {% set personYourTheir = data['who-is-applying']
+  | replace("myself", "your")
+  | replace("someone-else", "their")
+  %}
+
+  {{ govukCharacterCount({
+    rows: "4",
+    maxlength: 200,
+    isPageHeading: false,
+    label: {
+      text: "Tell us how " + person + " manage " + personYourTheir + " toilet needs during the night"
+    },
+    id: "something-else-toilet-night-why-explain",
+    name: "something-else-toilet-night-why-explain",
+    errorMessage: data.validation['something-else-toilet-night-why-explain'].error,
+    value: data['something-else-toilet-night-why-explain']
+    })
+ }}
+{% endset %}
+
+{% block postForm %}
+  {% include './macros/assisted-digital-details.njk' %}
+{% endblock %}
