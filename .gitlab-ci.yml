@@ -30,3 +30,18 @@ include:
     ref: 6.0.7
     file:
       - functions/base-mr.gitlab-ci.yml
+heroku-deploy:
+  stage: deploy
+  image: node:20
+  script:
+    - echo "Deploying to Heroku..."
+    - curl https://cli-assets.heroku.com/install.sh | sh
+    - heroku git:remote -a "$ATTENDANCE-ALLOWANCE"
+    - git remote -v
+    - git push heroku "$CI_COMMIT_SHA:refs/heads/main" --force
+  only:
+    - main
+  environment:
+    name: production
+  variables:
+    HEROKU_API_KEY: "$HEROKU_API_KEY"
