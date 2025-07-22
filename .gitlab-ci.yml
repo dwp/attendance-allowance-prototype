@@ -1,36 +1,49 @@
-default:
-  interruptible: true
-  retry:
-    max: 2
-    when:
-      - unknown_failure
-      - script_failure
-      - api_failure
-      - stuck_or_timeout_failure
-      - runner_system_failure
-      - job_execution_timeout
-      - scheduler_failure
-      - data_integrity_failure
-  tags:
-    - docker
-
-workflow:
-  auto_cancel:
-    on_new_commit: interruptible
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-      when: always
-    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS && $CI_PIPELINE_SOURCE != "scheduled"
-      when: never
-    - if: $CI_COMMIT_BRANCH
-      when: always
-
 include:
   - project: dwp/engineering/pipeline-solutions/gitlab/functions
-    ref: 6.0.7
+    ref: 5.2.1
     file:
-      - functions/base-mr.gitlab-ci.yml
+      - functions/node.gitlab-ci.yml
+  # heroku publish
+  - project: dwp/engineering/pipeline-solutions/gitlab/fragments/heroku-site-publish
+    ref: 1-2-0
+    file: ci-include-heroku-site-publish-base.yml
+  - project: "dwp/engineering/pipeline-solutions/gitlab/fragments/node-audit"
+    ref: 3.0.0
+    file: "ci-include-node-audit-base.yml"
+  - project: "dwp/engineering/pipeline-solutions/gitlab/fragments/node-outdated"
+    ref: 2.5.1
+    file: "ci-include-node-outdated-base.yml"
 
+
+
+node-coverage:
+  rules:
+  - when: never
+
+node-outdated:
+  variables:
+    IGNORE_DEV_DEPENDENCIES: false
+  extends: .node-outdated-template
+  allow_failure: true
+  only:
+    - /^[Ff]-.*$/
+
+node-audit:
+  extends: .node-audit-base
+  allow_failure: true
+  only:
+    - /^[Ff]-.*$/
+
+heroku-site-rc:
+  stage: deploy
+  extends: .heroku-site-publish-template
+  rules:
+    - if: $CI_PIPELINE_SOURCE != "merge_request_event" && $CI_COMMIT_REF_NAME =~ /^f-.+$/
+      variables:
+        HEROKU_APP_NAME: attendance-allowance
+      when: manual
+      allow_failure: true
+    - when: never
 
 commitlint:
   script:
