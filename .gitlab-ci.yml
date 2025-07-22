@@ -44,7 +44,7 @@ heroku-deploy:
   script:
     - echo "Deploying to Heroku..."
     - curl https://cli-assets.heroku.com/install.sh | sh
-    - heroku git:remote -a "$ATTENDANCE-ALLOWANCE"
+    - heroku git:remote -a "$attendance-allowance"
     - git remote -v
     - git push heroku "$CI_COMMIT_SHA:refs/heads/main" --force
   only:
