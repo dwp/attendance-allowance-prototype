@@ -14,7 +14,10 @@ include:
     ref: 2.5.1
     file: "ci-include-node-outdated-base.yml"
 
-
+variables:
+  NODE_IMAGE: node:22.14.0-alpine@sha256:9bef0ef1e268f60627da9ba7d7605e8831d5b56ad07487d24d1aa386336d1944
+  NODE_VERSION: "22.12.0-alpine3.20"
+  FUNCTIONS_SONARQUBE_ENABLED: "false"
 
 node-coverage:
   rules:
@@ -40,7 +43,7 @@ heroku-site-rc:
   rules:
     - if: $CI_PIPELINE_SOURCE != "merge_request_event" && $CI_COMMIT_REF_NAME =~ /^f-.+$/
       variables:
-        HEROKU_APP_NAME: attendance-allowance
+        HEROKU_APP_NAME: pip-apply-review
       when: manual
       allow_failure: true
     - when: never
