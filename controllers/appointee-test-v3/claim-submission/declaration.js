@@ -5,6 +5,7 @@ const {
 
 const config = {
   name: urls.declaration,
+  previous: urls.checkAnswersContactDetails,
   next: urls.applicationComplete,
 };
 
