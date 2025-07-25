@@ -50,11 +50,16 @@
   | replace("someone-else", "they")
   %}
 
+  {% set personYourTheir = data['who-is-applying']
+  | replace("myself", "your")
+  | replace("someone-else", "their")
+  %}
+
   {{ govukInput({
   classes: "govuk-input--width-4",
   isPageHeading: true,
   label: {
-    text: "Approximately, how many times a day do " + person + " change your clothes?"
+    text: "Approximately, how many times a day do " + person + " change " + personYourTheir + " clothes?"
   },
   id: "dress-frequency",
   name: "dress-frequency",

@@ -41,7 +41,7 @@ const config = {
       page: urls.birthDateIneligible,
       condition: {
         field: "birth-date-year",
-        value: 1955,
+        value: 1960,
         match: match.greaterThan,
       },
     },

@@ -6,26 +6,47 @@
 
 {% block form %}
 
-  {% if data['best-describe'] == 'appointed' or data['best-describe'] == 'appointee' %}
-  <h1 class="govuk-heading-l">You should now answer all questions as if you are the person who wants to claim Attendance Allowance</h1>
-  {% else %}
-  <h1 class="govuk-heading-l">You should answer all questions as if you are the person who wants to claim Attendance Allowance</h1>
-  {% endif %}
+  <h1 class="govuk-heading-l">
+    Helping {{ data['first-name'] | capitalize }} to apply for Attendance Allowance
+  </h1>
 
-  <p class="govuk-body">The questions in this application relate to the person you are helping to apply. Do not enter your own details.</p>
+  <p class="govuk-body">
+    You can help {{ data['first-name'] | capitalize }} to apply for Attendance Allowance by filling in this application for them.
+  </p>
 
-  {% if journeyType == 'SPECIAL_RULES' or data['best-describe'] == 'appointed' or data['best-describe'] == 'appointee' %}
+  <p class="govuk-body">
+    The questions in this application are about {{ data['first-name'] | capitalize }}. Do not enter your own details.
+  </p>
+
+  <p class="govuk-body">
+   {{ data['first-name'] | capitalize }} must:</p>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li>check that the information is correct</li>
+    <li>choose whether to give consent for their GP to share information about their health with DWP</li>
+    <li>agree to the legal declaration at the end of the application</li>
+  </ul>
+
+  {% if journeyType == 'SPECIAL_RULES' %}
   {% elif locale == 'NI' %}
     <div class="govuk-inset-text">
-      If the person you are helping has a power of attorney or a DfC appointee, you will need to use the
-      <a href="https://www.nidirect.gov.uk/publications/attendance-allowance-claim-form-and-guidance-notes"
-      target="_blank" class="govuk-link">paper claim form</a>. You should check this if you are unsure.
+      <p class="govuk-body">
+        If someone has been appointed to make decisions for {{ data['first-name'] | capitalize }}, for example a Power of Attorney, they will need to apply using the
+        <a href="https://www.nidirect.gov.uk/articles/attendance-allowance#toc-4" target="_blank" class="govuk-link">paper claim form</a>.
+      </p>
+      <p class="govuk-body">
+        This is because we need additional information about them. {{ data['first-name'] | capitalize }}'s claim will be delayed if we do not have this information.
+      </p>
     </div>
   {% else %}
     <div class="govuk-inset-text">
-      If the person you are helping has a power of attorney or a DWP appointee you will need to use the
-      <a href="https://www.gov.uk/government/publications/attendance-allowance-claim-form" target="_blank"
-      class="govuk-link">paper claim form</a>. You should check this if you are unsure.
+      <p class="govuk-body">
+        If someone has been appointed to make decisions for {{ data['first-name'] | capitalize }}, for example a Power of Attorney, they will need to apply using the
+        <a href="https://www.gov.uk/government/publications/attendance-allowance-claim-form" target="_blank" class="govuk-link">paper claim form</a>.
+      </p>
+      <p class="govuk-body">
+        This is because we need additional information about them. {{ data['first-name'] | capitalize }}'s claim will be delayed if we do not have this information.
+      </p>
     </div>
   {% endif %}
 

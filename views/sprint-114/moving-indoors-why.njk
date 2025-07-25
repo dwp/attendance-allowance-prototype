@@ -35,6 +35,11 @@
   | replace("someone-else", "them")
   %}
 
+  {% set personMyTheir = data['who-is-applying']
+  | replace("myself", "my")
+  | replace("someone-else", "their")
+  %}
+
   {{ govukCheckboxes
     ({
       idPrefix: "moving-indoors-why",
@@ -85,7 +90,7 @@
       },
       {
         value: "bed-bound",
-        text: " " + personIAmTheyAre + " confined to my bed",
+        text: " " + personIAmTheyAre + " confined to " + personMyTheir + " bed",
         checked: true if data["moving-indoors-why"] and data["moving-indoors-why"].includes("bed-bound")
       },
       {

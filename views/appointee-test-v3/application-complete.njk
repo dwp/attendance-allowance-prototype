@@ -92,9 +92,15 @@
           <li>your suitability as an appointee</li>
         </ul>
 
-        <p class="govuk-body">
-          <a class="govuk-link" target=”_blank” href="https://www.gov.uk/become-appointee-for-someone-claiming-benefits">Find out more about becoming a DWP appointee (opens in new tab)</a>.
-        </p>
+        {% if locale == 'NI' %}
+          <p class="govuk-body">
+            <a class="govuk-link" target=”_blank” href="https://www.nidirect.gov.uk/articles/becoming-appointee-social-security-benefits">Find out more about becoming a DWP appointee (opens in new tab)</a>.
+          </p>
+        {% else %}
+          <p class="govuk-body">
+            <a class="govuk-link" target=”_blank” href="https://www.gov.uk/become-appointee-for-someone-claiming-benefits">Find out more about becoming a DWP appointee (opens in new tab)</a>.
+          </p>
+        {% endif %}
 
       {% endif %}
 
