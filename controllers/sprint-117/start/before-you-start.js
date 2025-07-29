@@ -17,6 +17,14 @@ const config = {
       },
     },
     {
+      page: urls.manageOwnAffairs,
+      condition: {
+        field: urls.manageOwnAffairs,
+        value: "no",
+        match: match.value,
+      },
+    },
+    {
       page: urls.whoIsApplying,
       condition: {
         field: urls.whoIsApplying,

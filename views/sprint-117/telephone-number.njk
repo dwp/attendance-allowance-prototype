@@ -13,11 +13,17 @@
   {% if data['applying-someone-else'] == 'individual' %}
 
   <p class="govuk-body">
+    We need {{ data['first-name'] | capitalize }}'s telephone number to process this claim. 
     We will not call {{ data['first-name'] | capitalize }} if someone has been given the authority to manage their affairs.
   </p>
 
   <div class="govuk-inset-text">
-    You can add contact details for yourself or someone else later.
+    We will ask for the 
+    {{ data['best-describe'] 
+    | replace("appointed", "appointee's") 
+    | replace("appointee", "appointee's" ) 
+    | replace("powerOfAttorney", "power of attorney's") }} 
+    contact details later.
   </div>
 
   {% else %}

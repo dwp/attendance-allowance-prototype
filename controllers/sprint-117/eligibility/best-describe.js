@@ -41,7 +41,7 @@ const config = {
       },
     },
     {
-      page: urls.beforeYouStart,
+      page: urls.becomingAnAppointee,
       condition: {
         field: urls.bestDescribe,
         value: 'appointee',

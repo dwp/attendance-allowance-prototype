@@ -36,6 +36,7 @@ module.exports = {
     whoIsApplying: 'who-is-applying',
     applyingSomeoneElse: 'applying-someone-else',
     bestDescribe: 'best-describe',
+    becomingAnAppointee: 'becoming-an-appointee',
     whoIsApplyingIneligible: 'who-is-applying-ineligible',
     personClaimingIneligible: 'person-claiming-ineligible',
     organisationClaimingIneligible: 'organisation-claiming-ineligible',

@@ -21,6 +21,11 @@
         checked: true if data["best-describe"] and data["best-describe"].includes("friend")
       } if data['applying-someone-else'] == 'helping-someone',
       {
+        value: "appointee",
+        text: "I want to be appointed by DWP to manage their benefits" if locale != 'NI' else "I want to be appointed by DfC to manage their benefits",
+        checked: true if data["best-describe"] and data["best-describe"].includes("appointee")
+      } if data['applying-someone-else'] == 'helping-someone',
+      {
         value: "charity",
         text: "I work for a charity or organisation",
         checked: true if data["best-describe"] and data["best-describe"].includes("charity")

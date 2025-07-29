@@ -7,8 +7,28 @@ const {
 
 const config = {
   name: urls.manageOwnAffairs,
-  previous: urls.bestDescribe,
+  previous: [
+    {
+      page: urls.becomingAnAppointee,
+      condition: {
+        field: urls.bestDescribe,
+        value: 'appointee',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.bestDescribe,
+    },
+  ],
   next: [
+    {
+      page: urls.beforeYouStart,
+      condition: {
+        field: urls.bestDescribe,
+        value: 'appointee',
+        match: match.value,
+      },
+    },
     {
       page: urls.beforeYouStart,
       condition: {

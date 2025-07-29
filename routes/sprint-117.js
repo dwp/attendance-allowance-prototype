@@ -36,6 +36,7 @@ router.use(`/${urls.whoIsApplyingIneligible}`, controllers.whoIsApplyingIneligib
 router.use(`/${urls.personClaimingIneligible}`, controllers.personClaimingIneligible);
 router.use(`/${urls.organisationClaimingIneligible}`, controllers.organisationClaimingIneligible);
 router.use(`/${urls.bestDescribe}`, controllers.bestDescribe);
+router.use(`/${urls.becomingAnAppointee}`, controllers.becomingAnAppointee);
 router.use(`/${urls.manageOwnAffairs}`, controllers.manageOwnAffairs);
 router.use(`/${urls.manageOwnAffairsIneligible}`, controllers.manageOwnAffairsIneligible);
 router.use(`/${urls.manageOwnAffairsAuthority}`, controllers.manageOwnAffairsAuthority);

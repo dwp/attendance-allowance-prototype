@@ -47,6 +47,7 @@ const whoIsApplyingIneligible = require('./eligibility/who-is-applying-ineligibl
 const personClaimingIneligible = require('./eligibility/person-claiming-ineligible');
 const organisationClaimingIneligible = require('./eligibility/organisation-claiming-ineligible');
 const bestDescribe = require('./eligibility/best-describe');
+const becomingAnAppointee = require('./eligibility/becoming-an-appointee');
 const manageOwnAffairs = require('./eligibility/manage-own-affairs');
 const manageOwnAffairsIneligible = require('./eligibility/manage-own-affairs-ineligible');
 const manageOwnAffairsAuthority = require('./eligibility/manage-own-affairs-authority');
@@ -267,6 +268,7 @@ module.exports = {
   personClaimingIneligible,
   organisationClaimingIneligible,
   bestDescribe,
+  becomingAnAppointee,
   manageOwnAffairs,
   manageOwnAffairsIneligible,
   manageOwnAffairsAuthority,
