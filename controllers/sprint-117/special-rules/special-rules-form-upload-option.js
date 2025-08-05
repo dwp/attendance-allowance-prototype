@@ -18,7 +18,7 @@ const config = {
       },
     },
     {
-      page: urls.illnessDisability,
+      page: urls.careHomeHospital,
     },
   ],
   validation: {

@@ -10,7 +10,7 @@ const config = {
   previous: urls.specialRulesFormCompleted,
   next: [
     {
-      page: urls.illnessDisability,
+      page: urls.careHomeHospital,
       condition: {
         field: urls.specialRulesFormSent,
         value: "yes",
