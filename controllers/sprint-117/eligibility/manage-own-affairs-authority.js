@@ -18,6 +18,14 @@ const config = {
       },
     },
     {
+      page: urls.manageOwnAffairsSomeoneElse,
+      condition: {
+        field: urls.manageOwnAffairsAuthority,
+        value: 'someone-else',
+        match: match.value,
+      },
+    },
+    {
       page: urls.manageOwnAffairsIneligible,
     },
   ],

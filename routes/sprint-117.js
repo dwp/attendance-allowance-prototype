@@ -40,6 +40,7 @@ router.use(`/${urls.becomingAnAppointee}`, controllers.becomingAnAppointee);
 router.use(`/${urls.manageOwnAffairs}`, controllers.manageOwnAffairs);
 router.use(`/${urls.manageOwnAffairsIneligible}`, controllers.manageOwnAffairsIneligible);
 router.use(`/${urls.manageOwnAffairsAuthority}`, controllers.manageOwnAffairsAuthority);
+router.use(`/${urls.manageOwnAffairsSomeoneElse}`, controllers.manageOwnAffairsSomeoneElse);
 router.use(`/${urls.helperName}`, controllers.helperName);
 router.use(`/${urls.birthDate}`, controllers.birthDate);
 router.use(`/${urls.birthDateIneligible}`, controllers.birthDateIneligible);

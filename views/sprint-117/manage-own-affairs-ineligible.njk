@@ -4,22 +4,6 @@
 
 {% block form %}
 
-  {% if data['manage-own-affairs-authority'] == 'someone-else' %}
-    <h1 class="govuk-heading-l">
-      You cannot help someone to apply if someone else has authority over their benefits or financial affairs
-    </h1>
-
-    <p class="govuk-body">
-      If someone has been appointed to make decisions for the person you are helping, for example a power of attorney,
-      that person will need to complete the application for Attendance Allowance.
-    </p>
-
-    <p class="govuk-body">
-      This is because we need additional information about them. This claim will be delayed if we do not have this information.
-    </p>
-
-    {% else %}
-
     <h1 class="govuk-heading-l">
       You cannot help someone to apply if they do not have the mental capacity to manage their affairs
     </h1>
@@ -52,11 +36,6 @@
         <a class="govuk-link" target=”_blank” href="https://www.gov.uk/power-of-attorney">Find out more about the power of attorney process (opens in a new tab)</a>.
         {% endif %}
     </div>
-
-    {% endif %}
-
-
-
 
 {% endblock %}
 

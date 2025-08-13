@@ -42,6 +42,7 @@ module.exports = {
     organisationClaimingIneligible: 'organisation-claiming-ineligible',
     manageOwnAffairs: 'manage-own-affairs',
     manageOwnAffairsIneligible: 'manage-own-affairs-ineligible',
+    manageOwnAffairsSomeoneElse: 'manage-own-affairs-someone-else',
     manageOwnAffairsAuthority: 'manage-own-affairs-authority',
     helperName: 'helper-name',
     birthDate: 'birth-date',

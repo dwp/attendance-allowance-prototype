@@ -50,6 +50,7 @@ const bestDescribe = require('./eligibility/best-describe');
 const becomingAnAppointee = require('./eligibility/becoming-an-appointee');
 const manageOwnAffairs = require('./eligibility/manage-own-affairs');
 const manageOwnAffairsIneligible = require('./eligibility/manage-own-affairs-ineligible');
+const manageOwnAffairsSomeoneElse = require('./eligibility/manage-own-affairs-someone-else');
 const manageOwnAffairsAuthority = require('./eligibility/manage-own-affairs-authority');
 const helperName = require('./eligibility/helper-name');
 
@@ -272,6 +273,7 @@ module.exports = {
   manageOwnAffairs,
   manageOwnAffairsIneligible,
   manageOwnAffairsAuthority,
+  manageOwnAffairsSomeoneElse,
   helperName,
   representativeIntro,
   representativeContactInformation,

@@ -23,9 +23,14 @@
 
   <ul class="govuk-list govuk-list--bullet">
     <li>check that the information is correct</li>
-    <li>choose whether to give consent for their GP to share information about their health with DWP</li>
+    {% if locale == 'NI' %}
+    <li>choose whether to give consent for their GP to share information about their health with DfC</li>
+    {% else %}
+     <li>choose whether to give consent for their GP to share information about their health with DWP</li>
+    {% endif %}
     <li>agree to the legal declaration at the end of the application</li>
   </ul>
+  
 
   {% if journeyType == 'SPECIAL_RULES' %}
   {% elif locale == 'NI' %}
