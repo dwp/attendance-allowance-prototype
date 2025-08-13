@@ -16,9 +16,15 @@
 
   {% elif data['best-describe'] == 'appointee' %}
 
+    {% if locale == 'NI' %}
+    <p class="govuk-body">
+      DfC's Visiting Service will arrange an appointment at this address to assess:
+    </p>
+    {% else %}
     <p class="govuk-body">
       DWP's Visiting Service will arrange an appointment at this address to assess:
     </p>
+    {% endif %}
 
     <ul class="govuk-list govuk-list--bullet">
       <li>if an appointee is needed</li>

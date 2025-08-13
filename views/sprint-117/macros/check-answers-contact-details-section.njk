@@ -12,9 +12,15 @@
 					Power of attorney details
 				</h2>
 			{% else %}
+				{% if locale == 'NI' %}
+				<h2 class="govuk-heading-m">
+					DfC appointee details
+				</h2>
+				{% else %}
 				<h2 class="govuk-heading-m">
 					DWP appointee details
 				</h2>
+				{% endif %}
 			{% endif %}
 
 			<dl class="govuk-summary-list govuk-!-margin-bottom-9">

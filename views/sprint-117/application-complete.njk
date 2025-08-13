@@ -86,9 +86,15 @@
 
         <h2 class="govuk-heading-m">Becoming an appointee</h2>
 
+        {% if locale == 'NI' %}
+        <p class="govuk-body">
+          DfC's Visiting Service will arrange an appointment at the claimant's address to assess:
+        </p>
+        {% else %}
         <p class="govuk-body">
           DWP's Visiting Service will arrange an appointment at the claimant's address to assess:
         </p>
+        {% endif %}
 
         <ul class="govuk-list govuk-list--bullet">
           <li>if an appointee is needed</li>
@@ -97,7 +103,7 @@
 
         {% if locale == 'NI' %}
           <p class="govuk-body">
-            <a class="govuk-link" target=”_blank” href="https://www.nidirect.gov.uk/articles/becoming-appointee-social-security-benefits">Find out more about becoming a DWP appointee (opens in new tab)</a>.
+            <a class="govuk-link" target=”_blank” href="https://www.nidirect.gov.uk/articles/becoming-appointee-social-security-benefits">Find out more about becoming a DfC appointee (opens in new tab)</a>.
           </p>
         {% else %}
           <p class="govuk-body">
