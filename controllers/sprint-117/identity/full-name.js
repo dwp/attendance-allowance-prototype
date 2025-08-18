@@ -24,21 +24,29 @@ const config = {
     {
       page: urls.helperName,
       condition: {
-        field: urls.manageOwnAffairs,
-        value: 'yes',
+        field: urls.bestDescribe,
+        value: 'friend',
+        match: match.value,
+      },
+    },
+    {
+      page: urls.helperName,
+      condition: {
+        field: urls.bestDescribe,
+        value: 'charity',
         match: match.value,
       },
     },
     {
       page: urls.representativeName,
       condition: {
-        field: urls.applyingSomeoneElse,
-        value: 'individual',
+        field: urls.bestDescribe,
+        value: 'appointee',
         match: match.value,
       },
     },
     {
-      page: urls.birthDate,
+      page: urls.representativeName,
       condition: {
         field: urls.applyingSomeoneElse,
         value: 'individual',
