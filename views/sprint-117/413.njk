@@ -1,0 +1,22 @@
+{% extends "v5.11.0-layouts/prototypeLayout.njk" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        The selected file could not be uploaded
+      </h1>
+
+      <p class="govuk-body">
+        Your file must be smaller than 10MB.
+      </p>
+
+      {{ govukButton({
+        text: "Return to upload your SR1 form",
+        href: "special-rules-form-upload",
+        isStartButton: false
+      }) }}
+    </div>
+  </div>
+
+{% endblock %}
